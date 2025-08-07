@@ -90,7 +90,16 @@ pip install -r requirements.txt
 
 ### 下载最新一天的视频
 
-1. **启动下载程序**
+#### 推荐命令（一键启动）
+
+```bash
+# 推荐使用以下命令，8线程下载最新发布日的所有论文
+source venv/bin/activate && python multi_thread_downloader.py --mode latest_day --workers 8 --download-dir /path/to/your/download/folder
+```
+
+#### 其他启动方式
+
+1. **交互模式启动**
 
 ```bash
 # Linux/macOS
