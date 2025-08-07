@@ -1,0 +1,28 @@
+2024-09-27 11:28:40,462 - logs.loggers - INFO # Processing paper id: 2409.17805v1; title: Cascade Prompt Learning for Vision-Language Model Adaptation
+2024-09-27 11:28:43,142 - logs.loggers - INFO # Analyzing this paper cost 19458 tokens
+2024-09-27 11:29:12,684 - logs.loggers - INFO # Saving moonshot-v1-32k response moonshot-v1-32k
+2024-09-27 11:29:12,685 - logs.loggers - INFO # Judging key figure and table
+2024-09-27 11:52:43,032 - logs.loggers - INFO # Processing paper id: 2409.17805v1; title: Cascade Prompt Learning for Vision-Language Model Adaptation
+2024-09-27 11:52:43,037 - logs.loggers - INFO # Processing the existing paper DB
+2024-09-27 11:52:43,037 - logs.loggers - INFO # Judging key figure and table
+2024-09-27 14:45:35,112 - logs.loggers - INFO # Processing paper id: 2409.17805v1; title: Cascade Prompt Learning for Vision-Language Model Adaptation
+2024-09-27 14:45:35,118 - logs.loggers - INFO # Processing the existing paper DB
+2024-09-27 14:45:35,119 - logs.loggers - INFO # Judging key figure and table
+2024-09-27 14:49:15,313 - logs.loggers - INFO # Processing paper id: 2409.17805v1; title: Cascade Prompt Learning for Vision-Language Model Adaptation
+2024-09-27 14:49:15,319 - logs.loggers - INFO # Processing the existing paper DB
+2024-09-27 14:49:15,320 - logs.loggers - INFO # Judging key figure and table
+2024-09-27 14:54:28,405 - logs.loggers - INFO # Processing paper id: 2409.17805v1; title: Cascade Prompt Learning for Vision-Language Model Adaptation
+2024-09-27 14:54:28,408 - logs.loggers - INFO # Processing the existing paper DB
+2024-09-27 14:54:28,408 - logs.loggers - INFO # Judging key figure and table
+2024-09-27 14:55:29,056 - logs.loggers - INFO # Processing paper id: 2409.17805v1; title: Cascade Prompt Learning for Vision-Language Model Adaptation
+2024-09-27 14:55:29,059 - logs.loggers - INFO # Processing the existing paper DB
+2024-09-27 14:55:29,060 - logs.loggers - INFO # Judging key figure and table
+2024-09-27 14:56:05,817 - logs.loggers - INFO # Processing paper id: 2409.17805v1; title: Cascade Prompt Learning for Vision-Language Model Adaptation
+2024-09-27 14:56:05,820 - logs.loggers - INFO # Processing the existing paper DB
+2024-09-27 14:56:05,820 - logs.loggers - INFO # Judging key figure and table
+2024-09-27 14:58:06,911 - logs.loggers - INFO # Processing paper id: 2409.17805v1; title: Cascade Prompt Learning for Vision-Language Model Adaptation
+2024-09-27 14:58:06,913 - logs.loggers - INFO # Processing the existing paper DB
+2024-09-27 14:58:06,914 - logs.loggers - INFO # Judging key figure and table
+2024-09-27 14:58:43,465 - logs.loggers - INFO # Processing paper id: 2409.17805v1; title: Cascade Prompt Learning for Vision-Language Model Adaptation
+2024-09-27 14:58:43,467 - logs.loggers - INFO # Processing the existing paper DB
+2024-09-27 14:58:43,468 - logs.loggers - INFO # Judging key figure and table

@@ -1,0 +1,7 @@
+2024-08-15 17:17:50,774 - logs.loggers - INFO # Processing paper id: 2303.09735v2; title: SRFormerV2: Taking a Closer Look at Permuted Self-Attention for Image Super-Resolution
+2024-08-15 17:17:52,905 - logs.loggers - INFO # Analyzing this paper cost 18959 tokens
+2024-08-15 17:18:36,880 - logs.loggers - INFO # Saving moonshot-v1-32k response moonshot-v1-32k
+2024-08-15 17:18:36,880 - logs.loggers - INFO # Judging key figure and table
+2024-08-15 17:20:48,798 - logs.loggers - INFO # Processing paper id: 2303.09735v2; title: SRFormerV2: Taking a Closer Look at Permuted Self-Attention for Image Super-Resolution
+2024-08-15 17:20:48,804 - logs.loggers - INFO # Processing the existing paper DB
+2024-08-15 17:20:48,804 - logs.loggers - INFO # Judging key figure and table

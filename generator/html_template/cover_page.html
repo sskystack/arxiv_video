@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SVG Aligned Layout</title>
+    <link rel="stylesheet" href="{css_pth}">
+</head>
+
+<body>
+    <div class="background-container">
+        <div class="automated-text">{python_date}</div>
+        <!-- Line and Text above the first image -->
+        <div class="line-with-text line-1">
+            <div class="circle"></div>
+            <div class="line"></div>
+            <div class="text">今日焦点</div>
+            <div class="line"></div>
+            <div class="circle"></div>
+        </div>
+        <div class="image-slot image-slot-1">
+            <img src="{daily_focus_image}" alt="Word Cloud Image">
+        </div>
+
+        <!-- Line and Text above the second image -->
+        <div class="line-with-text line-2">
+            <div class="circle"></div>
+            <div class="line"></div>
+            <div class="text">玻尔文献精读</div>
+            <div class="line"></div>
+            <div class="circle"></div>
+        </div>
+
+        <div class="image-slot image-slot-2">
+            <img src="{weekly_trends_image}" alt="Trend Chart Image">
+        </div>
+    </div>
+</body>
+
+</html>

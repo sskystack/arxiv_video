@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <title>Coffee Cards</title>
+  <link rel="stylesheet" href="{css_pth}" />
+</head>
+
+<body>
+  <main>
+    <div class="card-wrapper">
+      <div class="coffee-card" style="border: 0.5px">
+        <div class="arxiv">{arxiv_id}</div>
+        <div class="logo">(cs.CV) 减论 Agent 推荐</div>
+        <h1 class="name" id="title">{title}</h1>
+        <div class="author">{authors}</div>
+        <div class="info" style="display: flex; justify-content: space-between">
+          <div style="flex-grow: 1; padding-right: 1rem; color: #4b8ac3">
+            【<span style="color: red">A</span>nalys<span style="color: red">I</span>s】{stars}
+          </div>
+          <div style="text-align: right">Uploaded Date: {pub_date}</div>
+        </div>
+        <div class="date">{authors_title}</div>
+        <!--        <div class="location"><i>{key_idea}</i> </div>-->
+        <div class="location">{key_idea}</div>
+        <div class="solid-line"></div>
+        <!-- 新添加的实线 -->
+        <div class="pattern" style="border-bottom: 0.5px dashed; border-right: 0.5px dashed">
+          {fig_html} {tab_html}
+        </div>
+        <div class="footnote"><span class="oa">{OA}</span></div>
+        <div class="square one"></div>
+        <div class="square two"></div>
+        <div class="strip"></div>
+      </div>
+    </div>
+  </main>
+  <script src="{js_pth}"></script>
+</body>
+
+</html>

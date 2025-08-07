@@ -1,0 +1,3 @@
+2024-09-02 23:59:01,259 - logs.loggers - INFO # Processing paper id: 2408.08381v1; title: Pre-processing and Compression: Understanding Hidden Representation Refinement Across Imaging Domains via Intrinsic Dimension
+2024-09-02 23:59:01,264 - logs.loggers - INFO # Processing the existing paper DB
+2024-09-02 23:59:01,265 - logs.loggers - INFO # Judging key figure and table

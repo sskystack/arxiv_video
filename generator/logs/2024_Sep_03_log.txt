@@ -1,0 +1,13 @@
+2024-09-03 00:00:51,624 - logs.loggers - INFO # Processing paper id: 2408.08381v1; title: Pre-processing and Compression: Understanding Hidden Representation Refinement Across Imaging Domains via Intrinsic Dimension
+2024-09-03 00:00:53,310 - logs.loggers - INFO # Analyzing this paper cost 8757 tokens
+2024-09-03 00:01:12,440 - logs.loggers - INFO # Saving moonshot-v1-32k response moonshot-v1-32k
+2024-09-03 00:01:12,441 - logs.loggers - INFO # Judging key figure and table
+2024-09-03 00:09:49,266 - logs.loggers - INFO # Processing paper id: 2408.08381v1; title: Pre-processing and Compression: Understanding Hidden Representation Refinement Across Imaging Domains via Intrinsic Dimension
+2024-09-03 00:09:49,271 - logs.loggers - INFO # Processing the existing paper DB
+2024-09-03 00:09:49,271 - logs.loggers - INFO # Judging key figure and table
+2024-09-03 00:11:15,299 - logs.loggers - INFO # Processing paper id: 2408.08381v1; title: Pre-processing and Compression: Understanding Hidden Representation Refinement Across Imaging Domains via Intrinsic Dimension
+2024-09-03 00:11:15,301 - logs.loggers - INFO # Processing the existing paper DB
+2024-09-03 00:11:15,302 - logs.loggers - INFO # Judging key figure and table
+2024-09-03 00:11:43,453 - logs.loggers - INFO # Processing paper id: 2408.08381v1; title: Pre-processing and Compression: Understanding Hidden Representation Refinement Across Imaging Domains via Intrinsic Dimension
+2024-09-03 00:11:43,456 - logs.loggers - INFO # Processing the existing paper DB
+2024-09-03 00:11:43,456 - logs.loggers - INFO # Judging key figure and table
