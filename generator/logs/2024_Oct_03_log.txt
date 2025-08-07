@@ -1,4 +1,0 @@
-2024-10-03 13:09:44,567 - logs.loggers - INFO # Processing paper id: 2410.01768v1; title: SegEarth-OV: Towards Traning-Free Open-Vocabulary Segmentation for Remote Sensing Images
-2024-10-03 13:09:46,428 - logs.loggers - INFO # Analyzing this paper cost 17580 tokens
-2024-10-03 13:10:08,773 - logs.loggers - INFO # Saving moonshot-v1-32k response moonshot-v1-32k
-2024-10-03 13:10:08,773 - logs.loggers - INFO # Judging key figure and table
