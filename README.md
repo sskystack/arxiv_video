@@ -58,7 +58,7 @@ sudo yum install ffmpeg -y
 git clone https://github.com/your-repo/arxiv_video.git
 cd arxiv_video
 python3 -m venv venv
-source venv/bin/activate
+source .venv/bin/activate
 pip install -r requirements.txt
 ```
 
