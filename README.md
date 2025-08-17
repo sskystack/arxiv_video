@@ -63,17 +63,22 @@ python main.py --workers 8 --download-dir {your_target_dir} --max-papers 1000
 
 ## 📦 安装指南
 
-### 方法一：自动安装脚本（推荐）
+### 方法一：一键安装（推荐）
 
 **Linux/macOS:**
 ```bash
+# 克隆项目并自动安装
+git clone https://github.com/sskystack/arxiv_video.git
+cd arxiv_video
+pip install -r requirements.txt
 ```
 
 **Windows:**
 ```powershell
-# 下载并运行安装脚本
-Invoke-WebRequest -Uri "https://raw.githubusercontent.com/sskystack/arxiv_video/main/install.ps1" -OutFile "install.ps1"
-.\install.ps1
+# 克隆项目并自动安装
+git clone https://github.com/sskystack/arxiv_video.git
+cd arxiv_video
+pip install -r requirements.txt
 ```
 
 ### 方法二：手动安装
