@@ -1,173 +1,197 @@
+#!/usr/bin/env python3
+# -*- coding: utf-8 -*-
+
 """
-运行 ArXiv 视频生成流程的主脚本。
+ArXiv Video Downloader - 主入口文件
+自动下载 ArXiv 论文项目页面视频的工具
+
+使用方式:
+    python main.py [--workers N] [--download-dir PATH] [--max-papers N] [--field FIELD]
+
+示例:
+    python main.py --workers 8 --download-dir ~/Videos/arxiv
+    python main.py --max-papers 50 --field cs.CV
 """
+
 import os
-import glob
+import sys
 import argparse
-from collections import defaultdict
+from typing import Optional
 
-# 导入我们创建的模块
-from video_merger import merge_videos_for_paper
-from content_generator import get_paper_details, generate_commentary
-from audio_subtitle_generator import generate_audio_and_subtitles
-# 假设 VideoGenarate.py 中有最终合成的函数
-# from VideoGenarate import generate_final_video
+from utils.logger import setup_logger, get_logger
+from core.crawler import ArxivVideoCrawler
 
-def setup_directories(input_dir, output_dir):
-    """检查并创建输入/输出目录，如果输入目录为空则提供指导。"""
-    # 如果输出目录不存在，则创建它
-    if not os.path.exists(output_dir):
-        os.makedirs(output_dir)
-        print(f"创建了输出目录: '{output_dir}'")
 
-    # 为所有类型的输出创建子目录
-    for dir_name in ["merged_videos", "scripts", "audio", "subtitles", "final_videos"]:
-        path = os.path.join(output_dir, dir_name)
-        if not os.path.exists(path):
-            os.makedirs(path)
+def parse_arguments() -> argparse.Namespace:
+    """解析命令行参数"""
+    parser = argparse.ArgumentParser(
+        description='ArXiv Video Downloader - 下载最新一天的论文视频',
+        formatter_class=argparse.RawDescriptionHelpFormatter,
+        epilog="""
+示例用法:
+  %(prog)s --workers 8                           # 使用8个线程
+  %(prog)s --download-dir ~/Videos/arxiv         # 指定下载目录
+  %(prog)s --max-papers 50                       # 最多下载50篇论文的视频
+  %(prog)s --field cs.AI                         # 下载AI领域论文
+        """
+    )
     
-    # 检查输入目录
-    if not os.path.exists(input_dir):
-        os.makedirs(input_dir)
-        print(f"创建了输入目录 '{input_dir}'。")
-        # 创建一些空的占位文件用于演示
-        open(os.path.join(input_dir, "2401.12345_clip1.mp4"), 'a').close()
-        open(os.path.join(input_dir, "2401.12345_clip2.mp4"), 'a').close()
-        open(os.path.join(input_dir, "2402.54321_main.mp4"), 'a').close()
-        print("创建了一些空的示例文件用于演示，你需要用真实的视频文件替换它们。")
-
-def main(args):
-    """
-    主函数，用于协调整个视频生成过程。
-    """
-    print("🚀 开始运行 ArXiv 视频生成流程...")
-
-    # --- 准备工作: 设置目录 ---
-    input_dir = args.input_dir
-    output_dir = args.output_dir
-    setup_directories(input_dir, output_dir)
+    parser.add_argument(
+        '--workers', '-w',
+        type=int,
+        default=4,
+        help='下载线程数 (默认: 4, 范围: 1-16)'
+    )
     
-    merged_videos_dir = os.path.join(output_dir, "merged_videos")
-    scripts_dir = os.path.join(output_dir, "scripts")
-    audio_dir = os.path.join(output_dir, "audio")
-    subtitles_dir = os.path.join(output_dir, "subtitles")
-
-    # --- 步骤 1: 扫描本地视频文件 ---
-    print(f"\n--- 步骤 1: 扫描视频文件 ---")
-    print(f"📂 从 '{input_dir}' 目录读取视频。")
+    parser.add_argument(
+        '--download-dir', '-d',
+        type=str,
+        default=os.path.expanduser('~/Movies/arxiv_video'),
+        help='视频下载目录 (默认: ~/Movies/arxiv_video)'
+    )
     
-    # 按论文ID对视频文件进行分组
-    paper_videos = defaultdict(list)
-    for video_path in glob.glob(os.path.join(input_dir, "*.mp4")):
-        filename = os.path.basename(video_path)
-        try:
-            paper_id = filename.split('_')[0]
-            paper_videos[paper_id].append(video_path)
-        except IndexError:
-            print(f"⚠️ 文件名 '{filename}' 不符合格式，已跳过。")
-
-    if not paper_videos:
-        print(f"❌ 在 '{input_dir}' 目录中没有找到符合格式的视频文件。流程终止。")
-        return
-
-    print(f"✅ 找到了 {len(paper_videos)} 篇论文的视频。")
-    for paper_id, files in paper_videos.items():
-        print(f"  - 论文 {paper_id}: {len(files)} 个视频片段")
-
-    # --- 步骤 2: 合并视频片段 ---
-    print("\n--- 步骤 2: 合并视频片段 ---")
-    processed_videos = {}
-    for paper_id, files in paper_videos.items():
-        if len(files) > 1:
-            # 有多个视频，需要合并
-            merged_path = merge_videos_for_paper(paper_id, files, output_dir=merged_videos_dir)
-            if merged_path:
-                processed_videos[paper_id] = merged_path
-        elif files:
-            # 只有一个视频，无需合并，直接使用
-            print(f"论文 {paper_id} 只有一个视频，无需合并。")
-            processed_videos[paper_id] = files[0]
-
-    if not processed_videos:
-        print("❌ 没有可处理的视频。流程终止。")
-        return
+    parser.add_argument(
+        '--max-papers', '-m',
+        type=int,
+        default=1000,
+        help='最大论文数量 (默认: 1000)'
+    )
     
-    print("✅ 视频合并（或整理）完成。")
+    parser.add_argument(
+        '--field', '-f',
+        type=str,
+        default='cs.CV',
+        help='论文领域 (默认: cs.CV)'
+    )
+    
+    parser.add_argument(
+        '--verbose', '-v',
+        action='store_true',
+        help='显示详细日志'
+    )
+    
+    return parser.parse_args()
 
-    # --- 步骤 3: 为每篇论文生成解说词 ---
-    print("\n--- 步骤 3: 内容生成 ---")
-    generated_scripts = {}
-    for paper_id, video_path in processed_videos.items():
-        print(f"\n处理论文: {paper_id}")
-        # 1. 获取论文信息
-        paper_details = get_paper_details(paper_id)
-        if not paper_details:
-            continue # 获取失败，跳过这篇论文
 
-        # 2. 生成解说词
-        script_content = generate_commentary(paper_details)
-        if not script_content:
-            continue # 生成失败，跳过这篇论文
+def validate_arguments(args: argparse.Namespace) -> bool:
+    """验证命令行参数"""
+    # 验证线程数
+    if not 1 <= args.workers <= 16:
+        print(f"错误: 线程数必须在 1-16 之间，当前值: {args.workers}")
+        return False
+    
+    # 验证最大论文数
+    if args.max_papers <= 0:
+        print(f"错误: 最大论文数必须大于0，当前值: {args.max_papers}")
+        return False
+    
+    # 验证下载目录
+    try:
+        args.download_dir = os.path.abspath(os.path.expanduser(args.download_dir))
+        os.makedirs(args.download_dir, exist_ok=True)
+    except Exception as e:
+        print(f"错误: 无法创建下载目录 {args.download_dir}: {e}")
+        return False
+    
+    return True
+
+
+def print_summary(results: list, args: argparse.Namespace) -> None:
+    """打印下载结果摘要"""
+    print("\n" + "="*60)
+    print("📊 下载结果摘要")
+    print("="*60)
+    
+    total_papers = len(results)
+    total_videos = sum(len(result['videos']) for result in results)
+    
+    print(f"成功处理的论文数量: {total_papers}")
+    print(f"总下载视频数量: {total_videos}")
+    
+    if results:
+        print(f"视频保存目录: {args.download_dir}")
+        print("\n📝 详细信息:")
         
-        # 3. 保存解说词到文件
-        script_path = os.path.join(scripts_dir, f"{paper_id}_script.txt")
-        try:
-            with open(script_path, 'w', encoding='utf-8') as f:
-                f.write(script_content)
-            print(f"📝 解说词已保存至: {script_path}")
-            generated_scripts[paper_id] = script_path
-        except IOError as e:
-            print(f"❌ 保存解说词文件时出错: {e}")
-
-    print("✅ 内容生成步骤完成。")
-
-    # --- 步骤 4: 音频和字幕生成 ---
-    print("\n--- 步骤 4: 音频和字幕生成 ---")
-    generated_media = {}
-    for paper_id, script_path in generated_scripts.items():
-        print(f"\n处理论文: {paper_id}")
-        try:
-            with open(script_path, 'r', encoding='utf-8') as f:
-                script_text = f.read()
+        for i, result in enumerate(results, 1):
+            paper = result['paper']
+            videos = result['videos']
             
-            audio_path = os.path.join(audio_dir, f"{paper_id}.mp3")
-            subtitle_path = os.path.join(subtitles_dir, f"{paper_id}.srt")
-
-            success = generate_audio_and_subtitles(script_text, audio_path, subtitle_path)
+            print(f"\n{i}. 论文ID: {paper['id']}")
+            print(f"   标题: {paper['title'][:80]}...")
+            print(f"   作者: {', '.join(paper['authors'])}")
+            if 'submitted_date' in paper:
+                print(f"   提交日期: {paper['submitted_date']}")
+            print(f"   视频数量: {len(videos)}")
             
-            if success:
-                generated_media[paper_id] = {
-                    "audio": audio_path,
-                    "subtitle": subtitle_path
-                }
-        except FileNotFoundError:
-            print(f"❌ 找不到脚本文件: {script_path}")
-        except Exception as e:
-            print(f"❌ 处理脚本 {script_path} 时发生未知错误: {e}")
+            for j, video in enumerate(videos, 1):
+                filename = os.path.basename(video['local_path'])
+                print(f"     视频{j}: {filename}")
+    else:
+        print("\n❌ 未找到可下载的视频")
+        print("\n可能的原因:")
+        print("• 今天该领域没有论文发布")
+        print("• 论文没有项目主页链接")
+        print("• 项目主页没有视频内容")
+        print("• 网络连接问题")
 
-    print("✅ 音频和字幕生成步骤完成。")
 
-    # --- 步骤 5: 最终视频生成 (待实现) ---
-    print("\n--- 步骤 5: 最终视频生成 (待实现) ---")
-    # generate_final_video(processed_videos, generated_media)
+def main():
+    """主函数"""
+    # 解析和验证参数
+    args = parse_arguments()
+    
+    if not validate_arguments(args):
+        sys.exit(1)
+    
+    # 设置日志
+    log_level = 10 if args.verbose else 20  # DEBUG if verbose else INFO
+    logger = setup_logger('arxiv_crawler', log_level)
+    
+    # 打印启动信息
+    print("🚀 ArXiv Video Downloader")
+    print("="*50)
+    print(f"论文领域: {args.field}")
+    print(f"最大论文数: {args.max_papers}")
+    print(f"下载线程数: {args.workers}")
+    print(f"下载目录: {args.download_dir}")
+    print("="*50)
+    
+    logger.info("ArXiv 视频下载器启动")
+    logger.info(f"配置 - 领域: {args.field}, 线程数: {args.workers}, "
+               f"最大论文数: {args.max_papers}, 下载目录: {args.download_dir}")
+    
+    crawler = None
+    try:
+        # 创建爬虫实例
+        crawler = ArxivVideoCrawler(
+            download_folder=args.download_dir,
+            max_workers=args.workers
+        )
+        
+        # 开始爬取
+        results = crawler.crawl_latest_day_videos(
+            field=args.field,
+            max_papers=args.max_papers
+        )
+        
+        # 打印结果摘要
+        print_summary(results, args)
+        
+        logger.info("ArXiv 视频下载器完成")
+        
+    except KeyboardInterrupt:
+        print("\n\n⚠️  用户中断下载")
+        logger.info("用户中断下载")
+        
+    except Exception as e:
+        print(f"\n❌ 程序执行出错: {e}")
+        logger.error(f"程序执行出错: {e}", exc_info=True)
+        sys.exit(1)
+        
+    finally:
+        if crawler:
+            crawler.close()
 
-    print("\n🎉 流程已结束。")
 
 if __name__ == "__main__":
-    # --- 设置命令行参数解析 ---
-    parser = argparse.ArgumentParser(description="自动生成 ArXiv 论文讲解视频的流程。")
-    parser.add_argument(
-        '--input-dir', 
-        type=str, 
-        default='downloaded_videos', 
-        help='存放原始视频片段的输入目录。'
-    )
-    parser.add_argument(
-        '--output-dir', 
-        type=str, 
-        default='output', 
-        help='存放所有输出文件（合并视频、脚本、最终视频等）的目录。'
-    )
-    
-    args = parser.parse_args()
-    main(args)
+    main()

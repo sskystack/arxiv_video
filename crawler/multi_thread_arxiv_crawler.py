@@ -485,24 +485,36 @@ class MultiThreadArxivCrawler:
             from bs4 import BeautifulSoup
             soup = BeautifulSoup(response.content, 'html.parser')
             
+            # --- 智能URL拼接 ---
+            # 1. 检查是否存在 <base> 标签，它会改变所有相对链接的基准
+            base_tag = soup.find('base', href=True)
+            base_url = base_tag['href'] if base_tag else project_url
+            # 确保基准URL以 / 结尾，以便 urljoin 正确工作
+            if not base_url.endswith('/'):
+                base_url += '/'
+            
+            logger.debug(f"使用的基准URL进行拼接: {base_url}")
+
             video_urls = []
             
             # 查找video标签
             videos = soup.find_all('video')
             for video in videos:
+                # 优先使用 video 标签的 src 属性
+                src = video.get('src')
+                if src:
+                    full_url = urljoin(base_url, src)
+                    video_urls.append(full_url)
+                    logger.debug(f"找到 <video> 标签中的视频 URL: {full_url}")
+                
+                # 其次查找内部的 source 标签
                 sources = video.find_all('source')
                 for source in sources:
                     src = source.get('src')
                     if src:
-                        if src.startswith('./') or src.startswith('/'):
-                            full_url = urljoin(project_url, src)
-                        elif src.startswith('http'):
-                            full_url = src
-                        else:
-                            full_url = urljoin(project_url, src)
-                        
+                        full_url = urljoin(base_url, src)
                         video_urls.append(full_url)
-                        logger.debug(f"找到视频URL: {full_url}")
+                        logger.debug(f"找到 <source> 标签中的视频 URL: {full_url}")
             
             # 新增：查找iframe中的视频
             iframes = soup.find_all('iframe')
@@ -511,33 +523,26 @@ class MultiThreadArxivCrawler:
                 if src:
                     # 检查是否是YouTube或Bilibili的嵌入链接
                     if 'youtube.com/embed/' in src:
-                        # 确保URL是完整的
-                        if not src.startswith('http'):
-                            full_url = urljoin(project_url, src)
-                        else:
-                            full_url = src
+                        # YouTube链接通常是完整的，但以防万一
+                        full_url = urljoin(base_url, src)
                         video_urls.append(full_url)
                         logger.debug(f"找到嵌入的YouTube视频链接: {full_url}")
                     
                     elif 'player.bilibili.com' in src:
+                        # Bilibili链接需要特殊转换
                         converted_url = self._convert_bilibili_url(src)
                         video_urls.append(converted_url)
                         logger.debug(f"找到并转换Bilibili链接: {src} -> {converted_url}")
 
-            # 也查找直接的mp4链接
+            # 也查找直接指向视频文件的链接
             all_links = soup.find_all('a', href=True)
             for link in all_links:
                 href = link.get('href')
-                if href and href.lower().endswith(('.mp4', '.webm', '.avi')):
-                    if href.startswith('./') or href.startswith('/'):
-                        full_url = urljoin(project_url, href)
-                    elif href.startswith('http'):
-                        full_url = href
-                    else:
-                        full_url = urljoin(project_url, href)
-                    
+                if href and href.lower().endswith(('.mp4', '.webm', '.avi', '.mov')):
+                    # 使用我们确定的基准URL进行拼接
+                    full_url = urljoin(base_url, href)
                     video_urls.append(full_url)
-                    logger.debug(f"找到视频链接: {full_url}")
+                    logger.debug(f"找到 <a> 标签中的视频链接: {full_url}")
             
             return list(set(video_urls))  # 去重
             
@@ -774,9 +779,8 @@ class MultiThreadArxivCrawler:
                     'videos': paper_videos
                 }
                 
-                # 线程安全地添加结果
-                with self.results_lock:
-                    self.results.append(result)
+                # 注意：不在这里添加到 self.results，由调用方负责添加
+                # 这样避免重复添加到结果列表中
                 
                 self.success_counter.increment()
                 logger.info(f"[线程{thread_id}] 论文 {paper_id} 成功下载 {len(paper_videos)} 个视频")
