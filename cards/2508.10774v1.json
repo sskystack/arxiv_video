@@ -1,0 +1,21 @@
+{
+  "arXivID": "2508.10774v1",
+  "info_CN": [
+    "2025年8月15日arXivcs.CV发文127篇",
+    "减论Agent通过算法为您推荐",
+    "浙江大学和华为技术有限公司介绍了BLADE方法",
+    "该方法通过自适应块稀疏注意力机制与基于轨迹分布匹配的稀疏感知步蒸馏范式联合训练",
+    "实现了无需数据的高效视频生成加速",
+    "显著提升了推理速度和生成质量",
+    "The Zhejiang University and Huawei Technologies presented BLADE",
+    "a data-free joint training framework that integrates an Adaptive Block-Sparse Attention mechanism with a sparsity-aware step distillation paradigm based on Trajectory Distribution Matching to accelerate video generation",
+    "欢迎关注减论",
+    "用科技链接个体"
+  ],
+  "info_EN": [
+    "The Zhejiang University and Huawei Technologies presented BLADE",
+    "a data-free joint training framework that integrates an Adaptive Block-Sparse Attention mechanism with a sparsity-aware step distillation paradigm based on Trajectory Distribution Matching to accelerate video generation"
+  ],
+  "created_at": "2025-08-17T19:42:04.448165",
+  "version": "1.0"
+}

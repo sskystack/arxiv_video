@@ -1,0 +1,25 @@
+{
+  "arXivID": "2508.10893v1",
+  "info_CN": [
+    "2025年8月15日arXivcs.CV发文",
+    "减论Agent通过算法为您推荐",
+    "在玻尔首页输入感兴趣的论文标题",
+    "即可一键开启AI精读",
+    "轻松掌握核心内容",
+    "南洋理工大学、上海人工智能实验室和香港大学提出了STream3R方法",
+    "该方法将点云预测重构为仅含解码器的Transformer问题",
+    "利用因果注意力机制实现高效的序列图像流处理",
+    "并通过大规模3D数据集学习几何先验",
+    "显著提升了静态及动态场景下的多视角3D重建性能",
+    "欢迎关注减论",
+    "用科技链接个体"
+  ],
+  "info_EN": [
+    "The Nanyang Technological University",
+    "Shanghai Artificial Intelligence Laboratory",
+    "and The University of Hong Kong presented STream3R",
+    "a streaming framework for scalable sequential 3D reconstruction that reformulates pointmap prediction as a decoder-only Transformer problem using causal attention to efficiently process image sequences"
+  ],
+  "created_at": "2025-08-17T18:18:14.324795",
+  "version": "1.0"
+}

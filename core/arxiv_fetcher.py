@@ -47,13 +47,13 @@ def get_latest_day_papers(field: str = 'cs.CV', max_papers: int = 1000) -> List[
 
 
 def _get_latest_submission_date(field: str) -> Optional[str]:
-    """获取最新的论文提交日期"""
+    """获取最新的论文发布日期"""
     try:
         client = arxiv.Client()
         search = arxiv.Search(
             query=f"cat:{field}",
             max_results=1,
-            sort_by=arxiv.SortCriterion.SubmittedDate,
+            sort_by=arxiv.SortCriterion.LastUpdatedDate,
             sort_order=arxiv.SortOrder.Descending
         )
         

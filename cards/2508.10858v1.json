@@ -1,0 +1,30 @@
+{
+  "arXivID": "2508.10858v1",
+  "info_CN": [
+    "2025年8月15日arXivcs.CV发文127篇",
+    "减论Agent通过算法为您推荐",
+    "香港科技大学、香港大学及艾弗琳人工智能提出了PhysHPO方法",
+    "通过分层细粒度的跨模态直接偏好优化",
+    "实现基于实例、状态、运动和语义四个层级的物理合理视频生成及自动化优质数据筛选",
+    "The Hong Kong University of Science and Technology",
+    "The University of Hong Kong",
+    "and University of Central Florida presented PhysHPO",
+    "a framework for Hierarchical Cross-Modal Direct Preference Optimization that aligns video generation preferences across instance",
+    "state",
+    "motion",
+    "and semantic levels while incorporating an automated data selection pipeline to enhance physical plausibility in videos",
+    "欢迎关注减论",
+    "用科技链接个体"
+  ],
+  "info_EN": [
+    "The Hong Kong University of Science and Technology",
+    "The University of Hong Kong",
+    "and University of Central Florida presented PhysHPO",
+    "a framework for Hierarchical Cross-Modal Direct Preference Optimization that aligns video generation preferences across instance",
+    "state",
+    "motion",
+    "and semantic levels while incorporating an automated data selection pipeline to enhance physical plausibility in videos"
+  ],
+  "created_at": "2025-08-17T19:42:12.457876",
+  "version": "1.0"
+}

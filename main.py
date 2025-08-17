@@ -104,24 +104,39 @@ def print_summary(results: list, args: argparse.Namespace) -> None:
     
     total_papers = len(results)
     total_videos = sum(len(result['videos']) for result in results)
+    cards_generated = sum(1 for result in results if result.get('has_script_card', False))
+    composed_videos = sum(1 for result in results if result.get('composed_video_path'))
     
     print(f"成功处理的论文数量: {total_papers}")
     print(f"总下载视频数量: {total_videos}")
+    print(f"生成解说卡片数量: {cards_generated}")
+    print(f"合成最终视频数量: {composed_videos}")
     
     if results:
         print(f"视频保存目录: {args.download_dir}")
+        print(f"卡片保存目录: ./cards/")
         print("\n📝 详细信息:")
         
         for i, result in enumerate(results, 1):
             paper = result['paper']
             videos = result['videos']
+            arxiv_id = result.get('arxiv_id')
+            has_card = result.get('has_script_card', False)
+            composed_video = result.get('composed_video_path')
             
             print(f"\n{i}. 论文ID: {paper['id']}")
+            print(f"   ArXiv ID: {arxiv_id or '未识别'}")
             print(f"   标题: {paper['title'][:80]}...")
             print(f"   作者: {', '.join(paper['authors'])}")
             if 'submitted_date' in paper:
                 print(f"   提交日期: {paper['submitted_date']}")
             print(f"   视频数量: {len(videos)}")
+            print(f"   解说卡片: {'✅ 已生成' if has_card else '❌ 未生成'}")
+            print(f"   合成视频: {'✅ 已生成' if composed_video else '❌ 未生成'}")
+            
+            if composed_video:
+                composed_filename = os.path.basename(composed_video)
+                print(f"     最终视频: {composed_filename}")
             
             for j, video in enumerate(videos, 1):
                 filename = os.path.basename(video['local_path'])

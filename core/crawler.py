@@ -7,16 +7,30 @@ ArXiv 视频爬虫主要逻辑模块
 """
 
 import os
+import sys
 import threading
 from concurrent.futures import ThreadPoolExecutor, as_completed
 from typing import List, Dict, Optional
 from tqdm import tqdm
+
+# 添加 reduct_db 到路径
+sys.path.append(os.path.join(os.path.dirname(__file__), '..', 'reduct_db', 'reduct_db'))
+
+try:
+    from reduct_db.db_config.safe_session import session_factory
+    from reduct_db.db_dao.paper_dao import PaperDAO
+    DB_AVAILABLE = True
+except ImportError as e:
+    print(f"警告: 无法导入 reduct_db，将使用 submitted_date: {e}")
+    DB_AVAILABLE = False
 
 from utils.logger import get_logger
 from core.arxiv_fetcher import get_latest_day_papers
 from core.link_extractor import create_session, extract_project_links
 from core.video_extractor import extract_video_urls
 from core.video_downloader import download_video
+from core.card_generator import card_generator, generate_video_script_card
+from core.video_composer import VideoComposer
 
 logger = get_logger('arxiv_crawler')
 
@@ -56,6 +70,7 @@ class ArxivVideoCrawler:
         self.results_lock = threading.Lock()
         self.success_counter = ThreadSafeCounter()
         self.error_counter = ThreadSafeCounter()
+        self.video_composer = VideoComposer()  # 添加视频合成器
         
         self._setup()
     
@@ -157,10 +172,14 @@ class ArxivVideoCrawler:
         paper_id = paper['id']
         title = paper['title']
         abstract_url = paper['abstract_url']
-        target_date = paper.get('submitted_date')
+        
+        # 优先使用数据库中的 publication_date，如果没有则使用 submitted_date
+        publication_date = self._get_publication_date_for_paper(paper_id)
+        target_date = publication_date or paper.get('submitted_date')
+        date_source = "publication_date" if publication_date else "submitted_date"
         
         thread_id = threading.current_thread().ident
-        logger.info(f"[线程{thread_id}] 开始处理: {paper_id} - {title[:50]}...")
+        logger.info(f"[线程{thread_id}] 开始处理: {paper_id} - {title[:50]}... (使用{date_source}: {target_date})")
         
         try:
             # 获取一个 session
@@ -198,9 +217,40 @@ class ArxivVideoCrawler:
             
             if paper_videos:
                 logger.info(f"[线程{thread_id}] 论文 {paper_id} 成功下载 {len(paper_videos)} 个视频")
+                
+                # 3. 生成视频解说卡片
+                arxiv_id = self._extract_arxiv_id(paper_id)
+                card = None
+                composed_video_path = None
+                
+                if arxiv_id:
+                    try:
+                        # 计算卡片保存目录（与视频相同的目录）
+                        video_dir = os.path.dirname(paper_videos[0]['local_path'])
+                        card = generate_video_script_card(arxiv_id, target_dir=video_dir)
+                        if card:
+                            logger.info(f"[线程{thread_id}] 成功生成并保存论文 {arxiv_id} 的解说卡片到 {video_dir}")
+                            
+                            # 4. 合成最终视频
+                            try:
+                                composed_video_path = self.video_composer.compose_paper_video(video_dir, arxiv_id)
+                                if composed_video_path:
+                                    logger.info(f"[线程{thread_id}] 成功为论文 {arxiv_id} 生成合成视频: {composed_video_path}")
+                                else:
+                                    logger.warning(f"[线程{thread_id}] 论文 {arxiv_id} 视频合成失败")
+                            except Exception as e:
+                                logger.error(f"[线程{thread_id}] 合成论文 {arxiv_id} 视频时出错: {e}")
+                        else:
+                            logger.warning(f"[线程{thread_id}] 无法为论文 {arxiv_id} 生成解说卡片")
+                    except Exception as e:
+                        logger.error(f"[线程{thread_id}] 生成论文 {arxiv_id} 解说卡片时出错: {e}")
+                
                 return {
                     'paper': paper,
-                    'videos': paper_videos
+                    'videos': paper_videos,
+                    'arxiv_id': arxiv_id,
+                    'has_script_card': card is not None if arxiv_id else False,
+                    'composed_video_path': composed_video_path
                 }
             else:
                 logger.info(f"[线程{thread_id}] 论文 {paper_id} 没有找到可下载的视频")
@@ -215,6 +265,72 @@ class ArxivVideoCrawler:
         thread_id = threading.current_thread().ident
         session_index = abs(hash(thread_id)) % len(self.session_pool)
         return self.session_pool[session_index]
+    
+    def _extract_arxiv_id(self, paper_id: str) -> Optional[str]:
+        """
+        从论文ID中提取ArXiv ID
+        
+        Args:
+            paper_id: 论文ID，可能是完整URL格式 "http://arxiv.org/abs/2024.12345v1" 
+                     或简短格式 "2024.12345v1"
+        
+        Returns:
+            str: ArXiv ID（包含版本号），如 "2024.12345v1"
+        """
+        try:
+            if 'arxiv.org/abs/' in paper_id:
+                # 处理完整URL格式
+                arxiv_id = paper_id.split('arxiv.org/abs/')[-1]
+                return arxiv_id
+            elif paper_id and '.' in paper_id and 'v' in paper_id:
+                # 处理简短格式，直接返回
+                return paper_id
+            else:
+                logger.warning(f"无法识别的论文ID格式: {paper_id}")
+                return None
+        except Exception as e:
+            logger.error(f"提取ArXiv ID失败: {e}")
+            return None
+    
+    def _get_publication_date_for_paper(self, paper_id: str) -> Optional[str]:
+        """
+        从数据库中获取论文的publication_date，转换为YYYYMMDD格式
+        
+        Args:
+            paper_id: ArXiv论文ID（如 "2508.10774v1"）
+        
+        Returns:
+            str: 格式化的publication_date (YYYYMMDD)，如果未找到则返回None
+        """
+        if not DB_AVAILABLE:
+            return None
+        
+        try:
+            # 清理ArXiv ID，移除版本号
+            clean_id = paper_id.replace('v', '.').split('.')[0] + '.' + paper_id.replace('v', '.').split('.')[1]
+            
+            session = session_factory()
+            paper_dao = PaperDAO(session)
+            
+            try:
+                # 尝试原始ID和清理后的ID
+                paper = paper_dao.get_by_external_id(paper_id) or paper_dao.get_by_external_id(clean_id)
+                
+                if paper and paper.publication_date:
+                    # 转换datetime为YYYYMMDD格式
+                    pub_date = paper.publication_date.strftime("%Y%m%d")
+                    logger.debug(f"论文 {paper_id} 的publication_date: {pub_date}")
+                    return pub_date
+                else:
+                    logger.debug(f"论文 {paper_id} 在数据库中未找到或无publication_date")
+                    return None
+                    
+            finally:
+                session.close()
+                
+        except Exception as e:
+            logger.debug(f"获取论文 {paper_id} 的publication_date失败: {e}")
+            return None
     
     def close(self):
         """清理资源"""

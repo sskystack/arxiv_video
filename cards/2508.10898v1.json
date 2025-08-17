@@ -1,0 +1,29 @@
+{
+  "arXivID": "2508.10898v1",
+  "info_CN": [
+    "2025年8月15日arXivcs.CV发文127篇",
+    "减论Agent通过算法为您推荐",
+    "南洋理工大学与字节跳动种子联合推出了 Puppeteer 方法",
+    "该方法通过自回归 transformer 预测骨骼结构、基于注意力机制推断蒙皮权重",
+    "并结合可微分优化动画流水线",
+    "实现了多样化 3D 模型的自动绑定与高保真动画生成",
+    "The Nanyang Technological University",
+    "Bytedance Seed",
+    "and A*STAR presented Puppeteer",
+    "a comprehensive framework that automatically rigs and animates diverse 3D objects by predicting skeletal structures with an auto-regressive transformer",
+    "inferring skinning weights through an attention-based architecture with topology-aware joint attention",
+    "and generating animations via a differentiable optimization-based pipeline",
+    "欢迎关注减论",
+    "用科技链接个体"
+  ],
+  "info_EN": [
+    "The Nanyang Technological University",
+    "Bytedance Seed",
+    "and A*STAR presented Puppeteer",
+    "a comprehensive framework that automatically rigs and animates diverse 3D objects by predicting skeletal structures with an auto-regressive transformer",
+    "inferring skinning weights through an attention-based architecture with topology-aware joint attention",
+    "and generating animations via a differentiable optimization-based pipeline"
+  ],
+  "created_at": "2025-08-17T19:41:47.692069",
+  "version": "1.0"
+}
