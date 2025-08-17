@@ -5,9 +5,6 @@
 **自动下载ArXiv论文项目页面视频的智能工具**
 
 [![Python](https://img.shields.io/badge/Python-3.7+-blue?style=for-the-badge&logo=python)](https://www.python.org/)
-[![License](https://img.shields.io/badge/License-MIT-green?style=for-the-badge)](LICENSE)
-[![Stars](https://img.shields.io/github/stars/sskystack/arxiv_video?style=for-the-badge)](https://github.com/sskystack/arxiv_video/stargazers)
-[![Issues](https://img.shields.io/github/issues/sskystack/arxiv_video?style=for-the-badge)](https://github.com/sskystack/arxiv_video/issues)
 
 [功能特性](#-功能特性) • [快速开始](#-快速开始) • [安装指南](#-安装指南) • [使用教程](#-使用教程) • [项目架构](#-项目架构)
 
@@ -19,13 +16,6 @@
 
 ArXiv Video Downloader 是一个专为研究人员和学术爱好者设计的工具，能够自动下载ArXiv论文项目页面中的演示视频。支持多线程并发下载，兼容YouTube、Bilibili等主流视频平台。
 
-### 🎯 为什么选择我们？
-
-- **🚀 极速下载** - 多线程并发，比传统工具快3-5倍
-- **🧠 智能识别** - 自动识别和提取视频链接
-- **� 开箱即用** - 一键安装，简单配置即可使用
-- **📊 实时监控** - 美观的进度条和详细的下载统计
-- **🛡️ 稳定可靠** - 完善的错误处理和自动重试机制
 
 ## ✨ 功能特性
 
