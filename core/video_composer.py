@@ -1,18 +1,21 @@
 import os
 import json
 import subprocess
+import logging
+import platform
 from typing import List
 from moviepy.editor import VideoFileClip, AudioFileClip, concatenate_videoclips, TextClip, CompositeVideoClip, ColorClip
 from .Card import ReductCard
 from .tts_service import TTSService
-import logging
 
 logger = logging.getLogger(__name__)
 
+
 class VideoComposer:
-    """视频合成器：将下载的演示视频与解说词卡片合成为最终视频"""
+    """视频合成器 - 负责合成演示视频、解说语音和字幕"""
     
     def __init__(self):
+        """初始化视频合成器"""
         self.tts_service = TTSService()
     
     def compose_paper_video(self, paper_dir: str, external_id: str) -> str:
@@ -251,8 +254,15 @@ class VideoComposer:
         try:
             # 完整字幕功能，ImageMagick已安装
             sentences = card.info_CN
+            logger.info(f"🎬 开始添加字幕，共 {len(sentences) if sentences else 0} 条句子")
+            
             if not sentences:
+                logger.warning("❌ 没有中文解说内容，跳过字幕添加")
                 return video
+            
+            # 打印所有句子内容
+            for i, sentence in enumerate(sentences):
+                logger.info(f"📝 句子 {i+1}: '{sentence}'")
                 
             # 获取音频片段的实际时长信息
             audio_durations = self._get_audio_segment_durations(card.arXivID)
@@ -261,6 +271,9 @@ class VideoComposer:
                 total_duration = video.duration
                 sentence_duration = total_duration / len(sentences)
                 audio_durations = [sentence_duration] * len(sentences)
+                logger.warning(f"⚠️ 无法获取音频时长，使用平均分配: {sentence_duration:.2f}秒/句")
+            else:
+                logger.info(f"🎵 获取到音频时长信息: {audio_durations}")
             
             subtitle_clips = []
             current_time = 0.0
@@ -273,33 +286,36 @@ class VideoComposer:
                 end_time = current_time + audio_durations[i]
                 current_time = end_time
                 
+                # 调试输出
+                logger.info(f"添加字幕 {i+1}/{len(sentences)}: '{sentence}' ({start_time:.2f}s - {end_time:.2f}s)")
+                
                 # 处理长句子，自动换行
                 formatted_sentence = self._format_subtitle_text(sentence)
                 
-                # 创建字幕文本
+                # 创建字幕文本 - 使用更明显的样式
                 font_name = self._get_suitable_font()
                 text_clip = TextClip(
                     formatted_sentence,
-                    fontsize=40,
-                    color='white',
+                    fontsize=45,              # 增大字体
+                    color='yellow',           # 使用黄色字体，更明显
                     font=font_name,
                     align='center',
-                    stroke_color='black',
-                    stroke_width=2
+                    stroke_color='black',     # 黑色描边
+                    stroke_width=3            # 增加描边宽度
                 )
                 
                 # 创建半透明背景
                 bg_clip = ColorClip(
-                    size=(text_clip.w + 20, text_clip.h + 10),
-                    color=(0, 0, 0),
+                    size=(text_clip.w + 30, text_clip.h + 15),  # 增大背景
+                    color=(0, 0, 0),          # 黑色背景
                     ismask=False
-                ).set_opacity(0.7)
+                ).set_opacity(0.85)           # 增加不透明度
                 
                 # 合并背景和文字
                 subtitle_clip = CompositeVideoClip([bg_clip, text_clip])
                 
-                # 设置位置和时间
-                subtitle_clip = subtitle_clip.set_position(('center', 'bottom')).set_start(start_time).set_end(end_time)
+                # 设置位置和时间 - 稍微上移一些
+                subtitle_clip = subtitle_clip.set_position(('center', 0.85)).set_start(start_time).set_end(end_time)
                 subtitle_clips.append(subtitle_clip)
             
             # 将字幕添加到视频
