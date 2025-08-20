@@ -33,6 +33,8 @@ def parse_arguments() -> argparse.Namespace:
   %(prog)s --download-dir ~/Videos/arxiv         # 指定下载目录
   %(prog)s --max-papers 50                       # 最多下载50篇论文的视频
   %(prog)s --field cs.AI                         # 下载AI领域论文
+  %(prog)s --publication-date 20250820           # 下载指定日期的论文
+  %(prog)s -p 20250819 -w 8 -m 100               # 组合使用参数
         """
     )
     
@@ -65,6 +67,13 @@ def parse_arguments() -> argparse.Namespace:
     )
     
     parser.add_argument(
+        '--publication-date', '-p',
+        type=str,
+        default=None,
+        help='指定论文发布日期 (格式: YYYYMMDD，如: 20250820)。如不指定，自动获取最新日期'
+    )
+    
+    parser.add_argument(
         '--verbose', '-v',
         action='store_true',
         help='显示详细日志'
@@ -85,6 +94,12 @@ def validate_arguments(args: argparse.Namespace) -> bool:
         print(f"错误: 最大论文数必须大于0，当前值: {args.max_papers}")
         return False
     
+    # 验证发布日期格式
+    if args.publication_date:
+        if not _validate_date_format(args.publication_date):
+            print(f"错误: 发布日期格式不正确，应为YYYYMMDD格式，当前值: {args.publication_date}")
+            return False
+    
     # 验证下载目录
     try:
         args.download_dir = os.path.abspath(os.path.expanduser(args.download_dir))
@@ -94,6 +109,33 @@ def validate_arguments(args: argparse.Namespace) -> bool:
         return False
     
     return True
+
+
+def _validate_date_format(date_str: str) -> bool:
+    """验证日期格式是否为YYYYMMDD"""
+    try:
+        if len(date_str) != 8:
+            return False
+        
+        year = int(date_str[:4])
+        month = int(date_str[4:6])
+        day = int(date_str[6:8])
+        
+        # 基本范围检查
+        if not (1900 <= year <= 2100):
+            return False
+        if not (1 <= month <= 12):
+            return False
+        if not (1 <= day <= 31):
+            return False
+        
+        # 使用datetime进行更严格的验证
+        from datetime import datetime
+        datetime.strptime(date_str, '%Y%m%d')
+        return True
+        
+    except (ValueError, TypeError):
+        return False
 
 
 def print_summary(results: list, args: argparse.Namespace) -> None:
@@ -175,6 +217,11 @@ def main():
     logger.info(f"配置 - 领域: {args.field}, 线程数: {args.workers}, "
                f"最大论文数: {args.max_papers}, 下载目录: {args.download_dir}")
     
+    if args.publication_date:
+        logger.info(f"使用指定发布日期: {args.publication_date}")
+    else:
+        logger.info("将自动获取最新发布日期的论文")
+    
     crawler = None
     try:
         # 创建爬虫实例
@@ -186,7 +233,8 @@ def main():
         # 开始爬取
         results = crawler.crawl_latest_day_videos(
             field=args.field,
-            max_papers=args.max_papers
+            max_papers=args.max_papers,
+            target_date=args.publication_date
         )
         
         # 打印结果摘要

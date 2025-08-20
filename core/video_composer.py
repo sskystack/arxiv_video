@@ -29,6 +29,9 @@ class VideoComposer:
         try:
             logger.info(f"开始为论文 {external_id} 合成视频")
             
+            # 设置当前工作目录信息，供字幕方法使用
+            self._current_paper_dir = paper_dir
+            
             # 1. 加载解说卡片
             card_path = os.path.join(paper_dir, f"{external_id}.json")
             if not os.path.exists(card_path):
@@ -246,31 +249,40 @@ class VideoComposer:
     def _add_subtitles(self, video: VideoFileClip, card: ReductCard) -> CompositeVideoClip:
         """为视频添加字幕"""
         try:
-            # 简化字幕处理：暂时跳过字幕，直接返回原视频
-            logger.info("字幕功能暂时跳过（需要安装ImageMagick）")
-            return video
-            
-            # 以下代码为完整字幕功能，需要ImageMagick支持
-            # 计算每个句子的时长
-            total_duration = video.duration
+            # 完整字幕功能，ImageMagick已安装
             sentences = card.info_CN
-            sentence_duration = total_duration / len(sentences) if sentences else total_duration
+            if not sentences:
+                return video
+                
+            # 获取音频片段的实际时长信息
+            audio_durations = self._get_audio_segment_durations(card.arXivID)
+            if not audio_durations:
+                # 如果无法获取音频时长，回退到平均分配
+                total_duration = video.duration
+                sentence_duration = total_duration / len(sentences)
+                audio_durations = [sentence_duration] * len(sentences)
             
             subtitle_clips = []
+            current_time = 0.0
             
             for i, sentence in enumerate(sentences):
-                start_time = i * sentence_duration
-                end_time = (i + 1) * sentence_duration
+                if i >= len(audio_durations):
+                    break
+                    
+                start_time = current_time
+                end_time = current_time + audio_durations[i]
+                current_time = end_time
                 
                 # 处理长句子，自动换行
                 formatted_sentence = self._format_subtitle_text(sentence)
                 
                 # 创建字幕文本
+                font_name = self._get_suitable_font()
                 text_clip = TextClip(
                     formatted_sentence,
                     fontsize=40,
                     color='white',
-                    font='SimHei',
+                    font=font_name,
                     align='center',
                     stroke_color='black',
                     stroke_width=2
@@ -316,3 +328,124 @@ class VideoComposer:
             lines.append(current_line)
         
         return '\n'.join(lines)
+    
+    def _get_audio_segment_durations(self, arxiv_id: str) -> List[float]:
+        """获取音频片段的时长信息"""
+        try:
+            # 从当前实例的工作目录来推断音频目录
+            # 通常在 compose_paper_video 调用时，我们已经在正确的目录中
+            durations = []
+            
+            # 尝试多个可能的音频目录路径
+            possible_audio_dirs = [
+                f"./audio",  # 相对于当前paper_dir
+                f"audio",    # 相对于当前工作目录
+            ]
+            
+            # 如果有当前的paper_dir信息，也添加到搜索路径
+            if hasattr(self, '_current_paper_dir'):
+                possible_audio_dirs.append(os.path.join(self._current_paper_dir, "audio"))
+            
+            audio_dir = None
+            for dir_path in possible_audio_dirs:
+                if os.path.exists(dir_path) and os.path.isdir(dir_path):
+                    # 检查是否包含音频文件
+                    test_file = os.path.join(dir_path, "sentence_0.mp3")
+                    if os.path.exists(test_file):
+                        audio_dir = dir_path
+                        break
+            
+            if not audio_dir:
+                logger.warning(f"未找到 {arxiv_id} 的音频目录")
+                return []
+            
+            # 获取所有音频文件的时长
+            i = 0
+            while True:
+                audio_file = os.path.join(audio_dir, f"sentence_{i}.mp3")
+                if not os.path.exists(audio_file):
+                    break
+                
+                # 使用ffprobe获取音频时长
+                cmd = [
+                    "ffprobe", "-v", "quiet", 
+                    "-show_entries", "format=duration", 
+                    "-of", "csv=p=0", 
+                    audio_file
+                ]
+                
+                result = subprocess.run(cmd, capture_output=True, text=True)
+                if result.returncode == 0:
+                    duration = float(result.stdout.strip())
+                    durations.append(duration)
+                else:
+                    logger.warning(f"无法获取音频文件 {audio_file} 的时长")
+                    break
+                
+                i += 1
+            
+            logger.info(f"获取到 {len(durations)} 个音频片段的时长: {durations}")
+            return durations
+            
+        except Exception as e:
+            logger.error(f"获取音频片段时长失败: {str(e)}")
+            return []
+    
+    def _get_suitable_font(self) -> str:
+        """获取适合的跨平台字体"""
+        import platform
+        import subprocess
+        
+        # 定义不同平台的字体候选列表（按优先级排序）
+        font_candidates = {
+            'Darwin': [  # macOS
+                'Arial Unicode MS',  # 支持中文的通用字体，首选
+                'PingFang SC',      # 苹方简体，现代美观
+                'Songti SC',        # 宋体简体
+                'Heiti SC',         # 黑体简体
+                'STSong',           # 华文宋体
+                'Arial',            # 备选英文字体
+            ],
+            'Windows': [  # Windows
+                'Arial Unicode MS', # 支持中文的通用字体，首选
+                'Microsoft YaHei',   # 微软雅黑
+                'SimSun',           # 宋体
+                'SimHei',           # 黑体
+                'Arial',            # 备选英文字体
+            ],
+            'Linux': [    # Linux
+                'Arial Unicode MS', # 如果安装了的话，优先使用
+                'Noto Sans CJK SC',  # Google Noto字体
+                'WenQuanYi Micro Hei', # 文泉驿微米黑
+                'WenQuanYi Zen Hei', # 文泉驿正黑
+                'DejaVu Sans',       # DejaVu字体
+                'Liberation Sans',   # Liberation字体
+                'Arial',            # 备选英文字体
+            ]
+        }
+        
+        current_platform = platform.system()
+        candidates = font_candidates.get(current_platform, font_candidates['Linux'])
+        
+        # 测试每个字体是否可用
+        for font in candidates:
+            if self._test_font_availability(font):
+                logger.info(f"选择字体: {font}")
+                return font
+        
+        # 如果所有字体都不可用，返回默认字体
+        logger.warning("未找到合适的中文字体，使用默认字体")
+        return 'Arial'  # 最保险的选择
+    
+    def _test_font_availability(self, font_name: str) -> bool:
+        """测试字体是否可用"""
+        try:
+            # 尝试创建一个简单的文本剪辑来测试字体
+            test_clip = TextClip("Test", font=font_name, fontsize=20, color='white')
+            # 如果能获取到宽度，说明字体可用
+            width = test_clip.w
+            test_clip.close()  # 释放资源
+            return width > 0
+        except Exception as e:
+            logger.debug(f"字体 {font_name} 不可用: {str(e)}")
+            return False

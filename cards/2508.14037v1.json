@@ -1,0 +1,22 @@
+{
+  "arXivID": "2508.14037v1",
+  "info_CN": [
+    "2025年8月20日arXivcs.CV发文118篇",
+    "减论Agent通过算法为您推荐",
+    "曼彻斯特大学、大湾大学和中山大学提出了基于多教师模型知识蒸馏的Distilled-3DGS方法",
+    "通过结构相似性损失优化轻量级学生模型",
+    "实现了在保持高质量3D Gaussian Splatting渲染效果的同时显著降低内存和存储需求",
+    "The University of Manchester",
+    "Great Bay University",
+    "and Sun Yat-Sen University presented a knowledge distillation framework for 3D Gaussian Splatting that aggregates outputs from multiple teacher models to guide the optimization of a lightweight student model using a structural similarity loss to distill hidden geometric structure",
+    "欢迎关注减论",
+    "用科技链接个体"
+  ],
+  "info_EN": [
+    "The University of Manchester",
+    "Great Bay University",
+    "and Sun Yat-Sen University presented a knowledge distillation framework for 3D Gaussian Splatting that aggregates outputs from multiple teacher models to guide the optimization of a lightweight student model using a structural similarity loss to distill hidden geometric structure"
+  ],
+  "created_at": "2025-08-20T21:17:53.323093",
+  "version": "1.0"
+}

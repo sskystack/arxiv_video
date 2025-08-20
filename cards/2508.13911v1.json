@@ -1,0 +1,26 @@
+{
+  "arXivID": "2508.13911v1",
+  "info_CN": [
+    "2025年8月20日arXivcs.CV发文118篇",
+    "减论Agent通过算法为您推荐",
+    "北京理工大学、理想汽车有限公司与哈尔滨工业大学介绍了PhysGM方法",
+    "该方法通过单张图像前馈预测3D高斯表示及其物理属性",
+    "实现即时物理仿真与高保真4D渲染",
+    "采用Direct Preference Optimization优化物理模拟",
+    "显著提升渲染质量与计算效率",
+    "The Beijing Institute of Technology",
+    "Li Auto Inc",
+    "and Harbin Institute of Technology presented PhysGM",
+    "a feed-forward framework that jointly predicts a 3D Gaussian representation and its physical properties from a single image to enable immediate physical simulation and high-fidelity 4D rendering",
+    "欢迎关注减论",
+    "用科技链接个体"
+  ],
+  "info_EN": [
+    "The Beijing Institute of Technology",
+    "Li Auto Inc",
+    "and Harbin Institute of Technology presented PhysGM",
+    "a feed-forward framework that jointly predicts a 3D Gaussian representation and its physical properties from a single image to enable immediate physical simulation and high-fidelity 4D rendering"
+  ],
+  "created_at": "2025-08-20T20:56:54.992579",
+  "version": "1.0"
+}

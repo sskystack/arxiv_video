@@ -1,0 +1,24 @@
+{
+  "arXivID": "2508.14041v1",
+  "info_CN": [
+    "2025年8月20日arXivcs.CV发文118篇",
+    "减论Agent通过算法为您推荐",
+    "英伟达研究院、国立阳明交通大学提出了LongSplat方法",
+    "该方法通过增量联合优化、基于学习的姿态估计模块及高效的八叉树锚点形成机制",
+    "实现了对无姿态长视频中不规则相机运动和大场景的鲁棒3D高斯点渲染与姿态优化",
+    "The NVIDIA Research and National Yang Ming Chiao Tung University presented LongSplat",
+    "a robust unposed 3D Gaussian Splatting framework for novel view synthesis from casual long videos that incorporates Incremental Joint Optimization of camera poses and 3D Gaussians",
+    "a Pose Estimation Module leveraging learned 3D priors",
+    "and an Octree Anchor Formation mechanism converting dense point clouds into spatial anchors",
+    "欢迎关注减论",
+    "用科技链接个体"
+  ],
+  "info_EN": [
+    "The NVIDIA Research and National Yang Ming Chiao Tung University presented LongSplat",
+    "a robust unposed 3D Gaussian Splatting framework for novel view synthesis from casual long videos that incorporates Incremental Joint Optimization of camera poses and 3D Gaussians",
+    "a Pose Estimation Module leveraging learned 3D priors",
+    "and an Octree Anchor Formation mechanism converting dense point clouds into spatial anchors"
+  ],
+  "created_at": "2025-08-20T20:57:03.011961",
+  "version": "1.0"
+}

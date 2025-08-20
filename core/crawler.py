@@ -86,26 +86,36 @@ class ArxivVideoCrawler:
         
         logger.info(f"初始化完成，线程数: {self.max_workers}，下载目录: {self.download_folder}")
     
-    def crawl_latest_day_videos(self, field: str = 'cs.CV', max_papers: int = 1000) -> List[Dict]:
+    def crawl_latest_day_videos(self, field: str = 'cs.CV', max_papers: int = 1000, target_date: Optional[str] = None) -> List[Dict]:
         """
-        爬取最新一天的论文视频
+        爬取指定日期或最新一天的论文视频
         
         Args:
             field: 论文领域
             max_papers: 最大论文数量
+            target_date: 指定的目标日期 (YYYYMMDD格式)，如果为None则自动获取最新日期
         
         Returns:
             成功下载的结果列表
         """
-        logger.info(f"开始爬取 {field} 领域最新一天的论文视频...")
+        if target_date:
+            logger.info(f"开始爬取 {field} 领域 {target_date} 日期的论文视频...")
+        else:
+            logger.info(f"开始爬取 {field} 领域最新一天的论文视频...")
         
         # 1. 获取论文列表
-        papers = get_latest_day_papers(field, max_papers)
+        papers = get_latest_day_papers(field, max_papers, target_date)
         if not papers:
-            logger.error("未获取到论文列表")
+            if target_date:
+                logger.error(f"未获取到 {target_date} 日期的论文列表")
+            else:
+                logger.error("未获取到论文列表")
             return []
         
-        logger.info(f"获取到 {len(papers)} 篇论文，开始多线程处理...")
+        if target_date:
+            logger.info(f"获取到 {len(papers)} 篇 {target_date} 日期的论文，开始多线程处理...")
+        else:
+            logger.info(f"获取到 {len(papers)} 篇论文，开始多线程处理...")
         
         # 2. 重置计数器和结果
         self.results = []
@@ -272,7 +282,7 @@ class ArxivVideoCrawler:
         
         Args:
             paper_id: 论文ID，可能是完整URL格式 "http://arxiv.org/abs/2024.12345v1" 
-                     或简短格式 "2024.12345v1"
+                     或简短格式 "2024.12345v1"，或者清理过的格式 "2024.12345"
         
         Returns:
             str: ArXiv ID（包含版本号），如 "2024.12345v1"
@@ -282,9 +292,14 @@ class ArxivVideoCrawler:
                 # 处理完整URL格式
                 arxiv_id = paper_id.split('arxiv.org/abs/')[-1]
                 return arxiv_id
-            elif paper_id and '.' in paper_id and 'v' in paper_id:
-                # 处理简短格式，直接返回
-                return paper_id
+            elif paper_id and '.' in paper_id:
+                # 处理简短格式或清理过的格式
+                if 'v' in paper_id:
+                    # 已经包含版本号，直接返回
+                    return paper_id
+                else:
+                    # 清理过的格式，需要添加v1版本号
+                    return f"{paper_id}v1"
             else:
                 logger.warning(f"无法识别的论文ID格式: {paper_id}")
                 return None
@@ -297,7 +312,7 @@ class ArxivVideoCrawler:
         从数据库中获取论文的publication_date，转换为YYYYMMDD格式
         
         Args:
-            paper_id: ArXiv论文ID（如 "2508.10774v1"）
+            paper_id: ArXiv论文ID（如 "2508.10774" - 已经清理过的ID）
         
         Returns:
             str: 格式化的publication_date (YYYYMMDD)，如果未找到则返回None
@@ -306,15 +321,26 @@ class ArxivVideoCrawler:
             return None
         
         try:
-            # 清理ArXiv ID，移除版本号
-            clean_id = paper_id.replace('v', '.').split('.')[0] + '.' + paper_id.replace('v', '.').split('.')[1]
-            
             session = session_factory()
             paper_dao = PaperDAO(session)
             
             try:
-                # 尝试原始ID和清理后的ID
-                paper = paper_dao.get_by_external_id(paper_id) or paper_dao.get_by_external_id(clean_id)
+                # 由于 arxiv_fetcher 现在返回的已经是清理过的ID (如 2508.10774)
+                # 我们需要查找 external_id 为 2508.10774v1 格式的记录
+                possible_external_ids = [
+                    f"{paper_id}v1",  # 最常见的格式
+                    f"{paper_id}v2",  # 可能的版本2
+                    f"{paper_id}v3",  # 可能的版本3
+                    paper_id,  # 原始格式
+                ]
+                
+                paper = None
+                for external_id in possible_external_ids:
+                    papers = paper_dao.get_by_external_ids([external_id])
+                    if papers:
+                        paper = papers[0]
+                        logger.debug(f"找到论文: {paper_id} -> external_id: {external_id}")
+                        break
                 
                 if paper and paper.publication_date:
                     # 转换datetime为YYYYMMDD格式

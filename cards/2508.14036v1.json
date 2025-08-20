@@ -1,0 +1,25 @@
+{
+  "arXivID": "2508.14036v1",
+  "info_CN": [
+    "2025年8月20日arXivcs.CV发文118篇",
+    "减论Agent通过算法为您推荐",
+    "中山大学、香港大学与越南科学技术部介绍了 DetailGen3D 方法",
+    "该方法通过在潜在空间中基于数据驱动的流实现粗到细的形状转换",
+    "结合 token 匹配策略确保空间对应性",
+    "从而高效提升由单视角或稀疏多视角生成的三维形状的几何细节",
+    "The Sun Yat-Sen University",
+    "The University of Hong Kong",
+    "and VAST presented DetailGen3D",
+    "a generative approach that enhances 3D shapes by modeling coarse-to-fine transformation through data-dependent flows in latent space and employing a token matching strategy to ensure accurate spatial correspondence during refinement",
+    "欢迎关注减论",
+    "用科技链接个体"
+  ],
+  "info_EN": [
+    "The Sun Yat-Sen University",
+    "The University of Hong Kong",
+    "and VAST presented DetailGen3D",
+    "a generative approach that enhances 3D shapes by modeling coarse-to-fine transformation through data-dependent flows in latent space and employing a token matching strategy to ensure accurate spatial correspondence during refinement"
+  ],
+  "created_at": "2025-08-20T20:56:45.545112",
+  "version": "1.0"
+}
