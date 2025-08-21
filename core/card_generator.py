@@ -275,7 +275,7 @@ class CardGenerator:
             year, month, day = pub_date.year, pub_date.month, pub_date.day
             # 查询当天的论文总数
             paper_count = self._get_daily_paper_count(pub_date)
-            opening_text = f'{year}年{month}月{day}日arXivcs.CV发文{paper_count}篇，减论Agent通过算法为您推荐。'
+            opening_text = f'{year}年{month}月{day}日arXiv,cs.CV,发文量约{paper_count}篇，减论Agent通过算法为您推荐。'
             info_cn.extend(self._split_sentence(opening_text, is_cn=True))
         
         # 2. 添加中文介绍

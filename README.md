@@ -1,41 +1,357 @@
-<div align="center">
-
 # 🎬 ArXiv Video Downloader
 
-**自动下载ArXiv论文项目页面视频的智能工具**
+一个用于自动从 ArXiv 论文页面抓取演示视频并生成带中文解说与字幕的短视频工具。
+
+本 README 包含：快速上手、按平台的环境安装与激活步骤（macOS / Linux / Windows / WSL）、以及完整的命令行参数使用教程和常见故障排查。
+
+## 目录
+
+- 项目简介
+- 快速上手（推荐）
+- 平台安装与环境配置（macOS / Linux / Windows / WSL）
+- 虚拟环境：创建与激活（cross-platform）
+- 安装 Python 依赖
+- 命令行参数与使用示例
+- 输出目录结构
+- 故障排查（ImageMagick / 字体 / 日志）
+
+---
+
+## 项目简介
+
+该项目会：
+- 抓取论文页面中的视频资源（支持多来源）
+- 下载并合并演示视频
+- 通过 TTS 生成中文解说（分句生成音频）
+- 生成与音频同步的字幕并合成到最终视频
+
+依赖要点：Python 3.7+、FFmpeg、ImageMagick（字幕渲染需要）、以及系统字体（中英混排）。
+
+---
+
+## 快速上手（推荐）
+
+1. 克隆仓库：
+
+```bash
+git clone https://github.com/sskystack/arxiv_video.git
+cd arxiv_video
+```
+
+2. 参照下方“平台安装”为你的系统安装系统依赖（尤其是 ImageMagick 和 FFmpeg）。
+
+3. 创建并激活 Python 虚拟环境（见下文详细方法）。
+
+4. 安装 Python 依赖：
+
+```bash
+pip install -r requirements.txt
+```
+
+5. 运行（示例）：
+
+```bash
+python main.py --workers 8 --download-dir /path/to/downloads --max-papers 100
+```
+
+---
+
+## 平台安装与环境配置（逐步）
+
+下面分别给出 macOS、Linux、Windows 和 Windows+WSL 的详细步骤与常用命令（包括虚拟环境创建与激活）。
+
+注意：所有命令假设你在仓库根路径 `arxiv_video/` 下执行，或自行 cd 到该目录。
+
+### 1) macOS
+
+- 安装 Homebrew（如未安装）：
+
+```bash
+/bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
+```
+
+- 安装系统依赖：
+
+```bash
+brew update
+brew install python imagemagick ffmpeg git
+```
+
+- 创建与激活虚拟环境：
+
+```bash
+# 创建（仅需一次）
+python3 -m venv .venv
+
+# 激活（每次新终端执行）
+source .venv/bin/activate
+```
+
+### 2) Linux（Ubuntu/Debian 示例）
+
+- 安装系统依赖：
+
+```bash
+sudo apt update
+sudo apt install -y python3 python3-venv python3-pip git ffmpeg imagemagick
+```
+
+- 创建与激活虚拟环境：
+
+```bash
+python3 -m venv .venv
+source .venv/bin/activate
+```
+
+如果你使用其他发行版（CentOS/Fedora），请使用各自包管理器安装 python3 / ffmpeg / imagemagick。
+
+### 3) Windows（原生）
+
+- 推荐在 PowerShell（以管理员身份）下使用 Chocolatey：
+
+```powershell
+# 安装 Chocolatey（若尚未安装）
+Set-ExecutionPolicy Bypass -Scope Process -Force
+[System.Net.ServicePointManager]::SecurityProtocol = [System.Net.ServicePointManager]::SecurityProtocol -bor 3072
+iex ((New-Object System.Net.WebClient).DownloadString('https://chocolatey.org/install.ps1'))
+
+# 安装系统依赖
+choco install -y python git ffmpeg imagemagick
+```
+
+- 创建与激活虚拟环境（PowerShell）：
+
+```powershell
+python -m venv .venv
+# 激活（PowerShell）
+.\.venv\Scripts\Activate.ps1
+# 如果使用 cmd.exe:
+# .venv\Scripts\activate.bat
+```
+
+注意：Windows 下 ImageMagick 的安装可能需要选择 "Install legacy utilities (e.g. convert)" 或将安装目录加入 PATH，具体取决于版本。
+
+### 4) Windows + WSL（推荐用于更接近 Linux 的体验）
+
+- 在 Windows 上启用 WSL 并安装 Ubuntu（Microsoft Store）：
+
+```powershell
+wsl --install -d ubuntu
+# 之后打开 WSL 终端
+```
+
+- 在 WSL (Ubuntu) 中，按 Linux 部分的步骤安装依赖并创建虚拟环境：
+
+```bash
+sudo apt update
+sudo apt install -y python3 python3-venv python3-pip git ffmpeg imagemagick
+python3 -m venv .venv
+source .venv/bin/activate
+```
+
+优点：WSL 下的 ImageMagick / FFmpeg 与 Linux 更兼容，调试也更方便。
+
+---
+
+## 安装 Python 依赖
+
+在激活虚拟环境后执行：
+
+```bash
+pip install --upgrade pip
+pip install -r requirements.txt
+```
+
+如果你遇到某些包安装失败（例如需要编译的扩展），请先安装对应系统的构建工具（macOS 的 Xcode command line tools，Ubuntu 的 build-essential 等）。
+
+---
+
+## 命令行参数与使用示例
+
+运行入口：`python main.py`
+
+常用参数说明：
+
+| 参数 | 简写 | 类型 | 默认 | 说明 |
+|------|------|------|------|------|
+| `--publication-date` | `-p` | str | (自动) | 指定要下载的论文发布日期（YYYYMMDD） |
+| `--workers` | `-w` | int | 4 | 下载线程数（1-16） |
+| `--download-dir` | `-d` | str | ~/Movies/arxiv_video | 下载并保存视频的目录 |
+| `--max-papers` | `-m` | int | 1000 | 最大处理论文数 |
+| `--field` | `-f` | str | cs.CV | ArXiv 领域，例如 cs.CV / cs.AI / cs.LG |
+| `--verbose` | `-v` | flag | False | 打印详细日志（DEBUG） |
+
+示例：
+
+- 使用 8 个线程，最多下载 100 篇 CS.CV 视频：
+
+```bash
+python main.py --workers 8 --max-papers 100 --field cs.CV
+```
+
+- 下载指定发布日期的论文（2025-08-20）：
+
+```bash
+python main.py --publication-date 20250820 --workers 6 --max-papers 200
+```
+
+- 将结果保存到自定义目录并打开详细日志：
+
+```bash
+python main.py -d ~/AI_Videos -w 8 -m 50 -v
+```
+
+如果你仍然需要使用仓库中的 `multi_thread_downloader.py`（它是一个单文件的多线程交互/非交互脚本），在删除或合并前可以直接运行：
+
+```bash
+python multi_thread_downloader.py
+# 或 非交互（如果支持参数）
+python multi_thread_downloader.py --workers 4 --mode latest --max-papers 50
+```
+
+---
+
+## 输出目录结构（示例）
+
+```
+{download-dir}/
+└── YYYYMMDD/
+      ├── <paper_id>/
+      │   ├── video_0.mp4          # 原始演示视频
+      │   ├── video_1.mp4
+      │   ├── <paper_id>_demo.mp4  # 合并演示（可选）
+      │   ├── <paper_id>_res.mp4   # 最终合成视频（演示+解说+字幕）
+      │   ├── <paper_id>.json      # 解说卡片/元数据
+      │   └── audio/               # 分句语音文件
+      └── ...
+```
+
+---
+
+## 故障排查（常见问题）
+
+1) 字幕/中文不显示
+
+- 确保 ImageMagick 已安装并在 PATH 中：
+
+```bash
+magick -version
+```
+
+- 测试字体可用性（仓库含 `test_fonts.py`）：
+
+```bash
+python test_fonts.py
+```
+
+2) FFmpeg 问题（合成/转码失败）
+
+- 确保 ffmpeg 可用并版本为较新版本：
+
+```bash
+ffmpeg -version
+```
+
+3) 依赖安装错误
+
+- 在安装 Python 依赖失败时，查看错误信息并安装系统构建工具：
+
+   - macOS: `xcode-select --install`
+   - Ubuntu: `sudo apt install build-essential libffi-dev python3-dev`
+
+4) 日志与调试
+
+- 使用 `--verbose` 打印详细日志：
+
+```bash
+python main.py --verbose
+```
+
+日志文件位于 `logs/`（按运行日期创建），可以打开查看详细执行信息。
+
+---
+
+## 额外说明
+
+- 本项目支持数据库集成（见 `reduct_db/` 子模块），若启用数据库，程序会优先使用数据库内的 `publication_date` 来组织输出目录。
+- 如果你需要我把仓库中旧的 `crawler/` 脚本合并到 `core/` 或删除 `multi_thread_downloader.py`，请明确回复，我会执行合并/删除并运行基础 smoke-test。
+
+---
+
+如果需要，我可以再生成一个简短的一键安装脚本或为 Windows 用户生成 PowerShell 自动化步骤。欢迎告诉我更具体的需求。
+# 🎬 ArXiv Video Downloader
+
+自动从 ArXiv 获取论文页面中展示的视频并生成带解说与字幕的短视频工具。
 
 [![Python](https://img.shields.io/badge/Python-3.7+-blue?style=for-the-badge&logo=python)](https://www.python.org/)
 [![ImageMagick](https://img.shields.io/badge/ImageMagick-Required-red?style=for-the-badge)](https://imagemagick.org/)
 
-[功能特性](#-功能特性) • [快速开始](#-快速开始) • [安装指南](#-安装指```
-arxiv_video/
-├── 📁 core/                       # 🧠 核心业务逻辑
-│   ├── arxiv_fetcher.py          # 📚 ArXiv论文获取器（支持publication_date参数）
-│   ├── link_extractor.py         # 🔗 项目链接提取器  
-│   ├── video_extractor.py        # 🎬 视频链接解析器
-│   ├── video_downloader.py       # ⬇️ 多线程下载器
-│   ├── video_composer.py         # 🎥 **新增**：视频合成器（字幕+语音）
-│   ├── card_generator.py         # 📝 **新增**：解说卡片生成器
-│   ├── tts_service.py            # 🎤 **新增**：语音合成服务
-│   ├── Card.py                   # 📊 **新增**：卡片数据结构
-│   └── crawler.py                # 🕷️ 主爬虫逻辑（集成数据库支持）
-├── 📁 utils/                      # 🛠️ 工具模块
-│   └── logger.py                 # 📝 日志管理器
-├── 📁 logs/                       # 📊 日志文件夹
-├── 📁 cards/                      # 📄 **新增**：解说卡片存储
-├── 📁 reduct_db/                  # 🗄️ 数据库模块
-│   └── reduct_db/                # 📊 MySQL数据库集成
-│       ├── db_dao/               # 🔍 数据访问对象
-│       ├── db_entities/          # 📋 数据实体定义
-│       └── db_config/            # ⚙️ 数据库配置
-├── 📄 main.py                     # 🚀 程序入口（支持publication_date参数）
-├── 📄 test_fonts.py               # 🔤 **新增**：字体测试工具
-├── 📄 requirements.txt            # 📦 依赖列表
-├── 📄 SUBTITLE_FIX_REPORT.md      # 📋 **新增**：字幕功能修复报告
-└── 📄 README.md                   # 📖 项目文档
-```• [项目架构](#-项目架构)
+本仓库将爬取论文页面中的视频资源，下载并合成：原始演示视频 + 自动生成的中文解说音频 + 同步字幕（支持中英混排，依赖系统字体与 ImageMagick）。
 
-</div>
+## 主要特性
+
+- 支持多平台（Linux / macOS / Windows）的视频下载与合成
+- 多线程下载（可配置线程数量）
+- 自动生成中文解说（通过 TTS 服务）并为每句生成同步字幕
+- 可将结果保存为结构化目录（按 publication_date / paper_id 分组）
+
+## 快速开始
+
+1. 安装依赖（建议在虚拟环境中）
+
+```bash
+pip install -r requirements.txt
+```
+
+2. 安装系统依赖（必须）
+
+macOS:
+
+```bash
+brew install imagemagick ffmpeg
+```
+
+Ubuntu/Debian:
+
+```bash
+sudo apt install imagemagick ffmpeg
+```
+
+Windows（建议使用 Chocolatey）:
+
+```powershell
+choco install imagemagick ffmpeg
+```
+
+3. 运行项目（示例）
+
+```bash
+python main.py --workers 8 --download-dir /path/to/downloads --max-papers 100
+```
+
+## 项目结构（简洁）
+
+```
+arxiv_video/
+├─ core/                    # 项目核心模块（抓取、合成、TTS 等）
+├─ crawler/                 # 较早期/独立的多线程爬虫脚本（被 multi_thread_downloader.py 引用）
+├─ logs/                    # 日志文件
+├─ reduct_db/               # 数据库集成模块
+├─ main.py                  # 主入口（使用 core.crawler）
+├─ multi_thread_downloader.py# 可选的多线程下载器（引用 crawler/ 目录）
+└─ README.md
+```
+
+## 下一步建议
+
+1. 如果你想清理并移除 `crawler/`，我可以：
+    - 将 `crawler/multi_thread_arxiv_crawler.py` 的核心实现合并到 `core/`，并更新 `multi_thread_downloader.py` 与 `README`；或
+    - 直接删除 `crawler/` 并在 `multi_thread_downloader.py` 中移除对它的引用（风险：会丢失脚本功能）。
+
+2. 我已修复 README 的格式。如果你希望我同时移除 README 中对 `crawler` 的提及（例如确认代码合并完成后），我会在合并/删除 `crawler/` 时一起更新。
+
+请告诉我接下来要执行的方案（合并 / 删除 / 保留），我会继续执行相关修改并跑一次基本测试。
+
 
 ---
 

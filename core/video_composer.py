@@ -223,7 +223,9 @@ class VideoComposer:
             final_video = demo_video.set_audio(narration_audio)
             
             # 添加字幕
+            logger.info("🎬 准备添加字幕...")
             final_video = self._add_subtitles(final_video, card)
+            logger.info("🎬 字幕添加流程完成")
             
             # 输出最终视频
             output_path = os.path.join(output_dir, f"{external_id}_res.mp4")
@@ -250,9 +252,8 @@ class VideoComposer:
             raise
     
     def _add_subtitles(self, video: VideoFileClip, card: ReductCard) -> CompositeVideoClip:
-        """为视频添加字幕"""
+        """为视频添加字幕 - 完全按照参考代码实现"""
         try:
-            # 完整字幕功能，ImageMagick已安装
             sentences = card.info_CN
             logger.info(f"🎬 开始添加字幕，共 {len(sentences) if sentences else 0} 条句子")
             
@@ -275,75 +276,82 @@ class VideoComposer:
             else:
                 logger.info(f"🎵 获取到音频时长信息: {audio_durations}")
             
+            # 参考代码的字幕生成逻辑
             subtitle_clips = []
-            current_time = 0.0
+            start_time = 0
             
-            for i, sentence in enumerate(sentences):
-                if i >= len(audio_durations):
-                    break
-                    
-                start_time = current_time
-                end_time = current_time + audio_durations[i]
-                current_time = end_time
+            for i, (sentence, seg_time) in enumerate(zip(sentences, audio_durations)):
+                end_time = start_time + seg_time
                 
-                # 调试输出
                 logger.info(f"添加字幕 {i+1}/{len(sentences)}: '{sentence}' ({start_time:.2f}s - {end_time:.2f}s)")
                 
-                # 处理长句子，自动换行
-                formatted_sentence = self._format_subtitle_text(sentence)
+                # 使用参考代码的换行函数
+                formatted_sentence = self._devideSentence(sentence)
                 
-                # 创建字幕文本 - 使用更明显的样式
-                font_name = self._get_suitable_font()
+                # 创建字幕文本 - 使用黑体字体
                 text_clip = TextClip(
                     formatted_sentence,
-                    fontsize=45,              # 增大字体
-                    color='yellow',           # 使用黄色字体，更明显
-                    font=font_name,
-                    align='center',
-                    stroke_color='black',     # 黑色描边
-                    stroke_width=3            # 增加描边宽度
+                    fontsize=50,
+                    color='black',
+                    font="SimHei",  # 使用黑体
+                    align='center'
                 )
                 
-                # 创建半透明背景
-                bg_clip = ColorClip(
-                    size=(text_clip.w + 30, text_clip.h + 15),  # 增大背景
-                    color=(0, 0, 0),          # 黑色背景
+                # 创建背景 - 完全按照参考代码
+                bgcolor_clip = ColorClip(
+                    size=text_clip.size,
+                    color=(250, 250, 210, 200),  # 参考代码的RGBA值
                     ismask=False
-                ).set_opacity(0.85)           # 增加不透明度
+                )
                 
-                # 合并背景和文字
-                subtitle_clip = CompositeVideoClip([bg_clip, text_clip])
+                # 合并文本和背景 - 完全按照参考代码
+                text_clip = CompositeVideoClip([bgcolor_clip, text_clip])
                 
-                # 设置位置和时间 - 稍微上移一些
-                subtitle_clip = subtitle_clip.set_position(('center', 0.85)).set_start(start_time).set_end(end_time)
-                subtitle_clips.append(subtitle_clip)
+                # 设置位置和时间 - 完全按照参考代码
+                text_clip = text_clip.set_position(('center', 0.8 * video.h))
+                text_clip = text_clip.set_start(start_time).set_end(end_time)
+                
+                subtitle_clips.append(text_clip)
+                start_time += seg_time
             
-            # 将字幕添加到视频
-            return CompositeVideoClip([video] + subtitle_clips)
+            # 将字幕添加到视频 - 完全按照参考代码
+            logger.info(f"✅ 成功创建 {len(subtitle_clips)} 个字幕片段")
+            final_video = CompositeVideoClip([video] + subtitle_clips)
+            logger.info("🎬 字幕合成完成")
+            return final_video
             
         except Exception as e:
-            logger.error(f"添加字幕失败: {str(e)}")
+            logger.error(f"❌ 添加字幕失败: {str(e)}")
             return video
     
-    def _format_subtitle_text(self, text: str, max_chars_per_line: int = 20) -> str:
-        """格式化字幕文本，自动换行"""
+    def _devideSentence(self, text: str) -> str:
+        """完全按照参考代码的换行函数"""
+        res = ''
+        for i, ch in enumerate(text):
+            res += ch
+            if i % 16 == 15:
+                res += '\n'
+        if res.endswith('\n'):
+            res = res[:-1]
+        return res
+    
+    def _format_subtitle_text(self, text: str, max_chars_per_line: int = 16) -> str:
+        """格式化字幕文本，自动换行（参考代码样式）"""
         if len(text) <= max_chars_per_line:
             return text
         
-        # 简单的换行逻辑
-        lines = []
-        current_line = ""
+        # 使用参考代码的换行逻辑
+        result = ''
+        for i, char in enumerate(text):
+            result += char
+            if i % max_chars_per_line == max_chars_per_line - 1:
+                result += '\n'
         
-        for char in text:
-            current_line += char
-            if len(current_line) >= max_chars_per_line:
-                lines.append(current_line)
-                current_line = ""
-        
-        if current_line:
-            lines.append(current_line)
-        
-        return '\n'.join(lines)
+        # 移除末尾的换行符
+        if result.endswith('\n'):
+            result = result[:-1]
+            
+        return result
     
     def _get_audio_segment_durations(self, arxiv_id: str) -> List[float]:
         """获取音频片段的时长信息"""
@@ -406,62 +414,3 @@ class VideoComposer:
         except Exception as e:
             logger.error(f"获取音频片段时长失败: {str(e)}")
             return []
-    
-    def _get_suitable_font(self) -> str:
-        """获取适合的跨平台字体"""
-        import platform
-        import subprocess
-        
-        # 定义不同平台的字体候选列表（按优先级排序）
-        font_candidates = {
-            'Darwin': [  # macOS
-                'Arial Unicode MS',  # 支持中文的通用字体，首选
-                'PingFang SC',      # 苹方简体，现代美观
-                'Songti SC',        # 宋体简体
-                'Heiti SC',         # 黑体简体
-                'STSong',           # 华文宋体
-                'Arial',            # 备选英文字体
-            ],
-            'Windows': [  # Windows
-                'Arial Unicode MS', # 支持中文的通用字体，首选
-                'Microsoft YaHei',   # 微软雅黑
-                'SimSun',           # 宋体
-                'SimHei',           # 黑体
-                'Arial',            # 备选英文字体
-            ],
-            'Linux': [    # Linux
-                'Arial Unicode MS', # 如果安装了的话，优先使用
-                'Noto Sans CJK SC',  # Google Noto字体
-                'WenQuanYi Micro Hei', # 文泉驿微米黑
-                'WenQuanYi Zen Hei', # 文泉驿正黑
-                'DejaVu Sans',       # DejaVu字体
-                'Liberation Sans',   # Liberation字体
-                'Arial',            # 备选英文字体
-            ]
-        }
-        
-        current_platform = platform.system()
-        candidates = font_candidates.get(current_platform, font_candidates['Linux'])
-        
-        # 测试每个字体是否可用
-        for font in candidates:
-            if self._test_font_availability(font):
-                logger.info(f"选择字体: {font}")
-                return font
-        
-        # 如果所有字体都不可用，返回默认字体
-        logger.warning("未找到合适的中文字体，使用默认字体")
-        return 'Arial'  # 最保险的选择
-    
-    def _test_font_availability(self, font_name: str) -> bool:
-        """测试字体是否可用"""
-        try:
-            # 尝试创建一个简单的文本剪辑来测试字体
-            test_clip = TextClip("Test", font=font_name, fontsize=20, color='white')
-            # 如果能获取到宽度，说明字体可用
-            width = test_clip.w
-            test_clip.close()  # 释放资源
-            return width > 0
-        except Exception as e:
-            logger.debug(f"字体 {font_name} 不可用: {str(e)}")
-            return False
