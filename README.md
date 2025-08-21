@@ -62,94 +62,138 @@ python main.py --workers 8 --download-dir /path/to/downloads --max-papers 100
 
 注意：所有命令假设你在仓库根路径 `arxiv_video/` 下执行，或自行 cd 到该目录。
 
-### 1) macOS
 
-- 安装 Homebrew（如未安装）：
+### macOS — 从虚拟环境开始（清晰步骤）
+
+步骤 1 — 在仓库目录创建并激活虚拟环境：
 
 ```bash
-/bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
+# 在仓库根目录执行
+python3 -m venv .venv
+source .venv/bin/activate
 ```
 
-- 安装系统依赖：
+步骤 2 — 安装系统依赖（使用 Homebrew）：
 
 ```bash
 brew update
-brew install python imagemagick ffmpeg git
+brew install imagemagick ffmpeg git
 ```
 
-- 创建与激活虚拟环境：
+步骤 3 — 在虚拟环境中安装 Python 依赖：
 
 ```bash
-# 创建（仅需一次）
-python3 -m venv .venv
+pip install --upgrade pip
+pip install -r requirements.txt
+```
 
-# 激活（每次新终端执行）
+步骤 4 — 运行示例（在虚拟环境仍激活时）：
+
+```bash
+python main.py --workers 4 --download-dir ~/Movies/arxiv_video --max-papers 50
+```
+
+---
+
+### Linux（Ubuntu / Debian）— 从虚拟环境开始（清晰步骤）
+
+步骤 1 — 在仓库目录创建并激活虚拟环境：
+
+```bash
+python3 -m venv .venv
 source .venv/bin/activate
 ```
 
-### 2) Linux（Ubuntu/Debian 示例）
-
-- 安装系统依赖：
+步骤 2 — 安装系统依赖：
 
 ```bash
 sudo apt update
-sudo apt install -y python3 python3-venv python3-pip git ffmpeg imagemagick
+sudo apt install -y ffmpeg imagemagick git build-essential
 ```
 
-- 创建与激活虚拟环境：
+说明：`build-essential` 常用于编译一些需要本地构建的 Python 扩展。
+
+步骤 3 — 在虚拟环境中安装 Python 依赖：
 
 ```bash
-python3 -m venv .venv
-source .venv/bin/activate
+pip install --upgrade pip
+pip install -r requirements.txt
 ```
 
-如果你使用其他发行版（CentOS/Fedora），请使用各自包管理器安装 python3 / ffmpeg / imagemagick。
+步骤 4 — 运行示例：
 
-### 3) Windows（原生）
-
-- 推荐在 PowerShell（以管理员身份）下使用 Chocolatey：
-
-```powershell
-# 安装 Chocolatey（若尚未安装）
-Set-ExecutionPolicy Bypass -Scope Process -Force
-[System.Net.ServicePointManager]::SecurityProtocol = [System.Net.ServicePointManager]::SecurityProtocol -bor 3072
-iex ((New-Object System.Net.WebClient).DownloadString('https://chocolatey.org/install.ps1'))
-
-# 安装系统依赖
-choco install -y python git ffmpeg imagemagick
+```bash
+python main.py --workers 4 --download-dir ~/Movies/arxiv_video --max-papers 50
 ```
 
-- 创建与激活虚拟环境（PowerShell）：
+---
+
+### Windows（PowerShell，原生）— 从虚拟环境开始（清晰步骤）
+
+步骤 1 — 在仓库目录创建并激活虚拟环境（PowerShell）：
 
 ```powershell
 python -m venv .venv
 # 激活（PowerShell）
 .\.venv\Scripts\Activate.ps1
-# 如果使用 cmd.exe:
-# .venv\Scripts\activate.bat
 ```
 
-注意：Windows 下 ImageMagick 的安装可能需要选择 "Install legacy utilities (e.g. convert)" 或将安装目录加入 PATH，具体取决于版本。
-
-### 4) Windows + WSL（推荐用于更接近 Linux 的体验）
-
-- 在 Windows 上启用 WSL 并安装 Ubuntu（Microsoft Store）：
+步骤 2 — 安装系统依赖（可选：使用 Chocolatey）：
 
 ```powershell
-wsl --install -d ubuntu
-# 之后打开 WSL 终端
+# 如果已安装 Chocolatey：
+choco install -y git ffmpeg imagemagick
+
+# 若未安装 Chocolatey，请先手动安装 ImageMagick/FFmpeg 或通过官网下载安装包。
 ```
 
-- 在 WSL (Ubuntu) 中，按 Linux 部分的步骤安装依赖并创建虚拟环境：
+注意：Windows 下安装 ImageMagick 时请确保将可执行程序路径加入 PATH。
+
+步骤 3 — 在虚拟环境中安装 Python 依赖：
+
+```powershell
+pip install --upgrade pip
+pip install -r requirements.txt
+```
+
+步骤 4 — 运行示例（PowerShell）：
+
+```powershell
+python main.py --workers 4 --download-dir C:\Users\<you>\Movies\arxiv_video --max-papers 50
+```
+
+---
+
+### Windows + WSL（Ubuntu）— 从虚拟环境开始（清晰步骤，推荐）
+
+步骤 1 — 在 WSL 的仓库目录创建并激活虚拟环境：
 
 ```bash
-sudo apt update
-sudo apt install -y python3 python3-venv python3-pip git ffmpeg imagemagick
 python3 -m venv .venv
 source .venv/bin/activate
 ```
 
-优点：WSL 下的 ImageMagick / FFmpeg 与 Linux 更兼容，调试也更方便。
+步骤 2 — 在 WSL 中安装系统依赖：
+
+```bash
+sudo apt update
+sudo apt install -y ffmpeg imagemagick git build-essential
+```
+
+步骤 3 — 在虚拟环境中安装 Python 依赖：
+
+```bash
+pip install --upgrade pip
+pip install -r requirements.txt
+```
+
+步骤 4 — 运行示例：
+
+```bash
+python main.py --workers 4 --download-dir ~/Movies/arxiv_video --max-papers 50
+```
+
+说明：WSL 环境的 FFmpeg / ImageMagick 更接近 Linux，适合批量处理与脚本化运行。
 
 ---
 
