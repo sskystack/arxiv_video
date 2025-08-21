@@ -285,8 +285,8 @@ class VideoComposer:
                 
                 logger.info(f"添加字幕 {i+1}/{len(sentences)}: '{sentence}' ({start_time:.2f}s - {end_time:.2f}s)")
                 
-                # 使用参考代码的换行函数
-                formatted_sentence = self._devideSentence(sentence)
+                # 使用优化的换行函数，传递video参数以确定合适的行宽
+                formatted_sentence = self._devideSentence(sentence, video)
                 
                 # 创建字幕文本 - 使用ImageMagick识别的字体
                 try:
@@ -323,18 +323,46 @@ class VideoComposer:
                         )
                         logger.info(f"回退使用Arial Unicode字体创建字幕")
                 
-                # 创建背景 - 完全按照参考代码
+                # 创建背景 - 优化背景框大小，提高文本填充率
+                text_width, text_height = text_clip.size
+                
+                # 更紧凑的背景框设计，减少多余空间
+                if self._is_mainly_english(formatted_sentence):
+                    # 英文文本：适度增加宽度，但不要过多
+                    bg_width = int(text_width * 1.15)  # 减少到15%边距
+                    bg_height = int(text_height * 1.1)  # 减少到10%边距
+                else:
+                    # 中文文本：稍微增加空间
+                    bg_width = int(text_width * 1.2)   # 减少到20%边距
+                    bg_height = int(text_height * 1.1)  # 减少到10%边距
+                
+                # 确保背景框有合理的最小尺寸，但不设置过大的最大限制
+                bg_width = max(bg_width, 200)  # 最小宽度
+                bg_height = max(bg_height, 50)  # 最小高度
+                
+                # 确保不超出视频宽度（留40像素边距）
+                max_width = video.w - 40
+                if bg_width > max_width:
+                    bg_width = max_width
+                
+                logger.info(f"字幕背景框大小: {bg_width}x{bg_height} (文本大小: {text_width}x{text_height})")
+                
                 bgcolor_clip = ColorClip(
-                    size=text_clip.size,
+                    size=(bg_width, bg_height),
                     color=(250, 250, 210, 200),  # 参考代码的RGBA值
                     ismask=False
                 )
                 
-                # 合并文本和背景 - 完全按照参考代码
-                text_clip = CompositeVideoClip([bgcolor_clip, text_clip])
+                # 合并文本和背景 - 文本居中显示在更宽的背景框中
+                text_clip = CompositeVideoClip([
+                    bgcolor_clip,
+                    text_clip.set_position('center')  # 文本在背景框中居中
+                ])
                 
-                # 设置位置和时间 - 完全按照参考代码
-                text_clip = text_clip.set_position(('center', 0.8 * video.h))
+                # 设置字幕位置 - 让字幕框底部贴着视频底部
+                # 计算字幕应该放置的Y位置：视频高度 - 字幕高度 - 少量边距
+                subtitle_y = video.h - bg_height - 20  # 距离底部20像素
+                text_clip = text_clip.set_position(('center', subtitle_y))
                 text_clip = text_clip.set_start(start_time).set_end(end_time)
                 
                 subtitle_clips.append(text_clip)
@@ -350,15 +378,70 @@ class VideoComposer:
             logger.error(f"❌ 添加字幕失败: {str(e)}")
             return video
     
-    def _devideSentence(self, text: str) -> str:
-        """完全按照参考代码的换行函数"""
+    def _devideSentence(self, sentence, video):
+        """智能分割句子为多行字幕，优化文本利用率，减少不必要的换行
+        
+        Args:
+            sentence: 待分割的句子
+            video: 视频对象（用于确定适合的宽度）
+            
+        Returns:
+            格式化后的多行字符串
+        """
+        if not sentence.strip():
+            return ""
+        
+        sentence = sentence.strip()
+        
+        # 判断文本主要语言类型
+        if self._is_mainly_english(sentence):
+            # 英文文本：使用更长的行长度，减少换行
+            return self._smart_english_wrap(sentence, max_chars=65)  # 增加到65字符
+        else:
+            # 中文文本：也适当增加行长度
+            return self._chinese_wrap(sentence, max_chars=32)  # 增加到32字符
+    
+    def _is_mainly_english(self, text: str) -> bool:
+        """判断文本是否主要是英文"""
+        chinese_chars = sum(1 for char in text if '\u4e00' <= char <= '\u9fff')
+        total_chars = len(text.strip())
+        return chinese_chars / max(total_chars, 1) < 0.3  # 如果中文字符少于30%，认为是英文为主
+    
+    def _smart_english_wrap(self, text: str, max_chars: int = 32) -> str:
+        """智能英文换行 - 尽量在单词边界换行，并确保不会过度换行"""
+        if len(text) <= max_chars:
+            return text
+        
+        words = text.split(' ')
+        lines = []
+        current_line = ""
+        
+        for word in words:
+            test_line = current_line + " " + word if current_line else word
+            # 如果加上这个单词不会超过行宽，或者当前行为空（避免单词太长时无限循环）
+            if len(test_line) <= max_chars or not current_line:
+                current_line = test_line
+            else:
+                # 换行
+                if current_line:
+                    lines.append(current_line)
+                current_line = word
+        
+        if current_line:
+            lines.append(current_line)
+        
+        return '\n'.join(lines)
+    
+    def _chinese_wrap(self, text: str, max_chars: int = 20) -> str:
+        """中文换行 - 按字符数换行"""
+        if len(text) <= max_chars:
+            return text
+        
         res = ''
         for i, ch in enumerate(text):
             res += ch
-            if i % 16 == 15:
+            if (i + 1) % max_chars == 0 and i < len(text) - 1:
                 res += '\n'
-        if res.endswith('\n'):
-            res = res[:-1]
         return res
     
     def _format_subtitle_text(self, text: str, max_chars_per_line: int = 16) -> str:

@@ -1077,3 +1077,143 @@
 2025-08-21 18:46:55,549 - arxiv_crawler - INFO - [crawler.py:166] - 处理完成！成功: 1, 失败: 2, 成功率: 33.3%
 2025-08-21 18:46:55,549 - arxiv_crawler - INFO - [main.py:243] - ArXiv 视频下载器完成
 2025-08-21 18:46:55,550 - arxiv_crawler - INFO - [crawler.py:365] - 爬虫资源已清理
+2025-08-21 18:54:18,498 - card_generator - INFO - [card_generator.py:56] - 数据库连接成功，卡片生成器初始化完成
+2025-08-21 18:54:18,634 - arxiv_crawler - INFO - [main.py:216] - ArXiv 视频下载器启动
+2025-08-21 18:54:18,634 - arxiv_crawler - INFO - [main.py:217] - 配置 - 领域: cs.CV, 线程数: 8, 最大论文数: 3, 下载目录: /Users/zhouzhongtian/Movies/arxiv_video
+2025-08-21 18:54:18,635 - arxiv_crawler - INFO - [main.py:223] - 将自动获取最新发布日期的论文
+2025-08-21 18:54:18,635 - arxiv_crawler - INFO - [crawler.py:87] - 初始化完成，线程数: 8，下载目录: /Users/zhouzhongtian/Movies/arxiv_video
+2025-08-21 18:54:18,635 - arxiv_crawler - INFO - [crawler.py:104] - 开始爬取 cs.CV 领域最新一天的论文视频...
+2025-08-21 18:54:18,635 - arxiv_fetcher - INFO - [arxiv_fetcher.py:37] - 开始从数据库获取最新发布日的论文...
+2025-08-21 18:54:19,422 - arxiv_fetcher - INFO - [arxiv_fetcher.py:50] - 数据库中最新发布日期: 20250821
+2025-08-21 18:54:19,422 - arxiv_fetcher - INFO - [arxiv_fetcher.py:115] - 正在从数据库获取 20250821 日期的论文...
+2025-08-21 18:54:20,877 - arxiv_fetcher - INFO - [arxiv_fetcher.py:152] - 从数据库获取完成，共找到 3 篇 20250821 日期的论文
+2025-08-21 18:54:20,947 - arxiv_crawler - INFO - [crawler.py:118] - 获取到 3 篇论文，开始多线程处理...
+2025-08-21 18:54:21,123 - arxiv_crawler - INFO - [crawler.py:192] - [线程6161068032] 开始处理: 2508.14889 - MS-CLR: Multi-Skeleton Contrastive Learning for Hu... (使用publication_date: 20250821)
+2025-08-21 18:54:21,397 - arxiv_crawler - INFO - [crawler.py:192] - [线程6177894400] 开始处理: 2508.14891 - GaussianArt: Unified Modeling of Geometry and Moti... (使用publication_date: 20250821)
+2025-08-21 18:54:21,403 - arxiv_crawler - INFO - [crawler.py:192] - [线程6194720768] 开始处理: 2508.14878 - Lifespan Pancreas Morphology for Control vs Type 2... (使用publication_date: 20250821)
+2025-08-21 18:54:22,287 - arxiv_crawler - INFO - [crawler.py:201] - [线程6161068032] 论文 2508.14889 没有找到项目链接
+2025-08-21 18:54:22,619 - arxiv_crawler - INFO - [crawler.py:207] - [线程6177894400] 检查项目页面: https://sainingzhang.github.io/project/gaussianart/
+2025-08-21 18:54:22,730 - arxiv_crawler - INFO - [crawler.py:201] - [线程6194720768] 论文 2508.14878 没有找到项目链接
+2025-08-21 18:54:31,769 - video_downloader - INFO - [video_downloader.py:169] - 视频下载成功: /Users/zhouzhongtian/Movies/arxiv_video/20250821/2508.14891/video_0.mp4
+2025-08-21 18:54:33,937 - video_downloader - INFO - [video_downloader.py:169] - 视频下载成功: /Users/zhouzhongtian/Movies/arxiv_video/20250821/2508.14891/video_1.mp4
+2025-08-21 18:54:33,937 - arxiv_crawler - INFO - [crawler.py:229] - [线程6177894400] 论文 2508.14891 成功下载 2 个视频
+2025-08-21 18:54:33,938 - card_generator - INFO - [card_generator.py:77] - 开始为 ArXiv ID 2508.14891v1 生成解说卡片
+2025-08-21 18:54:34,020 - card_generator - INFO - [card_generator.py:96] - 找到论文: GaussianArt: Unified Modeling of Geometry and Moti...
+2025-08-21 18:54:34,429 - card_generator - INFO - [card_generator.py:113] - 成功生成 ArXiv ID 2508.14891v1 的解说卡片
+2025-08-21 18:54:34,432 - card_generator - INFO - [card_generator.py:157] - 卡片已保存到: /Users/zhouzhongtian/vscode/arxiv_video/cards/2508.14891v1.json
+2025-08-21 18:54:34,433 - card_generator - INFO - [card_generator.py:157] - 卡片已保存到: /Users/zhouzhongtian/Movies/arxiv_video/20250821/2508.14891/2508.14891v1.json
+2025-08-21 18:54:34,433 - card_generator - INFO - [card_generator.py:376] - 卡片已保存到: /Users/zhouzhongtian/Movies/arxiv_video/20250821/2508.14891/2508.14891v1.json
+2025-08-21 18:54:34,433 - arxiv_crawler - INFO - [crawler.py:242] - [线程6177894400] 成功生成并保存论文 2508.14891v1 的解说卡片到 /Users/zhouzhongtian/Movies/arxiv_video/20250821/2508.14891
+2025-08-21 18:55:18,305 - arxiv_crawler - INFO - [crawler.py:248] - [线程6177894400] 成功为论文 2508.14891v1 生成合成视频: /Users/zhouzhongtian/Movies/arxiv_video/20250821/2508.14891/2508.14891v1_res.mp4
+2025-08-21 18:55:18,306 - arxiv_crawler - INFO - [crawler.py:166] - 处理完成！成功: 1, 失败: 2, 成功率: 33.3%
+2025-08-21 18:55:18,306 - arxiv_crawler - INFO - [main.py:243] - ArXiv 视频下载器完成
+2025-08-21 18:55:18,307 - arxiv_crawler - INFO - [crawler.py:365] - 爬虫资源已清理
+2025-08-21 18:58:38,021 - card_generator - INFO - [card_generator.py:56] - 数据库连接成功，卡片生成器初始化完成
+2025-08-21 18:58:38,146 - arxiv_crawler - INFO - [main.py:216] - ArXiv 视频下载器启动
+2025-08-21 18:58:38,146 - arxiv_crawler - INFO - [main.py:217] - 配置 - 领域: cs.CV, 线程数: 2, 最大论文数: 1, 下载目录: /Users/zhouzhongtian/Movies/arxiv_video
+2025-08-21 18:58:38,146 - arxiv_crawler - INFO - [main.py:223] - 将自动获取最新发布日期的论文
+2025-08-21 18:58:38,146 - arxiv_crawler - INFO - [crawler.py:87] - 初始化完成，线程数: 2，下载目录: /Users/zhouzhongtian/Movies/arxiv_video
+2025-08-21 18:58:38,146 - arxiv_crawler - INFO - [crawler.py:104] - 开始爬取 cs.CV 领域最新一天的论文视频...
+2025-08-21 18:58:38,146 - arxiv_fetcher - INFO - [arxiv_fetcher.py:37] - 开始从数据库获取最新发布日的论文...
+2025-08-21 18:58:38,927 - arxiv_fetcher - INFO - [arxiv_fetcher.py:50] - 数据库中最新发布日期: 20250821
+2025-08-21 18:58:38,928 - arxiv_fetcher - INFO - [arxiv_fetcher.py:115] - 正在从数据库获取 20250821 日期的论文...
+2025-08-21 18:58:40,358 - arxiv_fetcher - INFO - [arxiv_fetcher.py:152] - 从数据库获取完成，共找到 1 篇 20250821 日期的论文
+2025-08-21 18:58:40,431 - arxiv_crawler - INFO - [crawler.py:118] - 获取到 1 篇论文，开始多线程处理...
+2025-08-21 18:58:40,603 - arxiv_crawler - INFO - [crawler.py:192] - [线程6162870272] 开始处理: 2508.14889 - MS-CLR: Multi-Skeleton Contrastive Learning for Hu... (使用publication_date: 20250821)
+2025-08-21 18:58:42,009 - arxiv_crawler - INFO - [crawler.py:201] - [线程6162870272] 论文 2508.14889 没有找到项目链接
+2025-08-21 18:58:42,009 - arxiv_crawler - INFO - [crawler.py:166] - 处理完成！成功: 0, 失败: 1, 成功率: 0.0%
+2025-08-21 18:58:42,009 - arxiv_crawler - INFO - [main.py:243] - ArXiv 视频下载器完成
+2025-08-21 18:58:42,010 - arxiv_crawler - INFO - [crawler.py:365] - 爬虫资源已清理
+2025-08-21 18:59:07,412 - card_generator - INFO - [card_generator.py:56] - 数据库连接成功，卡片生成器初始化完成
+2025-08-21 18:59:07,524 - arxiv_crawler - INFO - [main.py:216] - ArXiv 视频下载器启动
+2025-08-21 18:59:07,524 - arxiv_crawler - INFO - [main.py:217] - 配置 - 领域: cs.CV, 线程数: 2, 最大论文数: 3, 下载目录: /Users/zhouzhongtian/Movies/arxiv_video
+2025-08-21 18:59:07,524 - arxiv_crawler - INFO - [main.py:223] - 将自动获取最新发布日期的论文
+2025-08-21 18:59:07,524 - arxiv_crawler - INFO - [crawler.py:87] - 初始化完成，线程数: 2，下载目录: /Users/zhouzhongtian/Movies/arxiv_video
+2025-08-21 18:59:07,524 - arxiv_crawler - INFO - [crawler.py:104] - 开始爬取 cs.CV 领域最新一天的论文视频...
+2025-08-21 18:59:07,524 - arxiv_fetcher - INFO - [arxiv_fetcher.py:37] - 开始从数据库获取最新发布日的论文...
+2025-08-21 18:59:08,324 - arxiv_fetcher - INFO - [arxiv_fetcher.py:50] - 数据库中最新发布日期: 20250821
+2025-08-21 18:59:08,324 - arxiv_fetcher - INFO - [arxiv_fetcher.py:115] - 正在从数据库获取 20250821 日期的论文...
+2025-08-21 18:59:09,789 - arxiv_fetcher - INFO - [arxiv_fetcher.py:152] - 从数据库获取完成，共找到 3 篇 20250821 日期的论文
+2025-08-21 18:59:09,859 - arxiv_crawler - INFO - [crawler.py:118] - 获取到 3 篇论文，开始多线程处理...
+2025-08-21 18:59:10,022 - arxiv_crawler - INFO - [crawler.py:192] - [线程6200766464] 开始处理: 2508.14889 - MS-CLR: Multi-Skeleton Contrastive Learning for Hu... (使用publication_date: 20250821)
+2025-08-21 18:59:10,237 - arxiv_crawler - INFO - [crawler.py:192] - [线程6217592832] 开始处理: 2508.14891 - GaussianArt: Unified Modeling of Geometry and Moti... (使用publication_date: 20250821)
+2025-08-21 18:59:11,347 - arxiv_crawler - INFO - [crawler.py:201] - [线程6200766464] 论文 2508.14889 没有找到项目链接
+2025-08-21 18:59:11,496 - arxiv_crawler - INFO - [crawler.py:192] - [线程6200766464] 开始处理: 2508.14878 - Lifespan Pancreas Morphology for Control vs Type 2... (使用publication_date: 20250821)
+2025-08-21 18:59:11,866 - arxiv_crawler - INFO - [crawler.py:207] - [线程6217592832] 检查项目页面: https://sainingzhang.github.io/project/gaussianart/
+2025-08-21 18:59:12,519 - arxiv_crawler - INFO - [crawler.py:201] - [线程6200766464] 论文 2508.14878 没有找到项目链接
+2025-08-21 18:59:21,056 - video_downloader - INFO - [video_downloader.py:169] - 视频下载成功: /Users/zhouzhongtian/Movies/arxiv_video/20250821/2508.14891/video_0.mp4
+2025-08-21 18:59:22,729 - video_downloader - INFO - [video_downloader.py:169] - 视频下载成功: /Users/zhouzhongtian/Movies/arxiv_video/20250821/2508.14891/video_1.mp4
+2025-08-21 18:59:22,729 - arxiv_crawler - INFO - [crawler.py:229] - [线程6217592832] 论文 2508.14891 成功下载 2 个视频
+2025-08-21 18:59:22,730 - card_generator - INFO - [card_generator.py:77] - 开始为 ArXiv ID 2508.14891v1 生成解说卡片
+2025-08-21 18:59:22,819 - card_generator - INFO - [card_generator.py:96] - 找到论文: GaussianArt: Unified Modeling of Geometry and Moti...
+2025-08-21 18:59:23,248 - card_generator - INFO - [card_generator.py:113] - 成功生成 ArXiv ID 2508.14891v1 的解说卡片
+2025-08-21 18:59:23,249 - card_generator - INFO - [card_generator.py:157] - 卡片已保存到: /Users/zhouzhongtian/vscode/arxiv_video/cards/2508.14891v1.json
+2025-08-21 18:59:23,250 - card_generator - INFO - [card_generator.py:157] - 卡片已保存到: /Users/zhouzhongtian/Movies/arxiv_video/20250821/2508.14891/2508.14891v1.json
+2025-08-21 18:59:23,250 - card_generator - INFO - [card_generator.py:376] - 卡片已保存到: /Users/zhouzhongtian/Movies/arxiv_video/20250821/2508.14891/2508.14891v1.json
+2025-08-21 18:59:23,250 - arxiv_crawler - INFO - [crawler.py:242] - [线程6217592832] 成功生成并保存论文 2508.14891v1 的解说卡片到 /Users/zhouzhongtian/Movies/arxiv_video/20250821/2508.14891
+2025-08-21 19:00:12,265 - arxiv_crawler - INFO - [crawler.py:248] - [线程6217592832] 成功为论文 2508.14891v1 生成合成视频: /Users/zhouzhongtian/Movies/arxiv_video/20250821/2508.14891/2508.14891v1_res.mp4
+2025-08-21 19:00:12,266 - arxiv_crawler - INFO - [crawler.py:166] - 处理完成！成功: 1, 失败: 2, 成功率: 33.3%
+2025-08-21 19:00:12,266 - arxiv_crawler - INFO - [main.py:243] - ArXiv 视频下载器完成
+2025-08-21 19:00:12,267 - arxiv_crawler - INFO - [crawler.py:365] - 爬虫资源已清理
+2025-08-21 19:11:16,601 - card_generator - INFO - [card_generator.py:56] - 数据库连接成功，卡片生成器初始化完成
+2025-08-21 19:11:16,784 - arxiv_crawler - INFO - [main.py:216] - ArXiv 视频下载器启动
+2025-08-21 19:11:16,785 - arxiv_crawler - INFO - [main.py:217] - 配置 - 领域: cs.CV, 线程数: 2, 最大论文数: 3, 下载目录: /Users/zhouzhongtian/Movies/arxiv_video
+2025-08-21 19:11:16,785 - arxiv_crawler - INFO - [main.py:223] - 将自动获取最新发布日期的论文
+2025-08-21 19:11:16,785 - arxiv_crawler - INFO - [crawler.py:87] - 初始化完成，线程数: 2，下载目录: /Users/zhouzhongtian/Movies/arxiv_video
+2025-08-21 19:11:16,785 - arxiv_crawler - INFO - [crawler.py:104] - 开始爬取 cs.CV 领域最新一天的论文视频...
+2025-08-21 19:11:16,785 - arxiv_fetcher - INFO - [arxiv_fetcher.py:37] - 开始从数据库获取最新发布日的论文...
+2025-08-21 19:11:17,918 - arxiv_fetcher - INFO - [arxiv_fetcher.py:50] - 数据库中最新发布日期: 20250821
+2025-08-21 19:11:17,918 - arxiv_fetcher - INFO - [arxiv_fetcher.py:115] - 正在从数据库获取 20250821 日期的论文...
+2025-08-21 19:11:19,380 - arxiv_fetcher - INFO - [arxiv_fetcher.py:152] - 从数据库获取完成，共找到 3 篇 20250821 日期的论文
+2025-08-21 19:11:19,446 - arxiv_crawler - INFO - [crawler.py:118] - 获取到 3 篇论文，开始多线程处理...
+2025-08-21 19:11:19,617 - arxiv_crawler - INFO - [crawler.py:192] - [线程6122991616] 开始处理: 2508.14889 - MS-CLR: Multi-Skeleton Contrastive Learning for Hu... (使用publication_date: 20250821)
+2025-08-21 19:11:19,844 - arxiv_crawler - INFO - [crawler.py:192] - [线程6139817984] 开始处理: 2508.14891 - GaussianArt: Unified Modeling of Geometry and Moti... (使用publication_date: 20250821)
+2025-08-21 19:11:20,761 - arxiv_crawler - INFO - [crawler.py:201] - [线程6122991616] 论文 2508.14889 没有找到项目链接
+2025-08-21 19:11:20,900 - arxiv_crawler - INFO - [crawler.py:192] - [线程6122991616] 开始处理: 2508.14878 - Lifespan Pancreas Morphology for Control vs Type 2... (使用publication_date: 20250821)
+2025-08-21 19:11:20,943 - arxiv_crawler - INFO - [crawler.py:207] - [线程6139817984] 检查项目页面: https://sainingzhang.github.io/project/gaussianart/
+2025-08-21 19:11:22,114 - arxiv_crawler - INFO - [crawler.py:201] - [线程6122991616] 论文 2508.14878 没有找到项目链接
+2025-08-21 19:11:25,470 - video_downloader - INFO - [video_downloader.py:169] - 视频下载成功: /Users/zhouzhongtian/Movies/arxiv_video/20250821/2508.14891/video_0.mp4
+2025-08-21 19:11:32,113 - video_downloader - INFO - [video_downloader.py:169] - 视频下载成功: /Users/zhouzhongtian/Movies/arxiv_video/20250821/2508.14891/video_1.mp4
+2025-08-21 19:11:32,114 - arxiv_crawler - INFO - [crawler.py:229] - [线程6139817984] 论文 2508.14891 成功下载 2 个视频
+2025-08-21 19:11:32,115 - card_generator - INFO - [card_generator.py:77] - 开始为 ArXiv ID 2508.14891v1 生成解说卡片
+2025-08-21 19:11:32,233 - card_generator - INFO - [card_generator.py:96] - 找到论文: GaussianArt: Unified Modeling of Geometry and Moti...
+2025-08-21 19:11:32,665 - card_generator - INFO - [card_generator.py:113] - 成功生成 ArXiv ID 2508.14891v1 的解说卡片
+2025-08-21 19:11:32,666 - card_generator - INFO - [card_generator.py:157] - 卡片已保存到: /Users/zhouzhongtian/vscode/arxiv_video/cards/2508.14891v1.json
+2025-08-21 19:11:32,667 - card_generator - INFO - [card_generator.py:157] - 卡片已保存到: /Users/zhouzhongtian/Movies/arxiv_video/20250821/2508.14891/2508.14891v1.json
+2025-08-21 19:11:32,667 - card_generator - INFO - [card_generator.py:376] - 卡片已保存到: /Users/zhouzhongtian/Movies/arxiv_video/20250821/2508.14891/2508.14891v1.json
+2025-08-21 19:11:32,667 - arxiv_crawler - INFO - [crawler.py:242] - [线程6139817984] 成功生成并保存论文 2508.14891v1 的解说卡片到 /Users/zhouzhongtian/Movies/arxiv_video/20250821/2508.14891
+2025-08-21 19:12:02,618 - arxiv_crawler - INFO - [crawler.py:248] - [线程6139817984] 成功为论文 2508.14891v1 生成合成视频: /Users/zhouzhongtian/Movies/arxiv_video/20250821/2508.14891/2508.14891v1_res.mp4
+2025-08-21 19:12:02,619 - arxiv_crawler - INFO - [crawler.py:166] - 处理完成！成功: 1, 失败: 2, 成功率: 33.3%
+2025-08-21 19:12:02,619 - arxiv_crawler - INFO - [main.py:243] - ArXiv 视频下载器完成
+2025-08-21 19:12:02,620 - arxiv_crawler - INFO - [crawler.py:365] - 爬虫资源已清理
+2025-08-21 19:15:21,109 - card_generator - INFO - [card_generator.py:56] - 数据库连接成功，卡片生成器初始化完成
+2025-08-21 19:15:21,250 - arxiv_crawler - INFO - [main.py:216] - ArXiv 视频下载器启动
+2025-08-21 19:15:21,250 - arxiv_crawler - INFO - [main.py:217] - 配置 - 领域: cs.CV, 线程数: 2, 最大论文数: 3, 下载目录: /Users/zhouzhongtian/Movies/arxiv_video
+2025-08-21 19:15:21,250 - arxiv_crawler - INFO - [main.py:223] - 将自动获取最新发布日期的论文
+2025-08-21 19:15:21,250 - arxiv_crawler - INFO - [crawler.py:87] - 初始化完成，线程数: 2，下载目录: /Users/zhouzhongtian/Movies/arxiv_video
+2025-08-21 19:15:21,250 - arxiv_crawler - INFO - [crawler.py:104] - 开始爬取 cs.CV 领域最新一天的论文视频...
+2025-08-21 19:15:21,250 - arxiv_fetcher - INFO - [arxiv_fetcher.py:37] - 开始从数据库获取最新发布日的论文...
+2025-08-21 19:15:22,056 - arxiv_fetcher - INFO - [arxiv_fetcher.py:50] - 数据库中最新发布日期: 20250821
+2025-08-21 19:15:22,056 - arxiv_fetcher - INFO - [arxiv_fetcher.py:115] - 正在从数据库获取 20250821 日期的论文...
+2025-08-21 19:15:23,502 - arxiv_fetcher - INFO - [arxiv_fetcher.py:152] - 从数据库获取完成，共找到 3 篇 20250821 日期的论文
+2025-08-21 19:15:23,579 - arxiv_crawler - INFO - [crawler.py:118] - 获取到 3 篇论文，开始多线程处理...
+2025-08-21 19:15:23,748 - arxiv_crawler - INFO - [crawler.py:192] - [线程6122549248] 开始处理: 2508.14889 - MS-CLR: Multi-Skeleton Contrastive Learning for Hu... (使用publication_date: 20250821)
+2025-08-21 19:15:23,979 - arxiv_crawler - INFO - [crawler.py:192] - [线程6139375616] 开始处理: 2508.14891 - GaussianArt: Unified Modeling of Geometry and Moti... (使用publication_date: 20250821)
+2025-08-21 19:15:25,037 - arxiv_crawler - INFO - [crawler.py:201] - [线程6122549248] 论文 2508.14889 没有找到项目链接
+2025-08-21 19:15:25,110 - arxiv_crawler - INFO - [crawler.py:207] - [线程6139375616] 检查项目页面: https://sainingzhang.github.io/project/gaussianart/
+2025-08-21 19:15:25,176 - arxiv_crawler - INFO - [crawler.py:192] - [线程6122549248] 开始处理: 2508.14878 - Lifespan Pancreas Morphology for Control vs Type 2... (使用publication_date: 20250821)
+2025-08-21 19:15:26,152 - arxiv_crawler - INFO - [crawler.py:201] - [线程6122549248] 论文 2508.14878 没有找到项目链接
+2025-08-21 19:15:30,554 - video_downloader - INFO - [video_downloader.py:169] - 视频下载成功: /Users/zhouzhongtian/Movies/arxiv_video/20250821/2508.14891/video_0.mp4
+2025-08-21 19:16:32,610 - video_downloader - INFO - [video_downloader.py:169] - 视频下载成功: /Users/zhouzhongtian/Movies/arxiv_video/20250821/2508.14891/video_1.mp4
+2025-08-21 19:16:32,612 - arxiv_crawler - INFO - [crawler.py:229] - [线程6139375616] 论文 2508.14891 成功下载 2 个视频
+2025-08-21 19:16:32,613 - card_generator - INFO - [card_generator.py:77] - 开始为 ArXiv ID 2508.14891v1 生成解说卡片
+2025-08-21 19:16:32,712 - card_generator - INFO - [card_generator.py:96] - 找到论文: GaussianArt: Unified Modeling of Geometry and Moti...
+2025-08-21 19:16:33,540 - card_generator - INFO - [card_generator.py:113] - 成功生成 ArXiv ID 2508.14891v1 的解说卡片
+2025-08-21 19:16:33,542 - card_generator - INFO - [card_generator.py:157] - 卡片已保存到: /Users/zhouzhongtian/vscode/arxiv_video/cards/2508.14891v1.json
+2025-08-21 19:16:33,542 - card_generator - INFO - [card_generator.py:157] - 卡片已保存到: /Users/zhouzhongtian/Movies/arxiv_video/20250821/2508.14891/2508.14891v1.json
+2025-08-21 19:16:33,542 - card_generator - INFO - [card_generator.py:376] - 卡片已保存到: /Users/zhouzhongtian/Movies/arxiv_video/20250821/2508.14891/2508.14891v1.json
+2025-08-21 19:16:33,542 - arxiv_crawler - INFO - [crawler.py:242] - [线程6139375616] 成功生成并保存论文 2508.14891v1 的解说卡片到 /Users/zhouzhongtian/Movies/arxiv_video/20250821/2508.14891
+2025-08-21 19:17:19,027 - arxiv_crawler - INFO - [crawler.py:248] - [线程6139375616] 成功为论文 2508.14891v1 生成合成视频: /Users/zhouzhongtian/Movies/arxiv_video/20250821/2508.14891/2508.14891v1_res.mp4
+2025-08-21 19:17:19,028 - arxiv_crawler - INFO - [crawler.py:166] - 处理完成！成功: 1, 失败: 2, 成功率: 33.3%
+2025-08-21 19:17:19,028 - arxiv_crawler - INFO - [main.py:243] - ArXiv 视频下载器完成
+2025-08-21 19:17:19,029 - arxiv_crawler - INFO - [crawler.py:365] - 爬虫资源已清理
