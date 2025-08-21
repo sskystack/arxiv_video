@@ -1,0 +1,24 @@
+{
+  "arXivID": "2508.14567v1",
+  "info_CN": [
+    "2025年8月21日arXiv,cs.CV,发文量约97篇",
+    "减论Agent通过算法为您推荐",
+    "慕尼黑工业大学推出了基于TUM Traffic Accident数据集的Accid3nD事故检测方法",
+    "该方法结合规则与学习机制",
+    "利用多视角摄像头和LiDAR数据实现对高速公路交通事故的精准识别与跟踪",
+    "The Technical University of Munich",
+    "University of California San Diego",
+    "and SETLabs Research GmbH presented Accid3nD",
+    "an accident detection model that combines a rule-based approach with a learning-based one using the TUM Traffic Accident dataset consisting of labeled 2D and 3D vehicle crash sequences recorded from roadside cameras and LiDARs",
+    "欢迎关注减论",
+    "用科技链接个体"
+  ],
+  "info_EN": [
+    "The Technical University of Munich",
+    "University of California San Diego",
+    "and SETLabs Research GmbH presented Accid3nD",
+    "an accident detection model that combines a rule-based approach with a learning-based one using the TUM Traffic Accident dataset consisting of labeled 2D and 3D vehicle crash sequences recorded from roadside cameras and LiDARs"
+  ],
+  "created_at": "2025-08-21T17:36:48.722269",
+  "version": "1.0"
+}

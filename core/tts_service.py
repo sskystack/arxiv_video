@@ -2,6 +2,7 @@ import time
 import requests
 import json
 import os
+import re
 from typing import List
 import logging
 from pydub import AudioSegment
@@ -15,6 +16,26 @@ class TTSService:
         self.group_id = "1887488082316366180"
         self.api_key = "eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCJ9.eyJHcm91cE5hbWUiOiLmtbfonrrnlKjmiLdfMzQ0NDM4MjQxMTMwMTE5MTczIiwiVXNlck5hbWUiOiLmtbfonrrnlKjmiLdfMzQ0NDM4MjQxMTMwMTE5MTczIiwiQWNjb3VudCI6IiIsIlN1YmplY3RJRCI6IjE4ODc0ODgwODIzMjg5NDkwOTIiLCJQaG9uZSI6IjE1ODUwNTI2MDg5IiwiR3JvdXBJRCI6IjE4ODc0ODgwODIzMTYzNjYxODAiLCJQYWdlTmFtZSI6IiIsIk1haWwiOiIiLCJDcmVhdGVUaW1lIjoiMjAyNS0wMi0wOCAwOToxNToxMCIsIlRva2VuVHlwZSI6MSwiaXNzIjoibWluaW1heCJ9.Rq5HQYxEljZaTceSWJaKx_36n9-8k8XtvpCkNWvumwGA5PAaRtnnMDCWEfSq5NKrS6scnckRW_0SSuwQPhyJuRIEImNrCH4AhytrMimFsPGNxY5ljI6Rf6tewxq5K4VYyi0o4wx-jSjb70mU-Ki4nUmw4RNp2bdUE_JT0kGXqADnPwc2375OIuByxyFUjT0ziKSYEEnO27uXiQsRtvesFFNY2jOQyuEwZK_VAEk_EQ6oERydz-W5jhvRJmghkxHUxINiYssP0cHrfO6lI26s1JhM2pOnnNCvErGOy0ZujsNgqdYSnu1Anw0ae60uN_XEFKSHRZCydzi1mtd4KXmLPg"
         self.url = f"https://api.minimax.chat/v1/t2a_v2?GroupId={self.group_id}"
+        
+        # 语音引擎配置
+        self.voice_configs = {
+            'chinese': {
+                'voice_id': 'Chinese (Mandarin)_Gentleman',
+                'speed': 1.0,
+                'vol': 1,
+                'pitch': 0,
+                'emotion': 'happy'
+            },
+            'english': {
+                # MiniMax可能不支持英文语音，暂时使用中文语音处理英文
+                # 后续可以考虑集成其他TTS服务（如Azure TTS）处理英文
+                'voice_id': 'Chinese (Mandarin)_Gentleman',
+                'speed': 0.9,  # 稍微慢一点，让英文发音更清楚
+                'vol': 1,
+                'pitch': 0,
+                'emotion': 'neutral'
+            }
+        }
     
     def generate_speech_segments(self, sentences: List[str], output_dir: str) -> List[str]:
         """
@@ -56,26 +77,60 @@ class TTSService:
         logger.info(f"成功生成 {len(audio_paths)} 个语音片段")
         return audio_paths
     
+    def _detect_language(self, text: str) -> str:
+        """
+        检测文本的主要语言
+        
+        Args:
+            text: 待检测的文本
+            
+        Returns:
+            str: 'chinese' 或 'english'
+        """
+        # 移除标点符号和空格
+        clean_text = re.sub(r'[^\w\u4e00-\u9fff]', '', text)
+        
+        if not clean_text:
+            return 'chinese'  # 默认返回中文
+        
+        # 统计中文字符数量
+        chinese_chars = len(re.findall(r'[\u4e00-\u9fff]', clean_text))
+        # 统计英文字符数量
+        english_chars = len(re.findall(r'[a-zA-Z]', clean_text))
+        
+        total_chars = chinese_chars + english_chars
+        if total_chars == 0:
+            return 'chinese'
+        
+        # 如果中文字符占比超过30%，认为是中文
+        if chinese_chars / total_chars > 0.3:
+            logger.debug(f"检测为中文: 中文{chinese_chars}字符, 英文{english_chars}字符, 文本: {text[:50]}...")
+            return 'chinese'
+        else:
+            logger.debug(f"检测为英文: 中文{chinese_chars}字符, 英文{english_chars}字符, 文本: {text[:50]}...")
+            return 'english'
+    
     def _generate_single_audio(self, text: str, output_path: str):
-        """使用MiniMax API生成单个音频文件"""
+        """使用MiniMax API生成单个音频文件，自动检测语言并选择合适的语音引擎"""
+        
+        # 检测语言并选择语音配置
+        language = self._detect_language(text)
+        voice_config = self.voice_configs[language]
+        
+        logger.info(f"文本语言检测: {language}, 使用语音: {voice_config['voice_id']}")
+        
         payload = json.dumps({
             "model": "speech-01-turbo",
             "text": text,
             "stream": False,
-            "voice_setting": {
-                "voice_id": "Chinese (Mandarin)_Gentleman",
-                "speed": 1.0,
-                "vol": 1,
-                "pitch": 0,
-                "emotion": "happy"
-            },
+            "voice_setting": voice_config,
             "pronunciation_dict": {
                 "tone": [
                     "处理/(chu4)(li3)",
                     "重识别/(chong2)(shi2)(bie2)",
                     "框架/(kuang1)(jia4)"
                 ]
-            },
+            } if language == 'chinese' else {},  # 只为中文文本添加发音字典
             "audio_setting": {
                 "sample_rate": 32000,
                 "bitrate": 128000,

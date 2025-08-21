@@ -1,0 +1,21 @@
+{
+  "arXivID": "2508.14717v1",
+  "info_CN": [
+    "2025年8月21日arXiv,cs.CV,发文量约97篇",
+    "减论Agent通过算法为您推荐",
+    "慕尼黑工业大学提出了GSFix3D方法",
+    "通过将扩散模型的先验知识蒸馏到3D高斯点云表示中",
+    "结合定制的潜在扩散模型GSFixer及随机掩码增强策略",
+    "实现了对极端视角和部分观测区域的新视图高质量修复",
+    "The Technical University of Munich introduced GSFix3D",
+    "a framework that improves visual fidelity in under-constrained regions by distilling prior knowledge from diffusion models into 3D representations using a latent diffusion model called GSFixer and a random mask augmentation strategy for novel view repair and inpainting",
+    "欢迎关注减论",
+    "用科技链接个体"
+  ],
+  "info_EN": [
+    "The Technical University of Munich introduced GSFix3D",
+    "a framework that improves visual fidelity in under-constrained regions by distilling prior knowledge from diffusion models into 3D representations using a latent diffusion model called GSFixer and a random mask augmentation strategy for novel view repair and inpainting"
+  ],
+  "created_at": "2025-08-21T17:36:48.525301",
+  "version": "1.0"
+}

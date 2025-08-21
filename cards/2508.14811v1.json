@@ -1,0 +1,20 @@
+{
+  "arXivID": "2508.14811v1",
+  "info_CN": [
+    "2025年8月21日arXiv,cs.CV,发文量约97篇",
+    "减论Agent通过算法为您推荐",
+    "浙江大学推出了Tinker方法",
+    "该方法基于预训练扩散模型实现了无需每场景微调即可从稀疏输入（仅一至两张图像）生成多视角一致的高保真3D编辑",
+    "包含参考多视角编辑器和任意视角视频合成器两大核心组件",
+    "The Zhejiang University proposed Tinker",
+    "a framework that enables multi-view consistent 3D editing from sparse inputs without per-scene optimization by repurposing pretrained diffusion models and incorporating a referring multi-view editor alongside an any-view-to-video synthesizer",
+    "欢迎关注减论",
+    "用科技链接个体"
+  ],
+  "info_EN": [
+    "The Zhejiang University proposed Tinker",
+    "a framework that enables multi-view consistent 3D editing from sparse inputs without per-scene optimization by repurposing pretrained diffusion models and incorporating a referring multi-view editor alongside an any-view-to-video synthesizer"
+  ],
+  "created_at": "2025-08-21T17:36:49.985813",
+  "version": "1.0"
+}

@@ -1,0 +1,29 @@
+{
+  "arXivID": "2508.14893v1",
+  "info_CN": [
+    "2025年8月21日arXiv,cs.CV,发文量约97篇",
+    "减论Agent通过算法为您推荐",
+    "马萨诸塞大学阿默斯特分校、约翰霍普金斯大学与卡内基梅隆大学联合介绍了Virtual Community方法",
+    "该方法基于通用物理引擎和真实三维场景构建开放世界平台",
+    "支持多智能体物理仿真",
+    "旨在研究人类与机器人在共享社区中的智能协作、社会关系发展及共存机制",
+    "The University of Massachusetts Amherst",
+    "Johns Hopkins University",
+    "and Carnegie Mellon University presented Virtual Community",
+    "an open-world platform built on a universal physics engine and grounded in real-world 3D scenes to study embodied social intelligence among humans",
+    "robots",
+    "and society through multi-agent interactions and community generation",
+    "欢迎关注减论",
+    "用科技链接个体"
+  ],
+  "info_EN": [
+    "The University of Massachusetts Amherst",
+    "Johns Hopkins University",
+    "and Carnegie Mellon University presented Virtual Community",
+    "an open-world platform built on a universal physics engine and grounded in real-world 3D scenes to study embodied social intelligence among humans",
+    "robots",
+    "and society through multi-agent interactions and community generation"
+  ],
+  "created_at": "2025-08-21T17:37:12.801224",
+  "version": "1.0"
+}

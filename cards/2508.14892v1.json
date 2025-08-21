@@ -1,0 +1,24 @@
+{
+  "arXivID": "2508.14892v1",
+  "info_CN": [
+    "2025年8月21日arXiv,cs.CV,发文量约97篇",
+    "减论Agent通过算法为您推荐",
+    "华中科技大学、华为技术有限公司和上海交通大学介绍了基于两张稀疏视角图像",
+    "通过重设计几何重建模型和颜色增强算法",
+    "实现高效一致的三维人体高斯体快速重建的方法",
+    "The Huazhong University of Science and Technology",
+    "Huawei Inc",
+    "and Shanghai Jiaotong University presented a geometry reconstruction model that predicts consistent 3D human point clouds from only two images by redesigning foundation reconstruction models and applying an enhancement algorithm to supplement missing color information",
+    "which are then transformed into 3D Gaussians for rendering",
+    "欢迎关注减论",
+    "用科技链接个体"
+  ],
+  "info_EN": [
+    "The Huazhong University of Science and Technology",
+    "Huawei Inc",
+    "and Shanghai Jiaotong University presented a geometry reconstruction model that predicts consistent 3D human point clouds from only two images by redesigning foundation reconstruction models and applying an enhancement algorithm to supplement missing color information",
+    "which are then transformed into 3D Gaussians for rendering"
+  ],
+  "created_at": "2025-08-21T17:37:26.278654",
+  "version": "1.0"
+}

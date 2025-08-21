@@ -1,0 +1,1079 @@
+2025-08-21 12:05:06,191 - card_generator - INFO - [card_generator.py:56] - 数据库连接成功，卡片生成器初始化完成
+2025-08-21 12:05:06,318 - arxiv_crawler - INFO - [main.py:216] - ArXiv 视频下载器启动
+2025-08-21 12:05:06,318 - arxiv_crawler - INFO - [main.py:217] - 配置 - 领域: cs.CV, 线程数: 8, 最大论文数: 1000, 下载目录: /Users/zhouzhongtian/Movies/arxiv_video
+2025-08-21 12:05:06,318 - arxiv_crawler - INFO - [main.py:223] - 将自动获取最新发布日期的论文
+2025-08-21 12:05:06,319 - arxiv_crawler - INFO - [crawler.py:87] - 初始化完成，线程数: 8，下载目录: /Users/zhouzhongtian/Movies/arxiv_video
+2025-08-21 12:05:06,319 - arxiv_crawler - INFO - [crawler.py:104] - 开始爬取 cs.CV 领域最新一天的论文视频...
+2025-08-21 12:05:06,319 - arxiv_fetcher - INFO - [arxiv_fetcher.py:37] - 开始从数据库获取最新发布日的论文...
+2025-08-21 12:05:07,110 - arxiv_fetcher - INFO - [arxiv_fetcher.py:50] - 数据库中最新发布日期: 20250821
+2025-08-21 12:05:07,110 - arxiv_fetcher - INFO - [arxiv_fetcher.py:115] - 正在从数据库获取 20250821 日期的论文...
+2025-08-21 12:05:08,756 - arxiv_fetcher - INFO - [arxiv_fetcher.py:152] - 从数据库获取完成，共找到 97 篇 20250821 日期的论文
+2025-08-21 12:05:08,824 - arxiv_crawler - INFO - [crawler.py:118] - 获取到 97 篇论文，开始多线程处理...
+2025-08-21 12:05:08,993 - arxiv_crawler - INFO - [crawler.py:192] - [线程6203060224] 开始处理: 2508.14889 - MS-CLR: Multi-Skeleton Contrastive Learning for Hu... (使用publication_date: 20250821)
+2025-08-21 12:05:09,203 - arxiv_crawler - INFO - [crawler.py:192] - [线程6236712960] 开始处理: 2508.14878 - Lifespan Pancreas Morphology for Control vs Type 2... (使用publication_date: 20250821)
+2025-08-21 12:05:09,219 - arxiv_crawler - INFO - [crawler.py:192] - [线程6270365696] 开始处理: 2508.14812 - Repeating Words for Video-Language Retrieval with ... (使用publication_date: 20250821)
+2025-08-21 12:05:09,227 - arxiv_crawler - INFO - [crawler.py:192] - [线程6287192064] 开始处理: 2508.14893 - Virtual Community: An Open World for Humans, Robot... (使用publication_date: 20250821)
+2025-08-21 12:05:09,228 - arxiv_crawler - INFO - [crawler.py:192] - [线程6253539328] 开始处理: 2508.14856 - EventSSEG: Event-driven Self-Supervised Segmentati... (使用publication_date: 20250821)
+2025-08-21 12:05:09,230 - arxiv_crawler - INFO - [crawler.py:192] - [线程6320844800] 开始处理: 2508.14779 - Adversarial Hospital-Invariant Feature Learning fo... (使用publication_date: 20250821)
+2025-08-21 12:05:09,232 - arxiv_crawler - INFO - [crawler.py:192] - [线程6304018432] 开始处理: 2508.14811 - Tinker: Diffusion's Gift to 3D--Multi-View Consist... (使用publication_date: 20250821)
+2025-08-21 12:05:09,235 - arxiv_crawler - INFO - [crawler.py:192] - [线程6219886592] 开始处理: 2508.14891 - GaussianArt: Unified Modeling of Geometry and Moti... (使用publication_date: 20250821)
+2025-08-21 12:05:09,987 - arxiv_crawler - INFO - [crawler.py:201] - [线程6253539328] 论文 2508.14856 没有找到项目链接
+2025-08-21 12:05:10,054 - arxiv_crawler - INFO - [crawler.py:207] - [线程6304018432] 检查项目页面: https://aim-uofa.github.io/Tinker
+2025-08-21 12:05:10,068 - arxiv_crawler - INFO - [crawler.py:201] - [线程6236712960] 论文 2508.14878 没有找到项目链接
+2025-08-21 12:05:10,080 - arxiv_crawler - INFO - [crawler.py:201] - [线程6320844800] 论文 2508.14779 没有找到项目链接
+2025-08-21 12:05:10,137 - arxiv_crawler - INFO - [crawler.py:192] - [线程6253539328] 开始处理: 2508.14814 - TransLight: Image-Guided Customized Lighting Contr... (使用publication_date: 20250821)
+2025-08-21 12:05:10,212 - arxiv_crawler - INFO - [crawler.py:192] - [线程6236712960] 开始处理: 2508.14776 - 6-DoF Object Tracking with Event-based Optical Flo... (使用publication_date: 20250821)
+2025-08-21 12:05:10,220 - arxiv_crawler - INFO - [crawler.py:192] - [线程6320844800] 开始处理: 2508.14797 - MF-LPR$^2$: Multi-Frame License Plate Image Restor... (使用publication_date: 20250821)
+2025-08-21 12:05:10,326 - arxiv_crawler - INFO - [crawler.py:207] - [线程6219886592] 检查项目页面: https://sainingzhang.github.io/project/gaussianart/
+2025-08-21 12:05:10,352 - arxiv_crawler - INFO - [crawler.py:207] - [线程6287192064] 检查项目页面: https://virtual-community-ai.github.io/
+2025-08-21 12:05:10,373 - arxiv_crawler - INFO - [crawler.py:201] - [线程6270365696] 论文 2508.14812 没有找到项目链接
+2025-08-21 12:05:10,514 - arxiv_crawler - INFO - [crawler.py:192] - [线程6270365696] 开始处理: 2508.14729 - Multiscale Video Transformers for Class Agnostic S... (使用publication_date: 20250821)
+2025-08-21 12:05:10,563 - arxiv_crawler - INFO - [crawler.py:201] - [线程6203060224] 论文 2508.14889 没有找到项目链接
+2025-08-21 12:05:10,702 - arxiv_crawler - INFO - [crawler.py:192] - [线程6203060224] 开始处理: 2508.14809 - DINOv3 with Test-Time Training for Medical Image R... (使用publication_date: 20250821)
+2025-08-21 12:05:10,920 - arxiv_crawler - INFO - [crawler.py:201] - [线程6253539328] 论文 2508.14814 没有找到项目链接
+2025-08-21 12:05:10,961 - arxiv_crawler - INFO - [crawler.py:201] - [线程6236712960] 论文 2508.14776 没有找到项目链接
+2025-08-21 12:05:10,980 - arxiv_crawler - INFO - [crawler.py:201] - [线程6320844800] 论文 2508.14797 没有找到项目链接
+2025-08-21 12:05:11,066 - arxiv_crawler - INFO - [crawler.py:192] - [线程6253539328] 开始处理: 2508.14767 - Fusing Monocular RGB Images with AIS Data to Creat... (使用publication_date: 20250821)
+2025-08-21 12:05:11,111 - arxiv_crawler - INFO - [crawler.py:192] - [线程6236712960] 开始处理: 2508.14707 - Seeing Further on the Shoulders of Giants: Knowled... (使用publication_date: 20250821)
+2025-08-21 12:05:11,122 - arxiv_crawler - INFO - [crawler.py:192] - [线程6320844800] 开始处理: 2508.14730 - Improved Mapping Between Illuminations and Sensors... (使用publication_date: 20250821)
+2025-08-21 12:05:11,272 - arxiv_crawler - INFO - [crawler.py:201] - [线程6270365696] 论文 2508.14729 没有找到项目链接
+2025-08-21 12:05:11,409 - arxiv_crawler - INFO - [crawler.py:192] - [线程6270365696] 开始处理: 2508.14717 - GSFix3D: Diffusion-Guided Repair of Novel Views in... (使用publication_date: 20250821)
+2025-08-21 12:05:11,601 - arxiv_crawler - INFO - [crawler.py:201] - [线程6236712960] 论文 2508.14707 没有找到项目链接
+2025-08-21 12:05:11,609 - arxiv_crawler - INFO - [crawler.py:201] - [线程6203060224] 论文 2508.14809 没有找到项目链接
+2025-08-21 12:05:11,649 - arxiv_crawler - INFO - [crawler.py:201] - [线程6253539328] 论文 2508.14767 没有找到项目链接
+2025-08-21 12:05:11,745 - arxiv_crawler - INFO - [crawler.py:201] - [线程6320844800] 论文 2508.14730 没有找到项目链接
+2025-08-21 12:05:11,754 - arxiv_crawler - INFO - [crawler.py:192] - [线程6203060224] 开始处理: 2508.14604 - UST-SSM: Unified Spatio-Temporal State Space Model... (使用publication_date: 20250821)
+2025-08-21 12:05:11,759 - arxiv_crawler - INFO - [crawler.py:192] - [线程6236712960] 开始处理: 2508.14607 - SMTrack: End-to-End Trained Spiking Neural Network... (使用publication_date: 20250821)
+2025-08-21 12:05:11,790 - arxiv_crawler - INFO - [crawler.py:192] - [线程6253539328] 开始处理: 2508.14660 - Towards PerSense++: Advancing Training-Free Person... (使用publication_date: 20250821)
+2025-08-21 12:05:11,889 - arxiv_crawler - INFO - [crawler.py:192] - [线程6320844800] 开始处理: 2508.14682 - GeMS: Efficient Gaussian Splatting for Extreme Mot... (使用publication_date: 20250821)
+2025-08-21 12:05:12,025 - arxiv_crawler - INFO - [crawler.py:207] - [线程6270365696] 检查项目页面: https://gsfix3d.github.io
+2025-08-21 12:05:12,089 - video_downloader - INFO - [video_downloader.py:169] - 视频下载成功: /Users/zhouzhongtian/Movies/arxiv_video/20250821/2508.14811/video_0.mp4
+2025-08-21 12:05:12,493 - arxiv_crawler - INFO - [crawler.py:201] - [线程6236712960] 论文 2508.14607 没有找到项目链接
+2025-08-21 12:05:12,535 - video_downloader - INFO - [video_downloader.py:169] - 视频下载成功: /Users/zhouzhongtian/Movies/arxiv_video/20250821/2508.14811/video_1.mp4
+2025-08-21 12:05:12,613 - arxiv_crawler - INFO - [crawler.py:201] - [线程6253539328] 论文 2508.14660 没有找到项目链接
+2025-08-21 12:05:12,639 - arxiv_crawler - INFO - [crawler.py:192] - [线程6236712960] 开始处理: 2508.14599 - Incremental Object Detection with Prompt-based Met... (使用publication_date: 20250821)
+2025-08-21 12:05:12,755 - arxiv_crawler - INFO - [crawler.py:192] - [线程6253539328] 开始处理: 2508.14567 - Safety-Critical Learning for Long-Tail Events: The... (使用publication_date: 20250821)
+2025-08-21 12:05:12,882 - arxiv_crawler - INFO - [crawler.py:201] - [线程6203060224] 论文 2508.14604 没有找到项目链接
+2025-08-21 12:05:12,897 - arxiv_crawler - INFO - [crawler.py:201] - [线程6320844800] 论文 2508.14682 没有找到项目链接
+2025-08-21 12:05:12,971 - video_downloader - INFO - [video_downloader.py:169] - 视频下载成功: /Users/zhouzhongtian/Movies/arxiv_video/20250821/2508.14811/video_2.mp4
+2025-08-21 12:05:13,009 - video_downloader - INFO - [video_downloader.py:169] - 视频下载成功: /Users/zhouzhongtian/Movies/arxiv_video/20250821/2508.14893/video_0.mp4
+2025-08-21 12:05:13,041 - arxiv_crawler - INFO - [crawler.py:192] - [线程6320844800] 开始处理: 2508.14597 - Reliable Smoke Detection via Optical Flow-Guided F... (使用publication_date: 20250821)
+2025-08-21 12:05:13,041 - arxiv_crawler - INFO - [crawler.py:192] - [线程6203060224] 开始处理: 2508.14563 - GOGS: High-Fidelity Geometry and Relighting for Gl... (使用publication_date: 20250821)
+2025-08-21 12:05:13,269 - arxiv_crawler - INFO - [crawler.py:201] - [线程6236712960] 论文 2508.14599 没有找到项目链接
+2025-08-21 12:05:13,330 - video_downloader - INFO - [video_downloader.py:169] - 视频下载成功: /Users/zhouzhongtian/Movies/arxiv_video/20250821/2508.14811/video_3.mp4
+2025-08-21 12:05:13,420 - arxiv_crawler - INFO - [crawler.py:192] - [线程6236712960] 开始处理: 2508.14588 - Controllable Latent Space Augmentation for Digital... (使用publication_date: 20250821)
+2025-08-21 12:05:13,488 - video_downloader - INFO - [video_downloader.py:169] - 视频下载成功: /Users/zhouzhongtian/Movies/arxiv_video/20250821/2508.14893/video_1.mp4
+2025-08-21 12:05:13,585 - arxiv_crawler - INFO - [crawler.py:201] - [线程6203060224] 论文 2508.14563 没有找到项目链接
+2025-08-21 12:05:13,599 - arxiv_crawler - INFO - [crawler.py:207] - [线程6253539328] 检查项目页面: https://tum-traffic-dataset.github.io/tumtraf-a
+2025-08-21 12:05:13,677 - video_downloader - INFO - [video_downloader.py:169] - 视频下载成功: /Users/zhouzhongtian/Movies/arxiv_video/20250821/2508.14811/video_4.mp4
+2025-08-21 12:05:13,779 - arxiv_crawler - INFO - [crawler.py:192] - [线程6203060224] 开始处理: 2508.14609 - AnchorSync: Global Consistency Optimization for Lo... (使用publication_date: 20250821)
+2025-08-21 12:05:13,780 - video_downloader - INFO - [video_downloader.py:169] - 视频下载成功: /Users/zhouzhongtian/Movies/arxiv_video/20250821/2508.14891/video_0.mp4
+2025-08-21 12:05:13,880 - video_downloader - INFO - [video_downloader.py:169] - 视频下载成功: /Users/zhouzhongtian/Movies/arxiv_video/20250821/2508.14893/video_2.mp4
+2025-08-21 12:05:14,024 - arxiv_crawler - INFO - [crawler.py:201] - [线程6320844800] 论文 2508.14597 没有找到项目链接
+2025-08-21 12:05:14,053 - video_downloader - INFO - [video_downloader.py:169] - 视频下载成功: /Users/zhouzhongtian/Movies/arxiv_video/20250821/2508.14811/video_5.mp4
+2025-08-21 12:05:14,116 - arxiv_crawler - INFO - [crawler.py:201] - [线程6236712960] 论文 2508.14588 没有找到项目链接
+2025-08-21 12:05:14,161 - arxiv_crawler - INFO - [crawler.py:192] - [线程6320844800] 开始处理: 2508.14558 - A Comprehensive Review of Agricultural Parcel and ... (使用publication_date: 20250821)
+2025-08-21 12:05:14,236 - video_downloader - INFO - [video_downloader.py:169] - 视频下载成功: /Users/zhouzhongtian/Movies/arxiv_video/20250821/2508.14893/video_3.mp4
+2025-08-21 12:05:14,258 - arxiv_crawler - INFO - [crawler.py:192] - [线程6236712960] 开始处理: 2508.14561 - Making Pose Representations More Expressive and Di... (使用publication_date: 20250821)
+2025-08-21 12:05:14,421 - video_downloader - INFO - [video_downloader.py:169] - 视频下载成功: /Users/zhouzhongtian/Movies/arxiv_video/20250821/2508.14717/video_0.mp4
+2025-08-21 12:05:14,449 - video_downloader - INFO - [video_downloader.py:169] - 视频下载成功: /Users/zhouzhongtian/Movies/arxiv_video/20250821/2508.14811/video_6.mp4
+2025-08-21 12:05:14,880 - arxiv_crawler - INFO - [crawler.py:201] - [线程6320844800] 论文 2508.14558 没有找到项目链接
+2025-08-21 12:05:14,887 - video_downloader - INFO - [video_downloader.py:169] - 视频下载成功: /Users/zhouzhongtian/Movies/arxiv_video/20250821/2508.14717/video_1.mp4
+2025-08-21 12:05:14,918 - video_downloader - INFO - [video_downloader.py:169] - 视频下载成功: /Users/zhouzhongtian/Movies/arxiv_video/20250821/2508.14811/video_7.mp4
+2025-08-21 12:05:14,987 - arxiv_crawler - INFO - [crawler.py:201] - [线程6236712960] 论文 2508.14561 没有找到项目链接
+2025-08-21 12:05:14,997 - arxiv_crawler - INFO - [crawler.py:201] - [线程6203060224] 论文 2508.14609 没有找到项目链接
+2025-08-21 12:05:15,156 - arxiv_crawler - INFO - [crawler.py:192] - [线程6320844800] 开始处理: 2508.14562 - Locality-aware Concept Bottleneck Model... (使用publication_date: 20250821)
+2025-08-21 12:05:15,212 - arxiv_crawler - INFO - [crawler.py:192] - [线程6203060224] 开始处理: 2508.14504 - PB-IAD: Utilizing multimodal foundation models for... (使用publication_date: 20250821)
+2025-08-21 12:05:15,212 - arxiv_crawler - INFO - [crawler.py:192] - [线程6236712960] 开始处理: 2508.14537 - WISE-FUSE: Efficient Whole Slide Image Encoding vi... (使用publication_date: 20250821)
+2025-08-21 12:05:15,401 - video_downloader - INFO - [video_downloader.py:169] - 视频下载成功: /Users/zhouzhongtian/Movies/arxiv_video/20250821/2508.14811/video_8.mp4
+2025-08-21 12:05:15,445 - video_downloader - INFO - [video_downloader.py:169] - 视频下载成功: /Users/zhouzhongtian/Movies/arxiv_video/20250821/2508.14717/video_2.mp4
+2025-08-21 12:05:15,790 - video_downloader - INFO - [video_downloader.py:169] - 视频下载成功: /Users/zhouzhongtian/Movies/arxiv_video/20250821/2508.14811/video_9.mp4
+2025-08-21 12:05:15,937 - arxiv_crawler - INFO - [crawler.py:201] - [线程6203060224] 论文 2508.14504 没有找到项目链接
+2025-08-21 12:05:15,958 - video_downloader - INFO - [video_downloader.py:169] - 视频下载成功: /Users/zhouzhongtian/Movies/arxiv_video/20250821/2508.14717/video_3.mp4
+2025-08-21 12:05:16,222 - arxiv_crawler - INFO - [crawler.py:201] - [线程6320844800] 论文 2508.14562 没有找到项目链接
+2025-08-21 12:05:16,332 - arxiv_crawler - INFO - [crawler.py:201] - [线程6236712960] 论文 2508.14537 没有找到项目链接
+2025-08-21 12:05:16,435 - video_downloader - INFO - [video_downloader.py:169] - 视频下载成功: /Users/zhouzhongtian/Movies/arxiv_video/20250821/2508.14717/video_4.mp4
+2025-08-21 12:05:16,435 - arxiv_crawler - INFO - [crawler.py:229] - [线程6270365696] 论文 2508.14717 成功下载 5 个视频
+2025-08-21 12:05:16,435 - card_generator - INFO - [card_generator.py:77] - 开始为 ArXiv ID 2508.14717v1 生成解说卡片
+2025-08-21 12:05:16,565 - arxiv_crawler - INFO - [crawler.py:192] - [线程6203060224] 开始处理: 2508.14527 - Adversarial Generation and Collaborative Evolution... (使用publication_date: 20250821)
+2025-08-21 12:05:16,753 - card_generator - INFO - [card_generator.py:96] - 找到论文: GSFix3D: Diffusion-Guided Repair of Novel Views in...
+2025-08-21 12:05:16,868 - arxiv_crawler - INFO - [crawler.py:192] - [线程6320844800] 开始处理: 2508.14557 - Improving OCR using internal document redundancy... (使用publication_date: 20250821)
+2025-08-21 12:05:16,931 - arxiv_crawler - INFO - [crawler.py:192] - [线程6236712960] 开始处理: 2508.14466 - LookOut: Real-World Humanoid Egocentric Navigation... (使用publication_date: 20250821)
+2025-08-21 12:05:17,073 - card_generator - WARNING - [card_generator.py:107] - 论文 2508.14717v1 没有可用的解说脚本
+2025-08-21 12:05:17,293 - arxiv_crawler - INFO - [crawler.py:201] - [线程6203060224] 论文 2508.14527 没有找到项目链接
+2025-08-21 12:05:17,339 - arxiv_crawler - WARNING - [crawler.py:254] - [线程6270365696] 无法为论文 2508.14717v1 生成解说卡片
+2025-08-21 12:05:17,398 - arxiv_crawler - INFO - [crawler.py:201] - [线程6320844800] 论文 2508.14557 没有找到项目链接
+2025-08-21 12:05:17,464 - arxiv_crawler - INFO - [crawler.py:201] - [线程6236712960] 论文 2508.14466 没有找到项目链接
+2025-08-21 12:05:17,601 - video_downloader - INFO - [video_downloader.py:169] - 视频下载成功: /Users/zhouzhongtian/Movies/arxiv_video/20250821/2508.14891/video_1.mp4
+2025-08-21 12:05:17,602 - arxiv_crawler - INFO - [crawler.py:229] - [线程6219886592] 论文 2508.14891 成功下载 2 个视频
+2025-08-21 12:05:17,602 - card_generator - INFO - [card_generator.py:77] - 开始为 ArXiv ID 2508.14891v1 生成解说卡片
+2025-08-21 12:05:17,760 - video_downloader - INFO - [video_downloader.py:169] - 视频下载成功: /Users/zhouzhongtian/Movies/arxiv_video/20250821/2508.14893/video_4.mp4
+2025-08-21 12:05:17,765 - arxiv_crawler - INFO - [crawler.py:192] - [线程6270365696] 开始处理: 2508.14486 - WeedSense: Multi-Task Learning for Weed Segmentati... (使用publication_date: 20250821)
+2025-08-21 12:05:17,765 - arxiv_crawler - INFO - [crawler.py:192] - [线程6203060224] 开始处理: 2508.14502 - SATURN: Autoregressive Image Generation Guided by ... (使用publication_date: 20250821)
+2025-08-21 12:05:17,766 - card_generator - INFO - [card_generator.py:96] - 找到论文: GaussianArt: Unified Modeling of Geometry and Moti...
+2025-08-21 12:05:17,794 - arxiv_crawler - INFO - [crawler.py:192] - [线程6320844800] 开始处理: 2508.14465 - DreamSwapV: Mask-guided Subject Swapping for Any C... (使用publication_date: 20250821)
+2025-08-21 12:05:17,811 - arxiv_crawler - INFO - [crawler.py:192] - [线程6236712960] 开始处理: 2508.14448 - Generalizable Engagement Estimation in Conversatio... (使用publication_date: 20250821)
+2025-08-21 12:05:17,851 - card_generator - WARNING - [card_generator.py:107] - 论文 2508.14891v1 没有可用的解说脚本
+2025-08-21 12:05:17,864 - video_downloader - INFO - [video_downloader.py:169] - 视频下载成功: /Users/zhouzhongtian/Movies/arxiv_video/20250821/2508.14811/video_10.mp4
+2025-08-21 12:05:17,864 - arxiv_crawler - INFO - [crawler.py:229] - [线程6304018432] 论文 2508.14811 成功下载 11 个视频
+2025-08-21 12:05:17,864 - card_generator - INFO - [card_generator.py:77] - 开始为 ArXiv ID 2508.14811v1 生成解说卡片
+2025-08-21 12:05:17,930 - arxiv_crawler - WARNING - [crawler.py:254] - [线程6219886592] 无法为论文 2508.14891v1 生成解说卡片
+2025-08-21 12:05:17,937 - card_generator - INFO - [card_generator.py:96] - 找到论文: Tinker: Diffusion's Gift to 3D--Multi-View Consist...
+2025-08-21 12:05:18,006 - card_generator - WARNING - [card_generator.py:107] - 论文 2508.14811v1 没有可用的解说脚本
+2025-08-21 12:05:18,072 - arxiv_crawler - WARNING - [crawler.py:254] - [线程6304018432] 无法为论文 2508.14811v1 生成解说卡片
+2025-08-21 12:05:18,075 - arxiv_crawler - INFO - [crawler.py:192] - [线程6219886592] 开始处理: 2508.14483 - Vivid-VR: Distilling Concepts from Text-to-Video D... (使用publication_date: 20250821)
+2025-08-21 12:05:18,116 - video_downloader - INFO - [video_downloader.py:169] - 视频下载成功: /Users/zhouzhongtian/Movies/arxiv_video/20250821/2508.14893/video_5.mp4
+2025-08-21 12:05:18,165 - arxiv_crawler - INFO - [crawler.py:201] - [线程6236712960] 论文 2508.14448 没有找到项目链接
+2025-08-21 12:05:18,221 - arxiv_crawler - INFO - [crawler.py:192] - [线程6304018432] 开始处理: 2508.14443 - Reconstruction Using the Invisible: Intuition from... (使用publication_date: 20250821)
+2025-08-21 12:05:18,314 - arxiv_crawler - INFO - [crawler.py:192] - [线程6236712960] 开始处理: 2508.14449 - D^3-Talker: Dual-Branch Decoupled Deformation Fiel... (使用publication_date: 20250821)
+2025-08-21 12:05:18,338 - arxiv_crawler - INFO - [crawler.py:207] - [线程6270365696] 检查项目页面: http://weedsense.github.io
+2025-08-21 12:05:18,402 - video_downloader - INFO - [video_downloader.py:169] - 视频下载成功: /Users/zhouzhongtian/Movies/arxiv_video/20250821/2508.14567/video_0.mp4
+2025-08-21 12:05:18,402 - arxiv_crawler - INFO - [crawler.py:229] - [线程6253539328] 论文 2508.14567 成功下载 1 个视频
+2025-08-21 12:05:18,402 - card_generator - INFO - [card_generator.py:77] - 开始为 ArXiv ID 2508.14567v1 生成解说卡片
+2025-08-21 12:05:18,511 - video_downloader - INFO - [video_downloader.py:169] - 视频下载成功: /Users/zhouzhongtian/Movies/arxiv_video/20250821/2508.14893/video_6.mp4
+2025-08-21 12:05:18,522 - arxiv_crawler - INFO - [crawler.py:201] - [线程6320844800] 论文 2508.14465 没有找到项目链接
+2025-08-21 12:05:18,522 - card_generator - INFO - [card_generator.py:96] - 找到论文: Safety-Critical Learning for Long-Tail Events: The...
+2025-08-21 12:05:18,591 - card_generator - WARNING - [card_generator.py:107] - 论文 2508.14567v1 没有可用的解说脚本
+2025-08-21 12:05:18,657 - arxiv_crawler - WARNING - [crawler.py:254] - [线程6253539328] 无法为论文 2508.14567v1 生成解说卡片
+2025-08-21 12:05:18,657 - arxiv_crawler - INFO - [crawler.py:192] - [线程6320844800] 开始处理: 2508.14437 - FOCUS: Frequency-Optimized Conditioning of DiffUSi... (使用publication_date: 20250821)
+2025-08-21 12:05:18,734 - arxiv_crawler - INFO - [crawler.py:201] - [线程6203060224] 论文 2508.14502 没有找到项目链接
+2025-08-21 12:05:18,803 - arxiv_crawler - INFO - [crawler.py:192] - [线程6253539328] 开始处理: 2508.14431 - HyperDiff: Hypergraph Guided Diffusion Model for 3... (使用publication_date: 20250821)
+2025-08-21 12:05:18,833 - video_downloader - INFO - [video_downloader.py:169] - 视频下载成功: /Users/zhouzhongtian/Movies/arxiv_video/20250821/2508.14893/video_7.mp4
+2025-08-21 12:05:18,878 - arxiv_crawler - INFO - [crawler.py:192] - [线程6203060224] 开始处理: 2508.14405 - CTA-Flux: Integrating Chinese Cultural Semantics i... (使用publication_date: 20250821)
+2025-08-21 12:05:18,939 - arxiv_crawler - INFO - [crawler.py:201] - [线程6219886592] 论文 2508.14483 没有找到项目链接
+2025-08-21 12:05:19,083 - arxiv_crawler - INFO - [crawler.py:192] - [线程6219886592] 开始处理: 2508.14461 - Ouroboros: Single-step Diffusion Models for Cycle-... (使用publication_date: 20250821)
+2025-08-21 12:05:19,084 - arxiv_crawler - INFO - [crawler.py:201] - [线程6320844800] 论文 2508.14437 没有找到项目链接
+2025-08-21 12:05:19,192 - video_downloader - INFO - [video_downloader.py:169] - 视频下载成功: /Users/zhouzhongtian/Movies/arxiv_video/20250821/2508.14893/video_8.mp4
+2025-08-21 12:05:19,244 - arxiv_crawler - INFO - [crawler.py:201] - [线程6236712960] 论文 2508.14449 没有找到项目链接
+2025-08-21 12:05:19,251 - arxiv_crawler - INFO - [crawler.py:192] - [线程6320844800] 开始处理: 2508.14393 - Img2ST-Net: Efficient High-Resolution Spatial Omic... (使用publication_date: 20250821)
+2025-08-21 12:05:19,279 - arxiv_crawler - INFO - [crawler.py:201] - [线程6304018432] 论文 2508.14443 没有找到项目链接
+2025-08-21 12:05:19,348 - arxiv_crawler - INFO - [crawler.py:201] - [线程6203060224] 论文 2508.14405 没有找到项目链接
+2025-08-21 12:05:19,382 - arxiv_crawler - INFO - [crawler.py:192] - [线程6236712960] 开始处理: 2508.14374 - QuadINR: Hardware-Efficient Implicit Neural Repres... (使用publication_date: 20250821)
+2025-08-21 12:05:19,421 - arxiv_crawler - INFO - [crawler.py:192] - [线程6304018432] 开始处理: 2508.14423 - MoCHA-former: Moiré-Conditioned Hybrid Adaptive Tr... (使用publication_date: 20250821)
+2025-08-21 12:05:19,488 - arxiv_crawler - INFO - [crawler.py:192] - [线程6203060224] 开始处理: 2508.14370 - FastTracker: Real-Time and Accurate Visual Trackin... (使用publication_date: 20250821)
+2025-08-21 12:05:19,521 - video_downloader - INFO - [video_downloader.py:169] - 视频下载成功: /Users/zhouzhongtian/Movies/arxiv_video/20250821/2508.14893/video_9.mp4
+2025-08-21 12:05:19,694 - arxiv_crawler - INFO - [crawler.py:201] - [线程6253539328] 论文 2508.14431 没有找到项目链接
+2025-08-21 12:05:19,831 - arxiv_crawler - INFO - [crawler.py:192] - [线程6253539328] 开始处理: 2508.14359 - Taming Transformer for Emotion-Controllable Talkin... (使用publication_date: 20250821)
+2025-08-21 12:05:19,881 - video_downloader - INFO - [video_downloader.py:169] - 视频下载成功: /Users/zhouzhongtian/Movies/arxiv_video/20250821/2508.14893/video_10.mp4
+2025-08-21 12:05:20,063 - arxiv_crawler - INFO - [crawler.py:207] - [线程6304018432] 检查项目页面: https://cmlab-korea.github.io/MoCHAformer-Demo/
+2025-08-21 12:05:20,073 - arxiv_crawler - INFO - [crawler.py:201] - [线程6219886592] 论文 2508.14461 没有找到项目链接
+2025-08-21 12:05:20,116 - arxiv_crawler - INFO - [crawler.py:201] - [线程6203060224] 论文 2508.14370 没有找到项目链接
+2025-08-21 12:05:20,189 - arxiv_crawler - INFO - [crawler.py:201] - [线程6320844800] 论文 2508.14393 没有找到项目链接
+2025-08-21 12:05:20,228 - arxiv_crawler - INFO - [crawler.py:192] - [线程6219886592] 开始处理: 2508.14440 - MUSE: Multi-Subject Unified Synthesis via Explicit... (使用publication_date: 20250821)
+2025-08-21 12:05:20,247 - arxiv_crawler - INFO - [crawler.py:201] - [线程6236712960] 论文 2508.14374 没有找到项目链接
+2025-08-21 12:05:20,248 - video_downloader - INFO - [video_downloader.py:169] - 视频下载成功: /Users/zhouzhongtian/Movies/arxiv_video/20250821/2508.14893/video_11.mp4
+2025-08-21 12:05:20,266 - arxiv_crawler - INFO - [crawler.py:192] - [线程6203060224] 开始处理: 2508.14373 - TCFNet: Bidirectional face-bone transformation via... (使用publication_date: 20250821)
+2025-08-21 12:05:20,333 - arxiv_crawler - INFO - [crawler.py:192] - [线程6320844800] 开始处理: 2508.14349 - Deep Learning for Taxol Exposure Analysis: A New C... (使用publication_date: 20250821)
+2025-08-21 12:05:20,393 - arxiv_crawler - INFO - [crawler.py:192] - [线程6236712960] 开始处理: 2508.14327 - MoVieDrive: Multi-Modal Multi-View Urban Scene Vid... (使用publication_date: 20250821)
+2025-08-21 12:05:20,775 - arxiv_crawler - INFO - [crawler.py:201] - [线程6253539328] 论文 2508.14359 没有找到项目链接
+2025-08-21 12:05:20,782 - arxiv_crawler - INFO - [crawler.py:266] - [线程6270365696] 论文 2508.14486 没有找到可下载的视频
+2025-08-21 12:05:20,807 - video_downloader - INFO - [video_downloader.py:169] - 视频下载成功: /Users/zhouzhongtian/Movies/arxiv_video/20250821/2508.14893/video_12.mp4
+2025-08-21 12:05:20,948 - arxiv_crawler - INFO - [crawler.py:192] - [线程6270365696] 开始处理: 2508.14345 - HandCraft: Dynamic Sign Generation for Synthetic D... (使用publication_date: 20250821)
+2025-08-21 12:05:20,948 - arxiv_crawler - INFO - [crawler.py:192] - [线程6253539328] 开始处理: 2508.14358 - Learning Point Cloud Representations with Pose Con... (使用publication_date: 20250821)
+2025-08-21 12:05:20,963 - arxiv_crawler - INFO - [crawler.py:201] - [线程6203060224] 论文 2508.14373 没有找到项目链接
+2025-08-21 12:05:21,055 - arxiv_crawler - INFO - [crawler.py:201] - [线程6236712960] 论文 2508.14327 没有找到项目链接
+2025-08-21 12:05:21,116 - arxiv_crawler - INFO - [crawler.py:192] - [线程6203060224] 开始处理: 2508.14280 - Multi-Rationale Explainable Object Recognition via... (使用publication_date: 20250821)
+2025-08-21 12:05:21,162 - video_downloader - INFO - [video_downloader.py:169] - 视频下载成功: /Users/zhouzhongtian/Movies/arxiv_video/20250821/2508.14893/video_13.mp4
+2025-08-21 12:05:21,180 - arxiv_crawler - INFO - [crawler.py:201] - [线程6320844800] 论文 2508.14349 没有找到项目链接
+2025-08-21 12:05:21,213 - arxiv_crawler - INFO - [crawler.py:192] - [线程6236712960] 开始处理: 2508.14286 - OccluNet: Spatio-Temporal Deep Learning for Occlus... (使用publication_date: 20250821)
+2025-08-21 12:05:21,318 - arxiv_crawler - INFO - [crawler.py:201] - [线程6219886592] 论文 2508.14440 没有找到项目链接
+2025-08-21 12:05:21,325 - arxiv_crawler - INFO - [crawler.py:192] - [线程6320844800] 开始处理: 2508.14343 - Inter-Class Relational Loss for Small Object Detec... (使用publication_date: 20250821)
+2025-08-21 12:05:21,463 - arxiv_crawler - INFO - [crawler.py:192] - [线程6219886592] 开始处理: 2508.14295 - Pixels to Play: A Foundation Model for 3D Gameplay... (使用publication_date: 20250821)
+2025-08-21 12:05:21,492 - video_downloader - INFO - [video_downloader.py:169] - 视频下载成功: /Users/zhouzhongtian/Movies/arxiv_video/20250821/2508.14893/video_14.mp4
+2025-08-21 12:05:21,644 - arxiv_crawler - INFO - [crawler.py:201] - [线程6203060224] 论文 2508.14280 没有找到项目链接
+2025-08-21 12:05:21,789 - arxiv_crawler - INFO - [crawler.py:192] - [线程6203060224] 开始处理: 2508.14276 - Tooth-Diffusion: Guided 3D CBCT Synthesis with Fin... (使用publication_date: 20250821)
+2025-08-21 12:05:21,820 - video_downloader - INFO - [video_downloader.py:169] - 视频下载成功: /Users/zhouzhongtian/Movies/arxiv_video/20250821/2508.14893/video_15.mp4
+2025-08-21 12:05:21,883 - arxiv_crawler - INFO - [crawler.py:201] - [线程6270365696] 论文 2508.14345 没有找到项目链接
+2025-08-21 12:05:21,901 - arxiv_crawler - INFO - [crawler.py:201] - [线程6236712960] 论文 2508.14286 没有找到项目链接
+2025-08-21 12:05:22,036 - arxiv_crawler - INFO - [crawler.py:192] - [线程6270365696] 开始处理: 2508.14278 - GALA: Guided Attention with Language Alignment for... (使用publication_date: 20250821)
+2025-08-21 12:05:22,041 - arxiv_crawler - INFO - [crawler.py:192] - [线程6236712960] 开始处理: 2508.14266 - Effect of Data Augmentation on Conformal Predictio... (使用publication_date: 20250821)
+2025-08-21 12:05:22,079 - arxiv_crawler - INFO - [crawler.py:201] - [线程6320844800] 论文 2508.14343 没有找到项目链接
+2025-08-21 12:05:22,149 - arxiv_crawler - INFO - [crawler.py:201] - [线程6253539328] 论文 2508.14358 没有找到项目链接
+2025-08-21 12:05:22,277 - arxiv_crawler - INFO - [crawler.py:192] - [线程6320844800] 开始处理: 2508.14203 - A Survey on Video Anomaly Detection via Deep Learn... (使用publication_date: 20250821)
+2025-08-21 12:05:22,327 - arxiv_crawler - INFO - [crawler.py:192] - [线程6253539328] 开始处理: 2508.14218 - Accelerating Image Classification with Graph Convo... (使用publication_date: 20250821)
+2025-08-21 12:05:22,344 - video_downloader - INFO - [video_downloader.py:169] - 视频下载成功: /Users/zhouzhongtian/Movies/arxiv_video/20250821/2508.14893/video_16.mp4
+2025-08-21 12:05:22,613 - arxiv_crawler - INFO - [crawler.py:201] - [线程6219886592] 论文 2508.14295 没有找到项目链接
+2025-08-21 12:05:22,631 - arxiv_crawler - INFO - [crawler.py:201] - [线程6236712960] 论文 2508.14266 没有找到项目链接
+2025-08-21 12:05:22,672 - video_downloader - INFO - [video_downloader.py:169] - 视频下载成功: /Users/zhouzhongtian/Movies/arxiv_video/20250821/2508.14893/video_17.mp4
+2025-08-21 12:05:22,750 - arxiv_crawler - INFO - [crawler.py:192] - [线程6219886592] 开始处理: 2508.14197 - CLIPSym: Delving into Symmetry Detection with CLIP... (使用publication_date: 20250821)
+2025-08-21 12:05:22,779 - arxiv_crawler - INFO - [crawler.py:201] - [线程6203060224] 论文 2508.14276 没有找到项目链接
+2025-08-21 12:05:22,783 - arxiv_crawler - INFO - [crawler.py:192] - [线程6236712960] 开始处理: 2508.14264 - Directed-Tokens: A Robust Multi-Modality Alignment... (使用publication_date: 20250821)
+2025-08-21 12:05:22,832 - arxiv_crawler - INFO - [crawler.py:201] - [线程6320844800] 论文 2508.14203 没有找到项目链接
+2025-08-21 12:05:22,938 - arxiv_crawler - INFO - [crawler.py:192] - [线程6203060224] 开始处理: 2508.14153 - LENS: Learning to Segment Anything with Unified Re... (使用publication_date: 20250821)
+2025-08-21 12:05:22,970 - arxiv_crawler - INFO - [crawler.py:192] - [线程6320844800] 开始处理: 2508.14113 - Federated Action Recognition for Smart Worker Assi... (使用publication_date: 20250821)
+2025-08-21 12:05:23,167 - arxiv_crawler - INFO - [crawler.py:201] - [线程6270365696] 论文 2508.14278 没有找到项目链接
+2025-08-21 12:05:23,222 - video_downloader - INFO - [video_downloader.py:169] - 视频下载成功: /Users/zhouzhongtian/Movies/arxiv_video/20250821/2508.14893/video_18.mp4
+2025-08-21 12:05:23,241 - arxiv_crawler - INFO - [crawler.py:201] - [线程6236712960] 论文 2508.14264 没有找到项目链接
+2025-08-21 12:05:23,325 - arxiv_crawler - INFO - [crawler.py:192] - [线程6270365696] 开始处理: 2508.14043 - A comparative study of some wavelet and sampling o... (使用publication_date: 20250821)
+2025-08-21 12:05:23,384 - arxiv_crawler - INFO - [crawler.py:192] - [线程6236712960] 开始处理: 2508.14187 - Local Scale Equivariance with Latent Deep Equilibr... (使用publication_date: 20250821)
+2025-08-21 12:05:23,424 - video_downloader - INFO - [video_downloader.py:169] - 视频下载成功: /Users/zhouzhongtian/Movies/arxiv_video/20250821/2508.14423/video_0.mp4
+2025-08-21 12:05:23,601 - video_downloader - INFO - [video_downloader.py:169] - 视频下载成功: /Users/zhouzhongtian/Movies/arxiv_video/20250821/2508.14893/video_19.mp4
+2025-08-21 12:05:23,609 - arxiv_crawler - INFO - [crawler.py:201] - [线程6253539328] 论文 2508.14218 没有找到项目链接
+2025-08-21 12:05:23,623 - arxiv_crawler - INFO - [crawler.py:201] - [线程6203060224] 论文 2508.14153 没有找到项目链接
+2025-08-21 12:05:23,639 - arxiv_crawler - INFO - [crawler.py:201] - [线程6219886592] 论文 2508.14197 没有找到项目链接
+2025-08-21 12:05:23,757 - arxiv_crawler - INFO - [crawler.py:192] - [线程6253539328] 开始处理: 2508.14160 - RynnEC: Bringing MLLMs into Embodied World... (使用publication_date: 20250821)
+2025-08-21 12:05:23,759 - arxiv_crawler - INFO - [crawler.py:192] - [线程6203060224] 开始处理: 2508.14871 - Squeezed Diffusion Models... (使用publication_date: 20250821)
+2025-08-21 12:05:23,777 - arxiv_crawler - INFO - [crawler.py:192] - [线程6219886592] 开始处理: 2508.14708 - Rule-based Key-Point Extraction for MR-Guided Biom... (使用publication_date: 20250821)
+2025-08-21 12:05:23,828 - video_downloader - INFO - [video_downloader.py:169] - 视频下载成功: /Users/zhouzhongtian/Movies/arxiv_video/20250821/2508.14423/video_1.mp4
+2025-08-21 12:05:23,828 - arxiv_crawler - INFO - [crawler.py:229] - [线程6304018432] 论文 2508.14423 成功下载 2 个视频
+2025-08-21 12:05:23,828 - card_generator - INFO - [card_generator.py:77] - 开始为 ArXiv ID 2508.14423v1 生成解说卡片
+2025-08-21 12:05:23,843 - arxiv_crawler - INFO - [crawler.py:201] - [线程6236712960] 论文 2508.14187 没有找到项目链接
+2025-08-21 12:05:23,892 - arxiv_crawler - INFO - [crawler.py:201] - [线程6320844800] 论文 2508.14113 没有找到项目链接
+2025-08-21 12:05:23,903 - card_generator - INFO - [card_generator.py:96] - 找到论文: MoCHA-former: Moiré-Conditioned Hybrid Adaptive Tr...
+2025-08-21 12:05:23,979 - video_downloader - INFO - [video_downloader.py:169] - 视频下载成功: /Users/zhouzhongtian/Movies/arxiv_video/20250821/2508.14893/video_20.mp4
+2025-08-21 12:05:23,984 - card_generator - WARNING - [card_generator.py:107] - 论文 2508.14423v1 没有可用的解说脚本
+2025-08-21 12:05:24,013 - arxiv_crawler - INFO - [crawler.py:192] - [线程6236712960] 开始处理: 2508.14706 - ShizhenGPT: Towards Multimodal LLMs for Traditiona... (使用publication_date: 20250821)
+2025-08-21 12:05:24,045 - arxiv_crawler - INFO - [crawler.py:192] - [线程6320844800] 开始处理: 2508.14892 - Snap-Snap: Taking Two Images to Reconstruct 3D Hum... (使用publication_date: 20250821)
+2025-08-21 12:05:24,052 - arxiv_crawler - WARNING - [crawler.py:254] - [线程6304018432] 无法为论文 2508.14423v1 生成解说卡片
+2025-08-21 12:05:24,197 - arxiv_crawler - INFO - [crawler.py:192] - [线程6304018432] 开始处理: 2508.14681 - Virtual Multiplex Staining for Histological Images... (使用publication_date: 20250821)
+2025-08-21 12:05:24,306 - arxiv_crawler - INFO - [crawler.py:201] - [线程6270365696] 论文 2508.14043 没有找到项目链接
+2025-08-21 12:05:24,314 - video_downloader - INFO - [video_downloader.py:169] - 视频下载成功: /Users/zhouzhongtian/Movies/arxiv_video/20250821/2508.14893/video_21.mp4
+2025-08-21 12:05:24,448 - arxiv_crawler - INFO - [crawler.py:192] - [线程6270365696] 开始处理: 2508.14879 - MeshCoder: LLM-Powered Structured Mesh Code Genera... (使用publication_date: 20250821)
+2025-08-21 12:05:24,546 - arxiv_crawler - INFO - [crawler.py:201] - [线程6253539328] 论文 2508.14160 没有找到项目链接
+2025-08-21 12:05:24,649 - video_downloader - INFO - [video_downloader.py:169] - 视频下载成功: /Users/zhouzhongtian/Movies/arxiv_video/20250821/2508.14893/video_22.mp4
+2025-08-21 12:05:24,686 - arxiv_crawler - INFO - [crawler.py:192] - [线程6253539328] 开始处理: 2508.14648 - Understanding Data Influence with Differential App... (使用publication_date: 20250821)
+2025-08-21 12:05:24,708 - arxiv_crawler - INFO - [crawler.py:201] - [线程6203060224] 论文 2508.14871 没有找到项目链接
+2025-08-21 12:05:24,851 - arxiv_crawler - INFO - [crawler.py:192] - [线程6203060224] 开始处理: 2508.14509 - Deep Skin Lesion Segmentation with Transformer-CNN... (使用publication_date: 20250821)
+2025-08-21 12:05:24,855 - arxiv_crawler - INFO - [crawler.py:201] - [线程6219886592] 论文 2508.14708 没有找到项目链接
+2025-08-21 12:05:24,869 - arxiv_crawler - INFO - [crawler.py:207] - [线程6320844800] 检查项目页面: https://hustvl.github.io/Snap-Snap/
+2025-08-21 12:05:24,932 - arxiv_crawler - INFO - [crawler.py:201] - [线程6236712960] 论文 2508.14706 没有找到项目链接
+2025-08-21 12:05:24,937 - arxiv_crawler - INFO - [crawler.py:201] - [线程6270365696] 论文 2508.14879 没有找到项目链接
+2025-08-21 12:05:25,027 - arxiv_crawler - INFO - [crawler.py:192] - [线程6219886592] 开始处理: 2508.14552 - From Slices to Structures: Unsupervised 3D Reconst... (使用publication_date: 20250821)
+2025-08-21 12:05:25,133 - arxiv_crawler - INFO - [crawler.py:192] - [线程6270365696] 开始处理: 2508.14411 - A Real-world Display Inverse Rendering Dataset... (使用publication_date: 20250821)
+2025-08-21 12:05:25,138 - arxiv_crawler - INFO - [crawler.py:192] - [线程6236712960] 开始处理: 2508.14364 - Physics-Constrained Diffusion Reconstruction with ... (使用publication_date: 20250821)
+2025-08-21 12:05:25,211 - video_downloader - INFO - [video_downloader.py:169] - 视频下载成功: /Users/zhouzhongtian/Movies/arxiv_video/20250821/2508.14893/video_23.mp4
+2025-08-21 12:05:25,239 - arxiv_crawler - INFO - [crawler.py:201] - [线程6304018432] 论文 2508.14681 没有找到项目链接
+2025-08-21 12:05:25,383 - arxiv_crawler - INFO - [crawler.py:192] - [线程6304018432] 开始处理: 2508.14237 - OmniSense: Towards Edge-Assisted Online Analytics ... (使用publication_date: 20250821)
+2025-08-21 12:05:25,482 - arxiv_crawler - INFO - [crawler.py:201] - [线程6253539328] 论文 2508.14648 没有找到项目链接
+2025-08-21 12:05:25,603 - arxiv_crawler - INFO - [crawler.py:201] - [线程6236712960] 论文 2508.14364 没有找到项目链接
+2025-08-21 12:05:25,694 - arxiv_crawler - INFO - [crawler.py:192] - [线程6253539328] 开始处理: 2508.14357 - Organ-Agents: Virtual Human Physiology Simulator v... (使用publication_date: 20250821)
+2025-08-21 12:05:25,695 - video_downloader - INFO - [video_downloader.py:169] - 视频下载成功: /Users/zhouzhongtian/Movies/arxiv_video/20250821/2508.14893/video_24.mp4
+2025-08-21 12:05:25,766 - arxiv_crawler - INFO - [crawler.py:192] - [线程6236712960] 开始处理: 2508.14475 - Fine-grained Image Quality Assessment for Perceptu... (使用publication_date: 20250821)
+2025-08-21 12:05:25,843 - arxiv_crawler - INFO - [crawler.py:201] - [线程6219886592] 论文 2508.14552 没有找到项目链接
+2025-08-21 12:05:25,982 - arxiv_crawler - INFO - [crawler.py:192] - [线程6219886592] 开始处理: 2508.14138 - STAS: Spatio-Temporal Adaptive Computation Time fo... (使用publication_date: 20250821)
+2025-08-21 12:05:26,045 - video_downloader - INFO - [video_downloader.py:169] - 视频下载成功: /Users/zhouzhongtian/Movies/arxiv_video/20250821/2508.14893/video_25.mp4
+2025-08-21 12:05:26,230 - arxiv_crawler - INFO - [crawler.py:207] - [线程6270365696] 检查项目页面: https://michaelcsj.github.io/DIR/
+2025-08-21 12:05:26,232 - arxiv_crawler - INFO - [crawler.py:201] - [线程6203060224] 论文 2508.14509 没有找到项目链接
+2025-08-21 12:05:26,382 - arxiv_crawler - INFO - [crawler.py:192] - [线程6203060224] 开始处理: 2508.14151 - A Systematic Study of Deep Learning Models and xAI... (使用publication_date: 20250821)
+2025-08-21 12:05:26,392 - video_downloader - INFO - [video_downloader.py:169] - 视频下载成功: /Users/zhouzhongtian/Movies/arxiv_video/20250821/2508.14893/video_26.mp4
+2025-08-21 12:05:26,452 - arxiv_crawler - INFO - [crawler.py:201] - [线程6304018432] 论文 2508.14237 没有找到项目链接
+2025-08-21 12:05:26,589 - arxiv_crawler - INFO - [crawler.py:192] - [线程6304018432] 开始处理: 2508.14133 - Automated surgical planning with nnU-Net: delineat... (使用publication_date: 20250821)
+2025-08-21 12:05:26,648 - arxiv_crawler - INFO - [crawler.py:201] - [线程6253539328] 论文 2508.14357 没有找到项目链接
+2025-08-21 12:05:26,722 - arxiv_crawler - INFO - [crawler.py:207] - [线程6236712960] 检查项目页面: https://pxf0429.github.io/FGResQ/
+2025-08-21 12:05:26,811 - arxiv_crawler - INFO - [crawler.py:192] - [线程6253539328] 开始处理: 2508.14122 - 3D Cardiac Anatomy Generation Using Mesh Latent Di... (使用publication_date: 20250821)
+2025-08-21 12:05:26,837 - video_downloader - INFO - [video_downloader.py:169] - 视频下载成功: /Users/zhouzhongtian/Movies/arxiv_video/20250821/2508.14893/video_27.mp4
+2025-08-21 12:05:26,995 - arxiv_crawler - INFO - [crawler.py:201] - [线程6203060224] 论文 2508.14151 没有找到项目链接
+2025-08-21 12:05:27,058 - arxiv_crawler - INFO - [crawler.py:201] - [线程6219886592] 论文 2508.14138 没有找到项目链接
+2025-08-21 12:05:27,076 - arxiv_crawler - INFO - [crawler.py:201] - [线程6304018432] 论文 2508.14133 没有找到项目链接
+2025-08-21 12:05:27,148 - arxiv_crawler - INFO - [crawler.py:192] - [线程6203060224] 开始处理: 2508.14118 - Hallucinations in medical devices... (使用publication_date: 20250821)
+2025-08-21 12:05:27,173 - video_downloader - INFO - [video_downloader.py:169] - 视频下载成功: /Users/zhouzhongtian/Movies/arxiv_video/20250821/2508.14893/video_28.mp4
+2025-08-21 12:05:27,207 - arxiv_crawler - INFO - [crawler.py:192] - [线程6219886592] 开始处理: 2508.14129 - Fracture Detection and Localisation in Wrist and H... (使用publication_date: 20250821)
+2025-08-21 12:05:27,227 - arxiv_crawler - INFO - [crawler.py:192] - [线程6304018432] 开始处理: 2508.14413 - Disentanglement in T-space for Faster and Distribu... (使用publication_date: 20250821)
+2025-08-21 12:05:27,379 - arxiv_crawler - INFO - [crawler.py:201] - [线程6253539328] 论文 2508.14122 没有找到项目链接
+2025-08-21 12:05:27,515 - video_downloader - INFO - [video_downloader.py:169] - 视频下载成功: /Users/zhouzhongtian/Movies/arxiv_video/20250821/2508.14893/video_29.mp4
+2025-08-21 12:05:27,525 - arxiv_crawler - INFO - [crawler.py:192] - [线程6253539328] 开始处理: 2508.14060 - Activity Coefficient-based Channel Selection for E... (使用publication_date: 20250821)
+2025-08-21 12:05:27,911 - video_downloader - INFO - [video_downloader.py:169] - 视频下载成功: /Users/zhouzhongtian/Movies/arxiv_video/20250821/2508.14893/video_30.mp4
+2025-08-21 12:05:28,074 - arxiv_crawler - INFO - [crawler.py:201] - [线程6203060224] 论文 2508.14118 没有找到项目链接
+2025-08-21 12:05:28,084 - arxiv_crawler - INFO - [crawler.py:266] - [线程6236712960] 论文 2508.14475 没有找到可下载的视频
+2025-08-21 12:05:28,135 - arxiv_crawler - INFO - [crawler.py:201] - [线程6253539328] 论文 2508.14060 没有找到项目链接
+2025-08-21 12:05:28,220 - arxiv_crawler - INFO - [crawler.py:192] - [线程6203060224] 开始处理: 2508.14106 - High-Throughput Low-Cost Segmentation of Brightfie... (使用publication_date: 20250821)
+2025-08-21 12:05:28,225 - arxiv_crawler - INFO - [crawler.py:192] - [线程6236712960] 开始处理: 2508.14045 - From Image Captioning to Visual Storytelling... (使用publication_date: 20250821)
+2025-08-21 12:05:28,263 - arxiv_crawler - INFO - [crawler.py:201] - [线程6219886592] 论文 2508.14129 没有找到项目链接
+2025-08-21 12:05:28,365 - arxiv_crawler - INFO - [crawler.py:201] - [线程6304018432] 论文 2508.14413 没有找到项目链接
+2025-08-21 12:05:28,405 - arxiv_crawler - INFO - [crawler.py:266] - [线程6270365696] 论文 2508.14411 没有找到可下载的视频
+2025-08-21 12:05:28,593 - video_downloader - INFO - [video_downloader.py:169] - 视频下载成功: /Users/zhouzhongtian/Movies/arxiv_video/20250821/2508.14893/video_31.mp4
+2025-08-21 12:05:28,663 - video_downloader - INFO - [video_downloader.py:169] - 视频下载成功: /Users/zhouzhongtian/Movies/arxiv_video/20250821/2508.14892/video_0.mp4
+2025-08-21 12:05:28,986 - video_downloader - INFO - [video_downloader.py:169] - 视频下载成功: /Users/zhouzhongtian/Movies/arxiv_video/20250821/2508.14893/video_32.mp4
+2025-08-21 12:05:28,987 - arxiv_crawler - INFO - [crawler.py:229] - [线程6287192064] 论文 2508.14893 成功下载 33 个视频
+2025-08-21 12:05:28,992 - card_generator - INFO - [card_generator.py:77] - 开始为 ArXiv ID 2508.14893v1 生成解说卡片
+2025-08-21 12:05:29,011 - arxiv_crawler - INFO - [crawler.py:201] - [线程6203060224] 论文 2508.14106 没有找到项目链接
+2025-08-21 12:05:29,077 - card_generator - INFO - [card_generator.py:96] - 找到论文: Virtual Community: An Open World for Humans, Robot...
+2025-08-21 12:05:29,149 - card_generator - WARNING - [card_generator.py:107] - 论文 2508.14893v1 没有可用的解说脚本
+2025-08-21 12:05:29,216 - arxiv_crawler - WARNING - [crawler.py:254] - [线程6287192064] 无法为论文 2508.14893v1 生成解说卡片
+2025-08-21 12:05:29,361 - arxiv_crawler - INFO - [crawler.py:201] - [线程6236712960] 论文 2508.14045 没有找到项目链接
+2025-08-21 12:05:31,791 - video_downloader - INFO - [video_downloader.py:169] - 视频下载成功: /Users/zhouzhongtian/Movies/arxiv_video/20250821/2508.14892/video_1.mp4
+2025-08-21 12:05:34,917 - video_downloader - INFO - [video_downloader.py:169] - 视频下载成功: /Users/zhouzhongtian/Movies/arxiv_video/20250821/2508.14892/video_2.mp4
+2025-08-21 12:05:37,946 - video_downloader - INFO - [video_downloader.py:169] - 视频下载成功: /Users/zhouzhongtian/Movies/arxiv_video/20250821/2508.14892/video_3.mp4
+2025-08-21 12:05:41,940 - video_downloader - INFO - [video_downloader.py:169] - 视频下载成功: /Users/zhouzhongtian/Movies/arxiv_video/20250821/2508.14892/video_4.mp4
+2025-08-21 12:05:41,940 - arxiv_crawler - INFO - [crawler.py:229] - [线程6320844800] 论文 2508.14892 成功下载 5 个视频
+2025-08-21 12:05:41,940 - card_generator - INFO - [card_generator.py:77] - 开始为 ArXiv ID 2508.14892v1 生成解说卡片
+2025-08-21 12:05:42,013 - card_generator - INFO - [card_generator.py:96] - 找到论文: Snap-Snap: Taking Two Images to Reconstruct 3D Hum...
+2025-08-21 12:05:42,086 - card_generator - WARNING - [card_generator.py:107] - 论文 2508.14892v1 没有可用的解说脚本
+2025-08-21 12:05:42,153 - arxiv_crawler - WARNING - [crawler.py:254] - [线程6320844800] 无法为论文 2508.14892v1 生成解说卡片
+2025-08-21 12:05:42,155 - arxiv_crawler - INFO - [crawler.py:166] - 处理完成！成功: 7, 失败: 90, 成功率: 7.2%
+2025-08-21 12:05:42,156 - arxiv_crawler - INFO - [main.py:243] - ArXiv 视频下载器完成
+2025-08-21 12:05:42,159 - arxiv_crawler - INFO - [crawler.py:365] - 爬虫资源已清理
+2025-08-21 14:45:19,640 - card_generator - INFO - [card_generator.py:56] - 数据库连接成功，卡片生成器初始化完成
+2025-08-21 14:45:19,779 - arxiv_crawler - INFO - [main.py:216] - ArXiv 视频下载器启动
+2025-08-21 14:45:19,780 - arxiv_crawler - INFO - [main.py:217] - 配置 - 领域: cs.CV, 线程数: 8, 最大论文数: 200, 下载目录: /Users/zhouzhongtian/Movies/arxiv_video
+2025-08-21 14:45:19,780 - arxiv_crawler - INFO - [main.py:223] - 将自动获取最新发布日期的论文
+2025-08-21 14:45:19,780 - arxiv_crawler - INFO - [crawler.py:87] - 初始化完成，线程数: 8，下载目录: /Users/zhouzhongtian/Movies/arxiv_video
+2025-08-21 14:45:19,780 - arxiv_crawler - INFO - [crawler.py:104] - 开始爬取 cs.CV 领域最新一天的论文视频...
+2025-08-21 14:45:19,780 - arxiv_fetcher - INFO - [arxiv_fetcher.py:37] - 开始从数据库获取最新发布日的论文...
+2025-08-21 14:45:20,566 - arxiv_fetcher - INFO - [arxiv_fetcher.py:50] - 数据库中最新发布日期: 20250821
+2025-08-21 14:45:20,567 - arxiv_fetcher - INFO - [arxiv_fetcher.py:115] - 正在从数据库获取 20250821 日期的论文...
+2025-08-21 14:45:22,544 - arxiv_fetcher - INFO - [arxiv_fetcher.py:152] - 从数据库获取完成，共找到 97 篇 20250821 日期的论文
+2025-08-21 14:45:22,609 - arxiv_crawler - INFO - [crawler.py:118] - 获取到 97 篇论文，开始多线程处理...
+2025-08-21 14:45:22,760 - arxiv_crawler - INFO - [crawler.py:192] - [线程6138261504] 开始处理: 2508.14889 - MS-CLR: Multi-Skeleton Contrastive Learning for Hu... (使用publication_date: 20250821)
+2025-08-21 14:45:22,979 - arxiv_crawler - INFO - [crawler.py:192] - [线程6239219712] 开始处理: 2508.14811 - Tinker: Diffusion's Gift to 3D--Multi-View Consist... (使用publication_date: 20250821)
+2025-08-21 14:45:22,988 - arxiv_crawler - INFO - [crawler.py:192] - [线程6155087872] 开始处理: 2508.14891 - GaussianArt: Unified Modeling of Geometry and Moti... (使用publication_date: 20250821)
+2025-08-21 14:45:22,988 - arxiv_crawler - INFO - [crawler.py:192] - [线程6222393344] 开始处理: 2508.14893 - Virtual Community: An Open World for Humans, Robot... (使用publication_date: 20250821)
+2025-08-21 14:45:22,995 - arxiv_crawler - INFO - [crawler.py:192] - [线程6188740608] 开始处理: 2508.14856 - EventSSEG: Event-driven Self-Supervised Segmentati... (使用publication_date: 20250821)
+2025-08-21 14:45:23,003 - arxiv_crawler - INFO - [crawler.py:192] - [线程6205566976] 开始处理: 2508.14812 - Repeating Words for Video-Language Retrieval with ... (使用publication_date: 20250821)
+2025-08-21 14:45:23,012 - arxiv_crawler - INFO - [crawler.py:192] - [线程6171914240] 开始处理: 2508.14878 - Lifespan Pancreas Morphology for Control vs Type 2... (使用publication_date: 20250821)
+2025-08-21 14:45:23,012 - arxiv_crawler - INFO - [crawler.py:192] - [线程6256046080] 开始处理: 2508.14779 - Adversarial Hospital-Invariant Feature Learning fo... (使用publication_date: 20250821)
+2025-08-21 14:45:23,793 - arxiv_crawler - INFO - [crawler.py:201] - [线程6138261504] 论文 2508.14889 没有找到项目链接
+2025-08-21 14:45:23,821 - arxiv_crawler - INFO - [crawler.py:201] - [线程6188740608] 论文 2508.14856 没有找到项目链接
+2025-08-21 14:45:23,833 - arxiv_crawler - INFO - [crawler.py:207] - [线程6239219712] 检查项目页面: https://aim-uofa.github.io/Tinker
+2025-08-21 14:45:23,940 - arxiv_crawler - INFO - [crawler.py:192] - [线程6138261504] 开始处理: 2508.14814 - TransLight: Image-Guided Customized Lighting Contr... (使用publication_date: 20250821)
+2025-08-21 14:45:23,963 - arxiv_crawler - INFO - [crawler.py:192] - [线程6188740608] 开始处理: 2508.14776 - 6-DoF Object Tracking with Event-based Optical Flo... (使用publication_date: 20250821)
+2025-08-21 14:45:23,970 - arxiv_crawler - INFO - [crawler.py:207] - [线程6155087872] 检查项目页面: https://sainingzhang.github.io/project/gaussianart/
+2025-08-21 14:45:23,979 - arxiv_crawler - INFO - [crawler.py:201] - [线程6205566976] 论文 2508.14812 没有找到项目链接
+2025-08-21 14:45:24,029 - arxiv_crawler - INFO - [crawler.py:201] - [线程6171914240] 论文 2508.14878 没有找到项目链接
+2025-08-21 14:45:24,042 - arxiv_crawler - INFO - [crawler.py:207] - [线程6222393344] 检查项目页面: https://virtual-community-ai.github.io/
+2025-08-21 14:45:24,115 - arxiv_crawler - INFO - [crawler.py:192] - [线程6205566976] 开始处理: 2508.14797 - MF-LPR$^2$: Multi-Frame License Plate Image Restor... (使用publication_date: 20250821)
+2025-08-21 14:45:24,170 - arxiv_crawler - INFO - [crawler.py:192] - [线程6171914240] 开始处理: 2508.14729 - Multiscale Video Transformers for Class Agnostic S... (使用publication_date: 20250821)
+2025-08-21 14:45:24,318 - arxiv_crawler - INFO - [crawler.py:201] - [线程6256046080] 论文 2508.14779 没有找到项目链接
+2025-08-21 14:45:24,335 - arxiv_crawler - INFO - [crawler.py:201] - [线程6138261504] 论文 2508.14814 没有找到项目链接
+2025-08-21 14:45:24,473 - arxiv_crawler - INFO - [crawler.py:192] - [线程6256046080] 开始处理: 2508.14809 - DINOv3 with Test-Time Training for Medical Image R... (使用publication_date: 20250821)
+2025-08-21 14:45:24,477 - arxiv_crawler - INFO - [crawler.py:192] - [线程6138261504] 开始处理: 2508.14767 - Fusing Monocular RGB Images with AIS Data to Creat... (使用publication_date: 20250821)
+2025-08-21 14:45:24,895 - arxiv_crawler - INFO - [crawler.py:201] - [线程6138261504] 论文 2508.14767 没有找到项目链接
+2025-08-21 14:45:24,914 - arxiv_crawler - INFO - [crawler.py:201] - [线程6188740608] 论文 2508.14776 没有找到项目链接
+2025-08-21 14:45:25,040 - arxiv_crawler - INFO - [crawler.py:192] - [线程6138261504] 开始处理: 2508.14707 - Seeing Further on the Shoulders of Giants: Knowled... (使用publication_date: 20250821)
+2025-08-21 14:45:25,098 - arxiv_crawler - INFO - [crawler.py:192] - [线程6188740608] 开始处理: 2508.14730 - Improved Mapping Between Illuminations and Sensors... (使用publication_date: 20250821)
+2025-08-21 14:45:25,102 - arxiv_crawler - INFO - [crawler.py:201] - [线程6171914240] 论文 2508.14729 没有找到项目链接
+2025-08-21 14:45:25,241 - arxiv_crawler - INFO - [crawler.py:192] - [线程6171914240] 开始处理: 2508.14717 - GSFix3D: Diffusion-Guided Repair of Novel Views in... (使用publication_date: 20250821)
+2025-08-21 14:45:25,255 - arxiv_crawler - INFO - [crawler.py:201] - [线程6205566976] 论文 2508.14797 没有找到项目链接
+2025-08-21 14:45:25,393 - arxiv_crawler - INFO - [crawler.py:192] - [线程6205566976] 开始处理: 2508.14607 - SMTrack: End-to-End Trained Spiking Neural Network... (使用publication_date: 20250821)
+2025-08-21 14:45:25,507 - arxiv_crawler - INFO - [crawler.py:201] - [线程6256046080] 论文 2508.14809 没有找到项目链接
+2025-08-21 14:45:25,653 - arxiv_crawler - INFO - [crawler.py:192] - [线程6256046080] 开始处理: 2508.14604 - UST-SSM: Unified Spatio-Temporal State Space Model... (使用publication_date: 20250821)
+2025-08-21 14:45:25,782 - arxiv_crawler - INFO - [crawler.py:201] - [线程6188740608] 论文 2508.14730 没有找到项目链接
+2025-08-21 14:45:25,798 - arxiv_crawler - INFO - [crawler.py:207] - [线程6171914240] 检查项目页面: https://gsfix3d.github.io
+2025-08-21 14:45:25,811 - arxiv_crawler - INFO - [crawler.py:201] - [线程6138261504] 论文 2508.14707 没有找到项目链接
+2025-08-21 14:45:25,928 - arxiv_crawler - INFO - [crawler.py:192] - [线程6188740608] 开始处理: 2508.14660 - Towards PerSense++: Advancing Training-Free Person... (使用publication_date: 20250821)
+2025-08-21 14:45:25,961 - arxiv_crawler - INFO - [crawler.py:192] - [线程6138261504] 开始处理: 2508.14682 - GeMS: Efficient Gaussian Splatting for Extreme Mot... (使用publication_date: 20250821)
+2025-08-21 14:45:26,069 - arxiv_crawler - INFO - [crawler.py:201] - [线程6205566976] 论文 2508.14607 没有找到项目链接
+2025-08-21 14:45:26,154 - video_downloader - INFO - [video_downloader.py:169] - 视频下载成功: /Users/zhouzhongtian/Movies/arxiv_video/20250821/2508.14893/video_0.mp4
+2025-08-21 14:45:26,225 - video_downloader - INFO - [video_downloader.py:169] - 视频下载成功: /Users/zhouzhongtian/Movies/arxiv_video/20250821/2508.14811/video_0.mp4
+2025-08-21 14:45:26,298 - arxiv_crawler - INFO - [crawler.py:192] - [线程6205566976] 开始处理: 2508.14599 - Incremental Object Detection with Prompt-based Met... (使用publication_date: 20250821)
+2025-08-21 14:45:26,555 - video_downloader - INFO - [video_downloader.py:169] - 视频下载成功: /Users/zhouzhongtian/Movies/arxiv_video/20250821/2508.14893/video_1.mp4
+2025-08-21 14:45:26,569 - arxiv_crawler - INFO - [crawler.py:201] - [线程6256046080] 论文 2508.14604 没有找到项目链接
+2025-08-21 14:45:26,572 - video_downloader - INFO - [video_downloader.py:169] - 视频下载成功: /Users/zhouzhongtian/Movies/arxiv_video/20250821/2508.14811/video_1.mp4
+2025-08-21 14:45:26,719 - arxiv_crawler - INFO - [crawler.py:192] - [线程6256046080] 开始处理: 2508.14567 - Safety-Critical Learning for Long-Tail Events: The... (使用publication_date: 20250821)
+2025-08-21 14:45:26,905 - arxiv_crawler - INFO - [crawler.py:201] - [线程6188740608] 论文 2508.14660 没有找到项目链接
+2025-08-21 14:45:27,390 - video_downloader - INFO - [video_downloader.py:169] - 视频下载成功: /Users/zhouzhongtian/Movies/arxiv_video/20250821/2508.14893/video_2.mp4
+2025-08-21 14:45:27,431 - arxiv_crawler - INFO - [crawler.py:201] - [线程6205566976] 论文 2508.14599 没有找到项目链接
+2025-08-21 14:45:27,436 - arxiv_crawler - INFO - [crawler.py:201] - [线程6138261504] 论文 2508.14682 没有找到项目链接
+2025-08-21 14:45:27,449 - arxiv_crawler - INFO - [crawler.py:207] - [线程6256046080] 检查项目页面: https://tum-traffic-dataset.github.io/tumtraf-a
+2025-08-21 14:45:27,518 - arxiv_crawler - INFO - [crawler.py:192] - [线程6188740608] 开始处理: 2508.14563 - GOGS: High-Fidelity Geometry and Relighting for Gl... (使用publication_date: 20250821)
+2025-08-21 14:45:27,580 - arxiv_crawler - INFO - [crawler.py:192] - [线程6205566976] 开始处理: 2508.14597 - Reliable Smoke Detection via Optical Flow-Guided F... (使用publication_date: 20250821)
+2025-08-21 14:45:27,585 - arxiv_crawler - INFO - [crawler.py:192] - [线程6138261504] 开始处理: 2508.14588 - Controllable Latent Space Augmentation for Digital... (使用publication_date: 20250821)
+2025-08-21 14:45:29,407 - arxiv_crawler - INFO - [crawler.py:201] - [线程6188740608] 论文 2508.14563 没有找到项目链接
+2025-08-21 14:45:29,420 - arxiv_crawler - INFO - [crawler.py:201] - [线程6205566976] 论文 2508.14597 没有找到项目链接
+2025-08-21 14:45:29,741 - arxiv_crawler - INFO - [crawler.py:192] - [线程6188740608] 开始处理: 2508.14609 - AnchorSync: Global Consistency Optimization for Lo... (使用publication_date: 20250821)
+2025-08-21 14:45:29,748 - arxiv_crawler - INFO - [crawler.py:192] - [线程6205566976] 开始处理: 2508.14558 - A Comprehensive Review of Agricultural Parcel and ... (使用publication_date: 20250821)
+2025-08-21 14:45:30,640 - arxiv_crawler - INFO - [crawler.py:201] - [线程6138261504] 论文 2508.14588 没有找到项目链接
+2025-08-21 14:45:30,680 - arxiv_crawler - INFO - [crawler.py:201] - [线程6205566976] 论文 2508.14558 没有找到项目链接
+2025-08-21 14:45:30,685 - arxiv_crawler - INFO - [crawler.py:201] - [线程6188740608] 论文 2508.14609 没有找到项目链接
+2025-08-21 14:45:30,756 - video_downloader - INFO - [video_downloader.py:169] - 视频下载成功: /Users/zhouzhongtian/Movies/arxiv_video/20250821/2508.14811/video_2.mp4
+2025-08-21 14:45:30,763 - video_downloader - INFO - [video_downloader.py:169] - 视频下载成功: /Users/zhouzhongtian/Movies/arxiv_video/20250821/2508.14893/video_3.mp4
+2025-08-21 14:45:30,851 - arxiv_crawler - INFO - [crawler.py:192] - [线程6138261504] 开始处理: 2508.14561 - Making Pose Representations More Expressive and Di... (使用publication_date: 20250821)
+2025-08-21 14:45:30,870 - arxiv_crawler - INFO - [crawler.py:192] - [线程6205566976] 开始处理: 2508.14562 - Locality-aware Concept Bottleneck Model... (使用publication_date: 20250821)
+2025-08-21 14:45:30,873 - arxiv_crawler - INFO - [crawler.py:192] - [线程6188740608] 开始处理: 2508.14537 - WISE-FUSE: Efficient Whole Slide Image Encoding vi... (使用publication_date: 20250821)
+2025-08-21 14:45:31,088 - video_downloader - INFO - [video_downloader.py:169] - 视频下载成功: /Users/zhouzhongtian/Movies/arxiv_video/20250821/2508.14893/video_4.mp4
+2025-08-21 14:45:31,117 - video_downloader - INFO - [video_downloader.py:169] - 视频下载成功: /Users/zhouzhongtian/Movies/arxiv_video/20250821/2508.14811/video_3.mp4
+2025-08-21 14:45:31,290 - arxiv_crawler - INFO - [crawler.py:201] - [线程6205566976] 论文 2508.14562 没有找到项目链接
+2025-08-21 14:45:31,412 - arxiv_crawler - INFO - [crawler.py:201] - [线程6138261504] 论文 2508.14561 没有找到项目链接
+2025-08-21 14:45:31,436 - arxiv_crawler - INFO - [crawler.py:192] - [线程6205566976] 开始处理: 2508.14504 - PB-IAD: Utilizing multimodal foundation models for... (使用publication_date: 20250821)
+2025-08-21 14:45:31,441 - video_downloader - INFO - [video_downloader.py:169] - 视频下载成功: /Users/zhouzhongtian/Movies/arxiv_video/20250821/2508.14811/video_4.mp4
+2025-08-21 14:45:31,554 - arxiv_crawler - INFO - [crawler.py:192] - [线程6138261504] 开始处理: 2508.14527 - Adversarial Generation and Collaborative Evolution... (使用publication_date: 20250821)
+2025-08-21 14:45:31,565 - video_downloader - INFO - [video_downloader.py:169] - 视频下载成功: /Users/zhouzhongtian/Movies/arxiv_video/20250821/2508.14893/video_5.mp4
+2025-08-21 14:45:31,791 - video_downloader - INFO - [video_downloader.py:169] - 视频下载成功: /Users/zhouzhongtian/Movies/arxiv_video/20250821/2508.14811/video_5.mp4
+2025-08-21 14:45:31,843 - arxiv_crawler - INFO - [crawler.py:201] - [线程6205566976] 论文 2508.14504 没有找到项目链接
+2025-08-21 14:45:31,859 - arxiv_crawler - INFO - [crawler.py:201] - [线程6188740608] 论文 2508.14537 没有找到项目链接
+2025-08-21 14:45:31,899 - video_downloader - INFO - [video_downloader.py:169] - 视频下载成功: /Users/zhouzhongtian/Movies/arxiv_video/20250821/2508.14893/video_6.mp4
+2025-08-21 14:45:31,985 - arxiv_crawler - INFO - [crawler.py:192] - [线程6205566976] 开始处理: 2508.14557 - Improving OCR using internal document redundancy... (使用publication_date: 20250821)
+2025-08-21 14:45:32,030 - arxiv_crawler - INFO - [crawler.py:192] - [线程6188740608] 开始处理: 2508.14466 - LookOut: Real-World Humanoid Egocentric Navigation... (使用publication_date: 20250821)
+2025-08-21 14:45:32,093 - video_downloader - INFO - [video_downloader.py:169] - 视频下载成功: /Users/zhouzhongtian/Movies/arxiv_video/20250821/2508.14567/video_0.mp4
+2025-08-21 14:45:32,093 - arxiv_crawler - INFO - [crawler.py:229] - [线程6256046080] 论文 2508.14567 成功下载 1 个视频
+2025-08-21 14:45:32,093 - card_generator - INFO - [card_generator.py:77] - 开始为 ArXiv ID 2508.14567v1 生成解说卡片
+2025-08-21 14:45:32,130 - video_downloader - INFO - [video_downloader.py:169] - 视频下载成功: /Users/zhouzhongtian/Movies/arxiv_video/20250821/2508.14811/video_6.mp4
+2025-08-21 14:45:32,173 - card_generator - INFO - [card_generator.py:96] - 找到论文: Safety-Critical Learning for Long-Tail Events: The...
+2025-08-21 14:45:32,435 - arxiv_crawler - INFO - [crawler.py:201] - [线程6138261504] 论文 2508.14527 没有找到项目链接
+2025-08-21 14:45:32,472 - video_downloader - INFO - [video_downloader.py:169] - 视频下载成功: /Users/zhouzhongtian/Movies/arxiv_video/20250821/2508.14717/video_0.mp4
+2025-08-21 14:45:32,477 - video_downloader - INFO - [video_downloader.py:169] - 视频下载成功: /Users/zhouzhongtian/Movies/arxiv_video/20250821/2508.14811/video_7.mp4
+2025-08-21 14:45:32,544 - video_downloader - INFO - [video_downloader.py:169] - 视频下载成功: /Users/zhouzhongtian/Movies/arxiv_video/20250821/2508.14893/video_7.mp4
+2025-08-21 14:45:32,624 - card_generator - INFO - [card_generator.py:113] - 成功生成 ArXiv ID 2508.14567v1 的解说卡片
+2025-08-21 14:45:32,625 - arxiv_crawler - INFO - [crawler.py:192] - [线程6138261504] 开始处理: 2508.14502 - SATURN: Autoregressive Image Generation Guided by ... (使用publication_date: 20250821)
+2025-08-21 14:45:32,644 - arxiv_crawler - INFO - [crawler.py:201] - [线程6188740608] 论文 2508.14466 没有找到项目链接
+2025-08-21 14:45:32,645 - card_generator - INFO - [card_generator.py:157] - 卡片已保存到: /Users/zhouzhongtian/vscode/arxiv_video/cards/2508.14567v1.json
+2025-08-21 14:45:32,645 - card_generator - INFO - [card_generator.py:157] - 卡片已保存到: /Users/zhouzhongtian/Movies/arxiv_video/20250821/2508.14567/2508.14567v1.json
+2025-08-21 14:45:32,645 - card_generator - INFO - [card_generator.py:376] - 卡片已保存到: /Users/zhouzhongtian/Movies/arxiv_video/20250821/2508.14567/2508.14567v1.json
+2025-08-21 14:45:32,645 - arxiv_crawler - INFO - [crawler.py:242] - [线程6256046080] 成功生成并保存论文 2508.14567v1 的解说卡片到 /Users/zhouzhongtian/Movies/arxiv_video/20250821/2508.14567
+2025-08-21 14:45:32,715 - arxiv_crawler - INFO - [crawler.py:201] - [线程6205566976] 论文 2508.14557 没有找到项目链接
+2025-08-21 14:45:32,811 - video_downloader - INFO - [video_downloader.py:169] - 视频下载成功: /Users/zhouzhongtian/Movies/arxiv_video/20250821/2508.14811/video_8.mp4
+2025-08-21 14:45:32,815 - arxiv_crawler - INFO - [crawler.py:192] - [线程6188740608] 开始处理: 2508.14486 - WeedSense: Multi-Task Learning for Weed Segmentati... (使用publication_date: 20250821)
+2025-08-21 14:45:32,888 - arxiv_crawler - INFO - [crawler.py:192] - [线程6205566976] 开始处理: 2508.14465 - DreamSwapV: Mask-guided Subject Swapping for Any C... (使用publication_date: 20250821)
+2025-08-21 14:45:32,913 - video_downloader - INFO - [video_downloader.py:169] - 视频下载成功: /Users/zhouzhongtian/Movies/arxiv_video/20250821/2508.14893/video_8.mp4
+2025-08-21 14:45:33,148 - video_downloader - INFO - [video_downloader.py:169] - 视频下载成功: /Users/zhouzhongtian/Movies/arxiv_video/20250821/2508.14811/video_9.mp4
+2025-08-21 14:45:33,269 - video_downloader - INFO - [video_downloader.py:169] - 视频下载成功: /Users/zhouzhongtian/Movies/arxiv_video/20250821/2508.14893/video_9.mp4
+2025-08-21 14:45:33,481 - video_downloader - INFO - [video_downloader.py:169] - 视频下载成功: /Users/zhouzhongtian/Movies/arxiv_video/20250821/2508.14811/video_10.mp4
+2025-08-21 14:45:33,481 - arxiv_crawler - INFO - [crawler.py:229] - [线程6239219712] 论文 2508.14811 成功下载 11 个视频
+2025-08-21 14:45:33,481 - card_generator - INFO - [card_generator.py:77] - 开始为 ArXiv ID 2508.14811v1 生成解说卡片
+2025-08-21 14:45:33,539 - arxiv_crawler - INFO - [crawler.py:207] - [线程6188740608] 检查项目页面: http://weedsense.github.io
+2025-08-21 14:45:33,541 - video_downloader - INFO - [video_downloader.py:169] - 视频下载成功: /Users/zhouzhongtian/Movies/arxiv_video/20250821/2508.14717/video_1.mp4
+2025-08-21 14:45:33,557 - card_generator - INFO - [card_generator.py:96] - 找到论文: Tinker: Diffusion's Gift to 3D--Multi-View Consist...
+2025-08-21 14:45:33,594 - video_downloader - INFO - [video_downloader.py:169] - 视频下载成功: /Users/zhouzhongtian/Movies/arxiv_video/20250821/2508.14893/video_10.mp4
+2025-08-21 14:45:33,629 - arxiv_crawler - INFO - [crawler.py:201] - [线程6138261504] 论文 2508.14502 没有找到项目链接
+2025-08-21 14:45:33,761 - arxiv_crawler - INFO - [crawler.py:192] - [线程6138261504] 开始处理: 2508.14448 - Generalizable Engagement Estimation in Conversatio... (使用publication_date: 20250821)
+2025-08-21 14:45:33,840 - arxiv_crawler - INFO - [crawler.py:201] - [线程6205566976] 论文 2508.14465 没有找到项目链接
+2025-08-21 14:45:33,964 - card_generator - INFO - [card_generator.py:113] - 成功生成 ArXiv ID 2508.14811v1 的解说卡片
+2025-08-21 14:45:33,965 - card_generator - INFO - [card_generator.py:157] - 卡片已保存到: /Users/zhouzhongtian/vscode/arxiv_video/cards/2508.14811v1.json
+2025-08-21 14:45:33,965 - card_generator - INFO - [card_generator.py:157] - 卡片已保存到: /Users/zhouzhongtian/Movies/arxiv_video/20250821/2508.14811/2508.14811v1.json
+2025-08-21 14:45:33,965 - card_generator - INFO - [card_generator.py:376] - 卡片已保存到: /Users/zhouzhongtian/Movies/arxiv_video/20250821/2508.14811/2508.14811v1.json
+2025-08-21 14:45:33,965 - arxiv_crawler - INFO - [crawler.py:242] - [线程6239219712] 成功生成并保存论文 2508.14811v1 的解说卡片到 /Users/zhouzhongtian/Movies/arxiv_video/20250821/2508.14811
+2025-08-21 14:45:33,986 - arxiv_crawler - INFO - [crawler.py:192] - [线程6205566976] 开始处理: 2508.14483 - Vivid-VR: Distilling Concepts from Text-to-Video D... (使用publication_date: 20250821)
+2025-08-21 14:45:34,041 - video_downloader - INFO - [video_downloader.py:169] - 视频下载成功: /Users/zhouzhongtian/Movies/arxiv_video/20250821/2508.14893/video_11.mp4
+2025-08-21 14:45:34,235 - video_downloader - INFO - [video_downloader.py:169] - 视频下载成功: /Users/zhouzhongtian/Movies/arxiv_video/20250821/2508.14717/video_2.mp4
+2025-08-21 14:45:34,515 - arxiv_crawler - INFO - [crawler.py:201] - [线程6138261504] 论文 2508.14448 没有找到项目链接
+2025-08-21 14:45:34,657 - arxiv_crawler - INFO - [crawler.py:192] - [线程6138261504] 开始处理: 2508.14443 - Reconstruction Using the Invisible: Intuition from... (使用publication_date: 20250821)
+2025-08-21 14:45:35,042 - arxiv_crawler - INFO - [crawler.py:201] - [线程6205566976] 论文 2508.14483 没有找到项目链接
+2025-08-21 14:45:35,078 - video_downloader - INFO - [video_downloader.py:169] - 视频下载成功: /Users/zhouzhongtian/Movies/arxiv_video/20250821/2508.14717/video_3.mp4
+2025-08-21 14:45:35,197 - arxiv_crawler - INFO - [crawler.py:201] - [线程6138261504] 论文 2508.14443 没有找到项目链接
+2025-08-21 14:45:35,281 - video_downloader - INFO - [video_downloader.py:169] - 视频下载成功: /Users/zhouzhongtian/Movies/arxiv_video/20250821/2508.14893/video_12.mp4
+2025-08-21 14:45:35,308 - arxiv_crawler - INFO - [crawler.py:192] - [线程6205566976] 开始处理: 2508.14449 - D^3-Talker: Dual-Branch Decoupled Deformation Fiel... (使用publication_date: 20250821)
+2025-08-21 14:45:35,384 - arxiv_crawler - INFO - [crawler.py:192] - [线程6138261504] 开始处理: 2508.14437 - FOCUS: Frequency-Optimized Conditioning of DiffUSi... (使用publication_date: 20250821)
+2025-08-21 14:45:35,648 - video_downloader - INFO - [video_downloader.py:169] - 视频下载成功: /Users/zhouzhongtian/Movies/arxiv_video/20250821/2508.14893/video_13.mp4
+2025-08-21 14:45:35,751 - video_downloader - INFO - [video_downloader.py:169] - 视频下载成功: /Users/zhouzhongtian/Movies/arxiv_video/20250821/2508.14717/video_4.mp4
+2025-08-21 14:45:35,752 - arxiv_crawler - INFO - [crawler.py:229] - [线程6171914240] 论文 2508.14717 成功下载 5 个视频
+2025-08-21 14:45:35,752 - card_generator - INFO - [card_generator.py:77] - 开始为 ArXiv ID 2508.14717v1 生成解说卡片
+2025-08-21 14:45:35,827 - card_generator - INFO - [card_generator.py:96] - 找到论文: GSFix3D: Diffusion-Guided Repair of Novel Views in...
+2025-08-21 14:45:35,857 - video_downloader - INFO - [video_downloader.py:169] - 视频下载成功: /Users/zhouzhongtian/Movies/arxiv_video/20250821/2508.14891/video_0.mp4
+2025-08-21 14:45:35,959 - arxiv_crawler - INFO - [crawler.py:201] - [线程6138261504] 论文 2508.14437 没有找到项目链接
+2025-08-21 14:45:35,964 - video_downloader - INFO - [video_downloader.py:169] - 视频下载成功: /Users/zhouzhongtian/Movies/arxiv_video/20250821/2508.14893/video_14.mp4
+2025-08-21 14:45:36,102 - arxiv_crawler - INFO - [crawler.py:192] - [线程6138261504] 开始处理: 2508.14431 - HyperDiff: Hypergraph Guided Diffusion Model for 3... (使用publication_date: 20250821)
+2025-08-21 14:45:36,160 - arxiv_crawler - INFO - [crawler.py:266] - [线程6188740608] 论文 2508.14486 没有找到可下载的视频
+2025-08-21 14:45:36,240 - card_generator - INFO - [card_generator.py:113] - 成功生成 ArXiv ID 2508.14717v1 的解说卡片
+2025-08-21 14:45:36,240 - card_generator - INFO - [card_generator.py:157] - 卡片已保存到: /Users/zhouzhongtian/vscode/arxiv_video/cards/2508.14717v1.json
+2025-08-21 14:45:36,241 - card_generator - INFO - [card_generator.py:157] - 卡片已保存到: /Users/zhouzhongtian/Movies/arxiv_video/20250821/2508.14717/2508.14717v1.json
+2025-08-21 14:45:36,241 - card_generator - INFO - [card_generator.py:376] - 卡片已保存到: /Users/zhouzhongtian/Movies/arxiv_video/20250821/2508.14717/2508.14717v1.json
+2025-08-21 14:45:36,241 - arxiv_crawler - INFO - [crawler.py:242] - [线程6171914240] 成功生成并保存论文 2508.14717v1 的解说卡片到 /Users/zhouzhongtian/Movies/arxiv_video/20250821/2508.14717
+2025-08-21 14:45:36,290 - arxiv_crawler - INFO - [crawler.py:192] - [线程6188740608] 开始处理: 2508.14405 - CTA-Flux: Integrating Chinese Cultural Semantics i... (使用publication_date: 20250821)
+2025-08-21 14:45:36,381 - arxiv_crawler - INFO - [crawler.py:201] - [线程6205566976] 论文 2508.14449 没有找到项目链接
+2025-08-21 14:45:36,388 - video_downloader - INFO - [video_downloader.py:169] - 视频下载成功: /Users/zhouzhongtian/Movies/arxiv_video/20250821/2508.14893/video_15.mp4
+2025-08-21 14:45:36,530 - arxiv_crawler - INFO - [crawler.py:192] - [线程6205566976] 开始处理: 2508.14461 - Ouroboros: Single-step Diffusion Models for Cycle-... (使用publication_date: 20250821)
+2025-08-21 14:45:36,772 - arxiv_crawler - INFO - [crawler.py:201] - [线程6188740608] 论文 2508.14405 没有找到项目链接
+2025-08-21 14:45:36,907 - arxiv_crawler - INFO - [crawler.py:192] - [线程6188740608] 开始处理: 2508.14393 - Img2ST-Net: Efficient High-Resolution Spatial Omic... (使用publication_date: 20250821)
+2025-08-21 14:45:37,179 - arxiv_crawler - INFO - [crawler.py:201] - [线程6138261504] 论文 2508.14431 没有找到项目链接
+2025-08-21 14:45:37,366 - arxiv_crawler - INFO - [crawler.py:192] - [线程6138261504] 开始处理: 2508.14374 - QuadINR: Hardware-Efficient Implicit Neural Repres... (使用publication_date: 20250821)
+2025-08-21 14:45:37,436 - video_downloader - INFO - [video_downloader.py:169] - 视频下载成功: /Users/zhouzhongtian/Movies/arxiv_video/20250821/2508.14893/video_16.mp4
+2025-08-21 14:45:37,661 - arxiv_crawler - INFO - [crawler.py:201] - [线程6205566976] 论文 2508.14461 没有找到项目链接
+2025-08-21 14:45:37,773 - video_downloader - INFO - [video_downloader.py:169] - 视频下载成功: /Users/zhouzhongtian/Movies/arxiv_video/20250821/2508.14893/video_17.mp4
+2025-08-21 14:45:37,811 - arxiv_crawler - INFO - [crawler.py:192] - [线程6205566976] 开始处理: 2508.14423 - MoCHA-former: Moiré-Conditioned Hybrid Adaptive Tr... (使用publication_date: 20250821)
+2025-08-21 14:45:37,907 - arxiv_crawler - INFO - [crawler.py:201] - [线程6188740608] 论文 2508.14393 没有找到项目链接
+2025-08-21 14:45:37,964 - video_downloader - INFO - [video_downloader.py:169] - 视频下载成功: /Users/zhouzhongtian/Movies/arxiv_video/20250821/2508.14891/video_1.mp4
+2025-08-21 14:45:37,964 - arxiv_crawler - INFO - [crawler.py:229] - [线程6155087872] 论文 2508.14891 成功下载 2 个视频
+2025-08-21 14:45:37,964 - card_generator - INFO - [card_generator.py:77] - 开始为 ArXiv ID 2508.14891v1 生成解说卡片
+2025-08-21 14:45:38,038 - card_generator - INFO - [card_generator.py:96] - 找到论文: GaussianArt: Unified Modeling of Geometry and Moti...
+2025-08-21 14:45:38,055 - arxiv_crawler - INFO - [crawler.py:192] - [线程6188740608] 开始处理: 2508.14370 - FastTracker: Real-Time and Accurate Visual Trackin... (使用publication_date: 20250821)
+2025-08-21 14:45:38,125 - arxiv_crawler - INFO - [crawler.py:201] - [线程6138261504] 论文 2508.14374 没有找到项目链接
+2025-08-21 14:45:38,271 - arxiv_crawler - INFO - [crawler.py:192] - [线程6138261504] 开始处理: 2508.14359 - Taming Transformer for Emotion-Controllable Talkin... (使用publication_date: 20250821)
+2025-08-21 14:45:38,467 - card_generator - INFO - [card_generator.py:113] - 成功生成 ArXiv ID 2508.14891v1 的解说卡片
+2025-08-21 14:45:38,486 - arxiv_crawler - INFO - [crawler.py:207] - [线程6205566976] 检查项目页面: https://cmlab-korea.github.io/MoCHAformer-Demo/
+2025-08-21 14:45:38,488 - card_generator - INFO - [card_generator.py:157] - 卡片已保存到: /Users/zhouzhongtian/vscode/arxiv_video/cards/2508.14891v1.json
+2025-08-21 14:45:38,488 - video_downloader - INFO - [video_downloader.py:169] - 视频下载成功: /Users/zhouzhongtian/Movies/arxiv_video/20250821/2508.14893/video_18.mp4
+2025-08-21 14:45:38,489 - card_generator - INFO - [card_generator.py:157] - 卡片已保存到: /Users/zhouzhongtian/Movies/arxiv_video/20250821/2508.14891/2508.14891v1.json
+2025-08-21 14:45:38,489 - card_generator - INFO - [card_generator.py:376] - 卡片已保存到: /Users/zhouzhongtian/Movies/arxiv_video/20250821/2508.14891/2508.14891v1.json
+2025-08-21 14:45:38,490 - arxiv_crawler - INFO - [crawler.py:242] - [线程6155087872] 成功生成并保存论文 2508.14891v1 的解说卡片到 /Users/zhouzhongtian/Movies/arxiv_video/20250821/2508.14891
+2025-08-21 14:45:38,656 - arxiv_crawler - INFO - [crawler.py:201] - [线程6138261504] 论文 2508.14359 没有找到项目链接
+2025-08-21 14:45:38,798 - arxiv_crawler - INFO - [crawler.py:192] - [线程6138261504] 开始处理: 2508.14440 - MUSE: Multi-Subject Unified Synthesis via Explicit... (使用publication_date: 20250821)
+2025-08-21 14:45:38,990 - arxiv_crawler - INFO - [crawler.py:201] - [线程6188740608] 论文 2508.14370 没有找到项目链接
+2025-08-21 14:45:39,042 - video_downloader - INFO - [video_downloader.py:169] - 视频下载成功: /Users/zhouzhongtian/Movies/arxiv_video/20250821/2508.14893/video_19.mp4
+2025-08-21 14:45:39,147 - arxiv_crawler - INFO - [crawler.py:192] - [线程6188740608] 开始处理: 2508.14373 - TCFNet: Bidirectional face-bone transformation via... (使用publication_date: 20250821)
+2025-08-21 14:45:39,619 - arxiv_crawler - INFO - [crawler.py:201] - [线程6188740608] 论文 2508.14373 没有找到项目链接
+2025-08-21 14:45:39,756 - arxiv_crawler - INFO - [crawler.py:192] - [线程6188740608] 开始处理: 2508.14349 - Deep Learning for Taxol Exposure Analysis: A New C... (使用publication_date: 20250821)
+2025-08-21 14:45:39,772 - arxiv_crawler - INFO - [crawler.py:201] - [线程6138261504] 论文 2508.14440 没有找到项目链接
+2025-08-21 14:45:39,920 - arxiv_crawler - INFO - [crawler.py:192] - [线程6138261504] 开始处理: 2508.14327 - MoVieDrive: Multi-Modal Multi-View Urban Scene Vid... (使用publication_date: 20250821)
+2025-08-21 14:45:40,534 - arxiv_crawler - INFO - [crawler.py:201] - [线程6138261504] 论文 2508.14327 没有找到项目链接
+2025-08-21 14:45:40,565 - arxiv_crawler - INFO - [crawler.py:201] - [线程6188740608] 论文 2508.14349 没有找到项目链接
+2025-08-21 14:45:40,694 - arxiv_crawler - INFO - [crawler.py:192] - [线程6138261504] 开始处理: 2508.14358 - Learning Point Cloud Representations with Pose Con... (使用publication_date: 20250821)
+2025-08-21 14:45:40,710 - arxiv_crawler - INFO - [crawler.py:192] - [线程6188740608] 开始处理: 2508.14345 - HandCraft: Dynamic Sign Generation for Synthetic D... (使用publication_date: 20250821)
+2025-08-21 14:45:40,846 - video_downloader - INFO - [video_downloader.py:169] - 视频下载成功: /Users/zhouzhongtian/Movies/arxiv_video/20250821/2508.14423/video_0.mp4
+2025-08-21 14:45:41,814 - arxiv_crawler - INFO - [crawler.py:201] - [线程6138261504] 论文 2508.14358 没有找到项目链接
+2025-08-21 14:45:41,816 - video_downloader - INFO - [video_downloader.py:169] - 视频下载成功: /Users/zhouzhongtian/Movies/arxiv_video/20250821/2508.14423/video_1.mp4
+2025-08-21 14:45:41,816 - arxiv_crawler - INFO - [crawler.py:229] - [线程6205566976] 论文 2508.14423 成功下载 2 个视频
+2025-08-21 14:45:41,816 - card_generator - INFO - [card_generator.py:77] - 开始为 ArXiv ID 2508.14423v1 生成解说卡片
+2025-08-21 14:45:41,906 - card_generator - INFO - [card_generator.py:96] - 找到论文: MoCHA-former: Moiré-Conditioned Hybrid Adaptive Tr...
+2025-08-21 14:45:41,990 - arxiv_crawler - INFO - [crawler.py:192] - [线程6138261504] 开始处理: 2508.14280 - Multi-Rationale Explainable Object Recognition via... (使用publication_date: 20250821)
+2025-08-21 14:45:41,997 - arxiv_crawler - INFO - [crawler.py:201] - [线程6188740608] 论文 2508.14345 没有找到项目链接
+2025-08-21 14:45:42,133 - arxiv_crawler - INFO - [crawler.py:192] - [线程6188740608] 开始处理: 2508.14286 - OccluNet: Spatio-Temporal Deep Learning for Occlus... (使用publication_date: 20250821)
+2025-08-21 14:45:42,318 - card_generator - INFO - [card_generator.py:113] - 成功生成 ArXiv ID 2508.14423v1 的解说卡片
+2025-08-21 14:45:42,319 - card_generator - INFO - [card_generator.py:157] - 卡片已保存到: /Users/zhouzhongtian/vscode/arxiv_video/cards/2508.14423v1.json
+2025-08-21 14:45:42,319 - card_generator - INFO - [card_generator.py:157] - 卡片已保存到: /Users/zhouzhongtian/Movies/arxiv_video/20250821/2508.14423/2508.14423v1.json
+2025-08-21 14:45:42,319 - card_generator - INFO - [card_generator.py:376] - 卡片已保存到: /Users/zhouzhongtian/Movies/arxiv_video/20250821/2508.14423/2508.14423v1.json
+2025-08-21 14:45:42,319 - arxiv_crawler - INFO - [crawler.py:242] - [线程6205566976] 成功生成并保存论文 2508.14423v1 的解说卡片到 /Users/zhouzhongtian/Movies/arxiv_video/20250821/2508.14423
+2025-08-21 14:45:42,469 - arxiv_crawler - INFO - [crawler.py:201] - [线程6138261504] 论文 2508.14280 没有找到项目链接
+2025-08-21 14:45:42,642 - arxiv_crawler - INFO - [crawler.py:192] - [线程6138261504] 开始处理: 2508.14343 - Inter-Class Relational Loss for Small Object Detec... (使用publication_date: 20250821)
+2025-08-21 14:45:42,755 - arxiv_crawler - INFO - [crawler.py:201] - [线程6188740608] 论文 2508.14286 没有找到项目链接
+2025-08-21 14:45:42,920 - arxiv_crawler - INFO - [crawler.py:192] - [线程6188740608] 开始处理: 2508.14295 - Pixels to Play: A Foundation Model for 3D Gameplay... (使用publication_date: 20250821)
+2025-08-21 14:45:43,322 - arxiv_crawler - INFO - [crawler.py:201] - [线程6138261504] 论文 2508.14343 没有找到项目链接
+2025-08-21 14:45:43,470 - arxiv_crawler - INFO - [crawler.py:192] - [线程6138261504] 开始处理: 2508.14276 - Tooth-Diffusion: Guided 3D CBCT Synthesis with Fin... (使用publication_date: 20250821)
+2025-08-21 14:45:43,826 - arxiv_crawler - INFO - [crawler.py:201] - [线程6188740608] 论文 2508.14295 没有找到项目链接
+2025-08-21 14:45:44,205 - arxiv_crawler - INFO - [crawler.py:192] - [线程6188740608] 开始处理: 2508.14278 - GALA: Guided Attention with Language Alignment for... (使用publication_date: 20250821)
+2025-08-21 14:45:44,624 - arxiv_crawler - INFO - [crawler.py:201] - [线程6138261504] 论文 2508.14276 没有找到项目链接
+2025-08-21 14:45:45,196 - arxiv_crawler - INFO - [crawler.py:201] - [线程6188740608] 论文 2508.14278 没有找到项目链接
+2025-08-21 14:45:45,250 - arxiv_crawler - INFO - [crawler.py:192] - [线程6138261504] 开始处理: 2508.14266 - Effect of Data Augmentation on Conformal Predictio... (使用publication_date: 20250821)
+2025-08-21 14:45:45,474 - arxiv_crawler - INFO - [crawler.py:192] - [线程6188740608] 开始处理: 2508.14203 - A Survey on Video Anomaly Detection via Deep Learn... (使用publication_date: 20250821)
+2025-08-21 14:45:46,100 - arxiv_crawler - INFO - [crawler.py:201] - [线程6188740608] 论文 2508.14203 没有找到项目链接
+2025-08-21 14:45:46,279 - arxiv_crawler - INFO - [crawler.py:201] - [线程6138261504] 论文 2508.14266 没有找到项目链接
+2025-08-21 14:45:46,490 - arxiv_crawler - INFO - [crawler.py:192] - [线程6188740608] 开始处理: 2508.14218 - Accelerating Image Classification with Graph Convo... (使用publication_date: 20250821)
+2025-08-21 14:45:46,844 - arxiv_crawler - INFO - [crawler.py:192] - [线程6138261504] 开始处理: 2508.14197 - CLIPSym: Delving into Symmetry Detection with CLIP... (使用publication_date: 20250821)
+2025-08-21 14:45:47,210 - video_downloader - INFO - [video_downloader.py:169] - 视频下载成功: /Users/zhouzhongtian/Movies/arxiv_video/20250821/2508.14893/video_20.mp4
+2025-08-21 14:45:47,498 - arxiv_crawler - INFO - [crawler.py:201] - [线程6188740608] 论文 2508.14218 没有找到项目链接
+2025-08-21 14:45:47,557 - video_downloader - INFO - [video_downloader.py:169] - 视频下载成功: /Users/zhouzhongtian/Movies/arxiv_video/20250821/2508.14893/video_21.mp4
+2025-08-21 14:45:47,623 - arxiv_crawler - INFO - [crawler.py:201] - [线程6138261504] 论文 2508.14197 没有找到项目链接
+2025-08-21 14:45:47,665 - arxiv_crawler - INFO - [crawler.py:192] - [线程6188740608] 开始处理: 2508.14264 - Directed-Tokens: A Robust Multi-Modality Alignment... (使用publication_date: 20250821)
+2025-08-21 14:45:47,766 - arxiv_crawler - INFO - [crawler.py:192] - [线程6138261504] 开始处理: 2508.14153 - LENS: Learning to Segment Anything with Unified Re... (使用publication_date: 20250821)
+2025-08-21 14:45:47,979 - video_downloader - INFO - [video_downloader.py:169] - 视频下载成功: /Users/zhouzhongtian/Movies/arxiv_video/20250821/2508.14893/video_22.mp4
+2025-08-21 14:45:48,364 - video_downloader - INFO - [video_downloader.py:169] - 视频下载成功: /Users/zhouzhongtian/Movies/arxiv_video/20250821/2508.14893/video_23.mp4
+2025-08-21 14:45:48,787 - arxiv_crawler - INFO - [crawler.py:201] - [线程6188740608] 论文 2508.14264 没有找到项目链接
+2025-08-21 14:45:48,921 - arxiv_crawler - INFO - [crawler.py:201] - [线程6138261504] 论文 2508.14153 没有找到项目链接
+2025-08-21 14:45:48,924 - video_downloader - INFO - [video_downloader.py:169] - 视频下载成功: /Users/zhouzhongtian/Movies/arxiv_video/20250821/2508.14893/video_24.mp4
+2025-08-21 14:45:48,937 - arxiv_crawler - INFO - [crawler.py:192] - [线程6188740608] 开始处理: 2508.14113 - Federated Action Recognition for Smart Worker Assi... (使用publication_date: 20250821)
+2025-08-21 14:45:49,070 - arxiv_crawler - INFO - [crawler.py:192] - [线程6138261504] 开始处理: 2508.14043 - A comparative study of some wavelet and sampling o... (使用publication_date: 20250821)
+2025-08-21 14:45:49,384 - video_downloader - INFO - [video_downloader.py:169] - 视频下载成功: /Users/zhouzhongtian/Movies/arxiv_video/20250821/2508.14893/video_25.mp4
+2025-08-21 14:45:49,723 - arxiv_crawler - INFO - [crawler.py:201] - [线程6138261504] 论文 2508.14043 没有找到项目链接
+2025-08-21 14:45:49,783 - video_downloader - INFO - [video_downloader.py:169] - 视频下载成功: /Users/zhouzhongtian/Movies/arxiv_video/20250821/2508.14893/video_26.mp4
+2025-08-21 14:45:49,842 - arxiv_crawler - INFO - [crawler.py:201] - [线程6188740608] 论文 2508.14113 没有找到项目链接
+2025-08-21 14:45:49,897 - arxiv_crawler - INFO - [crawler.py:192] - [线程6138261504] 开始处理: 2508.14187 - Local Scale Equivariance with Latent Deep Equilibr... (使用publication_date: 20250821)
+2025-08-21 14:45:49,997 - arxiv_crawler - INFO - [crawler.py:192] - [线程6188740608] 开始处理: 2508.14160 - RynnEC: Bringing MLLMs into Embodied World... (使用publication_date: 20250821)
+2025-08-21 14:45:50,657 - arxiv_crawler - INFO - [crawler.py:201] - [线程6138261504] 论文 2508.14187 没有找到项目链接
+2025-08-21 14:45:50,849 - arxiv_crawler - INFO - [crawler.py:192] - [线程6138261504] 开始处理: 2508.14871 - Squeezed Diffusion Models... (使用publication_date: 20250821)
+2025-08-21 14:45:51,207 - arxiv_crawler - INFO - [crawler.py:201] - [线程6188740608] 论文 2508.14160 没有找到项目链接
+2025-08-21 14:45:51,349 - video_downloader - INFO - [video_downloader.py:169] - 视频下载成功: /Users/zhouzhongtian/Movies/arxiv_video/20250821/2508.14893/video_27.mp4
+2025-08-21 14:45:51,403 - arxiv_crawler - INFO - [crawler.py:192] - [线程6188740608] 开始处理: 2508.14708 - Rule-based Key-Point Extraction for MR-Guided Biom... (使用publication_date: 20250821)
+2025-08-21 14:45:51,652 - arxiv_crawler - INFO - [crawler.py:201] - [线程6138261504] 论文 2508.14871 没有找到项目链接
+2025-08-21 14:45:51,705 - video_downloader - INFO - [video_downloader.py:169] - 视频下载成功: /Users/zhouzhongtian/Movies/arxiv_video/20250821/2508.14893/video_28.mp4
+2025-08-21 14:45:51,800 - arxiv_crawler - INFO - [crawler.py:192] - [线程6138261504] 开始处理: 2508.14706 - ShizhenGPT: Towards Multimodal LLMs for Traditiona... (使用publication_date: 20250821)
+2025-08-21 14:45:52,047 - video_downloader - INFO - [video_downloader.py:169] - 视频下载成功: /Users/zhouzhongtian/Movies/arxiv_video/20250821/2508.14893/video_29.mp4
+2025-08-21 14:45:52,241 - arxiv_crawler - INFO - [crawler.py:201] - [线程6188740608] 论文 2508.14708 没有找到项目链接
+2025-08-21 14:45:52,416 - arxiv_crawler - INFO - [crawler.py:192] - [线程6188740608] 开始处理: 2508.14892 - Snap-Snap: Taking Two Images to Reconstruct 3D Hum... (使用publication_date: 20250821)
+2025-08-21 14:45:52,749 - arxiv_crawler - INFO - [crawler.py:201] - [线程6138261504] 论文 2508.14706 没有找到项目链接
+2025-08-21 14:45:52,894 - arxiv_crawler - INFO - [crawler.py:192] - [线程6138261504] 开始处理: 2508.14681 - Virtual Multiplex Staining for Histological Images... (使用publication_date: 20250821)
+2025-08-21 14:45:53,623 - arxiv_crawler - INFO - [crawler.py:201] - [线程6138261504] 论文 2508.14681 没有找到项目链接
+2025-08-21 14:45:53,751 - arxiv_crawler - INFO - [crawler.py:207] - [线程6188740608] 检查项目页面: https://hustvl.github.io/Snap-Snap/
+2025-08-21 14:45:53,852 - video_downloader - INFO - [video_downloader.py:169] - 视频下载成功: /Users/zhouzhongtian/Movies/arxiv_video/20250821/2508.14893/video_30.mp4
+2025-08-21 14:45:53,972 - arxiv_crawler - INFO - [crawler.py:192] - [线程6138261504] 开始处理: 2508.14879 - MeshCoder: LLM-Powered Structured Mesh Code Genera... (使用publication_date: 20250821)
+2025-08-21 14:45:54,538 - video_downloader - INFO - [video_downloader.py:169] - 视频下载成功: /Users/zhouzhongtian/Movies/arxiv_video/20250821/2508.14893/video_31.mp4
+2025-08-21 14:45:54,862 - arxiv_crawler - INFO - [crawler.py:201] - [线程6138261504] 论文 2508.14879 没有找到项目链接
+2025-08-21 14:45:54,995 - video_downloader - INFO - [video_downloader.py:169] - 视频下载成功: /Users/zhouzhongtian/Movies/arxiv_video/20250821/2508.14893/video_32.mp4
+2025-08-21 14:45:54,995 - arxiv_crawler - INFO - [crawler.py:229] - [线程6222393344] 论文 2508.14893 成功下载 33 个视频
+2025-08-21 14:45:54,995 - card_generator - INFO - [card_generator.py:77] - 开始为 ArXiv ID 2508.14893v1 生成解说卡片
+2025-08-21 14:45:55,067 - arxiv_crawler - INFO - [crawler.py:192] - [线程6138261504] 开始处理: 2508.14648 - Understanding Data Influence with Differential App... (使用publication_date: 20250821)
+2025-08-21 14:45:55,073 - card_generator - INFO - [card_generator.py:96] - 找到论文: Virtual Community: An Open World for Humans, Robot...
+2025-08-21 14:45:55,476 - card_generator - INFO - [card_generator.py:113] - 成功生成 ArXiv ID 2508.14893v1 的解说卡片
+2025-08-21 14:45:55,477 - card_generator - INFO - [card_generator.py:157] - 卡片已保存到: /Users/zhouzhongtian/vscode/arxiv_video/cards/2508.14893v1.json
+2025-08-21 14:45:55,477 - card_generator - INFO - [card_generator.py:157] - 卡片已保存到: /Users/zhouzhongtian/Movies/arxiv_video/20250821/2508.14893/2508.14893v1.json
+2025-08-21 14:45:55,477 - card_generator - INFO - [card_generator.py:376] - 卡片已保存到: /Users/zhouzhongtian/Movies/arxiv_video/20250821/2508.14893/2508.14893v1.json
+2025-08-21 14:45:55,477 - arxiv_crawler - INFO - [crawler.py:242] - [线程6222393344] 成功生成并保存论文 2508.14893v1 的解说卡片到 /Users/zhouzhongtian/Movies/arxiv_video/20250821/2508.14893
+2025-08-21 14:45:55,513 - arxiv_crawler - INFO - [crawler.py:201] - [线程6138261504] 论文 2508.14648 没有找到项目链接
+2025-08-21 14:45:55,652 - arxiv_crawler - INFO - [crawler.py:192] - [线程6138261504] 开始处理: 2508.14509 - Deep Skin Lesion Segmentation with Transformer-CNN... (使用publication_date: 20250821)
+2025-08-21 14:45:56,150 - arxiv_crawler - INFO - [crawler.py:201] - [线程6138261504] 论文 2508.14509 没有找到项目链接
+2025-08-21 14:45:56,340 - arxiv_crawler - INFO - [crawler.py:192] - [线程6138261504] 开始处理: 2508.14552 - From Slices to Structures: Unsupervised 3D Reconst... (使用publication_date: 20250821)
+2025-08-21 14:45:57,780 - arxiv_crawler - INFO - [crawler.py:201] - [线程6138261504] 论文 2508.14552 没有找到项目链接
+2025-08-21 14:45:58,009 - video_downloader - INFO - [video_downloader.py:169] - 视频下载成功: /Users/zhouzhongtian/Movies/arxiv_video/20250821/2508.14892/video_0.mp4
+2025-08-21 14:45:58,083 - arxiv_crawler - INFO - [crawler.py:192] - [线程6138261504] 开始处理: 2508.14364 - Physics-Constrained Diffusion Reconstruction with ... (使用publication_date: 20250821)
+2025-08-21 14:45:58,942 - arxiv_crawler - INFO - [crawler.py:201] - [线程6138261504] 论文 2508.14364 没有找到项目链接
+2025-08-21 14:45:59,127 - arxiv_crawler - INFO - [crawler.py:192] - [线程6138261504] 开始处理: 2508.14411 - A Real-world Display Inverse Rendering Dataset... (使用publication_date: 20250821)
+2025-08-21 14:46:00,022 - arxiv_crawler - INFO - [crawler.py:207] - [线程6138261504] 检查项目页面: https://michaelcsj.github.io/DIR/
+2025-08-21 14:46:01,744 - video_downloader - INFO - [video_downloader.py:169] - 视频下载成功: /Users/zhouzhongtian/Movies/arxiv_video/20250821/2508.14892/video_1.mp4
+2025-08-21 14:46:02,189 - arxiv_crawler - INFO - [crawler.py:266] - [线程6138261504] 论文 2508.14411 没有找到可下载的视频
+2025-08-21 14:46:02,336 - arxiv_crawler - INFO - [crawler.py:192] - [线程6138261504] 开始处理: 2508.14237 - OmniSense: Towards Edge-Assisted Online Analytics ... (使用publication_date: 20250821)
+2025-08-21 14:46:02,945 - arxiv_crawler - INFO - [crawler.py:201] - [线程6138261504] 论文 2508.14237 没有找到项目链接
+2025-08-21 14:46:03,085 - arxiv_crawler - INFO - [crawler.py:192] - [线程6138261504] 开始处理: 2508.14357 - Organ-Agents: Virtual Human Physiology Simulator v... (使用publication_date: 20250821)
+2025-08-21 14:46:04,179 - arxiv_crawler - INFO - [crawler.py:201] - [线程6138261504] 论文 2508.14357 没有找到项目链接
+2025-08-21 14:46:04,321 - arxiv_crawler - INFO - [crawler.py:192] - [线程6138261504] 开始处理: 2508.14475 - Fine-grained Image Quality Assessment for Perceptu... (使用publication_date: 20250821)
+2025-08-21 14:46:05,165 - arxiv_crawler - INFO - [crawler.py:207] - [线程6138261504] 检查项目页面: https://pxf0429.github.io/FGResQ/
+2025-08-21 14:46:06,405 - video_downloader - INFO - [video_downloader.py:169] - 视频下载成功: /Users/zhouzhongtian/Movies/arxiv_video/20250821/2508.14892/video_2.mp4
+2025-08-21 14:46:07,106 - arxiv_crawler - INFO - [crawler.py:266] - [线程6138261504] 论文 2508.14475 没有找到可下载的视频
+2025-08-21 14:46:07,245 - arxiv_crawler - INFO - [crawler.py:192] - [线程6138261504] 开始处理: 2508.14138 - STAS: Spatio-Temporal Adaptive Computation Time fo... (使用publication_date: 20250821)
+2025-08-21 14:46:07,901 - arxiv_crawler - INFO - [crawler.py:201] - [线程6138261504] 论文 2508.14138 没有找到项目链接
+2025-08-21 14:46:08,033 - arxiv_crawler - INFO - [crawler.py:192] - [线程6138261504] 开始处理: 2508.14151 - A Systematic Study of Deep Learning Models and xAI... (使用publication_date: 20250821)
+2025-08-21 14:46:09,115 - arxiv_crawler - INFO - [crawler.py:201] - [线程6138261504] 论文 2508.14151 没有找到项目链接
+2025-08-21 14:46:09,256 - arxiv_crawler - INFO - [crawler.py:192] - [线程6138261504] 开始处理: 2508.14133 - Automated surgical planning with nnU-Net: delineat... (使用publication_date: 20250821)
+2025-08-21 14:46:10,372 - arxiv_crawler - INFO - [crawler.py:201] - [线程6138261504] 论文 2508.14133 没有找到项目链接
+2025-08-21 14:46:10,630 - arxiv_crawler - INFO - [crawler.py:192] - [线程6138261504] 开始处理: 2508.14122 - 3D Cardiac Anatomy Generation Using Mesh Latent Di... (使用publication_date: 20250821)
+2025-08-21 14:46:11,094 - arxiv_crawler - INFO - [crawler.py:201] - [线程6138261504] 论文 2508.14122 没有找到项目链接
+2025-08-21 14:46:11,510 - arxiv_crawler - INFO - [crawler.py:192] - [线程6138261504] 开始处理: 2508.14118 - Hallucinations in medical devices... (使用publication_date: 20250821)
+2025-08-21 14:46:11,821 - video_downloader - INFO - [video_downloader.py:169] - 视频下载成功: /Users/zhouzhongtian/Movies/arxiv_video/20250821/2508.14892/video_3.mp4
+2025-08-21 14:46:12,523 - arxiv_crawler - INFO - [crawler.py:201] - [线程6138261504] 论文 2508.14118 没有找到项目链接
+2025-08-21 14:46:12,664 - arxiv_crawler - INFO - [crawler.py:192] - [线程6138261504] 开始处理: 2508.14129 - Fracture Detection and Localisation in Wrist and H... (使用publication_date: 20250821)
+2025-08-21 14:46:13,143 - arxiv_crawler - INFO - [crawler.py:201] - [线程6138261504] 论文 2508.14129 没有找到项目链接
+2025-08-21 14:46:13,282 - arxiv_crawler - INFO - [crawler.py:192] - [线程6138261504] 开始处理: 2508.14413 - Disentanglement in T-space for Faster and Distribu... (使用publication_date: 20250821)
+2025-08-21 14:46:14,398 - arxiv_crawler - INFO - [crawler.py:201] - [线程6138261504] 论文 2508.14413 没有找到项目链接
+2025-08-21 14:46:14,543 - arxiv_crawler - INFO - [crawler.py:192] - [线程6138261504] 开始处理: 2508.14060 - Activity Coefficient-based Channel Selection for E... (使用publication_date: 20250821)
+2025-08-21 14:46:15,698 - arxiv_crawler - INFO - [crawler.py:201] - [线程6138261504] 论文 2508.14060 没有找到项目链接
+2025-08-21 14:46:15,913 - arxiv_crawler - WARNING - [crawler.py:250] - [线程6239219712] 论文 2508.14811v1 视频合成失败
+2025-08-21 14:46:15,985 - arxiv_crawler - INFO - [crawler.py:192] - [线程6138261504] 开始处理: 2508.14106 - High-Throughput Low-Cost Segmentation of Brightfie... (使用publication_date: 20250821)
+2025-08-21 14:46:16,000 - arxiv_crawler - WARNING - [crawler.py:250] - [线程6155087872] 论文 2508.14891v1 视频合成失败
+2025-08-21 14:46:16,134 - arxiv_crawler - WARNING - [crawler.py:250] - [线程6256046080] 论文 2508.14567v1 视频合成失败
+2025-08-21 14:46:16,260 - arxiv_crawler - INFO - [crawler.py:192] - [线程6239219712] 开始处理: 2508.14045 - From Image Captioning to Visual Storytelling... (使用publication_date: 20250821)
+2025-08-21 14:46:16,284 - video_downloader - INFO - [video_downloader.py:169] - 视频下载成功: /Users/zhouzhongtian/Movies/arxiv_video/20250821/2508.14892/video_4.mp4
+2025-08-21 14:46:16,284 - arxiv_crawler - INFO - [crawler.py:229] - [线程6188740608] 论文 2508.14892 成功下载 5 个视频
+2025-08-21 14:46:16,284 - card_generator - INFO - [card_generator.py:77] - 开始为 ArXiv ID 2508.14892v1 生成解说卡片
+2025-08-21 14:46:16,361 - card_generator - INFO - [card_generator.py:96] - 找到论文: Snap-Snap: Taking Two Images to Reconstruct 3D Hum...
+2025-08-21 14:46:16,395 - arxiv_crawler - INFO - [crawler.py:201] - [线程6138261504] 论文 2508.14106 没有找到项目链接
+2025-08-21 14:46:16,772 - card_generator - INFO - [card_generator.py:113] - 成功生成 ArXiv ID 2508.14892v1 的解说卡片
+2025-08-21 14:46:16,773 - card_generator - INFO - [card_generator.py:157] - 卡片已保存到: /Users/zhouzhongtian/vscode/arxiv_video/cards/2508.14892v1.json
+2025-08-21 14:46:16,773 - card_generator - INFO - [card_generator.py:157] - 卡片已保存到: /Users/zhouzhongtian/Movies/arxiv_video/20250821/2508.14892/2508.14892v1.json
+2025-08-21 14:46:16,773 - card_generator - INFO - [card_generator.py:376] - 卡片已保存到: /Users/zhouzhongtian/Movies/arxiv_video/20250821/2508.14892/2508.14892v1.json
+2025-08-21 14:46:16,773 - arxiv_crawler - INFO - [crawler.py:242] - [线程6188740608] 成功生成并保存论文 2508.14892v1 的解说卡片到 /Users/zhouzhongtian/Movies/arxiv_video/20250821/2508.14892
+2025-08-21 14:46:16,969 - arxiv_crawler - INFO - [crawler.py:201] - [线程6239219712] 论文 2508.14045 没有找到项目链接
+2025-08-21 14:46:31,581 - arxiv_crawler - WARNING - [crawler.py:250] - [线程6205566976] 论文 2508.14423v1 视频合成失败
+2025-08-21 14:47:49,953 - arxiv_crawler - INFO - [crawler.py:248] - [线程6171914240] 成功为论文 2508.14717v1 生成合成视频: /Users/zhouzhongtian/Movies/arxiv_video/20250821/2508.14717/2508.14717v1_res.mp4
+2025-08-21 14:48:14,673 - arxiv_crawler - INFO - [crawler.py:248] - [线程6188740608] 成功为论文 2508.14892v1 生成合成视频: /Users/zhouzhongtian/Movies/arxiv_video/20250821/2508.14892/2508.14892v1_res.mp4
+2025-08-21 14:59:07,089 - arxiv_crawler - INFO - [crawler.py:248] - [线程6222393344] 成功为论文 2508.14893v1 生成合成视频: /Users/zhouzhongtian/Movies/arxiv_video/20250821/2508.14893/2508.14893v1_res.mp4
+2025-08-21 14:59:07,091 - arxiv_crawler - INFO - [crawler.py:166] - 处理完成！成功: 7, 失败: 90, 成功率: 7.2%
+2025-08-21 14:59:07,092 - arxiv_crawler - INFO - [main.py:243] - ArXiv 视频下载器完成
+2025-08-21 14:59:07,094 - arxiv_crawler - INFO - [crawler.py:365] - 爬虫资源已清理
+2025-08-21 17:36:36,761 - card_generator - INFO - [card_generator.py:56] - 数据库连接成功，卡片生成器初始化完成
+2025-08-21 17:36:36,889 - arxiv_crawler - INFO - [main.py:216] - ArXiv 视频下载器启动
+2025-08-21 17:36:36,889 - arxiv_crawler - INFO - [main.py:217] - 配置 - 领域: cs.CV, 线程数: 8, 最大论文数: 1000, 下载目录: /Users/zhouzhongtian/Movies/arxiv_video
+2025-08-21 17:36:36,889 - arxiv_crawler - INFO - [main.py:223] - 将自动获取最新发布日期的论文
+2025-08-21 17:36:36,889 - arxiv_crawler - INFO - [crawler.py:87] - 初始化完成，线程数: 8，下载目录: /Users/zhouzhongtian/Movies/arxiv_video
+2025-08-21 17:36:36,889 - arxiv_crawler - INFO - [crawler.py:104] - 开始爬取 cs.CV 领域最新一天的论文视频...
+2025-08-21 17:36:36,889 - arxiv_fetcher - INFO - [arxiv_fetcher.py:37] - 开始从数据库获取最新发布日的论文...
+2025-08-21 17:36:37,664 - arxiv_fetcher - INFO - [arxiv_fetcher.py:50] - 数据库中最新发布日期: 20250821
+2025-08-21 17:36:37,664 - arxiv_fetcher - INFO - [arxiv_fetcher.py:115] - 正在从数据库获取 20250821 日期的论文...
+2025-08-21 17:36:39,323 - arxiv_fetcher - INFO - [arxiv_fetcher.py:152] - 从数据库获取完成，共找到 97 篇 20250821 日期的论文
+2025-08-21 17:36:39,391 - arxiv_crawler - INFO - [crawler.py:118] - 获取到 97 篇论文，开始多线程处理...
+2025-08-21 17:36:39,558 - arxiv_crawler - INFO - [crawler.py:192] - [线程6168539136] 开始处理: 2508.14889 - MS-CLR: Multi-Skeleton Contrastive Learning for Hu... (使用publication_date: 20250821)
+2025-08-21 17:36:39,784 - arxiv_crawler - INFO - [crawler.py:192] - [线程6202191872] 开始处理: 2508.14878 - Lifespan Pancreas Morphology for Control vs Type 2... (使用publication_date: 20250821)
+2025-08-21 17:36:39,791 - arxiv_crawler - INFO - [crawler.py:192] - [线程6185365504] 开始处理: 2508.14891 - GaussianArt: Unified Modeling of Geometry and Moti... (使用publication_date: 20250821)
+2025-08-21 17:36:39,793 - arxiv_crawler - INFO - [crawler.py:192] - [线程6286323712] 开始处理: 2508.14779 - Adversarial Hospital-Invariant Feature Learning fo... (使用publication_date: 20250821)
+2025-08-21 17:36:39,793 - arxiv_crawler - INFO - [crawler.py:192] - [线程6269497344] 开始处理: 2508.14811 - Tinker: Diffusion's Gift to 3D--Multi-View Consist... (使用publication_date: 20250821)
+2025-08-21 17:36:39,810 - arxiv_crawler - INFO - [crawler.py:192] - [线程6235844608] 开始处理: 2508.14812 - Repeating Words for Video-Language Retrieval with ... (使用publication_date: 20250821)
+2025-08-21 17:36:39,811 - arxiv_crawler - INFO - [crawler.py:192] - [线程6219018240] 开始处理: 2508.14856 - EventSSEG: Event-driven Self-Supervised Segmentati... (使用publication_date: 20250821)
+2025-08-21 17:36:39,811 - arxiv_crawler - INFO - [crawler.py:192] - [线程6252670976] 开始处理: 2508.14893 - Virtual Community: An Open World for Humans, Robot... (使用publication_date: 20250821)
+2025-08-21 17:36:40,884 - arxiv_crawler - INFO - [crawler.py:207] - [线程6185365504] 检查项目页面: https://sainingzhang.github.io/project/gaussianart/
+2025-08-21 17:36:40,902 - arxiv_crawler - INFO - [crawler.py:207] - [线程6252670976] 检查项目页面: https://virtual-community-ai.github.io/
+2025-08-21 17:36:40,933 - arxiv_crawler - INFO - [crawler.py:201] - [线程6168539136] 论文 2508.14889 没有找到项目链接
+2025-08-21 17:36:40,968 - arxiv_crawler - INFO - [crawler.py:201] - [线程6286323712] 论文 2508.14779 没有找到项目链接
+2025-08-21 17:36:40,989 - arxiv_crawler - INFO - [crawler.py:201] - [线程6219018240] 论文 2508.14856 没有找到项目链接
+2025-08-21 17:36:41,067 - arxiv_crawler - INFO - [crawler.py:201] - [线程6202191872] 论文 2508.14878 没有找到项目链接
+2025-08-21 17:36:41,117 - arxiv_crawler - INFO - [crawler.py:192] - [线程6168539136] 开始处理: 2508.14814 - TransLight: Image-Guided Customized Lighting Contr... (使用publication_date: 20250821)
+2025-08-21 17:36:41,154 - arxiv_crawler - INFO - [crawler.py:192] - [线程6219018240] 开始处理: 2508.14797 - MF-LPR$^2$: Multi-Frame License Plate Image Restor... (使用publication_date: 20250821)
+2025-08-21 17:36:41,158 - arxiv_crawler - INFO - [crawler.py:192] - [线程6286323712] 开始处理: 2508.14776 - 6-DoF Object Tracking with Event-based Optical Flo... (使用publication_date: 20250821)
+2025-08-21 17:36:41,216 - arxiv_crawler - INFO - [crawler.py:192] - [线程6202191872] 开始处理: 2508.14729 - Multiscale Video Transformers for Class Agnostic S... (使用publication_date: 20250821)
+2025-08-21 17:36:41,287 - arxiv_crawler - INFO - [crawler.py:207] - [线程6269497344] 检查项目页面: https://aim-uofa.github.io/Tinker
+2025-08-21 17:36:41,449 - arxiv_crawler - INFO - [crawler.py:201] - [线程6235844608] 论文 2508.14812 没有找到项目链接
+2025-08-21 17:36:41,600 - arxiv_crawler - INFO - [crawler.py:192] - [线程6235844608] 开始处理: 2508.14809 - DINOv3 with Test-Time Training for Medical Image R... (使用publication_date: 20250821)
+2025-08-21 17:36:41,866 - arxiv_crawler - INFO - [crawler.py:201] - [线程6168539136] 论文 2508.14814 没有找到项目链接
+2025-08-21 17:36:41,905 - arxiv_crawler - INFO - [crawler.py:201] - [线程6219018240] 论文 2508.14797 没有找到项目链接
+2025-08-21 17:36:42,035 - arxiv_crawler - INFO - [crawler.py:192] - [线程6168539136] 开始处理: 2508.14767 - Fusing Monocular RGB Images with AIS Data to Creat... (使用publication_date: 20250821)
+2025-08-21 17:36:42,072 - arxiv_crawler - INFO - [crawler.py:192] - [线程6219018240] 开始处理: 2508.14707 - Seeing Further on the Shoulders of Giants: Knowled... (使用publication_date: 20250821)
+2025-08-21 17:36:42,122 - arxiv_crawler - INFO - [crawler.py:201] - [线程6202191872] 论文 2508.14729 没有找到项目链接
+2025-08-21 17:36:42,252 - arxiv_crawler - INFO - [crawler.py:201] - [线程6286323712] 论文 2508.14776 没有找到项目链接
+2025-08-21 17:36:42,283 - arxiv_crawler - INFO - [crawler.py:192] - [线程6202191872] 开始处理: 2508.14730 - Improved Mapping Between Illuminations and Sensors... (使用publication_date: 20250821)
+2025-08-21 17:36:42,390 - arxiv_crawler - INFO - [crawler.py:192] - [线程6286323712] 开始处理: 2508.14717 - GSFix3D: Diffusion-Guided Repair of Novel Views in... (使用publication_date: 20250821)
+2025-08-21 17:36:42,447 - arxiv_crawler - INFO - [crawler.py:201] - [线程6235844608] 论文 2508.14809 没有找到项目链接
+2025-08-21 17:36:42,589 - arxiv_crawler - INFO - [crawler.py:192] - [线程6235844608] 开始处理: 2508.14607 - SMTrack: End-to-End Trained Spiking Neural Network... (使用publication_date: 20250821)
+2025-08-21 17:36:42,759 - arxiv_crawler - INFO - [crawler.py:201] - [线程6168539136] 论文 2508.14767 没有找到项目链接
+2025-08-21 17:36:42,823 - arxiv_crawler - INFO - [crawler.py:207] - [线程6286323712] 检查项目页面: https://gsfix3d.github.io
+2025-08-21 17:36:42,834 - arxiv_crawler - INFO - [crawler.py:201] - [线程6202191872] 论文 2508.14730 没有找到项目链接
+2025-08-21 17:36:42,904 - arxiv_crawler - INFO - [crawler.py:192] - [线程6168539136] 开始处理: 2508.14604 - UST-SSM: Unified Spatio-Temporal State Space Model... (使用publication_date: 20250821)
+2025-08-21 17:36:42,974 - arxiv_crawler - INFO - [crawler.py:192] - [线程6202191872] 开始处理: 2508.14660 - Towards PerSense++: Advancing Training-Free Person... (使用publication_date: 20250821)
+2025-08-21 17:36:43,098 - arxiv_crawler - INFO - [crawler.py:201] - [线程6219018240] 论文 2508.14707 没有找到项目链接
+2025-08-21 17:36:43,236 - arxiv_crawler - INFO - [crawler.py:201] - [线程6235844608] 论文 2508.14607 没有找到项目链接
+2025-08-21 17:36:43,255 - arxiv_crawler - INFO - [crawler.py:192] - [线程6219018240] 开始处理: 2508.14682 - GeMS: Efficient Gaussian Splatting for Extreme Mot... (使用publication_date: 20250821)
+2025-08-21 17:36:43,388 - arxiv_crawler - INFO - [crawler.py:192] - [线程6235844608] 开始处理: 2508.14599 - Incremental Object Detection with Prompt-based Met... (使用publication_date: 20250821)
+2025-08-21 17:36:43,593 - arxiv_crawler - INFO - [crawler.py:201] - [线程6202191872] 论文 2508.14660 没有找到项目链接
+2025-08-21 17:36:43,735 - video_downloader - INFO - [video_downloader.py:169] - 视频下载成功: /Users/zhouzhongtian/Movies/arxiv_video/20250821/2508.14811/video_0.mp4
+2025-08-21 17:36:43,737 - arxiv_crawler - INFO - [crawler.py:192] - [线程6202191872] 开始处理: 2508.14567 - Safety-Critical Learning for Long-Tail Events: The... (使用publication_date: 20250821)
+2025-08-21 17:36:43,913 - arxiv_crawler - INFO - [crawler.py:201] - [线程6168539136] 论文 2508.14604 没有找到项目链接
+2025-08-21 17:36:44,068 - arxiv_crawler - INFO - [crawler.py:192] - [线程6168539136] 开始处理: 2508.14563 - GOGS: High-Fidelity Geometry and Relighting for Gl... (使用publication_date: 20250821)
+2025-08-21 17:36:44,130 - arxiv_crawler - INFO - [crawler.py:201] - [线程6219018240] 论文 2508.14682 没有找到项目链接
+2025-08-21 17:36:44,137 - video_downloader - INFO - [video_downloader.py:169] - 视频下载成功: /Users/zhouzhongtian/Movies/arxiv_video/20250821/2508.14811/video_1.mp4
+2025-08-21 17:36:44,315 - video_downloader - INFO - [video_downloader.py:169] - 视频下载成功: /Users/zhouzhongtian/Movies/arxiv_video/20250821/2508.14891/video_0.mp4
+2025-08-21 17:36:44,361 - arxiv_crawler - INFO - [crawler.py:192] - [线程6219018240] 开始处理: 2508.14597 - Reliable Smoke Detection via Optical Flow-Guided F... (使用publication_date: 20250821)
+2025-08-21 17:36:44,495 - arxiv_crawler - INFO - [crawler.py:207] - [线程6202191872] 检查项目页面: https://tum-traffic-dataset.github.io/tumtraf-a
+2025-08-21 17:36:44,498 - video_downloader - INFO - [video_downloader.py:169] - 视频下载成功: /Users/zhouzhongtian/Movies/arxiv_video/20250821/2508.14811/video_2.mp4
+2025-08-21 17:36:44,561 - arxiv_crawler - INFO - [crawler.py:201] - [线程6235844608] 论文 2508.14599 没有找到项目链接
+2025-08-21 17:36:44,637 - video_downloader - INFO - [video_downloader.py:169] - 视频下载成功: /Users/zhouzhongtian/Movies/arxiv_video/20250821/2508.14893/video_0.mp4
+2025-08-21 17:36:44,706 - arxiv_crawler - INFO - [crawler.py:201] - [线程6168539136] 论文 2508.14563 没有找到项目链接
+2025-08-21 17:36:44,741 - arxiv_crawler - INFO - [crawler.py:192] - [线程6235844608] 开始处理: 2508.14588 - Controllable Latent Space Augmentation for Digital... (使用publication_date: 20250821)
+2025-08-21 17:36:44,868 - arxiv_crawler - INFO - [crawler.py:192] - [线程6168539136] 开始处理: 2508.14609 - AnchorSync: Global Consistency Optimization for Lo... (使用publication_date: 20250821)
+2025-08-21 17:36:44,871 - video_downloader - INFO - [video_downloader.py:169] - 视频下载成功: /Users/zhouzhongtian/Movies/arxiv_video/20250821/2508.14811/video_3.mp4
+2025-08-21 17:36:44,979 - video_downloader - INFO - [video_downloader.py:169] - 视频下载成功: /Users/zhouzhongtian/Movies/arxiv_video/20250821/2508.14717/video_0.mp4
+2025-08-21 17:36:45,040 - video_downloader - INFO - [video_downloader.py:169] - 视频下载成功: /Users/zhouzhongtian/Movies/arxiv_video/20250821/2508.14893/video_1.mp4
+2025-08-21 17:36:45,225 - arxiv_crawler - INFO - [crawler.py:201] - [线程6219018240] 论文 2508.14597 没有找到项目链接
+2025-08-21 17:36:45,299 - arxiv_crawler - INFO - [crawler.py:201] - [线程6235844608] 论文 2508.14588 没有找到项目链接
+2025-08-21 17:36:45,301 - video_downloader - INFO - [video_downloader.py:169] - 视频下载成功: /Users/zhouzhongtian/Movies/arxiv_video/20250821/2508.14811/video_4.mp4
+2025-08-21 17:36:45,374 - arxiv_crawler - INFO - [crawler.py:192] - [线程6219018240] 开始处理: 2508.14558 - A Comprehensive Review of Agricultural Parcel and ... (使用publication_date: 20250821)
+2025-08-21 17:36:45,413 - video_downloader - INFO - [video_downloader.py:169] - 视频下载成功: /Users/zhouzhongtian/Movies/arxiv_video/20250821/2508.14893/video_2.mp4
+2025-08-21 17:36:45,463 - arxiv_crawler - INFO - [crawler.py:192] - [线程6235844608] 开始处理: 2508.14561 - Making Pose Representations More Expressive and Di... (使用publication_date: 20250821)
+2025-08-21 17:36:45,663 - video_downloader - INFO - [video_downloader.py:169] - 视频下载成功: /Users/zhouzhongtian/Movies/arxiv_video/20250821/2508.14811/video_5.mp4
+2025-08-21 17:36:45,882 - arxiv_crawler - INFO - [crawler.py:201] - [线程6168539136] 论文 2508.14609 没有找到项目链接
+2025-08-21 17:36:45,883 - video_downloader - INFO - [video_downloader.py:169] - 视频下载成功: /Users/zhouzhongtian/Movies/arxiv_video/20250821/2508.14893/video_3.mp4
+2025-08-21 17:36:46,026 - arxiv_crawler - INFO - [crawler.py:192] - [线程6168539136] 开始处理: 2508.14562 - Locality-aware Concept Bottleneck Model... (使用publication_date: 20250821)
+2025-08-21 17:36:46,043 - video_downloader - INFO - [video_downloader.py:169] - 视频下载成功: /Users/zhouzhongtian/Movies/arxiv_video/20250821/2508.14811/video_6.mp4
+2025-08-21 17:36:46,241 - arxiv_crawler - INFO - [crawler.py:201] - [线程6219018240] 论文 2508.14558 没有找到项目链接
+2025-08-21 17:36:46,254 - video_downloader - INFO - [video_downloader.py:169] - 视频下载成功: /Users/zhouzhongtian/Movies/arxiv_video/20250821/2508.14893/video_4.mp4
+2025-08-21 17:36:46,439 - arxiv_crawler - INFO - [crawler.py:192] - [线程6219018240] 开始处理: 2508.14537 - WISE-FUSE: Efficient Whole Slide Image Encoding vi... (使用publication_date: 20250821)
+2025-08-21 17:36:46,457 - arxiv_crawler - INFO - [crawler.py:201] - [线程6235844608] 论文 2508.14561 没有找到项目链接
+2025-08-21 17:36:46,457 - video_downloader - INFO - [video_downloader.py:169] - 视频下载成功: /Users/zhouzhongtian/Movies/arxiv_video/20250821/2508.14811/video_7.mp4
+2025-08-21 17:36:46,557 - video_downloader - INFO - [video_downloader.py:169] - 视频下载成功: /Users/zhouzhongtian/Movies/arxiv_video/20250821/2508.14717/video_1.mp4
+2025-08-21 17:36:46,632 - arxiv_crawler - INFO - [crawler.py:192] - [线程6235844608] 开始处理: 2508.14504 - PB-IAD: Utilizing multimodal foundation models for... (使用publication_date: 20250821)
+2025-08-21 17:36:46,748 - video_downloader - INFO - [video_downloader.py:169] - 视频下载成功: /Users/zhouzhongtian/Movies/arxiv_video/20250821/2508.14893/video_5.mp4
+2025-08-21 17:36:46,839 - video_downloader - INFO - [video_downloader.py:169] - 视频下载成功: /Users/zhouzhongtian/Movies/arxiv_video/20250821/2508.14811/video_8.mp4
+2025-08-21 17:36:46,896 - arxiv_crawler - INFO - [crawler.py:201] - [线程6168539136] 论文 2508.14562 没有找到项目链接
+2025-08-21 17:36:46,934 - video_downloader - INFO - [video_downloader.py:169] - 视频下载成功: /Users/zhouzhongtian/Movies/arxiv_video/20250821/2508.14717/video_2.mp4
+2025-08-21 17:36:47,054 - arxiv_crawler - INFO - [crawler.py:192] - [线程6168539136] 开始处理: 2508.14527 - Adversarial Generation and Collaborative Evolution... (使用publication_date: 20250821)
+2025-08-21 17:36:47,126 - arxiv_crawler - INFO - [crawler.py:201] - [线程6219018240] 论文 2508.14537 没有找到项目链接
+2025-08-21 17:36:47,175 - video_downloader - INFO - [video_downloader.py:169] - 视频下载成功: /Users/zhouzhongtian/Movies/arxiv_video/20250821/2508.14893/video_6.mp4
+2025-08-21 17:36:47,257 - video_downloader - INFO - [video_downloader.py:169] - 视频下载成功: /Users/zhouzhongtian/Movies/arxiv_video/20250821/2508.14811/video_9.mp4
+2025-08-21 17:36:47,278 - video_downloader - INFO - [video_downloader.py:169] - 视频下载成功: /Users/zhouzhongtian/Movies/arxiv_video/20250821/2508.14717/video_3.mp4
+2025-08-21 17:36:47,367 - arxiv_crawler - INFO - [crawler.py:192] - [线程6219018240] 开始处理: 2508.14557 - Improving OCR using internal document redundancy... (使用publication_date: 20250821)
+2025-08-21 17:36:47,469 - arxiv_crawler - INFO - [crawler.py:201] - [线程6235844608] 论文 2508.14504 没有找到项目链接
+2025-08-21 17:36:47,495 - video_downloader - INFO - [video_downloader.py:169] - 视频下载成功: /Users/zhouzhongtian/Movies/arxiv_video/20250821/2508.14891/video_1.mp4
+2025-08-21 17:36:47,495 - arxiv_crawler - INFO - [crawler.py:229] - [线程6185365504] 论文 2508.14891 成功下载 2 个视频
+2025-08-21 17:36:47,495 - card_generator - INFO - [card_generator.py:77] - 开始为 ArXiv ID 2508.14891v1 生成解说卡片
+2025-08-21 17:36:47,551 - video_downloader - INFO - [video_downloader.py:169] - 视频下载成功: /Users/zhouzhongtian/Movies/arxiv_video/20250821/2508.14893/video_7.mp4
+2025-08-21 17:36:47,592 - card_generator - INFO - [card_generator.py:96] - 找到论文: GaussianArt: Unified Modeling of Geometry and Moti...
+2025-08-21 17:36:47,638 - video_downloader - INFO - [video_downloader.py:169] - 视频下载成功: /Users/zhouzhongtian/Movies/arxiv_video/20250821/2508.14717/video_4.mp4
+2025-08-21 17:36:47,678 - arxiv_crawler - INFO - [crawler.py:192] - [线程6235844608] 开始处理: 2508.14466 - LookOut: Real-World Humanoid Egocentric Navigation... (使用publication_date: 20250821)
+2025-08-21 17:36:47,978 - video_downloader - INFO - [video_downloader.py:169] - 视频下载成功: /Users/zhouzhongtian/Movies/arxiv_video/20250821/2508.14717/video_5.mp4
+2025-08-21 17:36:47,978 - arxiv_crawler - INFO - [crawler.py:229] - [线程6286323712] 论文 2508.14717 成功下载 6 个视频
+2025-08-21 17:36:47,979 - card_generator - INFO - [card_generator.py:77] - 开始为 ArXiv ID 2508.14717v1 生成解说卡片
+2025-08-21 17:36:48,012 - card_generator - INFO - [card_generator.py:113] - 成功生成 ArXiv ID 2508.14891v1 的解说卡片
+2025-08-21 17:36:48,014 - card_generator - INFO - [card_generator.py:157] - 卡片已保存到: /Users/zhouzhongtian/vscode/arxiv_video/cards/2508.14891v1.json
+2025-08-21 17:36:48,014 - card_generator - INFO - [card_generator.py:157] - 卡片已保存到: /Users/zhouzhongtian/Movies/arxiv_video/20250821/2508.14891/2508.14891v1.json
+2025-08-21 17:36:48,014 - card_generator - INFO - [card_generator.py:376] - 卡片已保存到: /Users/zhouzhongtian/Movies/arxiv_video/20250821/2508.14891/2508.14891v1.json
+2025-08-21 17:36:48,014 - arxiv_crawler - INFO - [crawler.py:242] - [线程6185365504] 成功生成并保存论文 2508.14891v1 的解说卡片到 /Users/zhouzhongtian/Movies/arxiv_video/20250821/2508.14891
+2025-08-21 17:36:48,051 - card_generator - INFO - [card_generator.py:96] - 找到论文: GSFix3D: Diffusion-Guided Repair of Novel Views in...
+2025-08-21 17:36:48,072 - arxiv_crawler - INFO - [crawler.py:201] - [线程6168539136] 论文 2508.14527 没有找到项目链接
+2025-08-21 17:36:48,137 - video_downloader - INFO - [video_downloader.py:169] - 视频下载成功: /Users/zhouzhongtian/Movies/arxiv_video/20250821/2508.14893/video_8.mp4
+2025-08-21 17:36:48,218 - video_downloader - INFO - [video_downloader.py:169] - 视频下载成功: /Users/zhouzhongtian/Movies/arxiv_video/20250821/2508.14567/video_0.mp4
+2025-08-21 17:36:48,218 - arxiv_crawler - INFO - [crawler.py:229] - [线程6202191872] 论文 2508.14567 成功下载 1 个视频
+2025-08-21 17:36:48,218 - card_generator - INFO - [card_generator.py:77] - 开始为 ArXiv ID 2508.14567v1 生成解说卡片
+2025-08-21 17:36:48,284 - arxiv_crawler - INFO - [crawler.py:192] - [线程6168539136] 开始处理: 2508.14502 - SATURN: Autoregressive Image Generation Guided by ... (使用publication_date: 20250821)
+2025-08-21 17:36:48,292 - card_generator - INFO - [card_generator.py:96] - 找到论文: Safety-Critical Learning for Long-Tail Events: The...
+2025-08-21 17:36:48,471 - arxiv_crawler - INFO - [crawler.py:201] - [线程6235844608] 论文 2508.14466 没有找到项目链接
+2025-08-21 17:36:48,486 - arxiv_crawler - INFO - [crawler.py:201] - [线程6219018240] 论文 2508.14557 没有找到项目链接
+2025-08-21 17:36:48,524 - card_generator - INFO - [card_generator.py:113] - 成功生成 ArXiv ID 2508.14717v1 的解说卡片
+2025-08-21 17:36:48,528 - video_downloader - INFO - [video_downloader.py:169] - 视频下载成功: /Users/zhouzhongtian/Movies/arxiv_video/20250821/2508.14893/video_9.mp4
+2025-08-21 17:36:48,529 - card_generator - INFO - [card_generator.py:157] - 卡片已保存到: /Users/zhouzhongtian/vscode/arxiv_video/cards/2508.14717v1.json
+2025-08-21 17:36:48,529 - card_generator - INFO - [card_generator.py:157] - 卡片已保存到: /Users/zhouzhongtian/Movies/arxiv_video/20250821/2508.14717/2508.14717v1.json
+2025-08-21 17:36:48,530 - card_generator - INFO - [card_generator.py:376] - 卡片已保存到: /Users/zhouzhongtian/Movies/arxiv_video/20250821/2508.14717/2508.14717v1.json
+2025-08-21 17:36:48,530 - arxiv_crawler - INFO - [crawler.py:242] - [线程6286323712] 成功生成并保存论文 2508.14717v1 的解说卡片到 /Users/zhouzhongtian/Movies/arxiv_video/20250821/2508.14717
+2025-08-21 17:36:48,722 - card_generator - INFO - [card_generator.py:113] - 成功生成 ArXiv ID 2508.14567v1 的解说卡片
+2025-08-21 17:36:48,725 - card_generator - INFO - [card_generator.py:157] - 卡片已保存到: /Users/zhouzhongtian/vscode/arxiv_video/cards/2508.14567v1.json
+2025-08-21 17:36:48,726 - card_generator - INFO - [card_generator.py:157] - 卡片已保存到: /Users/zhouzhongtian/Movies/arxiv_video/20250821/2508.14567/2508.14567v1.json
+2025-08-21 17:36:48,726 - card_generator - INFO - [card_generator.py:376] - 卡片已保存到: /Users/zhouzhongtian/Movies/arxiv_video/20250821/2508.14567/2508.14567v1.json
+2025-08-21 17:36:48,726 - arxiv_crawler - INFO - [crawler.py:242] - [线程6202191872] 成功生成并保存论文 2508.14567v1 的解说卡片到 /Users/zhouzhongtian/Movies/arxiv_video/20250821/2508.14567
+2025-08-21 17:36:48,829 - arxiv_crawler - INFO - [crawler.py:192] - [线程6219018240] 开始处理: 2508.14465 - DreamSwapV: Mask-guided Subject Swapping for Any C... (使用publication_date: 20250821)
+2025-08-21 17:36:48,835 - arxiv_crawler - INFO - [crawler.py:192] - [线程6235844608] 开始处理: 2508.14486 - WeedSense: Multi-Task Learning for Weed Segmentati... (使用publication_date: 20250821)
+2025-08-21 17:36:48,913 - video_downloader - INFO - [video_downloader.py:169] - 视频下载成功: /Users/zhouzhongtian/Movies/arxiv_video/20250821/2508.14893/video_10.mp4
+2025-08-21 17:36:49,190 - arxiv_crawler - INFO - [crawler.py:201] - [线程6168539136] 论文 2508.14502 没有找到项目链接
+2025-08-21 17:36:49,382 - video_downloader - INFO - [video_downloader.py:169] - 视频下载成功: /Users/zhouzhongtian/Movies/arxiv_video/20250821/2508.14811/video_10.mp4
+2025-08-21 17:36:49,383 - arxiv_crawler - INFO - [crawler.py:229] - [线程6269497344] 论文 2508.14811 成功下载 11 个视频
+2025-08-21 17:36:49,383 - card_generator - INFO - [card_generator.py:77] - 开始为 ArXiv ID 2508.14811v1 生成解说卡片
+2025-08-21 17:36:49,419 - arxiv_crawler - INFO - [crawler.py:192] - [线程6168539136] 开始处理: 2508.14448 - Generalizable Engagement Estimation in Conversatio... (使用publication_date: 20250821)
+2025-08-21 17:36:49,464 - card_generator - INFO - [card_generator.py:96] - 找到论文: Tinker: Diffusion's Gift to 3D--Multi-View Consist...
+2025-08-21 17:36:49,954 - card_generator - INFO - [card_generator.py:113] - 成功生成 ArXiv ID 2508.14811v1 的解说卡片
+2025-08-21 17:36:49,977 - arxiv_crawler - INFO - [crawler.py:201] - [线程6219018240] 论文 2508.14465 没有找到项目链接
+2025-08-21 17:36:49,990 - arxiv_crawler - INFO - [crawler.py:207] - [线程6235844608] 检查项目页面: http://weedsense.github.io
+2025-08-21 17:36:49,991 - card_generator - INFO - [card_generator.py:157] - 卡片已保存到: /Users/zhouzhongtian/vscode/arxiv_video/cards/2508.14811v1.json
+2025-08-21 17:36:49,991 - card_generator - INFO - [card_generator.py:157] - 卡片已保存到: /Users/zhouzhongtian/Movies/arxiv_video/20250821/2508.14811/2508.14811v1.json
+2025-08-21 17:36:49,992 - card_generator - INFO - [card_generator.py:376] - 卡片已保存到: /Users/zhouzhongtian/Movies/arxiv_video/20250821/2508.14811/2508.14811v1.json
+2025-08-21 17:36:49,992 - arxiv_crawler - INFO - [crawler.py:242] - [线程6269497344] 成功生成并保存论文 2508.14811v1 的解说卡片到 /Users/zhouzhongtian/Movies/arxiv_video/20250821/2508.14811
+2025-08-21 17:36:50,016 - video_downloader - INFO - [video_downloader.py:169] - 视频下载成功: /Users/zhouzhongtian/Movies/arxiv_video/20250821/2508.14893/video_11.mp4
+2025-08-21 17:36:50,137 - arxiv_crawler - INFO - [crawler.py:192] - [线程6219018240] 开始处理: 2508.14483 - Vivid-VR: Distilling Concepts from Text-to-Video D... (使用publication_date: 20250821)
+2025-08-21 17:36:50,386 - video_downloader - INFO - [video_downloader.py:169] - 视频下载成功: /Users/zhouzhongtian/Movies/arxiv_video/20250821/2508.14893/video_12.mp4
+2025-08-21 17:36:50,425 - arxiv_crawler - INFO - [crawler.py:201] - [线程6168539136] 论文 2508.14448 没有找到项目链接
+2025-08-21 17:36:50,566 - arxiv_crawler - INFO - [crawler.py:192] - [线程6168539136] 开始处理: 2508.14443 - Reconstruction Using the Invisible: Intuition from... (使用publication_date: 20250821)
+2025-08-21 17:36:50,767 - video_downloader - INFO - [video_downloader.py:169] - 视频下载成功: /Users/zhouzhongtian/Movies/arxiv_video/20250821/2508.14893/video_13.mp4
+2025-08-21 17:36:51,023 - arxiv_crawler - INFO - [crawler.py:201] - [线程6219018240] 论文 2508.14483 没有找到项目链接
+2025-08-21 17:36:51,128 - video_downloader - INFO - [video_downloader.py:169] - 视频下载成功: /Users/zhouzhongtian/Movies/arxiv_video/20250821/2508.14893/video_14.mp4
+2025-08-21 17:36:51,178 - arxiv_crawler - INFO - [crawler.py:192] - [线程6219018240] 开始处理: 2508.14449 - D^3-Talker: Dual-Branch Decoupled Deformation Fiel... (使用publication_date: 20250821)
+2025-08-21 17:36:51,743 - arxiv_crawler - INFO - [crawler.py:201] - [线程6168539136] 论文 2508.14443 没有找到项目链接
+2025-08-21 17:36:51,888 - arxiv_crawler - INFO - [crawler.py:192] - [线程6168539136] 开始处理: 2508.14437 - FOCUS: Frequency-Optimized Conditioning of DiffUSi... (使用publication_date: 20250821)
+2025-08-21 17:36:52,275 - video_downloader - INFO - [video_downloader.py:169] - 视频下载成功: /Users/zhouzhongtian/Movies/arxiv_video/20250821/2508.14893/video_15.mp4
+2025-08-21 17:36:52,314 - arxiv_crawler - INFO - [crawler.py:266] - [线程6235844608] 论文 2508.14486 没有找到可下载的视频
+2025-08-21 17:36:52,335 - arxiv_crawler - INFO - [crawler.py:201] - [线程6219018240] 论文 2508.14449 没有找到项目链接
+2025-08-21 17:36:52,462 - arxiv_crawler - INFO - [crawler.py:192] - [线程6235844608] 开始处理: 2508.14431 - HyperDiff: Hypergraph Guided Diffusion Model for 3... (使用publication_date: 20250821)
+2025-08-21 17:36:52,488 - arxiv_crawler - INFO - [crawler.py:192] - [线程6219018240] 开始处理: 2508.14405 - CTA-Flux: Integrating Chinese Cultural Semantics i... (使用publication_date: 20250821)
+2025-08-21 17:36:52,633 - arxiv_crawler - INFO - [crawler.py:201] - [线程6168539136] 论文 2508.14437 没有找到项目链接
+2025-08-21 17:36:52,772 - arxiv_crawler - INFO - [crawler.py:192] - [线程6168539136] 开始处理: 2508.14461 - Ouroboros: Single-step Diffusion Models for Cycle-... (使用publication_date: 20250821)
+2025-08-21 17:36:53,219 - video_downloader - INFO - [video_downloader.py:169] - 视频下载成功: /Users/zhouzhongtian/Movies/arxiv_video/20250821/2508.14893/video_16.mp4
+2025-08-21 17:36:53,398 - arxiv_crawler - INFO - [crawler.py:201] - [线程6219018240] 论文 2508.14405 没有找到项目链接
+2025-08-21 17:36:53,589 - arxiv_crawler - INFO - [crawler.py:201] - [线程6235844608] 论文 2508.14431 没有找到项目链接
+2025-08-21 17:36:53,703 - video_downloader - INFO - [video_downloader.py:169] - 视频下载成功: /Users/zhouzhongtian/Movies/arxiv_video/20250821/2508.14893/video_17.mp4
+2025-08-21 17:36:53,706 - arxiv_crawler - INFO - [crawler.py:192] - [线程6219018240] 开始处理: 2508.14393 - Img2ST-Net: Efficient High-Resolution Spatial Omic... (使用publication_date: 20250821)
+2025-08-21 17:36:53,749 - arxiv_crawler - INFO - [crawler.py:192] - [线程6235844608] 开始处理: 2508.14374 - QuadINR: Hardware-Efficient Implicit Neural Repres... (使用publication_date: 20250821)
+2025-08-21 17:36:53,856 - arxiv_crawler - INFO - [crawler.py:201] - [线程6168539136] 论文 2508.14461 没有找到项目链接
+2025-08-21 17:36:54,002 - arxiv_crawler - INFO - [crawler.py:192] - [线程6168539136] 开始处理: 2508.14423 - MoCHA-former: Moiré-Conditioned Hybrid Adaptive Tr... (使用publication_date: 20250821)
+2025-08-21 17:36:54,110 - video_downloader - INFO - [video_downloader.py:169] - 视频下载成功: /Users/zhouzhongtian/Movies/arxiv_video/20250821/2508.14893/video_18.mp4
+2025-08-21 17:36:54,276 - arxiv_crawler - INFO - [crawler.py:201] - [线程6235844608] 论文 2508.14374 没有找到项目链接
+2025-08-21 17:36:54,418 - arxiv_crawler - INFO - [crawler.py:192] - [线程6235844608] 开始处理: 2508.14370 - FastTracker: Real-Time and Accurate Visual Trackin... (使用publication_date: 20250821)
+2025-08-21 17:36:54,471 - arxiv_crawler - INFO - [crawler.py:201] - [线程6219018240] 论文 2508.14393 没有找到项目链接
+2025-08-21 17:36:54,620 - arxiv_crawler - INFO - [crawler.py:192] - [线程6219018240] 开始处理: 2508.14359 - Taming Transformer for Emotion-Controllable Talkin... (使用publication_date: 20250821)
+2025-08-21 17:36:54,704 - arxiv_crawler - INFO - [crawler.py:207] - [线程6168539136] 检查项目页面: https://cmlab-korea.github.io/MoCHAformer-Demo/
+2025-08-21 17:36:54,798 - video_downloader - INFO - [video_downloader.py:169] - 视频下载成功: /Users/zhouzhongtian/Movies/arxiv_video/20250821/2508.14893/video_19.mp4
+2025-08-21 17:36:54,869 - arxiv_crawler - INFO - [crawler.py:201] - [线程6235844608] 论文 2508.14370 没有找到项目链接
+2025-08-21 17:36:55,013 - arxiv_crawler - INFO - [crawler.py:192] - [线程6235844608] 开始处理: 2508.14440 - MUSE: Multi-Subject Unified Synthesis via Explicit... (使用publication_date: 20250821)
+2025-08-21 17:36:55,039 - arxiv_crawler - INFO - [crawler.py:201] - [线程6219018240] 论文 2508.14359 没有找到项目链接
+2025-08-21 17:36:55,187 - arxiv_crawler - INFO - [crawler.py:192] - [线程6219018240] 开始处理: 2508.14373 - TCFNet: Bidirectional face-bone transformation via... (使用publication_date: 20250821)
+2025-08-21 17:36:55,685 - video_downloader - INFO - [video_downloader.py:169] - 视频下载成功: /Users/zhouzhongtian/Movies/arxiv_video/20250821/2508.14893/video_20.mp4
+2025-08-21 17:36:55,864 - arxiv_crawler - INFO - [crawler.py:201] - [线程6235844608] 论文 2508.14440 没有找到项目链接
+2025-08-21 17:36:56,009 - arxiv_crawler - INFO - [crawler.py:192] - [线程6235844608] 开始处理: 2508.14349 - Deep Learning for Taxol Exposure Analysis: A New C... (使用publication_date: 20250821)
+2025-08-21 17:36:56,172 - arxiv_crawler - INFO - [crawler.py:201] - [线程6219018240] 论文 2508.14373 没有找到项目链接
+2025-08-21 17:36:56,318 - arxiv_crawler - INFO - [crawler.py:192] - [线程6219018240] 开始处理: 2508.14327 - MoVieDrive: Multi-Modal Multi-View Urban Scene Vid... (使用publication_date: 20250821)
+2025-08-21 17:36:56,841 - arxiv_crawler - INFO - [crawler.py:201] - [线程6235844608] 论文 2508.14349 没有找到项目链接
+2025-08-21 17:36:57,018 - arxiv_crawler - INFO - [crawler.py:192] - [线程6235844608] 开始处理: 2508.14358 - Learning Point Cloud Representations with Pose Con... (使用publication_date: 20250821)
+2025-08-21 17:36:57,437 - arxiv_crawler - INFO - [crawler.py:201] - [线程6219018240] 论文 2508.14327 没有找到项目链接
+2025-08-21 17:36:57,584 - arxiv_crawler - INFO - [crawler.py:201] - [线程6235844608] 论文 2508.14358 没有找到项目链接
+2025-08-21 17:36:57,606 - arxiv_crawler - INFO - [crawler.py:192] - [线程6219018240] 开始处理: 2508.14345 - HandCraft: Dynamic Sign Generation for Synthetic D... (使用publication_date: 20250821)
+2025-08-21 17:36:57,794 - arxiv_crawler - INFO - [crawler.py:192] - [线程6235844608] 开始处理: 2508.14280 - Multi-Rationale Explainable Object Recognition via... (使用publication_date: 20250821)
+2025-08-21 17:36:58,207 - video_downloader - INFO - [video_downloader.py:169] - 视频下载成功: /Users/zhouzhongtian/Movies/arxiv_video/20250821/2508.14423/video_0.mp4
+2025-08-21 17:36:58,477 - arxiv_crawler - INFO - [crawler.py:201] - [线程6219018240] 论文 2508.14345 没有找到项目链接
+2025-08-21 17:36:58,645 - video_downloader - INFO - [video_downloader.py:169] - 视频下载成功: /Users/zhouzhongtian/Movies/arxiv_video/20250821/2508.14423/video_1.mp4
+2025-08-21 17:36:58,645 - arxiv_crawler - INFO - [crawler.py:229] - [线程6168539136] 论文 2508.14423 成功下载 2 个视频
+2025-08-21 17:36:58,646 - card_generator - INFO - [card_generator.py:77] - 开始为 ArXiv ID 2508.14423v1 生成解说卡片
+2025-08-21 17:36:58,645 - arxiv_crawler - INFO - [crawler.py:192] - [线程6219018240] 开始处理: 2508.14286 - OccluNet: Spatio-Temporal Deep Learning for Occlus... (使用publication_date: 20250821)
+2025-08-21 17:36:58,717 - card_generator - INFO - [card_generator.py:96] - 找到论文: MoCHA-former: Moiré-Conditioned Hybrid Adaptive Tr...
+2025-08-21 17:36:58,769 - arxiv_crawler - INFO - [crawler.py:201] - [线程6235844608] 论文 2508.14280 没有找到项目链接
+2025-08-21 17:36:58,915 - arxiv_crawler - INFO - [crawler.py:192] - [线程6235844608] 开始处理: 2508.14343 - Inter-Class Relational Loss for Small Object Detec... (使用publication_date: 20250821)
+2025-08-21 17:36:59,114 - card_generator - INFO - [card_generator.py:113] - 成功生成 ArXiv ID 2508.14423v1 的解说卡片
+2025-08-21 17:36:59,115 - card_generator - INFO - [card_generator.py:157] - 卡片已保存到: /Users/zhouzhongtian/vscode/arxiv_video/cards/2508.14423v1.json
+2025-08-21 17:36:59,116 - card_generator - INFO - [card_generator.py:157] - 卡片已保存到: /Users/zhouzhongtian/Movies/arxiv_video/20250821/2508.14423/2508.14423v1.json
+2025-08-21 17:36:59,116 - card_generator - INFO - [card_generator.py:376] - 卡片已保存到: /Users/zhouzhongtian/Movies/arxiv_video/20250821/2508.14423/2508.14423v1.json
+2025-08-21 17:36:59,116 - arxiv_crawler - INFO - [crawler.py:242] - [线程6168539136] 成功生成并保存论文 2508.14423v1 的解说卡片到 /Users/zhouzhongtian/Movies/arxiv_video/20250821/2508.14423
+2025-08-21 17:36:59,340 - arxiv_crawler - INFO - [crawler.py:201] - [线程6235844608] 论文 2508.14343 没有找到项目链接
+2025-08-21 17:36:59,460 - arxiv_crawler - INFO - [crawler.py:201] - [线程6219018240] 论文 2508.14286 没有找到项目链接
+2025-08-21 17:36:59,486 - arxiv_crawler - INFO - [crawler.py:192] - [线程6235844608] 开始处理: 2508.14295 - Pixels to Play: A Foundation Model for 3D Gameplay... (使用publication_date: 20250821)
+2025-08-21 17:36:59,626 - arxiv_crawler - INFO - [crawler.py:192] - [线程6219018240] 开始处理: 2508.14276 - Tooth-Diffusion: Guided 3D CBCT Synthesis with Fin... (使用publication_date: 20250821)
+2025-08-21 17:36:59,967 - arxiv_crawler - INFO - [crawler.py:201] - [线程6235844608] 论文 2508.14295 没有找到项目链接
+2025-08-21 17:37:00,120 - arxiv_crawler - INFO - [crawler.py:192] - [线程6235844608] 开始处理: 2508.14278 - GALA: Guided Attention with Language Alignment for... (使用publication_date: 20250821)
+2025-08-21 17:37:00,748 - arxiv_crawler - INFO - [crawler.py:201] - [线程6235844608] 论文 2508.14278 没有找到项目链接
+2025-08-21 17:37:00,776 - arxiv_crawler - INFO - [crawler.py:201] - [线程6219018240] 论文 2508.14276 没有找到项目链接
+2025-08-21 17:37:00,899 - arxiv_crawler - INFO - [crawler.py:192] - [线程6235844608] 开始处理: 2508.14266 - Effect of Data Augmentation on Conformal Predictio... (使用publication_date: 20250821)
+2025-08-21 17:37:00,927 - arxiv_crawler - INFO - [crawler.py:192] - [线程6219018240] 开始处理: 2508.14203 - A Survey on Video Anomaly Detection via Deep Learn... (使用publication_date: 20250821)
+2025-08-21 17:37:02,074 - arxiv_crawler - INFO - [crawler.py:201] - [线程6219018240] 论文 2508.14203 没有找到项目链接
+2025-08-21 17:37:02,182 - arxiv_crawler - INFO - [crawler.py:201] - [线程6235844608] 论文 2508.14266 没有找到项目链接
+2025-08-21 17:37:02,306 - arxiv_crawler - INFO - [crawler.py:192] - [线程6219018240] 开始处理: 2508.14218 - Accelerating Image Classification with Graph Convo... (使用publication_date: 20250821)
+2025-08-21 17:37:02,418 - arxiv_crawler - INFO - [crawler.py:192] - [线程6235844608] 开始处理: 2508.14197 - CLIPSym: Delving into Symmetry Detection with CLIP... (使用publication_date: 20250821)
+2025-08-21 17:37:02,869 - arxiv_crawler - INFO - [crawler.py:201] - [线程6219018240] 论文 2508.14218 没有找到项目链接
+2025-08-21 17:37:03,007 - arxiv_crawler - INFO - [crawler.py:201] - [线程6235844608] 论文 2508.14197 没有找到项目链接
+2025-08-21 17:37:03,050 - arxiv_crawler - INFO - [crawler.py:192] - [线程6219018240] 开始处理: 2508.14264 - Directed-Tokens: A Robust Multi-Modality Alignment... (使用publication_date: 20250821)
+2025-08-21 17:37:03,182 - arxiv_crawler - INFO - [crawler.py:192] - [线程6235844608] 开始处理: 2508.14153 - LENS: Learning to Segment Anything with Unified Re... (使用publication_date: 20250821)
+2025-08-21 17:37:03,656 - arxiv_crawler - INFO - [crawler.py:201] - [线程6219018240] 论文 2508.14264 没有找到项目链接
+2025-08-21 17:37:03,837 - arxiv_crawler - INFO - [crawler.py:192] - [线程6219018240] 开始处理: 2508.14113 - Federated Action Recognition for Smart Worker Assi... (使用publication_date: 20250821)
+2025-08-21 17:37:04,380 - arxiv_crawler - INFO - [crawler.py:201] - [线程6235844608] 论文 2508.14153 没有找到项目链接
+2025-08-21 17:37:04,534 - arxiv_crawler - INFO - [crawler.py:192] - [线程6235844608] 开始处理: 2508.14043 - A comparative study of some wavelet and sampling o... (使用publication_date: 20250821)
+2025-08-21 17:37:04,701 - video_downloader - INFO - [video_downloader.py:169] - 视频下载成功: /Users/zhouzhongtian/Movies/arxiv_video/20250821/2508.14893/video_21.mp4
+2025-08-21 17:37:05,009 - arxiv_crawler - INFO - [crawler.py:201] - [线程6219018240] 论文 2508.14113 没有找到项目链接
+2025-08-21 17:37:05,155 - arxiv_crawler - INFO - [crawler.py:192] - [线程6219018240] 开始处理: 2508.14187 - Local Scale Equivariance with Latent Deep Equilibr... (使用publication_date: 20250821)
+2025-08-21 17:37:05,499 - arxiv_crawler - INFO - [crawler.py:201] - [线程6235844608] 论文 2508.14043 没有找到项目链接
+2025-08-21 17:37:05,648 - arxiv_crawler - INFO - [crawler.py:192] - [线程6235844608] 开始处理: 2508.14160 - RynnEC: Bringing MLLMs into Embodied World... (使用publication_date: 20250821)
+2025-08-21 17:37:06,000 - arxiv_crawler - INFO - [crawler.py:201] - [线程6219018240] 论文 2508.14187 没有找到项目链接
+2025-08-21 17:37:06,114 - video_downloader - INFO - [video_downloader.py:169] - 视频下载成功: /Users/zhouzhongtian/Movies/arxiv_video/20250821/2508.14893/video_22.mp4
+2025-08-21 17:37:06,171 - arxiv_crawler - INFO - [crawler.py:192] - [线程6219018240] 开始处理: 2508.14871 - Squeezed Diffusion Models... (使用publication_date: 20250821)
+2025-08-21 17:37:06,332 - arxiv_crawler - INFO - [crawler.py:201] - [线程6235844608] 论文 2508.14160 没有找到项目链接
+2025-08-21 17:37:06,482 - arxiv_crawler - INFO - [crawler.py:192] - [线程6235844608] 开始处理: 2508.14708 - Rule-based Key-Point Extraction for MR-Guided Biom... (使用publication_date: 20250821)
+2025-08-21 17:37:06,813 - video_downloader - INFO - [video_downloader.py:169] - 视频下载成功: /Users/zhouzhongtian/Movies/arxiv_video/20250821/2508.14893/video_23.mp4
+2025-08-21 17:37:07,207 - arxiv_crawler - INFO - [crawler.py:201] - [线程6219018240] 论文 2508.14871 没有找到项目链接
+2025-08-21 17:37:07,348 - arxiv_crawler - INFO - [crawler.py:192] - [线程6219018240] 开始处理: 2508.14706 - ShizhenGPT: Towards Multimodal LLMs for Traditiona... (使用publication_date: 20250821)
+2025-08-21 17:37:07,660 - arxiv_crawler - INFO - [crawler.py:201] - [线程6235844608] 论文 2508.14708 没有找到项目链接
+2025-08-21 17:37:07,840 - video_downloader - INFO - [video_downloader.py:169] - 视频下载成功: /Users/zhouzhongtian/Movies/arxiv_video/20250821/2508.14893/video_24.mp4
+2025-08-21 17:37:07,860 - arxiv_crawler - INFO - [crawler.py:192] - [线程6235844608] 开始处理: 2508.14892 - Snap-Snap: Taking Two Images to Reconstruct 3D Hum... (使用publication_date: 20250821)
+2025-08-21 17:37:08,142 - arxiv_crawler - INFO - [crawler.py:201] - [线程6219018240] 论文 2508.14706 没有找到项目链接
+2025-08-21 17:37:08,253 - video_downloader - INFO - [video_downloader.py:169] - 视频下载成功: /Users/zhouzhongtian/Movies/arxiv_video/20250821/2508.14893/video_25.mp4
+2025-08-21 17:37:08,319 - arxiv_crawler - INFO - [crawler.py:192] - [线程6219018240] 开始处理: 2508.14681 - Virtual Multiplex Staining for Histological Images... (使用publication_date: 20250821)
+2025-08-21 17:37:08,613 - video_downloader - INFO - [video_downloader.py:169] - 视频下载成功: /Users/zhouzhongtian/Movies/arxiv_video/20250821/2508.14893/video_26.mp4
+2025-08-21 17:37:08,853 - arxiv_crawler - INFO - [crawler.py:201] - [线程6219018240] 论文 2508.14681 没有找到项目链接
+2025-08-21 17:37:08,887 - arxiv_crawler - INFO - [crawler.py:207] - [线程6235844608] 检查项目页面: https://hustvl.github.io/Snap-Snap/
+2025-08-21 17:37:09,049 - video_downloader - INFO - [video_downloader.py:169] - 视频下载成功: /Users/zhouzhongtian/Movies/arxiv_video/20250821/2508.14893/video_27.mp4
+2025-08-21 17:37:09,171 - arxiv_crawler - INFO - [crawler.py:192] - [线程6219018240] 开始处理: 2508.14879 - MeshCoder: LLM-Powered Structured Mesh Code Genera... (使用publication_date: 20250821)
+2025-08-21 17:37:09,780 - arxiv_crawler - INFO - [crawler.py:201] - [线程6219018240] 论文 2508.14879 没有找到项目链接
+2025-08-21 17:37:09,938 - arxiv_crawler - INFO - [crawler.py:192] - [线程6219018240] 开始处理: 2508.14648 - Understanding Data Influence with Differential App... (使用publication_date: 20250821)
+2025-08-21 17:37:10,763 - video_downloader - INFO - [video_downloader.py:169] - 视频下载成功: /Users/zhouzhongtian/Movies/arxiv_video/20250821/2508.14893/video_28.mp4
+2025-08-21 17:37:10,920 - arxiv_crawler - INFO - [crawler.py:201] - [线程6219018240] 论文 2508.14648 没有找到项目链接
+2025-08-21 17:37:11,070 - arxiv_crawler - INFO - [crawler.py:192] - [线程6219018240] 开始处理: 2508.14509 - Deep Skin Lesion Segmentation with Transformer-CNN... (使用publication_date: 20250821)
+2025-08-21 17:37:11,128 - video_downloader - INFO - [video_downloader.py:169] - 视频下载成功: /Users/zhouzhongtian/Movies/arxiv_video/20250821/2508.14893/video_29.mp4
+2025-08-21 17:37:11,486 - video_downloader - INFO - [video_downloader.py:169] - 视频下载成功: /Users/zhouzhongtian/Movies/arxiv_video/20250821/2508.14893/video_30.mp4
+2025-08-21 17:37:11,931 - video_downloader - INFO - [video_downloader.py:169] - 视频下载成功: /Users/zhouzhongtian/Movies/arxiv_video/20250821/2508.14893/video_31.mp4
+2025-08-21 17:37:12,058 - arxiv_crawler - INFO - [crawler.py:201] - [线程6219018240] 论文 2508.14509 没有找到项目链接
+2025-08-21 17:37:12,209 - arxiv_crawler - INFO - [crawler.py:192] - [线程6219018240] 开始处理: 2508.14552 - From Slices to Structures: Unsupervised 3D Reconst... (使用publication_date: 20250821)
+2025-08-21 17:37:12,284 - video_downloader - INFO - [video_downloader.py:169] - 视频下载成功: /Users/zhouzhongtian/Movies/arxiv_video/20250821/2508.14893/video_32.mp4
+2025-08-21 17:37:12,284 - arxiv_crawler - INFO - [crawler.py:229] - [线程6252670976] 论文 2508.14893 成功下载 33 个视频
+2025-08-21 17:37:12,285 - card_generator - INFO - [card_generator.py:77] - 开始为 ArXiv ID 2508.14893v1 生成解说卡片
+2025-08-21 17:37:12,361 - card_generator - INFO - [card_generator.py:96] - 找到论文: Virtual Community: An Open World for Humans, Robot...
+2025-08-21 17:37:12,641 - video_downloader - INFO - [video_downloader.py:169] - 视频下载成功: /Users/zhouzhongtian/Movies/arxiv_video/20250821/2508.14892/video_0.mp4
+2025-08-21 17:37:12,800 - card_generator - INFO - [card_generator.py:113] - 成功生成 ArXiv ID 2508.14893v1 的解说卡片
+2025-08-21 17:37:12,802 - card_generator - INFO - [card_generator.py:157] - 卡片已保存到: /Users/zhouzhongtian/vscode/arxiv_video/cards/2508.14893v1.json
+2025-08-21 17:37:12,802 - card_generator - INFO - [card_generator.py:157] - 卡片已保存到: /Users/zhouzhongtian/Movies/arxiv_video/20250821/2508.14893/2508.14893v1.json
+2025-08-21 17:37:12,802 - card_generator - INFO - [card_generator.py:376] - 卡片已保存到: /Users/zhouzhongtian/Movies/arxiv_video/20250821/2508.14893/2508.14893v1.json
+2025-08-21 17:37:12,802 - arxiv_crawler - INFO - [crawler.py:242] - [线程6252670976] 成功生成并保存论文 2508.14893v1 的解说卡片到 /Users/zhouzhongtian/Movies/arxiv_video/20250821/2508.14893
+2025-08-21 17:37:13,476 - arxiv_crawler - INFO - [crawler.py:201] - [线程6219018240] 论文 2508.14552 没有找到项目链接
+2025-08-21 17:37:13,629 - arxiv_crawler - INFO - [crawler.py:192] - [线程6219018240] 开始处理: 2508.14364 - Physics-Constrained Diffusion Reconstruction with ... (使用publication_date: 20250821)
+2025-08-21 17:37:14,618 - arxiv_crawler - INFO - [crawler.py:201] - [线程6219018240] 论文 2508.14364 没有找到项目链接
+2025-08-21 17:37:14,760 - arxiv_crawler - INFO - [crawler.py:192] - [线程6219018240] 开始处理: 2508.14411 - A Real-world Display Inverse Rendering Dataset... (使用publication_date: 20250821)
+2025-08-21 17:37:15,794 - arxiv_crawler - INFO - [crawler.py:207] - [线程6219018240] 检查项目页面: https://michaelcsj.github.io/DIR/
+2025-08-21 17:37:15,887 - video_downloader - INFO - [video_downloader.py:169] - 视频下载成功: /Users/zhouzhongtian/Movies/arxiv_video/20250821/2508.14892/video_1.mp4
+2025-08-21 17:37:17,516 - arxiv_crawler - INFO - [crawler.py:266] - [线程6219018240] 论文 2508.14411 没有找到可下载的视频
+2025-08-21 17:37:17,665 - arxiv_crawler - INFO - [crawler.py:192] - [线程6219018240] 开始处理: 2508.14237 - OmniSense: Towards Edge-Assisted Online Analytics ... (使用publication_date: 20250821)
+2025-08-21 17:37:18,477 - arxiv_crawler - INFO - [crawler.py:201] - [线程6219018240] 论文 2508.14237 没有找到项目链接
+2025-08-21 17:37:18,686 - arxiv_crawler - INFO - [crawler.py:192] - [线程6219018240] 开始处理: 2508.14357 - Organ-Agents: Virtual Human Physiology Simulator v... (使用publication_date: 20250821)
+2025-08-21 17:37:19,086 - arxiv_crawler - INFO - [crawler.py:201] - [线程6219018240] 论文 2508.14357 没有找到项目链接
+2025-08-21 17:37:19,117 - video_downloader - INFO - [video_downloader.py:169] - 视频下载成功: /Users/zhouzhongtian/Movies/arxiv_video/20250821/2508.14892/video_2.mp4
+2025-08-21 17:37:19,252 - arxiv_crawler - INFO - [crawler.py:192] - [线程6219018240] 开始处理: 2508.14475 - Fine-grained Image Quality Assessment for Perceptu... (使用publication_date: 20250821)
+2025-08-21 17:37:20,388 - arxiv_crawler - INFO - [crawler.py:207] - [线程6219018240] 检查项目页面: https://pxf0429.github.io/FGResQ/
+2025-08-21 17:37:21,868 - video_downloader - INFO - [video_downloader.py:169] - 视频下载成功: /Users/zhouzhongtian/Movies/arxiv_video/20250821/2508.14892/video_3.mp4
+2025-08-21 17:37:22,045 - arxiv_crawler - INFO - [crawler.py:266] - [线程6219018240] 论文 2508.14475 没有找到可下载的视频
+2025-08-21 17:37:22,187 - arxiv_crawler - INFO - [crawler.py:192] - [线程6219018240] 开始处理: 2508.14138 - STAS: Spatio-Temporal Adaptive Computation Time fo... (使用publication_date: 20250821)
+2025-08-21 17:37:22,719 - arxiv_crawler - INFO - [crawler.py:201] - [线程6219018240] 论文 2508.14138 没有找到项目链接
+2025-08-21 17:37:22,866 - arxiv_crawler - INFO - [crawler.py:192] - [线程6219018240] 开始处理: 2508.14151 - A Systematic Study of Deep Learning Models and xAI... (使用publication_date: 20250821)
+2025-08-21 17:37:23,491 - arxiv_crawler - INFO - [crawler.py:201] - [线程6219018240] 论文 2508.14151 没有找到项目链接
+2025-08-21 17:37:23,639 - arxiv_crawler - INFO - [crawler.py:192] - [线程6219018240] 开始处理: 2508.14133 - Automated surgical planning with nnU-Net: delineat... (使用publication_date: 20250821)
+2025-08-21 17:37:24,139 - arxiv_crawler - INFO - [crawler.py:201] - [线程6219018240] 论文 2508.14133 没有找到项目链接
+2025-08-21 17:37:24,276 - arxiv_crawler - INFO - [crawler.py:192] - [线程6219018240] 开始处理: 2508.14122 - 3D Cardiac Anatomy Generation Using Mesh Latent Di... (使用publication_date: 20250821)
+2025-08-21 17:37:24,885 - arxiv_crawler - INFO - [crawler.py:201] - [线程6219018240] 论文 2508.14122 没有找到项目链接
+2025-08-21 17:37:25,058 - arxiv_crawler - INFO - [crawler.py:192] - [线程6219018240] 开始处理: 2508.14118 - Hallucinations in medical devices... (使用publication_date: 20250821)
+2025-08-21 17:37:25,623 - video_downloader - INFO - [video_downloader.py:169] - 视频下载成功: /Users/zhouzhongtian/Movies/arxiv_video/20250821/2508.14892/video_4.mp4
+2025-08-21 17:37:25,623 - arxiv_crawler - INFO - [crawler.py:229] - [线程6235844608] 论文 2508.14892 成功下载 5 个视频
+2025-08-21 17:37:25,623 - card_generator - INFO - [card_generator.py:77] - 开始为 ArXiv ID 2508.14892v1 生成解说卡片
+2025-08-21 17:37:25,701 - card_generator - INFO - [card_generator.py:96] - 找到论文: Snap-Snap: Taking Two Images to Reconstruct 3D Hum...
+2025-08-21 17:37:26,016 - arxiv_crawler - INFO - [crawler.py:201] - [线程6219018240] 论文 2508.14118 没有找到项目链接
+2025-08-21 17:37:26,278 - card_generator - INFO - [card_generator.py:113] - 成功生成 ArXiv ID 2508.14892v1 的解说卡片
+2025-08-21 17:37:26,278 - arxiv_crawler - INFO - [crawler.py:192] - [线程6219018240] 开始处理: 2508.14129 - Fracture Detection and Localisation in Wrist and H... (使用publication_date: 20250821)
+2025-08-21 17:37:26,279 - card_generator - INFO - [card_generator.py:157] - 卡片已保存到: /Users/zhouzhongtian/vscode/arxiv_video/cards/2508.14892v1.json
+2025-08-21 17:37:26,279 - card_generator - INFO - [card_generator.py:157] - 卡片已保存到: /Users/zhouzhongtian/Movies/arxiv_video/20250821/2508.14892/2508.14892v1.json
+2025-08-21 17:37:26,279 - card_generator - INFO - [card_generator.py:376] - 卡片已保存到: /Users/zhouzhongtian/Movies/arxiv_video/20250821/2508.14892/2508.14892v1.json
+2025-08-21 17:37:26,279 - arxiv_crawler - INFO - [crawler.py:242] - [线程6235844608] 成功生成并保存论文 2508.14892v1 的解说卡片到 /Users/zhouzhongtian/Movies/arxiv_video/20250821/2508.14892
+2025-08-21 17:37:27,343 - arxiv_crawler - INFO - [crawler.py:201] - [线程6219018240] 论文 2508.14129 没有找到项目链接
+2025-08-21 17:37:27,488 - arxiv_crawler - INFO - [crawler.py:192] - [线程6219018240] 开始处理: 2508.14413 - Disentanglement in T-space for Faster and Distribu... (使用publication_date: 20250821)
+2025-08-21 17:37:28,607 - arxiv_crawler - INFO - [crawler.py:201] - [线程6219018240] 论文 2508.14413 没有找到项目链接
+2025-08-21 17:37:28,753 - arxiv_crawler - INFO - [crawler.py:192] - [线程6219018240] 开始处理: 2508.14060 - Activity Coefficient-based Channel Selection for E... (使用publication_date: 20250821)
+2025-08-21 17:37:29,333 - arxiv_crawler - INFO - [crawler.py:201] - [线程6219018240] 论文 2508.14060 没有找到项目链接
+2025-08-21 17:37:29,485 - arxiv_crawler - INFO - [crawler.py:192] - [线程6219018240] 开始处理: 2508.14106 - High-Throughput Low-Cost Segmentation of Brightfie... (使用publication_date: 20250821)
+2025-08-21 17:37:30,138 - arxiv_crawler - INFO - [crawler.py:201] - [线程6219018240] 论文 2508.14106 没有找到项目链接
+2025-08-21 17:37:30,286 - arxiv_crawler - INFO - [crawler.py:192] - [线程6219018240] 开始处理: 2508.14045 - From Image Captioning to Visual Storytelling... (使用publication_date: 20250821)
+2025-08-21 17:37:30,944 - arxiv_crawler - INFO - [crawler.py:201] - [线程6219018240] 论文 2508.14045 没有找到项目链接
+2025-08-21 17:37:32,279 - arxiv_crawler - WARNING - [crawler.py:250] - [线程6168539136] 论文 2508.14423v1 视频合成失败
+2025-08-21 17:37:32,281 - arxiv_crawler - WARNING - [crawler.py:250] - [线程6202191872] 论文 2508.14567v1 视频合成失败
+2025-08-21 17:37:32,383 - arxiv_crawler - WARNING - [crawler.py:250] - [线程6185365504] 论文 2508.14891v1 视频合成失败
+2025-08-21 17:39:44,608 - arxiv_crawler - INFO - [crawler.py:248] - [线程6269497344] 成功为论文 2508.14811v1 生成合成视频: /Users/zhouzhongtian/Movies/arxiv_video/20250821/2508.14811/2508.14811v1_res.mp4
+2025-08-21 17:40:16,474 - arxiv_crawler - INFO - [crawler.py:248] - [线程6286323712] 成功为论文 2508.14717v1 生成合成视频: /Users/zhouzhongtian/Movies/arxiv_video/20250821/2508.14717/2508.14717v1_res.mp4
+2025-08-21 17:40:35,043 - arxiv_crawler - INFO - [crawler.py:248] - [线程6235844608] 成功为论文 2508.14892v1 生成合成视频: /Users/zhouzhongtian/Movies/arxiv_video/20250821/2508.14892/2508.14892v1_res.mp4
+2025-08-21 17:46:16,783 - arxiv_crawler - INFO - [crawler.py:248] - [线程6252670976] 成功为论文 2508.14893v1 生成合成视频: /Users/zhouzhongtian/Movies/arxiv_video/20250821/2508.14893/2508.14893v1_res.mp4
+2025-08-21 17:46:16,785 - arxiv_crawler - INFO - [crawler.py:166] - 处理完成！成功: 7, 失败: 90, 成功率: 7.2%
+2025-08-21 17:46:16,786 - arxiv_crawler - INFO - [main.py:243] - ArXiv 视频下载器完成
+2025-08-21 17:46:16,788 - arxiv_crawler - INFO - [crawler.py:365] - 爬虫资源已清理
+2025-08-21 18:31:46,588 - card_generator - INFO - [card_generator.py:56] - 数据库连接成功，卡片生成器初始化完成
+2025-08-21 18:32:23,030 - card_generator - INFO - [card_generator.py:56] - 数据库连接成功，卡片生成器初始化完成
+2025-08-21 18:33:08,743 - card_generator - INFO - [card_generator.py:56] - 数据库连接成功，卡片生成器初始化完成
+2025-08-21 18:33:08,895 - arxiv_crawler - INFO - [main.py:216] - ArXiv 视频下载器启动
+2025-08-21 18:33:08,895 - arxiv_crawler - INFO - [main.py:217] - 配置 - 领域: cs.CV, 线程数: 8, 最大论文数: 3, 下载目录: /Users/zhouzhongtian/Movies/arxiv_video
+2025-08-21 18:33:08,895 - arxiv_crawler - INFO - [main.py:223] - 将自动获取最新发布日期的论文
+2025-08-21 18:33:08,896 - arxiv_crawler - INFO - [crawler.py:87] - 初始化完成，线程数: 8，下载目录: /Users/zhouzhongtian/Movies/arxiv_video
+2025-08-21 18:33:08,896 - arxiv_crawler - INFO - [crawler.py:104] - 开始爬取 cs.CV 领域最新一天的论文视频...
+2025-08-21 18:33:08,896 - arxiv_fetcher - INFO - [arxiv_fetcher.py:37] - 开始从数据库获取最新发布日的论文...
+2025-08-21 18:33:09,693 - arxiv_fetcher - INFO - [arxiv_fetcher.py:50] - 数据库中最新发布日期: 20250821
+2025-08-21 18:33:09,693 - arxiv_fetcher - INFO - [arxiv_fetcher.py:115] - 正在从数据库获取 20250821 日期的论文...
+2025-08-21 18:33:11,154 - arxiv_fetcher - INFO - [arxiv_fetcher.py:152] - 从数据库获取完成，共找到 3 篇 20250821 日期的论文
+2025-08-21 18:33:11,229 - arxiv_crawler - INFO - [crawler.py:118] - 获取到 3 篇论文，开始多线程处理...
+2025-08-21 18:33:11,403 - arxiv_crawler - INFO - [crawler.py:192] - [线程6161952768] 开始处理: 2508.14889 - MS-CLR: Multi-Skeleton Contrastive Learning for Hu... (使用publication_date: 20250821)
+2025-08-21 18:33:11,636 - arxiv_crawler - INFO - [crawler.py:192] - [线程6178779136] 开始处理: 2508.14891 - GaussianArt: Unified Modeling of Geometry and Moti... (使用publication_date: 20250821)
+2025-08-21 18:33:11,640 - arxiv_crawler - INFO - [crawler.py:192] - [线程6195605504] 开始处理: 2508.14878 - Lifespan Pancreas Morphology for Control vs Type 2... (使用publication_date: 20250821)
+2025-08-21 18:33:12,591 - arxiv_crawler - INFO - [crawler.py:201] - [线程6161952768] 论文 2508.14889 没有找到项目链接
+2025-08-21 18:33:12,644 - arxiv_crawler - INFO - [crawler.py:201] - [线程6195605504] 论文 2508.14878 没有找到项目链接
+2025-08-21 18:33:12,717 - arxiv_crawler - INFO - [crawler.py:207] - [线程6178779136] 检查项目页面: https://sainingzhang.github.io/project/gaussianart/
+2025-08-21 18:33:15,464 - video_downloader - INFO - [video_downloader.py:169] - 视频下载成功: /Users/zhouzhongtian/Movies/arxiv_video/20250821/2508.14891/video_0.mp4
+2025-08-21 18:33:16,457 - video_downloader - INFO - [video_downloader.py:169] - 视频下载成功: /Users/zhouzhongtian/Movies/arxiv_video/20250821/2508.14891/video_1.mp4
+2025-08-21 18:33:16,457 - arxiv_crawler - INFO - [crawler.py:229] - [线程6178779136] 论文 2508.14891 成功下载 2 个视频
+2025-08-21 18:33:16,457 - card_generator - INFO - [card_generator.py:77] - 开始为 ArXiv ID 2508.14891v1 生成解说卡片
+2025-08-21 18:33:16,540 - card_generator - INFO - [card_generator.py:96] - 找到论文: GaussianArt: Unified Modeling of Geometry and Moti...
+2025-08-21 18:33:16,959 - card_generator - INFO - [card_generator.py:113] - 成功生成 ArXiv ID 2508.14891v1 的解说卡片
+2025-08-21 18:33:16,960 - card_generator - INFO - [card_generator.py:157] - 卡片已保存到: /Users/zhouzhongtian/vscode/arxiv_video/cards/2508.14891v1.json
+2025-08-21 18:33:16,962 - card_generator - INFO - [card_generator.py:157] - 卡片已保存到: /Users/zhouzhongtian/Movies/arxiv_video/20250821/2508.14891/2508.14891v1.json
+2025-08-21 18:33:16,962 - card_generator - INFO - [card_generator.py:376] - 卡片已保存到: /Users/zhouzhongtian/Movies/arxiv_video/20250821/2508.14891/2508.14891v1.json
+2025-08-21 18:33:16,962 - arxiv_crawler - INFO - [crawler.py:242] - [线程6178779136] 成功生成并保存论文 2508.14891v1 的解说卡片到 /Users/zhouzhongtian/Movies/arxiv_video/20250821/2508.14891
+2025-08-21 18:33:58,410 - arxiv_crawler - INFO - [crawler.py:248] - [线程6178779136] 成功为论文 2508.14891v1 生成合成视频: /Users/zhouzhongtian/Movies/arxiv_video/20250821/2508.14891/2508.14891v1_res.mp4
+2025-08-21 18:33:58,411 - arxiv_crawler - INFO - [crawler.py:166] - 处理完成！成功: 1, 失败: 2, 成功率: 33.3%
+2025-08-21 18:33:58,411 - arxiv_crawler - INFO - [main.py:243] - ArXiv 视频下载器完成
+2025-08-21 18:33:58,412 - arxiv_crawler - INFO - [crawler.py:365] - 爬虫资源已清理
+2025-08-21 18:45:45,382 - card_generator - INFO - [card_generator.py:56] - 数据库连接成功，卡片生成器初始化完成
+2025-08-21 18:45:45,530 - arxiv_crawler - INFO - [main.py:216] - ArXiv 视频下载器启动
+2025-08-21 18:45:45,530 - arxiv_crawler - INFO - [main.py:217] - 配置 - 领域: cs.CV, 线程数: 8, 最大论文数: 1000, 下载目录: /Users/zhouzhongtian/Movies/arxiv_video
+2025-08-21 18:45:45,530 - arxiv_crawler - INFO - [main.py:223] - 将自动获取最新发布日期的论文
+2025-08-21 18:45:45,530 - arxiv_crawler - INFO - [crawler.py:87] - 初始化完成，线程数: 8，下载目录: /Users/zhouzhongtian/Movies/arxiv_video
+2025-08-21 18:45:45,531 - arxiv_crawler - INFO - [crawler.py:104] - 开始爬取 cs.CV 领域最新一天的论文视频...
+2025-08-21 18:45:45,531 - arxiv_fetcher - INFO - [arxiv_fetcher.py:37] - 开始从数据库获取最新发布日的论文...
+2025-08-21 18:45:46,327 - arxiv_fetcher - INFO - [arxiv_fetcher.py:50] - 数据库中最新发布日期: 20250821
+2025-08-21 18:45:46,327 - arxiv_fetcher - INFO - [arxiv_fetcher.py:115] - 正在从数据库获取 20250821 日期的论文...
+2025-08-21 18:45:47,986 - arxiv_fetcher - INFO - [arxiv_fetcher.py:152] - 从数据库获取完成，共找到 97 篇 20250821 日期的论文
+2025-08-21 18:45:48,052 - arxiv_crawler - INFO - [crawler.py:118] - 获取到 97 篇论文，开始多线程处理...
+2025-08-21 18:45:48,207 - arxiv_crawler - INFO - [crawler.py:192] - [线程6136918016] 开始处理: 2508.14889 - MS-CLR: Multi-Skeleton Contrastive Learning for Hu... (使用publication_date: 20250821)
+2025-08-21 18:45:48,432 - arxiv_crawler - INFO - [crawler.py:192] - [线程6187397120] 开始处理: 2508.14856 - EventSSEG: Event-driven Self-Supervised Segmentati... (使用publication_date: 20250821)
+2025-08-21 18:45:48,437 - arxiv_crawler - INFO - [crawler.py:192] - [线程6204223488] 开始处理: 2508.14812 - Repeating Words for Video-Language Retrieval with ... (使用publication_date: 20250821)
+2025-08-21 18:45:48,444 - arxiv_crawler - INFO - [crawler.py:192] - [线程6221049856] 开始处理: 2508.14893 - Virtual Community: An Open World for Humans, Robot... (使用publication_date: 20250821)
+2025-08-21 18:45:48,446 - arxiv_crawler - INFO - [crawler.py:192] - [线程6254702592] 开始处理: 2508.14779 - Adversarial Hospital-Invariant Feature Learning fo... (使用publication_date: 20250821)
+2025-08-21 18:45:48,450 - arxiv_crawler - INFO - [crawler.py:192] - [线程6170570752] 开始处理: 2508.14878 - Lifespan Pancreas Morphology for Control vs Type 2... (使用publication_date: 20250821)
+2025-08-21 18:45:48,460 - arxiv_crawler - INFO - [crawler.py:192] - [线程6153744384] 开始处理: 2508.14891 - GaussianArt: Unified Modeling of Geometry and Moti... (使用publication_date: 20250821)
+2025-08-21 18:45:48,461 - arxiv_crawler - INFO - [crawler.py:192] - [线程6237876224] 开始处理: 2508.14811 - Tinker: Diffusion's Gift to 3D--Multi-View Consist... (使用publication_date: 20250821)
+2025-08-21 18:45:49,404 - arxiv_crawler - INFO - [crawler.py:201] - [线程6170570752] 论文 2508.14878 没有找到项目链接
+2025-08-21 18:45:49,543 - arxiv_crawler - INFO - [crawler.py:192] - [线程6170570752] 开始处理: 2508.14814 - TransLight: Image-Guided Customized Lighting Contr... (使用publication_date: 20250821)
+2025-08-21 18:45:49,554 - arxiv_crawler - INFO - [crawler.py:201] - [线程6136918016] 论文 2508.14889 没有找到项目链接
+2025-08-21 18:45:49,609 - arxiv_crawler - INFO - [crawler.py:207] - [线程6153744384] 检查项目页面: https://sainingzhang.github.io/project/gaussianart/
+2025-08-21 18:45:49,685 - arxiv_crawler - INFO - [crawler.py:201] - [线程6254702592] 论文 2508.14779 没有找到项目链接
+2025-08-21 18:45:49,695 - arxiv_crawler - INFO - [crawler.py:192] - [线程6136918016] 开始处理: 2508.14776 - 6-DoF Object Tracking with Event-based Optical Flo... (使用publication_date: 20250821)
+2025-08-21 18:45:49,730 - arxiv_crawler - INFO - [crawler.py:201] - [线程6187397120] 论文 2508.14856 没有找到项目链接
+2025-08-21 18:45:49,837 - arxiv_crawler - INFO - [crawler.py:192] - [线程6254702592] 开始处理: 2508.14797 - MF-LPR$^2$: Multi-Frame License Plate Image Restor... (使用publication_date: 20250821)
+2025-08-21 18:45:49,870 - arxiv_crawler - INFO - [crawler.py:201] - [线程6204223488] 论文 2508.14812 没有找到项目链接
+2025-08-21 18:45:49,872 - arxiv_crawler - INFO - [crawler.py:192] - [线程6187397120] 开始处理: 2508.14729 - Multiscale Video Transformers for Class Agnostic S... (使用publication_date: 20250821)
+2025-08-21 18:45:49,938 - arxiv_crawler - INFO - [crawler.py:207] - [线程6221049856] 检查项目页面: https://virtual-community-ai.github.io/
+2025-08-21 18:45:50,013 - arxiv_crawler - INFO - [crawler.py:192] - [线程6204223488] 开始处理: 2508.14809 - DINOv3 with Test-Time Training for Medical Image R... (使用publication_date: 20250821)
+2025-08-21 18:45:50,117 - arxiv_crawler - INFO - [crawler.py:207] - [线程6237876224] 检查项目页面: https://aim-uofa.github.io/Tinker
+2025-08-21 18:45:50,361 - arxiv_crawler - INFO - [crawler.py:201] - [线程6136918016] 论文 2508.14776 没有找到项目链接
+2025-08-21 18:45:50,441 - arxiv_crawler - INFO - [crawler.py:201] - [线程6187397120] 论文 2508.14729 没有找到项目链接
+2025-08-21 18:45:50,511 - arxiv_crawler - INFO - [crawler.py:192] - [线程6136918016] 开始处理: 2508.14767 - Fusing Monocular RGB Images with AIS Data to Creat... (使用publication_date: 20250821)
+2025-08-21 18:45:50,587 - arxiv_crawler - INFO - [crawler.py:192] - [线程6187397120] 开始处理: 2508.14707 - Seeing Further on the Shoulders of Giants: Knowled... (使用publication_date: 20250821)
+2025-08-21 18:45:50,663 - arxiv_crawler - INFO - [crawler.py:201] - [线程6170570752] 论文 2508.14814 没有找到项目链接
+2025-08-21 18:45:50,810 - arxiv_crawler - INFO - [crawler.py:192] - [线程6170570752] 开始处理: 2508.14730 - Improved Mapping Between Illuminations and Sensors... (使用publication_date: 20250821)
+2025-08-21 18:45:51,070 - arxiv_crawler - INFO - [crawler.py:201] - [线程6254702592] 论文 2508.14797 没有找到项目链接
+2025-08-21 18:45:51,070 - arxiv_crawler - INFO - [main.py:247] - 用户中断下载
+2025-08-21 18:45:51,087 - arxiv_crawler - INFO - [crawler.py:201] - [线程6187397120] 论文 2508.14707 没有找到项目链接
+2025-08-21 18:45:51,091 - arxiv_crawler - INFO - [crawler.py:201] - [线程6204223488] 论文 2508.14809 没有找到项目链接
+2025-08-21 18:45:51,092 - arxiv_crawler - INFO - [crawler.py:365] - 爬虫资源已清理
+2025-08-21 18:46:03,733 - card_generator - INFO - [card_generator.py:56] - 数据库连接成功，卡片生成器初始化完成
+2025-08-21 18:46:03,865 - arxiv_crawler - INFO - [main.py:216] - ArXiv 视频下载器启动
+2025-08-21 18:46:03,865 - arxiv_crawler - INFO - [main.py:217] - 配置 - 领域: cs.CV, 线程数: 8, 最大论文数: 3, 下载目录: /Users/zhouzhongtian/Movies/arxiv_video
+2025-08-21 18:46:03,865 - arxiv_crawler - INFO - [main.py:223] - 将自动获取最新发布日期的论文
+2025-08-21 18:46:03,865 - arxiv_crawler - INFO - [crawler.py:87] - 初始化完成，线程数: 8，下载目录: /Users/zhouzhongtian/Movies/arxiv_video
+2025-08-21 18:46:03,865 - arxiv_crawler - INFO - [crawler.py:104] - 开始爬取 cs.CV 领域最新一天的论文视频...
+2025-08-21 18:46:03,865 - arxiv_fetcher - INFO - [arxiv_fetcher.py:37] - 开始从数据库获取最新发布日的论文...
+2025-08-21 18:46:04,644 - arxiv_fetcher - INFO - [arxiv_fetcher.py:50] - 数据库中最新发布日期: 20250821
+2025-08-21 18:46:04,644 - arxiv_fetcher - INFO - [arxiv_fetcher.py:115] - 正在从数据库获取 20250821 日期的论文...
+2025-08-21 18:46:06,100 - arxiv_fetcher - INFO - [arxiv_fetcher.py:152] - 从数据库获取完成，共找到 3 篇 20250821 日期的论文
+2025-08-21 18:46:06,167 - arxiv_crawler - INFO - [crawler.py:118] - 获取到 3 篇论文，开始多线程处理...
+2025-08-21 18:46:06,333 - arxiv_crawler - INFO - [crawler.py:192] - [线程6166671360] 开始处理: 2508.14889 - MS-CLR: Multi-Skeleton Contrastive Learning for Hu... (使用publication_date: 20250821)
+2025-08-21 18:46:06,544 - arxiv_crawler - INFO - [crawler.py:192] - [线程6183497728] 开始处理: 2508.14891 - GaussianArt: Unified Modeling of Geometry and Moti... (使用publication_date: 20250821)
+2025-08-21 18:46:06,551 - arxiv_crawler - INFO - [crawler.py:192] - [线程6200324096] 开始处理: 2508.14878 - Lifespan Pancreas Morphology for Control vs Type 2... (使用publication_date: 20250821)
+2025-08-21 18:46:07,439 - arxiv_crawler - INFO - [crawler.py:201] - [线程6166671360] 论文 2508.14889 没有找到项目链接
+2025-08-21 18:46:07,509 - arxiv_crawler - INFO - [crawler.py:207] - [线程6183497728] 检查项目页面: https://sainingzhang.github.io/project/gaussianart/
+2025-08-21 18:46:07,725 - arxiv_crawler - INFO - [crawler.py:201] - [线程6200324096] 论文 2508.14878 没有找到项目链接
+2025-08-21 18:46:09,778 - video_downloader - INFO - [video_downloader.py:169] - 视频下载成功: /Users/zhouzhongtian/Movies/arxiv_video/20250821/2508.14891/video_0.mp4
+2025-08-21 18:46:10,817 - video_downloader - INFO - [video_downloader.py:169] - 视频下载成功: /Users/zhouzhongtian/Movies/arxiv_video/20250821/2508.14891/video_1.mp4
+2025-08-21 18:46:10,818 - arxiv_crawler - INFO - [crawler.py:229] - [线程6183497728] 论文 2508.14891 成功下载 2 个视频
+2025-08-21 18:46:10,818 - card_generator - INFO - [card_generator.py:77] - 开始为 ArXiv ID 2508.14891v1 生成解说卡片
+2025-08-21 18:46:10,899 - card_generator - INFO - [card_generator.py:96] - 找到论文: GaussianArt: Unified Modeling of Geometry and Moti...
+2025-08-21 18:46:11,321 - card_generator - INFO - [card_generator.py:113] - 成功生成 ArXiv ID 2508.14891v1 的解说卡片
+2025-08-21 18:46:11,323 - card_generator - INFO - [card_generator.py:157] - 卡片已保存到: /Users/zhouzhongtian/vscode/arxiv_video/cards/2508.14891v1.json
+2025-08-21 18:46:11,323 - card_generator - INFO - [card_generator.py:157] - 卡片已保存到: /Users/zhouzhongtian/Movies/arxiv_video/20250821/2508.14891/2508.14891v1.json
+2025-08-21 18:46:11,323 - card_generator - INFO - [card_generator.py:376] - 卡片已保存到: /Users/zhouzhongtian/Movies/arxiv_video/20250821/2508.14891/2508.14891v1.json
+2025-08-21 18:46:11,323 - arxiv_crawler - INFO - [crawler.py:242] - [线程6183497728] 成功生成并保存论文 2508.14891v1 的解说卡片到 /Users/zhouzhongtian/Movies/arxiv_video/20250821/2508.14891
+2025-08-21 18:46:55,548 - arxiv_crawler - INFO - [crawler.py:248] - [线程6183497728] 成功为论文 2508.14891v1 生成合成视频: /Users/zhouzhongtian/Movies/arxiv_video/20250821/2508.14891/2508.14891v1_res.mp4
+2025-08-21 18:46:55,549 - arxiv_crawler - INFO - [crawler.py:166] - 处理完成！成功: 1, 失败: 2, 成功率: 33.3%
+2025-08-21 18:46:55,549 - arxiv_crawler - INFO - [main.py:243] - ArXiv 视频下载器完成
+2025-08-21 18:46:55,550 - arxiv_crawler - INFO - [crawler.py:365] - 爬虫资源已清理

@@ -288,14 +288,40 @@ class VideoComposer:
                 # 使用参考代码的换行函数
                 formatted_sentence = self._devideSentence(sentence)
                 
-                # 创建字幕文本 - 使用黑体字体
-                text_clip = TextClip(
-                    formatted_sentence,
-                    fontsize=50,
-                    color='black',
-                    font="SimHei",  # 使用黑体
-                    align='center'
-                )
+                # 创建字幕文本 - 使用ImageMagick识别的字体
+                try:
+                    # 优先使用ImageMagick能识别的STHeiti字体
+                    text_clip = TextClip(
+                        formatted_sentence,
+                        fontsize=50,
+                        color='black',
+                        font="STHeiti",  # ImageMagick能识别的中文字体
+                        align='center'
+                    )
+                    logger.info(f"成功使用STHeiti字体创建字幕")
+                except Exception as font_error:
+                    logger.warning(f"使用STHeiti字体失败: {font_error}，尝试字体文件路径")
+                    try:
+                        # 回退到字体文件完整路径
+                        text_clip = TextClip(
+                            formatted_sentence,
+                            fontsize=50,
+                            color='black',
+                            font="/System/Library/Fonts/STHeiti Light.ttc",  # 使用完整路径
+                            align='center'
+                        )
+                        logger.info(f"成功使用STHeiti文件路径创建字幕")
+                    except Exception as path_error:
+                        logger.warning(f"使用STHeiti文件路径失败: {path_error}，回退到Arial Unicode")
+                        # 最后回退到Arial Unicode
+                        text_clip = TextClip(
+                            formatted_sentence,
+                            fontsize=50,
+                            color='black',
+                            font="/Library/Fonts/Arial Unicode.ttf",  # 最后的回退选项
+                            align='center'
+                        )
+                        logger.info(f"回退使用Arial Unicode字体创建字幕")
                 
                 # 创建背景 - 完全按照参考代码
                 bgcolor_clip = ColorClip(

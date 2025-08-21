@@ -1,0 +1,27 @@
+{
+  "arXivID": "2508.14423v1",
+  "info_CN": [
+    "2025年8月21日arXiv,cs.CV,发文量约97篇",
+    "减论Agent通过算法为您推荐",
+    "中央大学提出了MoCHA-former方法",
+    "该方法通过解耦和时空自适应机制",
+    "结合Moiré调节的混合自适应Transformer",
+    "有效解决了视频去摩尔纹中的空间变化、全局结构、通道依赖及时间一致性问题",
+    "The Chung-Ang University proposed the Moiré Conditioned Hybrid Adaptive Transformer (MoCHA-former)",
+    "which integrates Decoupled Moiré Adaptive Demoiréing (DMAD) and Spatio-Temporal Adaptive Demoiréing (STAD) components to address spatially varying artifact strength",
+    "large-scale structures",
+    "channel-dependent statistics",
+    "and temporal fluctuations in video demoiréing",
+    "欢迎关注减论",
+    "用科技链接个体"
+  ],
+  "info_EN": [
+    "The Chung-Ang University proposed the Moiré Conditioned Hybrid Adaptive Transformer (MoCHA-former)",
+    "which integrates Decoupled Moiré Adaptive Demoiréing (DMAD) and Spatio-Temporal Adaptive Demoiréing (STAD) components to address spatially varying artifact strength",
+    "large-scale structures",
+    "channel-dependent statistics",
+    "and temporal fluctuations in video demoiréing"
+  ],
+  "created_at": "2025-08-21T17:36:59.115224",
+  "version": "1.0"
+}

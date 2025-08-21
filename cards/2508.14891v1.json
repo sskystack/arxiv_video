@@ -1,0 +1,21 @@
+{
+  "arXivID": "2508.14891v1",
+  "info_CN": [
+    "2025年8月21日arXiv,cs.CV,发文量约97篇",
+    "减论Agent通过算法为您推荐",
+    "清华大学、北京理工大学与北京人工智能研究院提出了基于关节化三维高斯的统一几何与运动建模方法",
+    "有效提升了多部件关节物体的重建精度与运动分解鲁棒性",
+    "The Tsinghua University",
+    "Beijing Institute of Technology",
+    "and Beijing Academy of Artificial Intelligence presented a unified representation that jointly models geometry and motion of articulated objects using articulated 3D Gaussians",
+    "欢迎关注减论",
+    "用科技链接个体"
+  ],
+  "info_EN": [
+    "The Tsinghua University",
+    "Beijing Institute of Technology",
+    "and Beijing Academy of Artificial Intelligence presented a unified representation that jointly models geometry and motion of articulated objects using articulated 3D Gaussians"
+  ],
+  "created_at": "2025-08-21T18:46:11.322328",
+  "version": "1.0"
+}
