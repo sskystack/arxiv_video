@@ -53,7 +53,8 @@ def download_video(
     
     # 根据 URL 类型选择下载方式
     if _is_video_platform(video_url):
-        return _download_with_ytdlp(video_url, paper_id, video_index, save_path, is_primary_video)
+        # 硬编码使用chrome的cookies来绕过YouTube的bot检测
+        return _download_with_ytdlp(video_url, paper_id, video_index, save_path, is_primary_video, cookies_from_browser='chrome')
     else:
         return _download_with_requests(
             video_url, paper_id, video_index, session, save_path, max_retries, is_primary_video
@@ -114,12 +115,34 @@ def _download_with_ytdlp(video_url: str, paper_id: str, video_index: int, save_p
             }],
         }
 
-        # 如果提供了 cookies_from_browser 参数，添加到 yt-dlp 选项
+        # 如果提供了 cookies_from_browser 参数，添加到 yt-dlp 命令行参数
+        ydl_command = ["yt-dlp"]
+        
+        # 添加格式参数
+        ydl_command.extend(["-f", "bestvideo[height>=1080][ext=mp4]+bestaudio[ext=m4a]/bestvideo[ext=mp4]+bestaudio[ext=m4a]/best[ext=mp4]/best"])
+        
+        # 添加输出文件名模板
+        output_template = os.path.join(save_path, filename_template)
+        ydl_command.extend(["-o", output_template])
+        
+        # 添加其他参数
+        ydl_command.extend(["--no-playlist", "--merge-output-format", "mp4"])
+        
+        # 如果提供了cookies_from_browser参数
         if cookies_from_browser:
-            ydl_opts['cookiefile'] = f"--cookies-from-browser {cookies_from_browser}"
+            ydl_command.extend(["--cookies-from-browser", cookies_from_browser])
+            
+        # 添加视频URL
+        ydl_command.append(video_url)
 
-        with yt_dlp.YoutubeDL(ydl_opts) as ydl:
-            ydl.download([video_url])
+        # 使用 subprocess 调用 yt-dlp
+        import subprocess
+        logger.info(f"执行命令: {' '.join(ydl_command)}")
+        result = subprocess.run(ydl_command, capture_output=True, text=True, cwd=save_path)
+
+        if result.returncode != 0:
+            logger.error(f"yt-dlp 下载失败: {result.stderr}")
+            return None
 
         # 查找下载的文件
         if is_primary_video:

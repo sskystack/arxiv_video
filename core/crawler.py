@@ -82,14 +82,14 @@ class ArxivVideoCrawler:
         """初始化设置"""
         # 创建下载目录
         os.makedirs(self.download_folder, exist_ok=True)
-        
+
         # 初始化 session 池
         for i in range(self.max_workers):
-            session = create_session(cookies_from_browser=self.cookies_from_browser)
+            session = create_session()
             self.session_pool.append(session)
-        
+
         logger.info(f"初始化完成，线程数: {self.max_workers}，下载目录: {self.download_folder}")
-    
+
     def crawl_latest_day_videos(self, field: str = 'cs.CV', max_papers: int = 1000, target_date: Optional[str] = None) -> List[Dict]:
         """
         爬取指定日期或最新一天的论文视频
@@ -233,81 +233,143 @@ class ArxivVideoCrawler:
                 
                 logger.debug(f"[线程{thread_id}] 项目页面 {project_url}: YouTube视频 {len(youtube_urls)} 个，其他视频 {len(other_video_urls)} 个")
             
-            # 3. 按优先级选择和下载视频
-            # 优先级1: 符合时长要求的YouTube视频（1-4分钟）
-            for project_info in project_urls_info:
-                if project_info['youtube_urls']:
-                    try:
-                        # 过滤符合时长要求的YouTube视频
-                        suitable_youtube = filter_youtube_videos_by_duration(
-                            project_info['youtube_urls'], 
-                            min_duration=60,  # 1分钟
-                            max_duration=240  # 4分钟
-                        )
-                        
-                        if suitable_youtube:
-                            # 下载第一个符合要求的YouTube视频
-                            youtube_url = suitable_youtube[0]
-                            logger.info(f"[线程{thread_id}] 使用符合要求的YouTube视频: {youtube_url}")
-                            
-                            downloaded_path = download_video(
-                                youtube_url, paper_id, 0, session, 
-                                self.download_folder, target_date, is_primary_video=True
-                            )
-                            
-                            if downloaded_path:
-                                final_video = {
-                                    'video_url': youtube_url,
-                                    'local_path': downloaded_path,
-                                    'project_url': project_info['project_url'],
-                                    'video_type': 'youtube_primary'
-                                }
-                                logger.info(f"[线程{thread_id}] 成功下载YouTube主视频: {downloaded_path}")
-                                break
-                        else:
-                            # 如果时长过滤失败，尝试下载第一个YouTube视频作为备用
-                            logger.warning(f"[线程{thread_id}] 没有找到符合时长的YouTube视频，尝试第一个YouTube视频作为备用")
-                            youtube_url = project_info['youtube_urls'][0]
-                            logger.info(f"[线程{thread_id}] 尝试备用YouTube视频: {youtube_url}")
-                            
-                            downloaded_path = download_video(
-                                youtube_url, paper_id, 0, session, 
-                                self.download_folder, target_date, is_primary_video=True
-                            )
-                            
-                            if downloaded_path:
-                                final_video = {
-                                    'video_url': youtube_url,
-                                    'local_path': downloaded_path,
-                                    'project_url': project_info['project_url'],
-                                    'video_type': 'youtube_backup'
-                                }
-                                logger.info(f"[线程{thread_id}] 成功下载备用YouTube视频: {downloaded_path}")
-                                break
-                    except Exception as e:
-                        logger.warning(f"[线程{thread_id}] 处理YouTube视频时出错: {str(e)}，继续尝试其他视频")
+            # 3. 按新的优先级逻辑选择和下载视频
+            # 首先获取所有视频URL（按HTML中出现的顺序）
+            all_video_urls = []
+            all_youtube_urls = []
             
-            # 优先级2: 如果没有找到合适的YouTube视频，使用第一个其他视频
-            if not final_video:
-                for project_info in project_urls_info:
-                    if project_info['other_video_urls']:
-                        other_video_url = project_info['other_video_urls'][0]
-                        logger.info(f"[线程{thread_id}] 使用第一个其他视频: {other_video_url}")
+            for project_info in project_urls_info:
+                # 收集所有视频，保持顺序
+                all_video_urls.extend(project_info['other_video_urls'])
+                all_youtube_urls.extend(project_info['youtube_urls'])
+            
+            # 如果没有任何视频，直接返回
+            if not all_video_urls and not all_youtube_urls:
+                logger.info(f"[线程{thread_id}] 论文 {paper_id} 没有找到任何视频")
+                return None
+            
+            # 新的选择逻辑：
+            # 1. 首先检查第一个视频（非YouTube）的时长
+            first_video_url = None
+            first_video_suitable = False
+            
+            if all_video_urls:
+                first_video_url = all_video_urls[0]
+                logger.info(f"[线程{thread_id}] 检查第一个视频: {first_video_url}")
+                
+                # 检查第一个视频的时长
+                try:
+                    from core.video_extractor import check_video_duration
+                    first_video_suitable = check_video_duration(first_video_url, min_duration=60, max_duration=240)
+                    
+                    if first_video_suitable:
+                        logger.info(f"[线程{thread_id}] 第一个视频时长合适（1-4分钟），将优先使用")
+                    else:
+                        logger.info(f"[线程{thread_id}] 第一个视频时长不合适，将检查YouTube视频")
                         
-                        downloaded_path = download_video(
-                            other_video_url, paper_id, 0, session, 
-                            self.download_folder, target_date, is_primary_video=True
-                        )
-                        
-                        if downloaded_path:
-                            final_video = {
-                                'video_url': other_video_url,
-                                'local_path': downloaded_path,
-                                'project_url': project_info['project_url'],
-                                'video_type': 'other_primary'
-                            }
-                            logger.info(f"[线程{thread_id}] 成功下载其他主视频: {downloaded_path}")
-                            break
+                except Exception as e:
+                    logger.warning(f"[线程{thread_id}] 无法检查第一个视频时长: {e}，将检查YouTube视频")
+                    first_video_suitable = False
+            
+            # 2. 如果第一个视频时长不合适，检查YouTube视频
+            suitable_youtube_url = None
+            if not first_video_suitable and all_youtube_urls:
+                logger.info(f"[线程{thread_id}] 第一个视频不合适，检查YouTube视频时长")
+                try:
+                    # 检查YouTube视频时长
+                    suitable_youtube = filter_youtube_videos_by_duration(
+                        all_youtube_urls, 
+                        min_duration=60,  # 1分钟
+                        max_duration=240  # 4分钟
+                    )
+                    
+                    if suitable_youtube:
+                        suitable_youtube_url = suitable_youtube[0]
+                        logger.info(f"[线程{thread_id}] 找到符合要求的YouTube视频: {suitable_youtube_url}")
+                    else:
+                        logger.info(f"[线程{thread_id}] 没有找到符合时长要求的YouTube视频，将使用第一个视频作为后备")
+                except Exception as e:
+                    logger.warning(f"[线程{thread_id}] 检查YouTube视频时出错: {e}")
+            elif first_video_suitable:
+                logger.info(f"[线程{thread_id}] 第一个视频合适，跳过YouTube视频检查")
+            else:
+                logger.info(f"[线程{thread_id}] 没有YouTube视频可检查")
+            
+            # 3. 按优先级下载视频
+            final_video = None
+            
+            # 优先级1: 如果第一个视频合适，使用第一个视频
+            if first_video_suitable and first_video_url:
+                logger.info(f"[线程{thread_id}] 使用第一个视频: {first_video_url}")
+                
+                downloaded_path = download_video(
+                    first_video_url, paper_id, 0, session, 
+                    self.download_folder, target_date, is_primary_video=True
+                )
+                
+                if downloaded_path:
+                    final_video = {
+                        'video_url': first_video_url,
+                        'local_path': downloaded_path,
+                        'project_url': project_urls_info[0]['project_url'] if project_urls_info else '',
+                        'video_type': 'other_primary'
+                    }
+                    logger.info(f"[线程{thread_id}] 成功下载第一个视频: {downloaded_path}")
+            
+            # 优先级2: 如果第一个视频不合适但有合适的YouTube视频，使用YouTube视频
+            if not final_video and suitable_youtube_url:
+                logger.info(f"[线程{thread_id}] 使用符合要求的YouTube视频: {suitable_youtube_url}")
+                
+                downloaded_path = download_video(
+                    suitable_youtube_url, paper_id, 0, session, 
+                    self.download_folder, target_date, is_primary_video=True
+                )
+                
+                if downloaded_path:
+                    final_video = {
+                        'video_url': suitable_youtube_url,
+                        'local_path': downloaded_path,
+                        'project_url': project_urls_info[0]['project_url'] if project_urls_info else '',
+                        'video_type': 'youtube_primary'
+                    }
+                    logger.info(f"[线程{thread_id}] 成功下载YouTube视频: {downloaded_path}")
+            
+            # 优先级3: 如果都不合适，使用第一个视频作为后备
+            if not final_video and first_video_url:
+                logger.info(f"[线程{thread_id}] 使用第一个视频作为后备: {first_video_url}")
+                
+                downloaded_path = download_video(
+                    first_video_url, paper_id, 0, session, 
+                    self.download_folder, target_date, is_primary_video=True
+                )
+                
+                if downloaded_path:
+                    final_video = {
+                        'video_url': first_video_url,
+                        'local_path': downloaded_path,
+                        'project_url': project_urls_info[0]['project_url'] if project_urls_info else '',
+                        'video_type': 'other_fallback'
+                    }
+                    logger.info(f"[线程{thread_id}] 成功下载后备视频: {downloaded_path}")
+            
+            # 优先级4: 最后尝试第一个YouTube视频作为后备
+            if not final_video and all_youtube_urls:
+                youtube_fallback = all_youtube_urls[0]
+                logger.info(f"[线程{thread_id}] 使用第一个YouTube视频作为最后后备: {youtube_fallback}")
+                
+                downloaded_path = download_video(
+                    youtube_fallback, paper_id, 0, session, 
+                    self.download_folder, target_date, is_primary_video=True
+                )
+                
+                if downloaded_path:
+                    final_video = {
+                        'video_url': youtube_fallback,
+                        'local_path': downloaded_path,
+                        'project_url': project_urls_info[0]['project_url'] if project_urls_info else '',
+                        'video_type': 'youtube_fallback'
+                    }
+                    logger.info(f"[线程{thread_id}] 成功下载YouTube后备视频: {downloaded_path}")
             
             if final_video:
                 logger.info(f"[线程{thread_id}] 论文 {paper_id} 成功选择并下载主视频，类型: {final_video['video_type']}")

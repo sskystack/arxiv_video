@@ -61,19 +61,25 @@ def extract_video_urls(project_url: str, session: requests.Session) -> Dict[str,
         youtube_urls = []
         other_video_urls = []
         
-        # 查找各种类型的视频链接
+        # 查找各种类型的视频链接，按HTML中出现的顺序
         video_links = []
         video_links.extend(_find_video_tags(soup, base_url))
         video_links.extend(_find_iframe_videos(soup, base_url))
         video_links.extend(_find_direct_video_links(soup, base_url))
         video_links.extend(_find_youtube_links(soup, base_url))
         
-        # 分类视频链接
-        for url in set(video_links):  # 去重
-            if _is_youtube_url(url):
-                youtube_urls.append(url)
-            else:
-                other_video_urls.append(url)
+        # 保持顺序的去重，分类视频链接
+        seen_urls = set()
+        youtube_urls = []
+        other_video_urls = []
+        
+        for url in video_links:
+            if url not in seen_urls:
+                seen_urls.add(url)
+                if _is_youtube_url(url):
+                    youtube_urls.append(url)
+                else:
+                    other_video_urls.append(url)
         
         return {
             'youtube': youtube_urls,
@@ -293,3 +299,46 @@ def _convert_bilibili_url(url: str) -> str:
     
     # 如果无法转换，返回原URL
     return url
+
+
+def check_video_duration(video_url: str, min_duration: int = 60, max_duration: int = 240) -> bool:
+    """
+    检查视频时长是否在指定范围内
+    
+    Args:
+        video_url: 视频URL
+        min_duration: 最小时长（秒）
+        max_duration: 最大时长（秒）
+    
+    Returns:
+        True如果时长在范围内，False否则
+    """
+    try:
+        import subprocess
+        
+        # 使用 ffprobe 获取视频时长
+        cmd = [
+            'ffprobe',
+            '-v', 'quiet',
+            '-print_format', 'json',
+            '-show_format',
+            video_url
+        ]
+        
+        result = subprocess.run(cmd, capture_output=True, text=True, timeout=30)
+        
+        if result.returncode == 0:
+            import json
+            probe_data = json.loads(result.stdout)
+            duration = float(probe_data.get('format', {}).get('duration', 0))
+            
+            is_suitable = min_duration <= duration <= max_duration
+            logger.debug(f"视频时长: {duration}秒, 范围: {min_duration}-{max_duration}秒, 合适: {is_suitable}")
+            return is_suitable
+        else:
+            logger.warning(f"无法获取视频时长: {video_url}")
+            return False
+            
+    except Exception as e:
+        logger.warning(f"检查视频时长时出错: {e}")
+        return False
