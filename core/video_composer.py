@@ -4,7 +4,7 @@ import subprocess
 import logging
 import platform
 from typing import List
-from moviepy.editor import VideoFileClip, AudioFileClip, concatenate_videoclips, TextClip, CompositeVideoClip, ColorClip
+from moviepy.editor import VideoFileClip, AudioFileClip, CompositeVideoClip, concatenate_videoclips, TextClip, ColorClip
 from .Card import ReductCard
 from .tts_service import TTSService
 
@@ -233,13 +233,54 @@ class VideoComposer:
             
             logger.info(f"演示视频时长: {demo_video.duration:.2f}秒, 解说音频时长: {narration_audio.duration:.2f}秒")
             
-            # 🎯 正确逻辑：保持演示视频的原始时长，不做任何修改
+            # 🎯 新逻辑：当音频时长大于视频时长时，加速音频以匹配视频时长
+            audio_speed_factor = 1.0  # 默认不加速
+            
+            if narration_audio.duration > demo_video.duration:
+                # 计算需要的加速倍数
+                audio_speed_factor = narration_audio.duration / demo_video.duration
+                logger.info(f"🚀 音频时长({narration_audio.duration:.2f}s) > 视频时长({demo_video.duration:.2f}s)，将音频加速 {audio_speed_factor:.2f}x")
+                
+                # 使用FFmpeg加速音频文件
+                accelerated_audio_path = os.path.join(output_dir, "audio", "narration_accelerated.wav")
+                os.makedirs(os.path.dirname(accelerated_audio_path), exist_ok=True)
+                
+                # 使用FFmpeg的atempo滤镜来加速音频
+                ffmpeg_cmd = [
+                    "ffmpeg",
+                    "-i", narration_audio_path,
+                    "-filter:a", f"atempo={audio_speed_factor}",
+                    "-y",
+                    accelerated_audio_path
+                ]
+                
+                result = subprocess.run(ffmpeg_cmd, capture_output=True, text=True)
+                if result.returncode != 0:
+                    logger.error(f"音频加速失败: {result.stderr}")
+                    raise Exception(f"音频加速失败: {result.stderr}")
+                
+                # 释放原音频资源并重新加载加速后的音频
+                narration_audio.close()
+                narration_audio = AudioFileClip(accelerated_audio_path)
+                logger.info(f"🚀 音频加速后时长: {narration_audio.duration:.2f}秒")
+                
+                # 更新音频文件路径供字幕同步使用
+                original_audio_path = narration_audio_path
+                narration_audio_path = accelerated_audio_path
+                
+                # 同时更新音频片段时长信息以保证字幕同步
+                self._update_audio_durations_for_acceleration(output_dir, audio_speed_factor)
+                
+            else:
+                logger.info(f"✅ 音频时长({narration_audio.duration:.2f}s) <= 视频时长({demo_video.duration:.2f}s)，无需加速")
+            
+            # 🎯 保持演示视频的原始时长，不做任何修改
             logger.info(f"保持演示视频原始时长: {demo_video.duration:.2f}秒")
             
-            # 直接将音频叠加到视频上，不修改视频时长
+            # 将音频叠加到视频上
             final_video = demo_video.set_audio(narration_audio)
             
-            # 添加字幕（字幕完全基于音频时长，与视频时长无关）
+            # 添加字幕（字幕会基于更新后的音频时长信息）
             logger.info("🎬 准备添加字幕...")
             final_video = self._add_subtitles(final_video, card, output_dir)
             logger.info("🎬 字幕添加流程完成")
@@ -428,19 +469,64 @@ class VideoComposer:
         return result
     
     def _get_audio_segment_durations(self, paper_dir: str) -> List[float]:
-        """获取音频片段的时长信息 - 改进版本，提高健壮性"""
+        """获取音频片段的时长信息 - 改进版本，提高健壮性，支持加速后的音频"""
         try:
             durations = []
             
             audio_dir = os.path.join(paper_dir, "audio")
             
-            # 检查此唯一路径是否存在
+            # 检查此目录路径是否存在
             if not os.path.exists(audio_dir) or not os.path.isdir(audio_dir):
                 logger.warning(f"在预期的路径中未找到音频目录: {audio_dir}")
                 logger.warning(f"请检查TTS服务是否成功生成了位于该目录的音频文件.")
                 return []
             
             logger.info(f"使用明确的路径查找音频: {audio_dir}")
+            
+            # 🚀 首先检查是否存在加速后的音频文件
+            accelerated_audio_path = os.path.join(audio_dir, "narration_accelerated.wav")
+            if os.path.exists(accelerated_audio_path):
+                logger.info(f"🚀 检测到加速后的音频文件，将基于此文件计算字幕时长")
+                
+                # 使用加速后的音频文件总时长进行估算
+                try:
+                    cmd = [
+                        "ffprobe", "-v", "quiet", 
+                        "-show_entries", "format=duration", 
+                        "-of", "csv=p=0", 
+                        accelerated_audio_path
+                    ]
+                    
+                    result = subprocess.run(cmd, capture_output=True, text=True, timeout=10)
+                    if result.returncode == 0 and result.stdout.strip():
+                        total_accelerated_duration = float(result.stdout.strip())
+                        logger.info(f"🚀 加速后音频总时长: {total_accelerated_duration:.2f}秒")
+                        
+                        # 获取原始片段数量和时长比例
+                        original_durations = self._get_original_audio_segment_durations(audio_dir)
+                        if original_durations:
+                            original_total = sum(original_durations)
+                            speed_factor = original_total / total_accelerated_duration
+                            
+                            # 按比例缩放每个片段的时长
+                            accelerated_durations = [d / speed_factor for d in original_durations]
+                            logger.info(f"🚀 基于加速倍数 {speed_factor:.2f}x 计算片段时长: {[f'{d:.1f}s' for d in accelerated_durations]}")
+                            return accelerated_durations
+                        
+                except Exception as e:
+                    logger.warning(f"处理加速音频时出错: {e}，回退到原始音频片段")
+            
+            # 如果没有加速音频或处理失败，使用原始音频片段
+            return self._get_original_audio_segment_durations(audio_dir)
+            
+        except Exception as e:
+            logger.error(f"获取音频片段时长失败: {str(e)}")
+            return []
+    
+    def _get_original_audio_segment_durations(self, audio_dir: str) -> List[float]:
+        """获取原始音频片段的时长信息"""
+        try:
+            durations = []
             
             # 获取所有音频文件的时长
             i = 0
@@ -497,15 +583,14 @@ class VideoComposer:
             
             if durations:
                 total_duration = sum(durations)
-                logger.info(f"成功获取 {len(durations)} 个音频片段的时长，总时长: {total_duration:.2f}秒")
-                logger.debug(f"各片段时长: {[f'{d:.2f}s' for d in durations]}")
+                logger.info(f"🎵 成功获取 {len(durations)} 个音频片段，总时长: {total_duration:.2f}秒")
+                return durations
             else:
-                logger.warning(f"未能获取任何音频片段的时长信息")
-            
-            return durations
-            
+                logger.error(f"未找到任何有效的音频片段")
+                return []
+                
         except Exception as e:
-            logger.error(f"获取音频片段时长失败: {str(e)}")
+            logger.error(f"获取原始音频片段时长失败: {str(e)}")
             return []
 
     def _group_audio_segments_to_sentences(self, sentences: List[str], audio_durations: List[float]) -> List[int]:
@@ -567,3 +652,27 @@ class VideoComposer:
                 groups[i] += 1
                 
             return groups
+
+    def _update_audio_durations_for_acceleration(self, output_dir: str, speed_factor: float):
+        """更新音频时长信息以适应加速后的音频，确保字幕同步"""
+        try:
+            # 重新计算加速后的音频片段时长
+            audio_dir = os.path.join(output_dir, "audio")
+            
+            # 遍历所有音频片段文件，更新它们的时长信息
+            segment_files = []
+            for file in os.listdir(audio_dir):
+                if file.startswith("segment_") and file.endswith(".wav"):
+                    segment_files.append(file)
+            
+            # 按编号排序
+            segment_files.sort(key=lambda x: int(x.split('_')[1].split('.')[0]))
+            
+            logger.info(f"🚀 更新 {len(segment_files)} 个音频片段的时长信息（加速倍数: {speed_factor:.2f}x）")
+            
+            # 这里我们不需要实际修改文件，因为字幕生成会重新读取加速后的音频
+            # 但是我们需要确保 _get_audio_segment_durations 方法能正确处理加速后的音频
+            
+        except Exception as e:
+            logger.warning(f"更新音频时长信息失败: {e}")
+            # 即使失败也不影响视频生成，只是字幕可能不够精确
