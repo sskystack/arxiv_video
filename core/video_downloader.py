@@ -27,7 +27,8 @@ def download_video(
     session: requests.Session,
     download_folder: str,
     target_date: Optional[str] = None,
-    max_retries: int = 3
+    max_retries: int = 3,
+    is_primary_video: bool = False
 ) -> Optional[str]:
     """
     下载视频文件
@@ -40,6 +41,7 @@ def download_video(
         download_folder: 下载目录
         target_date: 目标日期
         max_retries: 最大重试次数
+        is_primary_video: 是否为主要视频（用于命名）
     
     Returns:
         下载成功的文件路径，失败返回 None
@@ -51,10 +53,10 @@ def download_video(
     
     # 根据 URL 类型选择下载方式
     if _is_video_platform(video_url):
-        return _download_with_ytdlp(video_url, paper_id, video_index, save_path)
+        return _download_with_ytdlp(video_url, paper_id, video_index, save_path, is_primary_video)
     else:
         return _download_with_requests(
-            video_url, paper_id, video_index, session, save_path, max_retries
+            video_url, paper_id, video_index, session, save_path, max_retries, is_primary_video
         )
 
 
@@ -87,15 +89,21 @@ def _is_video_platform(video_url: str) -> bool:
     return 'youtube.com' in video_url or 'bilibili.com' in video_url
 
 
-def _download_with_ytdlp(video_url: str, paper_id: str, video_index: int, save_path: str) -> Optional[str]:
+def _download_with_ytdlp(video_url: str, paper_id: str, video_index: int, save_path: str, is_primary_video: bool = False, cookies_from_browser: Optional[str] = None) -> Optional[str]:
     """使用 yt-dlp 下载视频"""
     logger.info(f"使用 yt-dlp 下载视频: {video_url}")
-    
+
     try:
+        # 根据是否为主要视频决定文件名
+        if is_primary_video:
+            filename_template = "primary_video.%(ext)s"
+        else:
+            filename_template = f"video_{video_index}.%(ext)s"
+
         # 配置 yt-dlp 选项
         ydl_opts = {
             'format': 'bestvideo[height>=1080][ext=mp4]+bestaudio[ext=m4a]/bestvideo[ext=mp4]+bestaudio[ext=m4a]/best[ext=mp4]/best',
-            'outtmpl': os.path.join(save_path, f"video_{video_index}.%(ext)s"),
+            'outtmpl': os.path.join(save_path, filename_template),
             'noplaylist': True,
             'quiet': True,
             'no_warnings': True,
@@ -105,26 +113,38 @@ def _download_with_ytdlp(video_url: str, paper_id: str, video_index: int, save_p
                 'preferedformat': 'mp4',
             }],
         }
-        
+
+        # 如果提供了 cookies_from_browser 参数，添加到 yt-dlp 选项
+        if cookies_from_browser:
+            ydl_opts['cookiefile'] = f"--cookies-from-browser {cookies_from_browser}"
+
         with yt_dlp.YoutubeDL(ydl_opts) as ydl:
             ydl.download([video_url])
-        
+
         # 查找下载的文件
-        expected_path = os.path.join(save_path, f"video_{video_index}.mp4")
+        if is_primary_video:
+            expected_path = os.path.join(save_path, "primary_video.mp4")
+        else:
+            expected_path = os.path.join(save_path, f"video_{video_index}.mp4")
+
         if os.path.exists(expected_path):
             logger.info(f"yt-dlp 下载成功: {expected_path}")
             return expected_path
-        
+
         # 尝试其他可能的扩展名
         for ext in ['mkv', 'webm']:
-            alt_path = os.path.join(save_path, f"video_{video_index}.{ext}")
+            if is_primary_video:
+                alt_path = os.path.join(save_path, f"primary_video.{ext}")
+            else:
+                alt_path = os.path.join(save_path, f"video_{video_index}.{ext}")
+
             if os.path.exists(alt_path):
                 logger.info(f"yt-dlp 下载成功: {alt_path}")
                 return alt_path
-        
+
         logger.warning(f"yt-dlp 下载后未找到文件: {video_url}")
         return None
-        
+
     except Exception as e:
         logger.error(f"yt-dlp 下载失败: {e}")
         return None
@@ -136,7 +156,8 @@ def _download_with_requests(
     video_index: int,
     session: requests.Session,
     save_path: str,
-    max_retries: int
+    max_retries: int,
+    is_primary_video: bool = False
 ) -> Optional[str]:
     """使用 requests 下载视频"""
     logger.debug(f"使用 requests 下载视频: {video_url}")
@@ -160,7 +181,13 @@ def _download_with_requests(
             
             # 确定文件扩展名
             ext = _get_file_extension(response, video_url)
-            filename = f"video_{video_index}{ext}"
+            
+            # 根据是否为主要视频决定文件名
+            if is_primary_video:
+                filename = f"primary_video{ext}"
+            else:
+                filename = f"video_{video_index}{ext}"
+                
             filepath = os.path.join(save_path, filename)
             
             # 下载文件

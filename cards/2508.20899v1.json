@@ -1,0 +1,11 @@
+{
+  "arXivID": "2508.20899v1",
+  "info_CN": [
+    "慕尼黑工业大学与南京大学（苏州校区）推出了基于大语言模型的Goal-Oriented Dynamically Heuristic-Guided Hierarchical Search（GODHS）方法",
+    "通过结构化提示和逻辑约束实现语义感知与空间推理的紧密结合",
+    "提升移动操作机器人在复杂室内环境中目标对象搜索的效率"
+  ],
+  "info_EN": [],
+  "created_at": "2025-09-01T01:35:35.784489",
+  "version": "1.0"
+}

@@ -10,7 +10,7 @@ import time
 import random
 import requests
 from bs4 import BeautifulSoup
-from typing import List, Set
+from typing import List, Set, Optional
 from urllib.parse import urljoin, urlparse
 from utils.logger import get_logger
 
@@ -41,12 +41,35 @@ BLACKLIST_URLS = [
 ]
 
 
-def create_session() -> requests.Session:
-    """创建配置好的 requests session"""
+def create_session(cookies_from_browser: Optional[str] = None) -> requests.Session:
+    """创建配置好的 requests session
+
+    Args:
+        cookies_from_browser: 指定浏览器名称 (例如: chrome, firefox) 以加载cookie，用于需要登录的视频网站
+
+    Returns:
+        配置好的 requests session
+    """
     session = requests.Session()
     session.headers.update({
         'User-Agent': random.choice(USER_AGENTS)
     })
+
+    if cookies_from_browser:
+        try:
+            import browser_cookie3
+            if cookies_from_browser.lower() == 'chrome':
+                cookies = browser_cookie3.chrome()
+            elif cookies_from_browser.lower() == 'firefox':
+                cookies = browser_cookie3.firefox()
+            else:
+                raise ValueError(f"不支持的浏览器: {cookies_from_browser}")
+
+            session.cookies.update(cookies)
+            logger.info(f"成功加载 {cookies_from_browser} 的 cookies")
+        except Exception as e:
+            logger.error(f"加载 {cookies_from_browser} 的 cookies 时出错: {e}")
+
     return session
 
 

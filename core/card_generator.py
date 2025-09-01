@@ -102,9 +102,9 @@ class CardGenerator:
                     logger.warning(f"未找到论文 ID {paper.id} 的详细信息")
                     return None
                 
-                # 4. 检查是否有解说脚本
-                if not paper_detail.cn_script and not paper_detail.eng_script:
-                    logger.warning(f"论文 {arxiv_id} 没有可用的解说脚本")
+                # 4. 检查是否有中文解说脚本
+                if not paper_detail.cn_script:
+                    logger.warning(f"论文 {arxiv_id} 没有可用的中文解说脚本")
                     return None
                 
                 # 5. 生成卡片（使用原始ID作为卡片ID，传入paper对象）
@@ -269,33 +269,13 @@ class CardGenerator:
         # 构建完整的语音内容
         info_cn = []
         
-        # 1. 添加开场白（带论文总数）
-        if paper.publication_date:
-            pub_date = paper.publication_date
-            year, month, day = pub_date.year, pub_date.month, pub_date.day
-            # 查询当天的论文总数
-            paper_count = self._get_daily_paper_count(pub_date)
-            opening_text = f'{year}年{month}月{day}日arXiv,cs.CV,发文量约{paper_count}篇，减论Agent通过算法为您推荐。'
-            info_cn.extend(self._split_sentence(opening_text, is_cn=True))
-        
-        # 2. 添加中文介绍
+        # 添加中文介绍
         if paper_detail.cn_script:
             cn_sentences = self._split_sentence(paper_detail.cn_script, is_cn=True)
             info_cn.extend(cn_sentences)
         
-        # 3. 添加英文介绍
-        if paper_detail.eng_script:
-            en_sentences = self._split_sentence(paper_detail.eng_script, is_cn=False)
-            info_cn.extend(en_sentences)  # 英文也加入到中文语音序列中
-        
-        # 4. 添加结束语
-        ending_text = "欢迎关注减论，用科技链接个体。"
-        info_cn.extend(self._split_sentence(ending_text, is_cn=True))
-        
-        # 处理英文脚本（保留原有逻辑用于其他用途）
+        # 不再使用英文脚本
         info_en = []
-        if paper_detail.eng_script:
-            info_en = self._split_sentence(paper_detail.eng_script, is_cn=False)
         
         return ReductCard(
             arXivID=arxiv_id,
@@ -317,39 +297,6 @@ class CardGenerator:
                     arxiv_id = filename[:-5]  # 移除 .json 后缀
                     cards.append(arxiv_id)
         return cards
-    
-    def _get_daily_paper_count(self, publication_date) -> str:
-        """
-        查询指定日期的论文总数
-        
-        Args:
-            publication_date: 发布日期
-            
-        Returns:
-            str: 论文总数，如果查询失败则返回"约x"
-        """
-        if not self.db_available:
-            return "约x"
-        
-        try:
-            session = session_factory()
-            paper_dao = PaperDAO(session)
-            
-            try:
-                # 查询指定日期的论文总数
-                count = paper_dao.count_by_publication_date(publication_date)
-                if count > 0:
-                    return str(count)
-                else:
-                    # 如果当天没有数据，返回约数形式
-                    return "约x"
-                    
-            finally:
-                session.close()
-                
-        except Exception as e:
-            logger.warning(f"查询当天论文总数失败: {e}")
-            return "约x"
 
 
 # 全局卡片生成器实例

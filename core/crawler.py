@@ -27,7 +27,7 @@ except ImportError as e:
 from utils.logger import get_logger
 from core.arxiv_fetcher import get_latest_day_papers
 from core.link_extractor import create_session, extract_project_links
-from core.video_extractor import extract_video_urls
+from core.video_extractor import extract_video_urls, filter_youtube_videos_by_duration
 from core.video_downloader import download_video
 from core.card_generator import card_generator, generate_video_script_card
 from core.video_composer import VideoComposer
@@ -55,16 +55,20 @@ class ThreadSafeCounter:
 class ArxivVideoCrawler:
     """ArXiv 视频爬虫"""
     
-    def __init__(self, download_folder: str, max_workers: int = 4):
+    def __init__(self, download_folder: str, max_workers: int = 4, skip_existing: bool = False, cookies_from_browser: Optional[str] = None):
         """
         初始化爬虫
         
         Args:
             download_folder: 下载目录
             max_workers: 最大线程数
+            skip_existing: 是否跳过已存在res视频的论文
+            cookies_from_browser: 浏览器的cookie来源，用于绕过反爬虫机制
         """
         self.download_folder = download_folder
         self.max_workers = max_workers
+        self.skip_existing = skip_existing
+        self.cookies_from_browser = cookies_from_browser
         self.session_pool = []
         self.results = []
         self.results_lock = threading.Lock()
@@ -81,7 +85,7 @@ class ArxivVideoCrawler:
         
         # 初始化 session 池
         for i in range(self.max_workers):
-            session = create_session()
+            session = create_session(cookies_from_browser=self.cookies_from_browser)
             self.session_pool.append(session)
         
         logger.info(f"初始化完成，线程数: {self.max_workers}，下载目录: {self.download_folder}")
@@ -191,6 +195,13 @@ class ArxivVideoCrawler:
         thread_id = threading.current_thread().ident
         logger.info(f"[线程{thread_id}] 开始处理: {paper_id} - {title[:50]}... (使用{date_source}: {target_date})")
         
+        # 检查是否需要跳过已存在的论文
+        if self.skip_existing:
+            arxiv_id = self._extract_arxiv_id(paper_id)
+            if arxiv_id and self._check_existing_res_video(arxiv_id, target_date):
+                logger.info(f"[线程{thread_id}] 论文 {paper_id} 的res视频已存在，跳过处理")
+                return None
+        
         try:
             # 获取一个 session
             session = self._get_session()
@@ -202,33 +213,106 @@ class ArxivVideoCrawler:
                 return None
             
             # 2. 从项目页面提取并下载视频
-            paper_videos = []
+            final_video = None
+            project_urls_info = []
+            
             for project_url in project_links:
                 logger.info(f"[线程{thread_id}] 检查项目页面: {project_url}")
                 
-                # 提取视频链接
-                video_urls = extract_video_urls(project_url, session)
-                if not video_urls:
-                    logger.debug(f"[线程{thread_id}] 项目页面 {project_url} 没有找到视频")
-                    continue
+                # 提取视频链接（分类为YouTube和其他）
+                video_data = extract_video_urls(project_url, session)
+                youtube_urls = video_data.get('youtube', [])
+                other_video_urls = video_data.get('other', [])
                 
-                # 下载视频
-                for j, video_url in enumerate(video_urls):
-                    downloaded_path = download_video(
-                        video_url, paper_id, j, session, 
-                        self.download_folder, target_date
-                    )
-                    if downloaded_path:
-                        paper_videos.append({
-                            'video_url': video_url,
-                            'local_path': downloaded_path,
-                            'project_url': project_url
-                        })
+                project_info = {
+                    'project_url': project_url,
+                    'youtube_urls': youtube_urls,
+                    'other_video_urls': other_video_urls
+                }
+                project_urls_info.append(project_info)
+                
+                logger.debug(f"[线程{thread_id}] 项目页面 {project_url}: YouTube视频 {len(youtube_urls)} 个，其他视频 {len(other_video_urls)} 个")
             
-            if paper_videos:
-                logger.info(f"[线程{thread_id}] 论文 {paper_id} 成功下载 {len(paper_videos)} 个视频")
+            # 3. 按优先级选择和下载视频
+            # 优先级1: 符合时长要求的YouTube视频（1-4分钟）
+            for project_info in project_urls_info:
+                if project_info['youtube_urls']:
+                    try:
+                        # 过滤符合时长要求的YouTube视频
+                        suitable_youtube = filter_youtube_videos_by_duration(
+                            project_info['youtube_urls'], 
+                            min_duration=60,  # 1分钟
+                            max_duration=240  # 4分钟
+                        )
+                        
+                        if suitable_youtube:
+                            # 下载第一个符合要求的YouTube视频
+                            youtube_url = suitable_youtube[0]
+                            logger.info(f"[线程{thread_id}] 使用符合要求的YouTube视频: {youtube_url}")
+                            
+                            downloaded_path = download_video(
+                                youtube_url, paper_id, 0, session, 
+                                self.download_folder, target_date, is_primary_video=True
+                            )
+                            
+                            if downloaded_path:
+                                final_video = {
+                                    'video_url': youtube_url,
+                                    'local_path': downloaded_path,
+                                    'project_url': project_info['project_url'],
+                                    'video_type': 'youtube_primary'
+                                }
+                                logger.info(f"[线程{thread_id}] 成功下载YouTube主视频: {downloaded_path}")
+                                break
+                        else:
+                            # 如果时长过滤失败，尝试下载第一个YouTube视频作为备用
+                            logger.warning(f"[线程{thread_id}] 没有找到符合时长的YouTube视频，尝试第一个YouTube视频作为备用")
+                            youtube_url = project_info['youtube_urls'][0]
+                            logger.info(f"[线程{thread_id}] 尝试备用YouTube视频: {youtube_url}")
+                            
+                            downloaded_path = download_video(
+                                youtube_url, paper_id, 0, session, 
+                                self.download_folder, target_date, is_primary_video=True
+                            )
+                            
+                            if downloaded_path:
+                                final_video = {
+                                    'video_url': youtube_url,
+                                    'local_path': downloaded_path,
+                                    'project_url': project_info['project_url'],
+                                    'video_type': 'youtube_backup'
+                                }
+                                logger.info(f"[线程{thread_id}] 成功下载备用YouTube视频: {downloaded_path}")
+                                break
+                    except Exception as e:
+                        logger.warning(f"[线程{thread_id}] 处理YouTube视频时出错: {str(e)}，继续尝试其他视频")
+            
+            # 优先级2: 如果没有找到合适的YouTube视频，使用第一个其他视频
+            if not final_video:
+                for project_info in project_urls_info:
+                    if project_info['other_video_urls']:
+                        other_video_url = project_info['other_video_urls'][0]
+                        logger.info(f"[线程{thread_id}] 使用第一个其他视频: {other_video_url}")
+                        
+                        downloaded_path = download_video(
+                            other_video_url, paper_id, 0, session, 
+                            self.download_folder, target_date, is_primary_video=True
+                        )
+                        
+                        if downloaded_path:
+                            final_video = {
+                                'video_url': other_video_url,
+                                'local_path': downloaded_path,
+                                'project_url': project_info['project_url'],
+                                'video_type': 'other_primary'
+                            }
+                            logger.info(f"[线程{thread_id}] 成功下载其他主视频: {downloaded_path}")
+                            break
+            
+            if final_video:
+                logger.info(f"[线程{thread_id}] 论文 {paper_id} 成功选择并下载主视频，类型: {final_video['video_type']}")
                 
-                # 3. 生成视频解说卡片
+                # 4. 生成视频解说卡片
                 arxiv_id = self._extract_arxiv_id(paper_id)
                 card = None
                 composed_video_path = None
@@ -236,12 +320,12 @@ class ArxivVideoCrawler:
                 if arxiv_id:
                     try:
                         # 计算卡片保存目录（与视频相同的目录）
-                        video_dir = os.path.dirname(paper_videos[0]['local_path'])
+                        video_dir = os.path.dirname(final_video['local_path'])
                         card = generate_video_script_card(arxiv_id, target_dir=video_dir)
                         if card:
                             logger.info(f"[线程{thread_id}] 成功生成并保存论文 {arxiv_id} 的解说卡片到 {video_dir}")
                             
-                            # 4. 合成最终视频
+                            # 5. 合成最终视频
                             try:
                                 composed_video_path = self.video_composer.compose_paper_video(video_dir, arxiv_id)
                                 if composed_video_path:
@@ -257,7 +341,7 @@ class ArxivVideoCrawler:
                 
                 return {
                     'paper': paper,
-                    'videos': paper_videos,
+                    'video': final_video,
                     'arxiv_id': arxiv_id,
                     'has_script_card': card is not None if arxiv_id else False,
                     'composed_video_path': composed_video_path
@@ -357,6 +441,38 @@ class ArxivVideoCrawler:
         except Exception as e:
             logger.debug(f"获取论文 {paper_id} 的publication_date失败: {e}")
             return None
+    
+    def _check_existing_res_video(self, arxiv_id: str, target_date: str) -> bool:
+        """
+        检查指定论文的res视频是否已存在
+        
+        Args:
+            arxiv_id: ArXiv ID（如 "2508.10774"）
+            target_date: 目标日期（如 "20250821"）
+        
+        Returns:
+            bool: 如果res视频已存在返回True，否则返回False
+        """
+        try:
+            # 构建可能的视频文件路径
+            paper_folder = os.path.join(self.download_folder, target_date, arxiv_id)
+            res_video_path = os.path.join(paper_folder, f"{arxiv_id}_res.mp4")
+            
+            if os.path.exists(res_video_path):
+                # 检查文件大小，确保不是空文件
+                file_size = os.path.getsize(res_video_path)
+                if file_size > 1024:  # 大于1KB，认为是有效文件
+                    logger.debug(f"发现已存在的res视频: {res_video_path} (大小: {file_size/1024/1024:.1f}MB)")
+                    return True
+                else:
+                    logger.debug(f"res视频文件太小，可能损坏: {res_video_path} (大小: {file_size}字节)")
+                    return False
+            
+            return False
+            
+        except Exception as e:
+            logger.warning(f"检查res视频是否存在时出错: {e}")
+            return False
     
     def close(self):
         """清理资源"""

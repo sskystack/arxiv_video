@@ -9,8 +9,10 @@
 import time
 import random
 import requests
+import yt_dlp
+import re
 from bs4 import BeautifulSoup
-from typing import List
+from typing import List, Dict, Optional
 from urllib.parse import urljoin, urlparse, parse_qs
 from utils.logger import get_logger
 from core.link_extractor import USER_AGENTS
@@ -18,7 +20,7 @@ from core.link_extractor import USER_AGENTS
 logger = get_logger('video_extractor')
 
 
-def extract_video_urls(project_url: str, session: requests.Session) -> List[str]:
+def extract_video_urls(project_url: str, session: requests.Session) -> Dict[str, List[str]]:
     """
     从项目页面提取视频 URL
     
@@ -27,7 +29,11 @@ def extract_video_urls(project_url: str, session: requests.Session) -> List[str]
         session: requests session
     
     Returns:
-        视频 URL 列表
+        包含不同类型视频的字典:
+        {
+            'youtube': [YouTube链接列表],
+            'other': [其他视频链接列表]
+        }
     """
     logger.debug(f"提取视频URL: {project_url}")
     
@@ -52,24 +58,37 @@ def extract_video_urls(project_url: str, session: requests.Session) -> List[str]
         # 确定基准 URL
         base_url = _get_base_url(soup, project_url)
         
-        video_urls = []
+        youtube_urls = []
+        other_video_urls = []
         
         # 查找各种类型的视频链接
-        video_urls.extend(_find_video_tags(soup, base_url))
-        video_urls.extend(_find_iframe_videos(soup, base_url))
-        video_urls.extend(_find_direct_video_links(soup, base_url))
+        video_links = []
+        video_links.extend(_find_video_tags(soup, base_url))
+        video_links.extend(_find_iframe_videos(soup, base_url))
+        video_links.extend(_find_direct_video_links(soup, base_url))
+        video_links.extend(_find_youtube_links(soup, base_url))
         
-        return list(set(video_urls))  # 去重
+        # 分类视频链接
+        for url in set(video_links):  # 去重
+            if _is_youtube_url(url):
+                youtube_urls.append(url)
+            else:
+                other_video_urls.append(url)
+        
+        return {
+            'youtube': youtube_urls,
+            'other': other_video_urls
+        }
         
     except requests.exceptions.HTTPError as http_err:
         if http_err.response.status_code == 404:
             logger.warning(f"项目页面无法访问 (404): {project_url}")
         else:
             logger.error(f"访问项目页面HTTP错误: {http_err}")
-        return []
+        return {'youtube': [], 'other': []}
     except Exception as e:
         logger.error(f"提取视频URL失败: {e}")
-        return []
+        return {'youtube': [], 'other': []}
 
 
 def _get_base_url(soup: BeautifulSoup, project_url: str) -> str:
@@ -123,8 +142,10 @@ def _find_iframe_videos(soup: BeautifulSoup, base_url: str) -> List[str]:
         # YouTube 嵌入链接
         if 'youtube.com/embed/' in src:
             full_url = urljoin(base_url, src)
-            video_urls.append(full_url)
-            logger.debug(f"找到YouTube嵌入视频: {full_url}")
+            # 转换嵌入链接为普通观看链接
+            youtube_url = _convert_youtube_embed_to_watch(full_url)
+            video_urls.append(youtube_url)
+            logger.debug(f"找到YouTube嵌入视频: {full_url} -> {youtube_url}")
         
         # Bilibili 嵌入链接
         elif 'player.bilibili.com' in src:
@@ -133,6 +154,52 @@ def _find_iframe_videos(soup: BeautifulSoup, base_url: str) -> List[str]:
             logger.debug(f"找到并转换Bilibili链接: {src} -> {converted_url}")
     
     return video_urls
+
+
+def _find_youtube_links(soup: BeautifulSoup, base_url: str) -> List[str]:
+    """查找页面中的YouTube链接"""
+    youtube_urls = []
+    
+    # 查找所有链接
+    all_links = soup.find_all('a', href=True)
+    for link in all_links:
+        href = link.get('href')
+        if href and _is_youtube_url(href):
+            full_url = urljoin(base_url, href)
+            youtube_urls.append(full_url)
+            logger.debug(f"找到YouTube链接: {full_url}")
+    
+    # 查找页面内容中的YouTube链接
+    page_text = soup.get_text()
+    youtube_patterns = [
+        r'https?://(?:www\.)?youtube\.com/watch\?v=[\w-]+',
+        r'https?://youtu\.be/[\w-]+',
+    ]
+    
+    for pattern in youtube_patterns:
+        matches = re.findall(pattern, page_text)
+        for match in matches:
+            youtube_urls.append(match)
+            logger.debug(f"在文本中找到YouTube链接: {match}")
+    
+    return youtube_urls
+
+
+def _is_youtube_url(url: str) -> bool:
+    """判断是否为YouTube链接"""
+    return ('youtube.com' in url and '/watch' in url) or 'youtu.be' in url or 'youtube.com/embed' in url
+
+
+def _convert_youtube_embed_to_watch(embed_url: str) -> str:
+    """将YouTube嵌入链接转换为普通观看链接"""
+    try:
+        # 提取视频ID
+        if '/embed/' in embed_url:
+            video_id = embed_url.split('/embed/')[-1].split('?')[0]
+            return f"https://www.youtube.com/watch?v={video_id}"
+    except Exception:
+        pass
+    return embed_url
 
 
 def _find_direct_video_links(soup: BeautifulSoup, base_url: str) -> List[str]:
@@ -148,6 +215,64 @@ def _find_direct_video_links(soup: BeautifulSoup, base_url: str) -> List[str]:
             logger.debug(f"找到直接视频链接: {full_url}")
     
     return video_urls
+
+
+def get_youtube_video_duration(url: str) -> float:
+    """获取YouTube视频时长（秒）"""
+    import subprocess
+    try:
+        # 添加cookies-from-browser参数以绕过YouTube的bot检测
+        cmd = [
+            "yt-dlp", 
+            "--print", "duration",
+            "--no-download",
+            "--user-agent", "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/91.0.4472.124 Safari/537.36",
+            "--extractor-retries", "3",
+            "--sleep-interval", "1",
+            "--max-sleep-interval", "3",
+            "--cookies-from-browser", "chrome",
+            url
+        ]
+        
+        result = subprocess.run(cmd, capture_output=True, text=True, timeout=45)
+        if result.returncode == 0 and result.stdout.strip():
+            duration = float(result.stdout.strip())
+            logger.info(f"YouTube视频时长: {duration}秒")
+            return duration
+        else:
+            logger.error(f"获取YouTube视频时长失败: {result.stderr}")
+            return -1
+            
+    except Exception as e:
+        logger.error(f"获取YouTube视频时长失败: {str(e)}")
+        return -1
+
+
+def filter_youtube_videos_by_duration(youtube_urls: List[str], min_duration: int = 60, max_duration: int = 240) -> List[str]:
+    """
+    根据时长过滤YouTube视频
+    
+    Args:
+        youtube_urls: YouTube视频URL列表
+        min_duration: 最小时长（秒，默认60秒）
+        max_duration: 最大时长（秒，默认240秒）
+    
+    Returns:
+        符合时长要求的YouTube视频URL列表
+    """
+    filtered_urls = []
+    
+    for url in youtube_urls:
+        duration = get_youtube_video_duration(url)
+        if duration and min_duration <= duration <= max_duration:
+            logger.info(f"YouTube视频 {url} 时长 {duration}秒，符合要求({min_duration}-{max_duration}秒)")
+            filtered_urls.append(url)
+        elif duration:
+            logger.info(f"YouTube视频 {url} 时长 {duration}秒，不符合要求({min_duration}-{max_duration}秒)")
+        else:
+            logger.warning(f"无法获取YouTube视频 {url} 的时长信息，跳过")
+    
+    return filtered_urls
 
 
 def _convert_bilibili_url(url: str) -> str:

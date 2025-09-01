@@ -34,9 +34,10 @@ def parse_arguments() -> argparse.Namespace:
   %(prog)s --max-papers 50                       # 最多下载50篇论文的视频
   %(prog)s --field cs.AI                         # 下载AI领域论文
   %(prog)s --publication-date 20250820           # 下载指定日期的论文
-  %(prog)s -p 20250819 -w 8 -m 100               # 组合使用参数
-        """
-    )
+  %(prog)s --skip-existing                       # 跳过已存在res视频的论文
+  %(prog)s --cookies-from-browser chrome         # 使用Chrome的Cookie下载YouTube视频
+  %(prog)s -p 20250819 -w 8 -m 100 -s            # 组合使用参数
+        """)
     
     parser.add_argument(
         '--workers', '-w',
@@ -77,6 +78,20 @@ def parse_arguments() -> argparse.Namespace:
         '--verbose', '-v',
         action='store_true',
         help='显示详细日志'
+    )
+    
+    parser.add_argument(
+        '--skip-existing', '-s',
+        action='store_true',
+        default=False,
+        help='跳过已存在res视频的论文，不进行重复处理 (默认: False)'
+    )
+
+    parser.add_argument(
+        '--cookies-from-browser',
+        type=str,
+        default=None,
+        help='指定浏览器名称 (例如: chrome, firefox) 以加载cookie，用于需要登录的视频网站 (如YouTube)'
     )
     
     return parser.parse_args()
@@ -145,12 +160,10 @@ def print_summary(results: list, args: argparse.Namespace) -> None:
     print("="*60)
     
     total_papers = len(results)
-    total_videos = sum(len(result['videos']) for result in results)
     cards_generated = sum(1 for result in results if result.get('has_script_card', False))
     composed_videos = sum(1 for result in results if result.get('composed_video_path'))
     
     print(f"成功处理的论文数量: {total_papers}")
-    print(f"总下载视频数量: {total_videos}")
     print(f"生成解说卡片数量: {cards_generated}")
     print(f"合成最终视频数量: {composed_videos}")
     
@@ -161,7 +174,7 @@ def print_summary(results: list, args: argparse.Namespace) -> None:
         
         for i, result in enumerate(results, 1):
             paper = result['paper']
-            videos = result['videos']
+            video = result.get('video')  # 现在是单个视频而不是数组
             arxiv_id = result.get('arxiv_id')
             has_card = result.get('has_script_card', False)
             composed_video = result.get('composed_video_path')
@@ -172,17 +185,21 @@ def print_summary(results: list, args: argparse.Namespace) -> None:
             print(f"   作者: {', '.join(paper['authors'])}")
             if 'submitted_date' in paper:
                 print(f"   提交日期: {paper['submitted_date']}")
-            print(f"   视频数量: {len(videos)}")
-            print(f"   解说卡片: {'✅ 已生成' if has_card else '❌ 未生成'}")
-            print(f"   合成视频: {'✅ 已生成' if composed_video else '❌ 未生成'}")
             
-            if composed_video:
-                composed_filename = os.path.basename(composed_video)
-                print(f"     最终视频: {composed_filename}")
-            
-            for j, video in enumerate(videos, 1):
+            if video:
+                print(f"   视频类型: {video.get('video_type', '未知')}")
+                print(f"   解说卡片: {'✅ 已生成' if has_card else '❌ 未生成'}")
+                print(f"   合成视频: {'✅ 已生成' if composed_video else '❌ 未生成'}")
+                
+                if composed_video:
+                    composed_filename = os.path.basename(composed_video)
+                    print(f"     最终视频: {composed_filename}")
+                
                 filename = os.path.basename(video['local_path'])
-                print(f"     视频{j}: {filename}")
+                print(f"     主视频: {filename}")
+                print(f"     视频URL: {video['video_url']}")
+            else:
+                print(f"   视频: ❌ 未找到")
     else:
         print("\n❌ 未找到可下载的视频")
         print("\n可能的原因:")
@@ -211,11 +228,15 @@ def main():
     print(f"最大论文数: {args.max_papers}")
     print(f"下载线程数: {args.workers}")
     print(f"下载目录: {args.download_dir}")
+    if args.cookies_from_browser:
+        print(f"Cookie来源: {args.cookies_from_browser}")
     print("="*50)
     
     logger.info("ArXiv 视频下载器启动")
     logger.info(f"配置 - 领域: {args.field}, 线程数: {args.workers}, "
-               f"最大论文数: {args.max_papers}, 下载目录: {args.download_dir}")
+               f"最大论文数: {args.max_papers}, 下载目录: {args.download_dir}, "
+               f"跳过已存在视频: {args.skip_existing}, "
+               f"Cookie来源: {args.cookies_from_browser}")
     
     if args.publication_date:
         logger.info(f"使用指定发布日期: {args.publication_date}")
@@ -227,7 +248,9 @@ def main():
         # 创建爬虫实例
         crawler = ArxivVideoCrawler(
             download_folder=args.download_dir,
-            max_workers=args.workers
+            max_workers=args.workers,
+            skip_existing=args.skip_existing,
+            cookies_from_browser=args.cookies_from_browser
         )
         
         # 开始爬取

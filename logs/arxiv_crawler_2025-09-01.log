@@ -1,0 +1,302 @@
+2025-09-01 09:59:30,813 - card_generator - INFO - [card_generator.py:56] - 数据库连接成功，卡片生成器初始化完成
+2025-09-01 09:59:30,935 - arxiv_crawler - INFO - [main.py:226] - ArXiv 视频下载器启动
+2025-09-01 09:59:30,935 - arxiv_crawler - INFO - [main.py:227] - 配置 - 领域: cs.CV, 线程数: 8, 最大论文数: 15, 下载目录: /Users/zhouzhongtian/Movies/arxiv_video, 跳过已存在视频: False
+2025-09-01 09:59:30,935 - arxiv_crawler - INFO - [main.py:234] - 将自动获取最新发布日期的论文
+2025-09-01 09:59:30,935 - arxiv_crawler - INFO - [crawler.py:89] - 初始化完成，线程数: 8，下载目录: /Users/zhouzhongtian/Movies/arxiv_video
+2025-09-01 09:59:30,935 - arxiv_crawler - INFO - [crawler.py:106] - 开始爬取 cs.CV 领域最新一天的论文视频...
+2025-09-01 09:59:30,935 - arxiv_fetcher - INFO - [arxiv_fetcher.py:37] - 开始从数据库获取最新发布日的论文...
+2025-09-01 09:59:31,721 - arxiv_fetcher - INFO - [arxiv_fetcher.py:50] - 数据库中最新发布日期: 20250829
+2025-09-01 09:59:31,721 - arxiv_fetcher - INFO - [arxiv_fetcher.py:115] - 正在从数据库获取 20250829 日期的论文...
+2025-09-01 09:59:33,309 - arxiv_fetcher - INFO - [arxiv_fetcher.py:152] - 从数据库获取完成，共找到 15 篇 20250829 日期的论文
+2025-09-01 09:59:33,377 - arxiv_crawler - INFO - [crawler.py:120] - 获取到 15 篇论文，开始多线程处理...
+2025-09-01 09:59:33,536 - arxiv_crawler - INFO - [crawler.py:194] - [线程6202273792] 开始处理: 2109.05437 - Multi-Objective Optimization of ReRAM Crossbars fo... (使用publication_date: 20250829)
+2025-09-01 09:59:33,763 - arxiv_crawler - INFO - [crawler.py:194] - [线程6286405632] 开始处理: 2508.21048 - Veritas: Generalizable Deepfake Detection via Patt... (使用publication_date: 20250829)
+2025-09-01 09:59:33,774 - arxiv_crawler - INFO - [crawler.py:194] - [线程6269579264] 开始处理: 2508.21066 - OneReward: Unified Mask-Guided Image Generation vi... (使用publication_date: 20250829)
+2025-09-01 09:59:33,775 - arxiv_crawler - INFO - [crawler.py:194] - [线程6303232000] 开始处理: 2508.21052 - FakeParts: a New Family of AI-Generated DeepFakes... (使用publication_date: 20250829)
+2025-09-01 09:59:33,776 - arxiv_crawler - INFO - [crawler.py:194] - [线程6252752896] 开始处理: 2508.21060 - Multi-View 3D Point Tracking... (使用publication_date: 20250829)
+2025-09-01 09:59:33,791 - arxiv_crawler - INFO - [crawler.py:194] - [线程6219100160] 开始处理: 2508.10931 - VSF: Simple, Efficient, and Effective Negative Gui... (使用publication_date: 20250829)
+2025-09-01 09:59:33,796 - arxiv_crawler - INFO - [crawler.py:194] - [线程6235926528] 开始处理: 2508.21072 - First-Place Solution to NeurIPS 2024 Invisible Wat... (使用publication_date: 20250829)
+2025-09-01 09:59:33,803 - arxiv_crawler - INFO - [crawler.py:194] - [线程6320058368] 开始处理: 2508.21044 - MMG-Vid: Maximizing Marginal Gains at Segment-leve... (使用publication_date: 20250829)
+2025-09-01 09:59:34,863 - arxiv_crawler - INFO - [crawler.py:210] - [线程6320058368] 论文 2508.21044 没有找到项目链接
+2025-09-01 09:59:34,880 - arxiv_crawler - INFO - [crawler.py:210] - [线程6303232000] 论文 2508.21052 没有找到项目链接
+2025-09-01 09:59:34,896 - arxiv_crawler - INFO - [crawler.py:210] - [线程6219100160] 论文 2508.10931 没有找到项目链接
+2025-09-01 09:59:34,903 - arxiv_crawler - INFO - [crawler.py:218] - [线程6269579264] 检查项目页面: https://one-reward.github.io
+2025-09-01 09:59:34,925 - arxiv_crawler - INFO - [crawler.py:218] - [线程6252752896] 检查项目页面: https://ethz-vlg.github.io/mvtracker
+2025-09-01 09:59:34,995 - arxiv_crawler - INFO - [crawler.py:194] - [线程6320058368] 开始处理: 2508.21046 - CogVLA: Cognition-Aligned Vision-Language-Action M... (使用publication_date: 20250829)
+2025-09-01 09:59:35,026 - arxiv_crawler - INFO - [crawler.py:210] - [线程6235926528] 论文 2508.21072 没有找到项目链接
+2025-09-01 09:59:35,026 - arxiv_crawler - INFO - [crawler.py:194] - [线程6303232000] 开始处理: 2508.21040 - FW-GAN: Frequency-Driven Handwriting Synthesis wit... (使用publication_date: 20250829)
+2025-09-01 09:59:35,042 - arxiv_crawler - INFO - [crawler.py:194] - [线程6219100160] 开始处理: 2508.21070 - Dress&Dance: Dress up and Dance as You Like It - T... (使用publication_date: 20250829)
+2025-09-01 09:59:35,073 - arxiv_crawler - INFO - [crawler.py:210] - [线程6286405632] 论文 2508.21048 没有找到项目链接
+2025-09-01 09:59:35,130 - arxiv_crawler - INFO - [crawler.py:210] - [线程6202273792] 论文 2109.05437 没有找到项目链接
+2025-09-01 09:59:35,181 - arxiv_crawler - INFO - [crawler.py:194] - [线程6235926528] 开始处理: 2508.21035 - A multi-task neural network for atypical mitosis r... (使用publication_date: 20250829)
+2025-09-01 09:59:35,222 - arxiv_crawler - INFO - [crawler.py:194] - [线程6286405632] 开始处理: 2508.21033 - Mitosis detection in domain shift scenarios: a Mam... (使用publication_date: 20250829)
+2025-09-01 09:59:35,292 - arxiv_crawler - INFO - [crawler.py:194] - [线程6202273792] 开始处理: 2508.21010 - ChainReaction! Structured Approach with Causal Cha... (使用publication_date: 20250829)
+2025-09-01 09:59:35,759 - arxiv_crawler - INFO - [crawler.py:218] - [线程6202273792] 检查项目页面: https://paritoshparmar.github.io/chainreaction/
+2025-09-01 09:59:35,773 - arxiv_crawler - INFO - [crawler.py:210] - [线程6303232000] 论文 2508.21040 没有找到项目链接
+2025-09-01 09:59:35,816 - arxiv_crawler - INFO - [crawler.py:210] - [线程6235926528] 论文 2508.21035 没有找到项目链接
+2025-09-01 09:59:35,933 - arxiv_crawler - INFO - [crawler.py:194] - [线程6303232000] 开始处理: 2508.20991 - ExpertSim: Fast Particle Detector Simulation Using... (使用publication_date: 20250829)
+2025-09-01 09:59:35,995 - arxiv_crawler - INFO - [crawler.py:218] - [线程6219100160] 检查项目页面: https://immortalco.github.io/DressAndDance/
+2025-09-01 09:59:36,083 - arxiv_crawler - INFO - [crawler.py:218] - [线程6320058368] 检查项目页面: https://jiutian-vl.github.io/CogVLA-page
+2025-09-01 09:59:36,218 - arxiv_crawler - INFO - [crawler.py:210] - [线程6286405632] 论文 2508.21033 没有找到项目链接
+2025-09-01 09:59:36,718 - arxiv_crawler - INFO - [crawler.py:348] - [线程6269579264] 论文 2508.21066 没有找到可下载的视频
+2025-09-01 09:59:36,975 - arxiv_crawler - INFO - [crawler.py:210] - [线程6303232000] 论文 2508.20991 没有找到项目链接
+2025-09-01 09:59:37,515 - video_extractor - WARNING - [video_extractor.py:85] - 项目页面无法访问 (404): https://paritoshparmar.github.io/chainreaction/
+2025-09-01 09:59:37,515 - arxiv_crawler - INFO - [crawler.py:348] - [线程6202273792] 论文 2508.21010 没有找到可下载的视频
+2025-09-01 09:59:38,061 - arxiv_crawler - INFO - [crawler.py:293] - [线程6320058368] 使用第一个其他视频: https://jiutian-vl.github.io/CogVLA-page/assets/videos/aloha_fold.mp4
+2025-09-01 09:59:38,551 - video_extractor - ERROR - [video_extractor.py:242] - 获取YouTube视频时长失败: ERROR: [youtube] Q-zjqV_wF70: Sign in to confirm you’re not a bot. Use --cookies-from-browser or --cookies for the authentication. See  https://github.com/yt-dlp/yt-dlp/wiki/FAQ#how-do-i-pass-cookies-to-yt-dlp  for how to manually pass cookies. Also see  https://github.com/yt-dlp/yt-dlp/wiki/Extractors#exporting-youtube-cookies  for tips on effectively exporting YouTube cookies
+
+2025-09-01 09:59:38,551 - video_extractor - INFO - [video_extractor.py:270] - YouTube视频 https://www.youtube.com/watch?v=Q-zjqV_wF70 时长 -1秒，不符合要求(60-240秒)
+2025-09-01 09:59:38,551 - arxiv_crawler - WARNING - [crawler.py:267] - [线程6252752896] 没有找到符合时长的YouTube视频，尝试第一个YouTube视频作为备用
+2025-09-01 09:59:38,551 - arxiv_crawler - INFO - [crawler.py:269] - [线程6252752896] 尝试备用YouTube视频: https://www.youtube.com/watch?v=Q-zjqV_wF70
+2025-09-01 09:59:38,552 - video_downloader - INFO - [video_downloader.py:94] - 使用 yt-dlp 下载视频: https://www.youtube.com/watch?v=Q-zjqV_wF70
+2025-09-01 09:59:39,271 - video_extractor - ERROR - [video_extractor.py:242] - 获取YouTube视频时长失败: ERROR: [youtube] s-IYxa0PBU8: Sign in to confirm you’re not a bot. Use --cookies-from-browser or --cookies for the authentication. See  https://github.com/yt-dlp/yt-dlp/wiki/FAQ#how-do-i-pass-cookies-to-yt-dlp  for how to manually pass cookies. Also see  https://github.com/yt-dlp/yt-dlp/wiki/Extractors#exporting-youtube-cookies  for tips on effectively exporting YouTube cookies
+
+2025-09-01 09:59:39,271 - video_extractor - INFO - [video_extractor.py:270] - YouTube视频 https://www.youtube.com/watch?v=s-IYxa0PBU8 时长 -1秒，不符合要求(60-240秒)
+2025-09-01 09:59:39,271 - arxiv_crawler - WARNING - [crawler.py:267] - [线程6219100160] 没有找到符合时长的YouTube视频，尝试第一个YouTube视频作为备用
+2025-09-01 09:59:39,271 - arxiv_crawler - INFO - [crawler.py:269] - [线程6219100160] 尝试备用YouTube视频: https://www.youtube.com/watch?v=s-IYxa0PBU8
+2025-09-01 09:59:39,271 - video_downloader - INFO - [video_downloader.py:94] - 使用 yt-dlp 下载视频: https://www.youtube.com/watch?v=s-IYxa0PBU8
+2025-09-01 09:59:39,428 - video_downloader - INFO - [video_downloader.py:192] - 视频下载成功: /Users/zhouzhongtian/Movies/arxiv_video/20250829/2508.21046/primary_video.mp4
+2025-09-01 09:59:39,428 - arxiv_crawler - INFO - [crawler.py:307] - [线程6320058368] 成功下载其他主视频: /Users/zhouzhongtian/Movies/arxiv_video/20250829/2508.21046/primary_video.mp4
+2025-09-01 09:59:39,428 - arxiv_crawler - INFO - [crawler.py:311] - [线程6320058368] 论文 2508.21046 成功选择并下载主视频，类型: other_primary
+2025-09-01 09:59:39,428 - card_generator - INFO - [card_generator.py:77] - 开始为 ArXiv ID 2508.21046v1 生成解说卡片
+2025-09-01 09:59:39,558 - card_generator - INFO - [card_generator.py:96] - 找到论文: CogVLA: Cognition-Aligned Vision-Language-Action M...
+2025-09-01 09:59:39,649 - card_generator - INFO - [card_generator.py:113] - 成功生成 ArXiv ID 2508.21046v1 的解说卡片
+2025-09-01 09:59:39,728 - card_generator - INFO - [card_generator.py:157] - 卡片已保存到: /Users/zhouzhongtian/vscode/paperfindvideo/cards/2508.21046v1.json
+2025-09-01 09:59:39,729 - card_generator - INFO - [card_generator.py:157] - 卡片已保存到: /Users/zhouzhongtian/Movies/arxiv_video/20250829/2508.21046/2508.21046v1.json
+2025-09-01 09:59:39,729 - card_generator - INFO - [card_generator.py:323] - 卡片已保存到: /Users/zhouzhongtian/Movies/arxiv_video/20250829/2508.21046/2508.21046v1.json
+2025-09-01 09:59:39,729 - arxiv_crawler - INFO - [crawler.py:324] - [线程6320058368] 成功生成并保存论文 2508.21046v1 的解说卡片到 /Users/zhouzhongtian/Movies/arxiv_video/20250829/2508.21046
+2025-09-01 09:59:40,311 - video_downloader - ERROR - [video_downloader.py:145] - yt-dlp 下载失败: [0;31mERROR:[0m [youtube] Q-zjqV_wF70: Sign in to confirm you’re not a bot. Use --cookies-from-browser or --cookies for the authentication. See  https://github.com/yt-dlp/yt-dlp/wiki/FAQ#how-do-i-pass-cookies-to-yt-dlp  for how to manually pass cookies. Also see  https://github.com/yt-dlp/yt-dlp/wiki/Extractors#exporting-youtube-cookies  for tips on effectively exporting YouTube cookies
+2025-09-01 09:59:40,313 - arxiv_crawler - INFO - [crawler.py:293] - [线程6252752896] 使用第一个其他视频: https://ethz-vlg.github.io/mvtracker/resources/comparison/preview.mp4
+2025-09-01 09:59:41,016 - video_downloader - ERROR - [video_downloader.py:145] - yt-dlp 下载失败: [0;31mERROR:[0m [youtube] s-IYxa0PBU8: Sign in to confirm you’re not a bot. Use --cookies-from-browser or --cookies for the authentication. See  https://github.com/yt-dlp/yt-dlp/wiki/FAQ#how-do-i-pass-cookies-to-yt-dlp  for how to manually pass cookies. Also see  https://github.com/yt-dlp/yt-dlp/wiki/Extractors#exporting-youtube-cookies  for tips on effectively exporting YouTube cookies
+2025-09-01 09:59:41,016 - arxiv_crawler - INFO - [crawler.py:293] - [线程6219100160] 使用第一个其他视频: https://immortalco.github.io/DressAndDance/video/dnd04.mp4
+2025-09-01 09:59:41,924 - video_downloader - INFO - [video_downloader.py:192] - 视频下载成功: /Users/zhouzhongtian/Movies/arxiv_video/20250829/2508.21070/primary_video.mp4
+2025-09-01 09:59:41,924 - arxiv_crawler - INFO - [crawler.py:307] - [线程6219100160] 成功下载其他主视频: /Users/zhouzhongtian/Movies/arxiv_video/20250829/2508.21070/primary_video.mp4
+2025-09-01 09:59:41,925 - arxiv_crawler - INFO - [crawler.py:311] - [线程6219100160] 论文 2508.21070 成功选择并下载主视频，类型: other_primary
+2025-09-01 09:59:41,925 - card_generator - INFO - [card_generator.py:77] - 开始为 ArXiv ID 2508.21070v1 生成解说卡片
+2025-09-01 09:59:41,997 - card_generator - INFO - [card_generator.py:96] - 找到论文: Dress&Dance: Dress up and Dance as You Like It - T...
+2025-09-01 09:59:42,066 - card_generator - INFO - [card_generator.py:113] - 成功生成 ArXiv ID 2508.21070v1 的解说卡片
+2025-09-01 09:59:42,137 - card_generator - INFO - [card_generator.py:157] - 卡片已保存到: /Users/zhouzhongtian/vscode/paperfindvideo/cards/2508.21070v1.json
+2025-09-01 09:59:42,137 - card_generator - INFO - [card_generator.py:157] - 卡片已保存到: /Users/zhouzhongtian/Movies/arxiv_video/20250829/2508.21070/2508.21070v1.json
+2025-09-01 09:59:42,137 - card_generator - INFO - [card_generator.py:323] - 卡片已保存到: /Users/zhouzhongtian/Movies/arxiv_video/20250829/2508.21070/2508.21070v1.json
+2025-09-01 09:59:42,137 - arxiv_crawler - INFO - [crawler.py:324] - [线程6219100160] 成功生成并保存论文 2508.21070v1 的解说卡片到 /Users/zhouzhongtian/Movies/arxiv_video/20250829/2508.21070
+2025-09-01 09:59:44,258 - video_downloader - INFO - [video_downloader.py:192] - 视频下载成功: /Users/zhouzhongtian/Movies/arxiv_video/20250829/2508.21060/primary_video.mp4
+2025-09-01 09:59:44,258 - arxiv_crawler - INFO - [crawler.py:307] - [线程6252752896] 成功下载其他主视频: /Users/zhouzhongtian/Movies/arxiv_video/20250829/2508.21060/primary_video.mp4
+2025-09-01 09:59:44,258 - arxiv_crawler - INFO - [crawler.py:311] - [线程6252752896] 论文 2508.21060 成功选择并下载主视频，类型: other_primary
+2025-09-01 09:59:44,258 - card_generator - INFO - [card_generator.py:77] - 开始为 ArXiv ID 2508.21060v1 生成解说卡片
+2025-09-01 09:59:44,334 - card_generator - INFO - [card_generator.py:96] - 找到论文: Multi-View 3D Point Tracking...
+2025-09-01 09:59:44,405 - card_generator - INFO - [card_generator.py:113] - 成功生成 ArXiv ID 2508.21060v1 的解说卡片
+2025-09-01 09:59:44,471 - card_generator - INFO - [card_generator.py:157] - 卡片已保存到: /Users/zhouzhongtian/vscode/paperfindvideo/cards/2508.21060v1.json
+2025-09-01 09:59:44,471 - card_generator - INFO - [card_generator.py:157] - 卡片已保存到: /Users/zhouzhongtian/Movies/arxiv_video/20250829/2508.21060/2508.21060v1.json
+2025-09-01 09:59:44,472 - card_generator - INFO - [card_generator.py:323] - 卡片已保存到: /Users/zhouzhongtian/Movies/arxiv_video/20250829/2508.21060/2508.21060v1.json
+2025-09-01 09:59:44,472 - arxiv_crawler - INFO - [crawler.py:324] - [线程6252752896] 成功生成并保存论文 2508.21060v1 的解说卡片到 /Users/zhouzhongtian/Movies/arxiv_video/20250829/2508.21060
+2025-09-01 09:59:53,696 - arxiv_crawler - INFO - [crawler.py:330] - [线程6219100160] 成功为论文 2508.21070v1 生成合成视频: /Users/zhouzhongtian/Movies/arxiv_video/20250829/2508.21070/2508.21070v1_res.mp4
+2025-09-01 10:00:50,037 - arxiv_crawler - INFO - [crawler.py:330] - [线程6320058368] 成功为论文 2508.21046v1 生成合成视频: /Users/zhouzhongtian/Movies/arxiv_video/20250829/2508.21046/2508.21046v1_res.mp4
+2025-09-01 10:00:51,531 - arxiv_crawler - INFO - [crawler.py:330] - [线程6252752896] 成功为论文 2508.21060v1 生成合成视频: /Users/zhouzhongtian/Movies/arxiv_video/20250829/2508.21060/2508.21060v1_res.mp4
+2025-09-01 10:00:51,532 - arxiv_crawler - INFO - [crawler.py:168] - 处理完成！成功: 3, 失败: 12, 成功率: 20.0%
+2025-09-01 10:00:51,533 - arxiv_crawler - INFO - [main.py:255] - ArXiv 视频下载器完成
+2025-09-01 10:00:51,534 - arxiv_crawler - INFO - [crawler.py:479] - 爬虫资源已清理
+2025-09-01 10:28:37,109 - card_generator - INFO - [card_generator.py:56] - 数据库连接成功，卡片生成器初始化完成
+2025-09-01 10:28:37,231 - arxiv_crawler - INFO - [main.py:235] - ArXiv 视频下载器启动
+2025-09-01 10:28:37,231 - arxiv_crawler - INFO - [main.py:236] - 配置 - 领域: cs.CV, 线程数: 8, 最大论文数: 15, 下载目录: /Users/zhouzhongtian/Movies/arxiv_video, 跳过已存在视频: False, Cookie来源: None
+2025-09-01 10:28:37,231 - arxiv_crawler - INFO - [main.py:244] - 将自动获取最新发布日期的论文
+2025-09-01 10:28:37,231 - arxiv_crawler - ERROR - [main.py:274] - 程序执行出错: ArxivVideoCrawler.__init__() got an unexpected keyword argument 'cookies_from_browser'
+Traceback (most recent call last):
+  File "/Users/zhouzhongtian/vscode/paperfindvideo/main.py", line 249, in main
+    crawler = ArxivVideoCrawler(
+TypeError: ArxivVideoCrawler.__init__() got an unexpected keyword argument 'cookies_from_browser'
+2025-09-01 10:30:32,056 - card_generator - INFO - [card_generator.py:56] - 数据库连接成功，卡片生成器初始化完成
+2025-09-01 10:30:32,178 - arxiv_crawler - INFO - [main.py:235] - ArXiv 视频下载器启动
+2025-09-01 10:30:32,179 - arxiv_crawler - INFO - [main.py:236] - 配置 - 领域: cs.CV, 线程数: 8, 最大论文数: 15, 下载目录: /Users/zhouzhongtian/Movies/arxiv_video, 跳过已存在视频: False, Cookie来源: None
+2025-09-01 10:30:32,179 - arxiv_crawler - INFO - [main.py:244] - 将自动获取最新发布日期的论文
+2025-09-01 10:30:32,179 - arxiv_crawler - ERROR - [main.py:274] - 程序执行出错: create_session() got an unexpected keyword argument 'cookies_from_browser'
+Traceback (most recent call last):
+  File "/Users/zhouzhongtian/vscode/paperfindvideo/main.py", line 249, in main
+    crawler = ArxivVideoCrawler(
+  File "/Users/zhouzhongtian/vscode/paperfindvideo/core/crawler.py", line 79, in __init__
+    self._setup()
+  File "/Users/zhouzhongtian/vscode/paperfindvideo/core/crawler.py", line 88, in _setup
+    session = create_session(cookies_from_browser=self.cookies_from_browser)
+TypeError: create_session() got an unexpected keyword argument 'cookies_from_browser'
+2025-09-01 10:32:18,902 - card_generator - INFO - [card_generator.py:56] - 数据库连接成功，卡片生成器初始化完成
+2025-09-01 10:32:19,030 - arxiv_crawler - INFO - [main.py:235] - ArXiv 视频下载器启动
+2025-09-01 10:32:19,031 - arxiv_crawler - INFO - [main.py:236] - 配置 - 领域: cs.CV, 线程数: 8, 最大论文数: 15, 下载目录: /Users/zhouzhongtian/Movies/arxiv_video, 跳过已存在视频: False, Cookie来源: None
+2025-09-01 10:32:19,031 - arxiv_crawler - INFO - [main.py:244] - 将自动获取最新发布日期的论文
+2025-09-01 10:32:19,031 - arxiv_crawler - INFO - [crawler.py:91] - 初始化完成，线程数: 8，下载目录: /Users/zhouzhongtian/Movies/arxiv_video
+2025-09-01 10:32:19,031 - arxiv_crawler - INFO - [crawler.py:108] - 开始爬取 cs.CV 领域最新一天的论文视频...
+2025-09-01 10:32:19,031 - arxiv_fetcher - INFO - [arxiv_fetcher.py:37] - 开始从数据库获取最新发布日的论文...
+2025-09-01 10:32:19,862 - arxiv_fetcher - INFO - [arxiv_fetcher.py:50] - 数据库中最新发布日期: 20250829
+2025-09-01 10:32:19,862 - arxiv_fetcher - INFO - [arxiv_fetcher.py:115] - 正在从数据库获取 20250829 日期的论文...
+2025-09-01 10:32:21,423 - arxiv_fetcher - INFO - [arxiv_fetcher.py:152] - 从数据库获取完成，共找到 15 篇 20250829 日期的论文
+2025-09-01 10:32:21,491 - arxiv_crawler - INFO - [crawler.py:122] - 获取到 15 篇论文，开始多线程处理...
+2025-09-01 10:32:21,655 - arxiv_crawler - INFO - [crawler.py:196] - [线程6200668160] 开始处理: 2109.05437 - Multi-Objective Optimization of ReRAM Crossbars fo... (使用publication_date: 20250829)
+2025-09-01 10:32:21,870 - arxiv_crawler - INFO - [crawler.py:196] - [线程6284800000] 开始处理: 2508.21048 - Veritas: Generalizable Deepfake Detection via Patt... (使用publication_date: 20250829)
+2025-09-01 10:32:21,872 - arxiv_crawler - INFO - [crawler.py:196] - [线程6267973632] 开始处理: 2508.21066 - OneReward: Unified Mask-Guided Image Generation vi... (使用publication_date: 20250829)
+2025-09-01 10:32:21,898 - arxiv_crawler - INFO - [crawler.py:196] - [线程6217494528] 开始处理: 2508.10931 - VSF: Simple, Efficient, and Effective Negative Gui... (使用publication_date: 20250829)
+2025-09-01 10:32:21,900 - arxiv_crawler - INFO - [crawler.py:196] - [线程6251147264] 开始处理: 2508.21060 - Multi-View 3D Point Tracking... (使用publication_date: 20250829)
+2025-09-01 10:32:21,907 - arxiv_crawler - INFO - [crawler.py:196] - [线程6301626368] 开始处理: 2508.21052 - FakeParts: a New Family of AI-Generated DeepFakes... (使用publication_date: 20250829)
+2025-09-01 10:32:21,908 - arxiv_crawler - INFO - [crawler.py:196] - [线程6318452736] 开始处理: 2508.21044 - MMG-Vid: Maximizing Marginal Gains at Segment-leve... (使用publication_date: 20250829)
+2025-09-01 10:32:21,910 - arxiv_crawler - INFO - [crawler.py:196] - [线程6234320896] 开始处理: 2508.21072 - First-Place Solution to NeurIPS 2024 Invisible Wat... (使用publication_date: 20250829)
+2025-09-01 10:32:23,000 - arxiv_crawler - INFO - [crawler.py:212] - [线程6301626368] 论文 2508.21052 没有找到项目链接
+2025-09-01 10:32:23,022 - arxiv_crawler - INFO - [crawler.py:220] - [线程6251147264] 检查项目页面: https://ethz-vlg.github.io/mvtracker
+2025-09-01 10:32:23,033 - arxiv_crawler - INFO - [crawler.py:212] - [线程6217494528] 论文 2508.10931 没有找到项目链接
+2025-09-01 10:32:23,046 - arxiv_crawler - INFO - [crawler.py:212] - [线程6234320896] 论文 2508.21072 没有找到项目链接
+2025-09-01 10:32:23,143 - arxiv_crawler - INFO - [crawler.py:196] - [线程6301626368] 开始处理: 2508.21046 - CogVLA: Cognition-Aligned Vision-Language-Action M... (使用publication_date: 20250829)
+2025-09-01 10:32:23,151 - arxiv_crawler - INFO - [crawler.py:220] - [线程6267973632] 检查项目页面: https://one-reward.github.io
+2025-09-01 10:32:23,175 - arxiv_crawler - INFO - [crawler.py:196] - [线程6217494528] 开始处理: 2508.21040 - FW-GAN: Frequency-Driven Handwriting Synthesis wit... (使用publication_date: 20250829)
+2025-09-01 10:32:23,181 - arxiv_crawler - INFO - [crawler.py:196] - [线程6234320896] 开始处理: 2508.21070 - Dress&Dance: Dress up and Dance as You Like It - T... (使用publication_date: 20250829)
+2025-09-01 10:32:23,244 - arxiv_crawler - INFO - [crawler.py:212] - [线程6200668160] 论文 2109.05437 没有找到项目链接
+2025-09-01 10:32:23,389 - arxiv_crawler - INFO - [crawler.py:196] - [线程6200668160] 开始处理: 2508.21035 - A multi-task neural network for atypical mitosis r... (使用publication_date: 20250829)
+2025-09-01 10:32:23,403 - arxiv_crawler - INFO - [crawler.py:212] - [线程6284800000] 论文 2508.21048 没有找到项目链接
+2025-09-01 10:32:23,434 - arxiv_crawler - INFO - [crawler.py:212] - [线程6318452736] 论文 2508.21044 没有找到项目链接
+2025-09-01 10:32:23,547 - arxiv_crawler - INFO - [crawler.py:196] - [线程6284800000] 开始处理: 2508.21033 - Mitosis detection in domain shift scenarios: a Mam... (使用publication_date: 20250829)
+2025-09-01 10:32:23,584 - arxiv_crawler - INFO - [crawler.py:196] - [线程6318452736] 开始处理: 2508.21010 - ChainReaction! Structured Approach with Causal Cha... (使用publication_date: 20250829)
+2025-09-01 10:32:23,696 - arxiv_crawler - INFO - [crawler.py:212] - [线程6217494528] 论文 2508.21040 没有找到项目链接
+2025-09-01 10:32:23,845 - arxiv_crawler - INFO - [crawler.py:196] - [线程6217494528] 开始处理: 2508.20991 - ExpertSim: Fast Particle Detector Simulation Using... (使用publication_date: 20250829)
+2025-09-01 10:32:23,880 - arxiv_crawler - INFO - [crawler.py:220] - [线程6301626368] 检查项目页面: https://jiutian-vl.github.io/CogVLA-page
+2025-09-01 10:32:24,188 - arxiv_crawler - INFO - [crawler.py:212] - [线程6284800000] 论文 2508.21033 没有找到项目链接
+2025-09-01 10:32:24,246 - arxiv_crawler - INFO - [crawler.py:220] - [线程6318452736] 检查项目页面: https://paritoshparmar.github.io/chainreaction/
+2025-09-01 10:32:24,252 - arxiv_crawler - INFO - [crawler.py:220] - [线程6234320896] 检查项目页面: https://immortalco.github.io/DressAndDance/
+2025-09-01 10:32:24,393 - arxiv_crawler - INFO - [crawler.py:212] - [线程6200668160] 论文 2508.21035 没有找到项目链接
+2025-09-01 10:32:24,414 - arxiv_crawler - INFO - [crawler.py:212] - [线程6217494528] 论文 2508.20991 没有找到项目链接
+2025-09-01 10:32:24,595 - arxiv_crawler - INFO - [crawler.py:350] - [线程6267973632] 论文 2508.21066 没有找到可下载的视频
+2025-09-01 10:32:25,693 - video_extractor - WARNING - [video_extractor.py:85] - 项目页面无法访问 (404): https://paritoshparmar.github.io/chainreaction/
+2025-09-01 10:32:25,693 - arxiv_crawler - INFO - [crawler.py:350] - [线程6318452736] 论文 2508.21010 没有找到可下载的视频
+2025-09-01 10:32:26,027 - arxiv_crawler - INFO - [crawler.py:295] - [线程6301626368] 使用第一个其他视频: https://jiutian-vl.github.io/CogVLA-page/assets/videos/aloha_fold.mp4
+2025-09-01 10:32:33,590 - video_downloader - INFO - [video_downloader.py:196] - 视频下载成功: /Users/zhouzhongtian/Movies/arxiv_video/20250829/2508.21046/primary_video.mp4
+2025-09-01 10:32:33,591 - arxiv_crawler - INFO - [crawler.py:309] - [线程6301626368] 成功下载其他主视频: /Users/zhouzhongtian/Movies/arxiv_video/20250829/2508.21046/primary_video.mp4
+2025-09-01 10:32:33,591 - arxiv_crawler - INFO - [crawler.py:313] - [线程6301626368] 论文 2508.21046 成功选择并下载主视频，类型: other_primary
+2025-09-01 10:32:33,592 - card_generator - INFO - [card_generator.py:77] - 开始为 ArXiv ID 2508.21046v1 生成解说卡片
+2025-09-01 10:32:33,682 - card_generator - INFO - [card_generator.py:96] - 找到论文: CogVLA: Cognition-Aligned Vision-Language-Action M...
+2025-09-01 10:32:33,762 - card_generator - INFO - [card_generator.py:113] - 成功生成 ArXiv ID 2508.21046v1 的解说卡片
+2025-09-01 10:32:33,838 - card_generator - INFO - [card_generator.py:157] - 卡片已保存到: /Users/zhouzhongtian/vscode/paperfindvideo/cards/2508.21046v1.json
+2025-09-01 10:32:33,838 - card_generator - INFO - [card_generator.py:157] - 卡片已保存到: /Users/zhouzhongtian/Movies/arxiv_video/20250829/2508.21046/2508.21046v1.json
+2025-09-01 10:32:33,839 - card_generator - INFO - [card_generator.py:323] - 卡片已保存到: /Users/zhouzhongtian/Movies/arxiv_video/20250829/2508.21046/2508.21046v1.json
+2025-09-01 10:32:33,839 - arxiv_crawler - INFO - [crawler.py:326] - [线程6301626368] 成功生成并保存论文 2508.21046v1 的解说卡片到 /Users/zhouzhongtian/Movies/arxiv_video/20250829/2508.21046
+2025-09-01 10:32:42,256 - video_extractor - INFO - [video_extractor.py:240] - YouTube视频时长: 64.0秒
+2025-09-01 10:32:42,256 - video_extractor - INFO - [video_extractor.py:268] - YouTube视频 https://www.youtube.com/watch?v=Q-zjqV_wF70 时长 64.0秒，符合要求(60-240秒)
+2025-09-01 10:32:42,257 - arxiv_crawler - INFO - [crawler.py:251] - [线程6251147264] 使用符合要求的YouTube视频: https://www.youtube.com/watch?v=Q-zjqV_wF70
+2025-09-01 10:32:42,257 - video_downloader - INFO - [video_downloader.py:94] - 使用 yt-dlp 下载视频: https://www.youtube.com/watch?v=Q-zjqV_wF70
+2025-09-01 10:32:45,610 - video_downloader - ERROR - [video_downloader.py:149] - yt-dlp 下载失败: [0;31mERROR:[0m [youtube] Q-zjqV_wF70: Sign in to confirm you’re not a bot. Use --cookies-from-browser or --cookies for the authentication. See  https://github.com/yt-dlp/yt-dlp/wiki/FAQ#how-do-i-pass-cookies-to-yt-dlp  for how to manually pass cookies. Also see  https://github.com/yt-dlp/yt-dlp/wiki/Extractors#exporting-youtube-cookies  for tips on effectively exporting YouTube cookies
+2025-09-01 10:32:45,610 - arxiv_crawler - INFO - [crawler.py:295] - [线程6251147264] 使用第一个其他视频: https://ethz-vlg.github.io/mvtracker/resources/comparison/preview.mp4
+2025-09-01 10:32:47,028 - video_extractor - INFO - [video_extractor.py:240] - YouTube视频时长: 230.0秒
+2025-09-01 10:32:47,028 - video_extractor - INFO - [video_extractor.py:268] - YouTube视频 https://www.youtube.com/watch?v=s-IYxa0PBU8 时长 230.0秒，符合要求(60-240秒)
+2025-09-01 10:32:47,028 - arxiv_crawler - INFO - [crawler.py:251] - [线程6234320896] 使用符合要求的YouTube视频: https://www.youtube.com/watch?v=s-IYxa0PBU8
+2025-09-01 10:32:47,028 - video_downloader - INFO - [video_downloader.py:94] - 使用 yt-dlp 下载视频: https://www.youtube.com/watch?v=s-IYxa0PBU8
+2025-09-01 10:32:48,521 - video_downloader - INFO - [video_downloader.py:196] - 视频下载成功: /Users/zhouzhongtian/Movies/arxiv_video/20250829/2508.21060/primary_video.mp4
+2025-09-01 10:32:48,521 - arxiv_crawler - INFO - [crawler.py:309] - [线程6251147264] 成功下载其他主视频: /Users/zhouzhongtian/Movies/arxiv_video/20250829/2508.21060/primary_video.mp4
+2025-09-01 10:32:48,521 - arxiv_crawler - INFO - [crawler.py:313] - [线程6251147264] 论文 2508.21060 成功选择并下载主视频，类型: other_primary
+2025-09-01 10:32:48,522 - card_generator - INFO - [card_generator.py:77] - 开始为 ArXiv ID 2508.21060v1 生成解说卡片
+2025-09-01 10:32:48,597 - card_generator - INFO - [card_generator.py:96] - 找到论文: Multi-View 3D Point Tracking...
+2025-09-01 10:32:48,672 - card_generator - INFO - [card_generator.py:113] - 成功生成 ArXiv ID 2508.21060v1 的解说卡片
+2025-09-01 10:32:48,742 - card_generator - INFO - [card_generator.py:157] - 卡片已保存到: /Users/zhouzhongtian/vscode/paperfindvideo/cards/2508.21060v1.json
+2025-09-01 10:32:48,743 - card_generator - INFO - [card_generator.py:157] - 卡片已保存到: /Users/zhouzhongtian/Movies/arxiv_video/20250829/2508.21060/2508.21060v1.json
+2025-09-01 10:32:48,743 - card_generator - INFO - [card_generator.py:323] - 卡片已保存到: /Users/zhouzhongtian/Movies/arxiv_video/20250829/2508.21060/2508.21060v1.json
+2025-09-01 10:32:48,743 - arxiv_crawler - INFO - [crawler.py:326] - [线程6251147264] 成功生成并保存论文 2508.21060v1 的解说卡片到 /Users/zhouzhongtian/Movies/arxiv_video/20250829/2508.21060
+2025-09-01 10:32:49,573 - video_downloader - ERROR - [video_downloader.py:149] - yt-dlp 下载失败: [0;31mERROR:[0m [youtube] s-IYxa0PBU8: Sign in to confirm you’re not a bot. Use --cookies-from-browser or --cookies for the authentication. See  https://github.com/yt-dlp/yt-dlp/wiki/FAQ#how-do-i-pass-cookies-to-yt-dlp  for how to manually pass cookies. Also see  https://github.com/yt-dlp/yt-dlp/wiki/Extractors#exporting-youtube-cookies  for tips on effectively exporting YouTube cookies
+2025-09-01 10:32:49,574 - arxiv_crawler - INFO - [crawler.py:295] - [线程6234320896] 使用第一个其他视频: https://immortalco.github.io/DressAndDance/video/gallery/000000_preview.mp4
+2025-09-01 10:32:49,926 - video_downloader - INFO - [video_downloader.py:196] - 视频下载成功: /Users/zhouzhongtian/Movies/arxiv_video/20250829/2508.21070/primary_video.mp4
+2025-09-01 10:32:49,926 - arxiv_crawler - INFO - [crawler.py:309] - [线程6234320896] 成功下载其他主视频: /Users/zhouzhongtian/Movies/arxiv_video/20250829/2508.21070/primary_video.mp4
+2025-09-01 10:32:49,926 - arxiv_crawler - INFO - [crawler.py:313] - [线程6234320896] 论文 2508.21070 成功选择并下载主视频，类型: other_primary
+2025-09-01 10:32:49,926 - card_generator - INFO - [card_generator.py:77] - 开始为 ArXiv ID 2508.21070v1 生成解说卡片
+2025-09-01 10:32:49,999 - card_generator - INFO - [card_generator.py:96] - 找到论文: Dress&Dance: Dress up and Dance as You Like It - T...
+2025-09-01 10:32:50,069 - card_generator - INFO - [card_generator.py:113] - 成功生成 ArXiv ID 2508.21070v1 的解说卡片
+2025-09-01 10:32:50,136 - card_generator - INFO - [card_generator.py:157] - 卡片已保存到: /Users/zhouzhongtian/vscode/paperfindvideo/cards/2508.21070v1.json
+2025-09-01 10:32:50,137 - card_generator - INFO - [card_generator.py:157] - 卡片已保存到: /Users/zhouzhongtian/Movies/arxiv_video/20250829/2508.21070/2508.21070v1.json
+2025-09-01 10:32:50,137 - card_generator - INFO - [card_generator.py:323] - 卡片已保存到: /Users/zhouzhongtian/Movies/arxiv_video/20250829/2508.21070/2508.21070v1.json
+2025-09-01 10:32:50,137 - arxiv_crawler - INFO - [crawler.py:326] - [线程6234320896] 成功生成并保存论文 2508.21070v1 的解说卡片到 /Users/zhouzhongtian/Movies/arxiv_video/20250829/2508.21070
+2025-09-01 10:33:14,550 - arxiv_crawler - INFO - [crawler.py:332] - [线程6234320896] 成功为论文 2508.21070v1 生成合成视频: /Users/zhouzhongtian/Movies/arxiv_video/20250829/2508.21070/2508.21070v1_res.mp4
+2025-09-01 10:33:32,421 - arxiv_crawler - INFO - [main.py:270] - 用户中断下载
+2025-09-01 10:33:32,426 - arxiv_crawler - INFO - [crawler.py:481] - 爬虫资源已清理
+2025-09-01 10:33:48,972 - card_generator - INFO - [card_generator.py:56] - 数据库连接成功，卡片生成器初始化完成
+2025-09-01 10:33:49,074 - arxiv_crawler - INFO - [main.py:235] - ArXiv 视频下载器启动
+2025-09-01 10:33:49,074 - arxiv_crawler - INFO - [main.py:236] - 配置 - 领域: cs.CV, 线程数: 8, 最大论文数: 15, 下载目录: /Users/zhouzhongtian/Movies/arxiv_video, 跳过已存在视频: False, Cookie来源: None
+2025-09-01 10:33:49,074 - arxiv_crawler - INFO - [main.py:244] - 将自动获取最新发布日期的论文
+2025-09-01 10:33:49,074 - arxiv_crawler - INFO - [crawler.py:91] - 初始化完成，线程数: 8，下载目录: /Users/zhouzhongtian/Movies/arxiv_video
+2025-09-01 10:33:49,074 - arxiv_crawler - INFO - [crawler.py:108] - 开始爬取 cs.CV 领域最新一天的论文视频...
+2025-09-01 10:33:49,074 - arxiv_fetcher - INFO - [arxiv_fetcher.py:37] - 开始从数据库获取最新发布日的论文...
+2025-09-01 10:33:49,873 - arxiv_fetcher - INFO - [arxiv_fetcher.py:50] - 数据库中最新发布日期: 20250829
+2025-09-01 10:33:49,874 - arxiv_fetcher - INFO - [arxiv_fetcher.py:115] - 正在从数据库获取 20250829 日期的论文...
+2025-09-01 10:33:51,621 - arxiv_fetcher - INFO - [arxiv_fetcher.py:152] - 从数据库获取完成，共找到 15 篇 20250829 日期的论文
+2025-09-01 10:33:51,689 - arxiv_crawler - INFO - [crawler.py:122] - 获取到 15 篇论文，开始多线程处理...
+2025-09-01 10:33:51,853 - arxiv_crawler - INFO - [crawler.py:196] - [线程6131970048] 开始处理: 2109.05437 - Multi-Objective Optimization of ReRAM Crossbars fo... (使用publication_date: 20250829)
+2025-09-01 10:33:52,065 - arxiv_crawler - INFO - [crawler.py:196] - [线程6249754624] 开始处理: 2508.21044 - MMG-Vid: Maximizing Marginal Gains at Segment-leve... (使用publication_date: 20250829)
+2025-09-01 10:33:52,067 - arxiv_crawler - INFO - [crawler.py:196] - [线程6165622784] 开始处理: 2508.21072 - First-Place Solution to NeurIPS 2024 Invisible Wat... (使用publication_date: 20250829)
+2025-09-01 10:33:52,079 - arxiv_crawler - INFO - [crawler.py:196] - [线程6182449152] 开始处理: 2508.21060 - Multi-View 3D Point Tracking... (使用publication_date: 20250829)
+2025-09-01 10:33:52,084 - arxiv_crawler - INFO - [crawler.py:196] - [线程6199275520] 开始处理: 2508.21066 - OneReward: Unified Mask-Guided Image Generation vi... (使用publication_date: 20250829)
+2025-09-01 10:33:52,091 - arxiv_crawler - INFO - [crawler.py:196] - [线程6232928256] 开始处理: 2508.21052 - FakeParts: a New Family of AI-Generated DeepFakes... (使用publication_date: 20250829)
+2025-09-01 10:33:52,097 - arxiv_crawler - INFO - [crawler.py:196] - [线程6148796416] 开始处理: 2508.10931 - VSF: Simple, Efficient, and Effective Negative Gui... (使用publication_date: 20250829)
+2025-09-01 10:33:52,102 - arxiv_crawler - INFO - [crawler.py:196] - [线程6216101888] 开始处理: 2508.21048 - Veritas: Generalizable Deepfake Detection via Patt... (使用publication_date: 20250829)
+2025-09-01 10:33:52,973 - arxiv_crawler - INFO - [crawler.py:212] - [线程6148796416] 论文 2508.10931 没有找到项目链接
+2025-09-01 10:33:52,984 - arxiv_crawler - INFO - [crawler.py:220] - [线程6199275520] 检查项目页面: https://one-reward.github.io
+2025-09-01 10:33:53,039 - arxiv_crawler - INFO - [crawler.py:212] - [线程6165622784] 论文 2508.21072 没有找到项目链接
+2025-09-01 10:33:53,125 - arxiv_crawler - INFO - [crawler.py:212] - [线程6216101888] 论文 2508.21048 没有找到项目链接
+2025-09-01 10:33:53,125 - arxiv_crawler - INFO - [crawler.py:196] - [线程6148796416] 开始处理: 2508.21046 - CogVLA: Cognition-Aligned Vision-Language-Action M... (使用publication_date: 20250829)
+2025-09-01 10:33:53,200 - arxiv_crawler - INFO - [crawler.py:196] - [线程6165622784] 开始处理: 2508.21040 - FW-GAN: Frequency-Driven Handwriting Synthesis wit... (使用publication_date: 20250829)
+2025-09-01 10:33:53,220 - arxiv_crawler - INFO - [crawler.py:212] - [线程6249754624] 论文 2508.21044 没有找到项目链接
+2025-09-01 10:33:53,281 - arxiv_crawler - INFO - [crawler.py:196] - [线程6216101888] 开始处理: 2508.21070 - Dress&Dance: Dress up and Dance as You Like It - T... (使用publication_date: 20250829)
+2025-09-01 10:33:53,321 - arxiv_crawler - INFO - [crawler.py:220] - [线程6182449152] 检查项目页面: https://ethz-vlg.github.io/mvtracker
+2025-09-01 10:33:53,333 - arxiv_crawler - INFO - [crawler.py:212] - [线程6131970048] 论文 2109.05437 没有找到项目链接
+2025-09-01 10:33:53,369 - arxiv_crawler - INFO - [crawler.py:196] - [线程6249754624] 开始处理: 2508.21035 - A multi-task neural network for atypical mitosis r... (使用publication_date: 20250829)
+2025-09-01 10:33:53,487 - arxiv_crawler - INFO - [crawler.py:196] - [线程6131970048] 开始处理: 2508.21033 - Mitosis detection in domain shift scenarios: a Mam... (使用publication_date: 20250829)
+2025-09-01 10:33:53,494 - arxiv_crawler - INFO - [crawler.py:212] - [线程6232928256] 论文 2508.21052 没有找到项目链接
+2025-09-01 10:33:53,648 - arxiv_crawler - INFO - [crawler.py:196] - [线程6232928256] 开始处理: 2508.21010 - ChainReaction! Structured Approach with Causal Cha... (使用publication_date: 20250829)
+2025-09-01 10:33:53,665 - arxiv_crawler - INFO - [crawler.py:220] - [线程6216101888] 检查项目页面: https://immortalco.github.io/DressAndDance/
+2025-09-01 10:33:53,968 - arxiv_crawler - INFO - [crawler.py:212] - [线程6165622784] 论文 2508.21040 没有找到项目链接
+2025-09-01 10:33:53,996 - arxiv_crawler - INFO - [crawler.py:212] - [线程6249754624] 论文 2508.21035 没有找到项目链接
+2025-09-01 10:33:54,011 - arxiv_crawler - INFO - [crawler.py:220] - [线程6148796416] 检查项目页面: https://jiutian-vl.github.io/CogVLA-page
+2025-09-01 10:33:54,124 - arxiv_crawler - INFO - [crawler.py:196] - [线程6165622784] 开始处理: 2508.20991 - ExpertSim: Fast Particle Detector Simulation Using... (使用publication_date: 20250829)
+2025-09-01 10:33:54,390 - arxiv_crawler - INFO - [crawler.py:220] - [线程6232928256] 检查项目页面: https://paritoshparmar.github.io/chainreaction/
+2025-09-01 10:33:54,604 - arxiv_crawler - INFO - [crawler.py:212] - [线程6131970048] 论文 2508.21033 没有找到项目链接
+2025-09-01 10:33:54,624 - arxiv_crawler - INFO - [crawler.py:350] - [线程6199275520] 论文 2508.21066 没有找到可下载的视频
+2025-09-01 10:33:54,657 - arxiv_crawler - INFO - [crawler.py:212] - [线程6165622784] 论文 2508.20991 没有找到项目链接
+2025-09-01 10:33:55,519 - arxiv_crawler - INFO - [crawler.py:295] - [线程6148796416] 使用第一个其他视频: https://jiutian-vl.github.io/CogVLA-page/assets/videos/aloha_drawer.mp4
+2025-09-01 10:33:55,700 - video_extractor - WARNING - [video_extractor.py:85] - 项目页面无法访问 (404): https://paritoshparmar.github.io/chainreaction/
+2025-09-01 10:33:55,700 - arxiv_crawler - INFO - [crawler.py:350] - [线程6232928256] 论文 2508.21010 没有找到可下载的视频
+2025-09-01 10:34:05,125 - video_downloader - INFO - [video_downloader.py:196] - 视频下载成功: /Users/zhouzhongtian/Movies/arxiv_video/20250829/2508.21046/primary_video.mp4
+2025-09-01 10:34:05,125 - arxiv_crawler - INFO - [crawler.py:309] - [线程6148796416] 成功下载其他主视频: /Users/zhouzhongtian/Movies/arxiv_video/20250829/2508.21046/primary_video.mp4
+2025-09-01 10:34:05,125 - arxiv_crawler - INFO - [crawler.py:313] - [线程6148796416] 论文 2508.21046 成功选择并下载主视频，类型: other_primary
+2025-09-01 10:34:05,125 - card_generator - INFO - [card_generator.py:77] - 开始为 ArXiv ID 2508.21046v1 生成解说卡片
+2025-09-01 10:34:05,218 - card_generator - INFO - [card_generator.py:96] - 找到论文: CogVLA: Cognition-Aligned Vision-Language-Action M...
+2025-09-01 10:34:05,303 - card_generator - INFO - [card_generator.py:113] - 成功生成 ArXiv ID 2508.21046v1 的解说卡片
+2025-09-01 10:34:05,378 - card_generator - INFO - [card_generator.py:157] - 卡片已保存到: /Users/zhouzhongtian/vscode/paperfindvideo/cards/2508.21046v1.json
+2025-09-01 10:34:05,378 - card_generator - INFO - [card_generator.py:157] - 卡片已保存到: /Users/zhouzhongtian/Movies/arxiv_video/20250829/2508.21046/2508.21046v1.json
+2025-09-01 10:34:05,379 - card_generator - INFO - [card_generator.py:323] - 卡片已保存到: /Users/zhouzhongtian/Movies/arxiv_video/20250829/2508.21046/2508.21046v1.json
+2025-09-01 10:34:05,379 - arxiv_crawler - INFO - [crawler.py:326] - [线程6148796416] 成功生成并保存论文 2508.21046v1 的解说卡片到 /Users/zhouzhongtian/Movies/arxiv_video/20250829/2508.21046
+2025-09-01 10:34:07,860 - video_extractor - INFO - [video_extractor.py:240] - YouTube视频时长: 64.0秒
+2025-09-01 10:34:07,860 - video_extractor - INFO - [video_extractor.py:268] - YouTube视频 https://www.youtube.com/watch?v=Q-zjqV_wF70 时长 64.0秒，符合要求(60-240秒)
+2025-09-01 10:34:07,860 - arxiv_crawler - INFO - [crawler.py:251] - [线程6182449152] 使用符合要求的YouTube视频: https://www.youtube.com/watch?v=Q-zjqV_wF70
+2025-09-01 10:34:07,860 - video_downloader - INFO - [video_downloader.py:94] - 使用 yt-dlp 下载视频: https://www.youtube.com/watch?v=Q-zjqV_wF70
+2025-09-01 10:34:07,904 - video_extractor - INFO - [video_extractor.py:240] - YouTube视频时长: 230.0秒
+2025-09-01 10:34:07,917 - video_extractor - INFO - [video_extractor.py:268] - YouTube视频 https://www.youtube.com/watch?v=s-IYxa0PBU8 时长 230.0秒，符合要求(60-240秒)
+2025-09-01 10:34:07,930 - arxiv_crawler - INFO - [crawler.py:251] - [线程6216101888] 使用符合要求的YouTube视频: https://www.youtube.com/watch?v=s-IYxa0PBU8
+2025-09-01 10:34:07,954 - video_downloader - INFO - [video_downloader.py:94] - 使用 yt-dlp 下载视频: https://www.youtube.com/watch?v=s-IYxa0PBU8
+2025-09-01 10:34:09,976 - video_downloader - ERROR - [video_downloader.py:149] - yt-dlp 下载失败: [0;31mERROR:[0m [youtube] s-IYxa0PBU8: Sign in to confirm you’re not a bot. Use --cookies-from-browser or --cookies for the authentication. See  https://github.com/yt-dlp/yt-dlp/wiki/FAQ#how-do-i-pass-cookies-to-yt-dlp  for how to manually pass cookies. Also see  https://github.com/yt-dlp/yt-dlp/wiki/Extractors#exporting-youtube-cookies  for tips on effectively exporting YouTube cookies
+2025-09-01 10:34:09,977 - arxiv_crawler - INFO - [crawler.py:295] - [线程6216101888] 使用第一个其他视频: https://immortalco.github.io/DressAndDance/video/gallery/100000_preview.mp4
+2025-09-01 10:34:09,980 - video_downloader - ERROR - [video_downloader.py:149] - yt-dlp 下载失败: [0;31mERROR:[0m [youtube] Q-zjqV_wF70: Sign in to confirm you’re not a bot. Use --cookies-from-browser or --cookies for the authentication. See  https://github.com/yt-dlp/yt-dlp/wiki/FAQ#how-do-i-pass-cookies-to-yt-dlp  for how to manually pass cookies. Also see  https://github.com/yt-dlp/yt-dlp/wiki/Extractors#exporting-youtube-cookies  for tips on effectively exporting YouTube cookies
+2025-09-01 10:34:09,980 - arxiv_crawler - INFO - [crawler.py:295] - [线程6182449152] 使用第一个其他视频: https://ethz-vlg.github.io/mvtracker/resources/comparison/preview.mp4
+2025-09-01 10:34:11,202 - video_downloader - INFO - [video_downloader.py:196] - 视频下载成功: /Users/zhouzhongtian/Movies/arxiv_video/20250829/2508.21070/primary_video.mp4
+2025-09-01 10:34:11,203 - arxiv_crawler - INFO - [crawler.py:309] - [线程6216101888] 成功下载其他主视频: /Users/zhouzhongtian/Movies/arxiv_video/20250829/2508.21070/primary_video.mp4
+2025-09-01 10:34:11,203 - arxiv_crawler - INFO - [crawler.py:313] - [线程6216101888] 论文 2508.21070 成功选择并下载主视频，类型: other_primary
+2025-09-01 10:34:11,203 - card_generator - INFO - [card_generator.py:77] - 开始为 ArXiv ID 2508.21070v1 生成解说卡片
+2025-09-01 10:34:11,439 - card_generator - INFO - [card_generator.py:96] - 找到论文: Dress&Dance: Dress up and Dance as You Like It - T...
+2025-09-01 10:34:11,946 - card_generator - INFO - [card_generator.py:113] - 成功生成 ArXiv ID 2508.21070v1 的解说卡片
+2025-09-01 10:34:12,519 - card_generator - INFO - [card_generator.py:157] - 卡片已保存到: /Users/zhouzhongtian/vscode/paperfindvideo/cards/2508.21070v1.json
+2025-09-01 10:34:12,519 - card_generator - INFO - [card_generator.py:157] - 卡片已保存到: /Users/zhouzhongtian/Movies/arxiv_video/20250829/2508.21070/2508.21070v1.json
+2025-09-01 10:34:12,519 - card_generator - INFO - [card_generator.py:323] - 卡片已保存到: /Users/zhouzhongtian/Movies/arxiv_video/20250829/2508.21070/2508.21070v1.json
+2025-09-01 10:34:12,519 - arxiv_crawler - INFO - [crawler.py:326] - [线程6216101888] 成功生成并保存论文 2508.21070v1 的解说卡片到 /Users/zhouzhongtian/Movies/arxiv_video/20250829/2508.21070
+2025-09-01 10:34:13,935 - video_downloader - INFO - [video_downloader.py:196] - 视频下载成功: /Users/zhouzhongtian/Movies/arxiv_video/20250829/2508.21060/primary_video.mp4
+2025-09-01 10:34:13,935 - arxiv_crawler - INFO - [crawler.py:309] - [线程6182449152] 成功下载其他主视频: /Users/zhouzhongtian/Movies/arxiv_video/20250829/2508.21060/primary_video.mp4
+2025-09-01 10:34:13,935 - arxiv_crawler - INFO - [crawler.py:313] - [线程6182449152] 论文 2508.21060 成功选择并下载主视频，类型: other_primary
+2025-09-01 10:34:13,936 - card_generator - INFO - [card_generator.py:77] - 开始为 ArXiv ID 2508.21060v1 生成解说卡片
+2025-09-01 10:34:14,016 - card_generator - INFO - [card_generator.py:96] - 找到论文: Multi-View 3D Point Tracking...
+2025-09-01 10:34:14,095 - card_generator - INFO - [card_generator.py:113] - 成功生成 ArXiv ID 2508.21060v1 的解说卡片
+2025-09-01 10:34:14,164 - card_generator - INFO - [card_generator.py:157] - 卡片已保存到: /Users/zhouzhongtian/vscode/paperfindvideo/cards/2508.21060v1.json
+2025-09-01 10:34:14,164 - card_generator - INFO - [card_generator.py:157] - 卡片已保存到: /Users/zhouzhongtian/Movies/arxiv_video/20250829/2508.21060/2508.21060v1.json
+2025-09-01 10:34:14,164 - card_generator - INFO - [card_generator.py:323] - 卡片已保存到: /Users/zhouzhongtian/Movies/arxiv_video/20250829/2508.21060/2508.21060v1.json
+2025-09-01 10:34:14,164 - arxiv_crawler - INFO - [crawler.py:326] - [线程6182449152] 成功生成并保存论文 2508.21060v1 的解说卡片到 /Users/zhouzhongtian/Movies/arxiv_video/20250829/2508.21060
+2025-09-01 10:34:39,919 - arxiv_crawler - INFO - [crawler.py:332] - [线程6216101888] 成功为论文 2508.21070v1 生成合成视频: /Users/zhouzhongtian/Movies/arxiv_video/20250829/2508.21070/2508.21070v1_res.mp4
+2025-09-01 10:34:46,879 - arxiv_crawler - INFO - [crawler.py:332] - [线程6148796416] 成功为论文 2508.21046v1 生成合成视频: /Users/zhouzhongtian/Movies/arxiv_video/20250829/2508.21046/2508.21046v1_res.mp4
+2025-09-01 10:35:06,233 - arxiv_crawler - INFO - [crawler.py:332] - [线程6182449152] 成功为论文 2508.21060v1 生成合成视频: /Users/zhouzhongtian/Movies/arxiv_video/20250829/2508.21060/2508.21060v1_res.mp4
+2025-09-01 10:35:06,234 - arxiv_crawler - INFO - [crawler.py:170] - 处理完成！成功: 3, 失败: 12, 成功率: 20.0%
+2025-09-01 10:35:06,234 - arxiv_crawler - INFO - [main.py:266] - ArXiv 视频下载器完成
+2025-09-01 10:35:06,236 - arxiv_crawler - INFO - [crawler.py:481] - 爬虫资源已清理
